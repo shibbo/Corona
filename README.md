@@ -25,7 +25,7 @@ If your code fails to compile, read the error and attempt to fix it, and if you 
 # YAML
 As said above, the library uses a YAML file to determine what to do with your code. The comments next to each variable explains how it works.
 ```yaml
-source_filenames:  // the filenames in "src" that you want to compile. It can be as many as you want, with respect to limits to where you can put your code.
+source_filenames:  // the filenames in "source" that you want to compile. It can be as many as you want, with respect to limits to where you can put your code.
     - "SpawnCoin"
 
 baseAddress: 0x80001810 // the address the code will be injected at. Be careful with this one.
@@ -39,8 +39,11 @@ If there's any bugs or errors that are spotted, open a Issue in the "Issues" tab
 
 # Credits
 Ninji -- Creating Kamek and helping me with setup
+
 Yoshi2 -- Misc Reverse Engineering
+
 MasterF0x -- Misc Reverse Engineering
+
 Miluaces -- Misc Reverse Engineering
 
 Have fun.
