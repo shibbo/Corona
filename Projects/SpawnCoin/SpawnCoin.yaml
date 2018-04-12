@@ -1,0 +1,7 @@
+source_filenames: 
+    - "SpawnCoin"
+
+baseAddress: 0x80001810
+outputBinary: true
+outputGekko: false
+outputDOL: true
