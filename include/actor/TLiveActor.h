@@ -18,21 +18,21 @@ class TLiveActor : public TTakeActor
 	TLiveActor(char const *);
 	~TLiveActor();
 	
-	void load(JSUMemoryInputStream&);
-	void perform(unsigned long, TGraphics*);
-	bool recieveMessage(THitActor*, unsigned long);
+	void load(JSUMemoryInputStream &);
+	void perform(unsigned long, TGraphics *);
+	bool recieveMessage(THitActor *, unsigned long);
 	int* getTakingMtx();
 	bool belongToGround() const;
 	int getRootJointMtx() const;
-	void init(TLiveManager*);
+	void init(TLiveManager *);
 	void calcRootMatrix();
 	void setGroundCollision();
 	void control();
 	void bind();
 	void moveObject();
 	void requestShadow();
-	void drawObject(TGraphics*);
-	void performOnlyDraw(unsigned long, TGraphics*);
+	void drawObject(TGraphics *);
+	void performOnlyDraw(unsigned long, TGraphics *);
 	int getShadowType();
 	void kill();
 	float getGravityY() const;
@@ -47,7 +47,7 @@ class TLiveActor : public TTakeActor
 	void initAnmSound();
 	void getJointTransByIndex(int, TVec3<float> *) const;
 	void calcVelocityToJumpToY(TVec3<float> const &, float, float) const;
-	void initLodAnm(int*, int, float); // TLodAnmIndex
+	void initLodAnm(int *, int, float); // TLodAnmIndex
 	int* getModel() const;
 	void calcRideMomentum();
 	void calcRidePos();

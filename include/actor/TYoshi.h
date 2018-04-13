@@ -17,15 +17,15 @@ class TEggYoshi : public TMapObjGeneral
     TEggYoshi(char const *);
     ~TEggYoshi();
 
-    void load(JSUMemoryInputStream&);
-    void peform(unsigned long, TGraphics*);
-    bool recieveMessage(THitActor*, unsigned long);
+    void load(JSUMemoryInputStream &);
+    void peform(unsigned long, TGraphics *);
+    bool recieveMessage(THitActor *, unsigned long);
     void control();
-    void touchActor(THitActor*);
+    void touchActor(THitActor *);
     int getHitObjNumMax();
 
     void startFruit();
-    void touchFruit(THitActor*);
+    void touchFruit(THitActor *);
     void decideRandomLoveFruit();
 
     int _148;
@@ -51,7 +51,7 @@ class TYoshi
     void kill();
     bool disappear();
     void appearFromEgg(TVec3<float> const &, float, TEggYoshi*);
-    void setEggYoshiPtr(TEggYoshi*);
+    void setEggYoshiPtr(TEggYoshi *);
     void getEmitPosDir(TVec3<float> *, TVec3<float> *);
     void changeAnimation(int);
     void thinkBtp(int);

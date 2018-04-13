@@ -26,10 +26,10 @@ class TFlagManager
 	void correctOptFlag();
 	void saveFail();
 	void saveSuccess();
-	void save(JSUMemoryOutputStream&);
+	void save(JSUMemoryOutputStream &);
 	void firstStart();
 	void restore();
-	void load(JSUMemoryInputStream&);
+	void load(JSUMemoryInputStream &);
 	void setNozzleRight(unsigned char stageID, unsigned char);
 	void getNozzleRight(unsigned char stageID, unsigned char) const;	
 

@@ -6,7 +6,7 @@
 class TMapObjBall : public TMapObjGeneral
 {
     public:
-    TMapObjBall(char const *);
+    TMapObjBall(char const *name);
 
     float _148;
     float _14C;

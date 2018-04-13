@@ -11,7 +11,7 @@ using namespace JGeometry;
 class TMapHideObj : public TMapObjBase
 {
     public:
-    TMapHideObj(char const *);
+    TMapHideObj(char const *name);
     ~TMapHideObj();
 
     void load(JSUMemoryInputStream &);

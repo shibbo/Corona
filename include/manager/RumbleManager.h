@@ -17,9 +17,9 @@ class RumbleMgr
     void stop(int);
     void stop();
     void start(int, int, TVec3<float> *);
-    void start(int, int, float*);
+    void start(int, int, float *);
     void start(int, TVec3<float> *);
-    void start(int, float*);
+    void start(int, float *);
     void reset();
     void init();
 

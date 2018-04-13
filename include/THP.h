@@ -32,7 +32,7 @@ bool THPPlayerInit(int);
 bool THPPlayerOpen(char *, int);
 bool THPPlayerClose();
 int THPPlayerCalcNeedMemory();
-bool THPPlayerSetBuffer(char*);
+bool THPPlayerSetBuffer(char *);
 bool THPPlayerPlay();
 bool THPPlayerPrepare(int, int, int);
 void THPPlayerStop();

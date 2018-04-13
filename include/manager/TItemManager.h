@@ -14,9 +14,9 @@ class TItemManager : public TMapObjBaseManager
 	TItemManager(char const *);
 	~TItemManager();
 	
-	void load(JSUMemoryInputStream&);
+	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(unsigned long, TGraphics*);
+	void perform(unsigned long, TGraphics *);
 	bool hasMapCollision() const;
 	void makeShineAppearWithDemoOffset(char const *, char const *, float, float, float);
 	void makeShineAppearWithDemo(char const *, char const *, float, float, float);

@@ -13,9 +13,9 @@ class TLiveManager : public TObjManager
 	TLiveManager(char const *);
 	~TLiveManager();
 
-	void load(JSUMemoryInputStream&);
-	void perform(unsigned long, TGraphics*);
-	void clipActors(TGraphics*);
+	void load(JSUMemoryInputStream &);
+	void perform(unsigned long, TGraphics *);
+	void clipActors(TGraphics *);
 	void setFlagOutOfCube();
 	void createSpcBinary();
 	bool hasMapCollsion() const;

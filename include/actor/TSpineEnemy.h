@@ -16,10 +16,10 @@ class TSpineEnemy : public TLiveActor
 	TSpineEnemy(char const *);
 	~TSpineEnemy();
 	
-	void load(JSUMemoryInputStream&);
-	void perform(unsigned long, TGraphics*);
-	bool recieveMessage(THitActor*, unsigned long);
-	void init(TLiveManager*);
+	void load(JSUMemoryInputStream &);
+	void perform(unsigned long, TGraphics *);
+	bool recieveMessage(THitActor *, unsigned long);
+	void init(TLiveManager *);
 	void calcRootMatrix();
 	void reset();
 	void resetToPosition(TVec3<float> const &);

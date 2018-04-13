@@ -14,11 +14,11 @@ class TSmallEnemy : public TSpineEnemy
 	TSmallEnemy(char const *);
 	~TSmallEnemy();
 	
-	void load(JSUMemoryInputStream&);
+	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(unsigned long, TGraphics*);
-	bool recieveMessage(THitActor*, unsigned long);
-	void init(TLiveManager*);
+	void perform(unsigned long, TGraphics *);
+	bool recieveMessage(THitActor *, unsigned long);
+	void init(TLiveManager *);
 	void moveObject();
 	void kill();
 	void updateAnmSound();
@@ -29,13 +29,13 @@ class TSmallEnemy : public TSpineEnemy
 	bool isEatenByYosshi();
 	void setBehavior();
 	void jumpBehavior();
-	void behaveToWater(THitActor*);
+	void behaveToWater(THitActor *);
 	bool changeByJuice();
 	bool changeMove();
 	int* getChangeBlockTime();
 	void scalingChangeActor();
 	void changeOut();
-	void behaveToTaken(THitActor*);
+	void behaveToTaken(THitActor *);
 	void behaveToRelease();
 	void setGenerateAnm();
 	void setWalkAnm();
@@ -47,13 +47,13 @@ class TSmallEnemy : public TSpineEnemy
 	void attackToMario();
 	void forceKill();
 	void setMActorAndKeeper();
-	void initAttacker(THitActor*);
+	void initAttacker(THitActor *);
 	bool isHitValid(unsigned long);
-	bool isCollidMove(THitActor*);
+	bool isCollidMove(THitActor *);
 	bool isInhibitedForceMove();
 	void endHitWaterJump();
 	void sendAttackMsgToMario();
-	void decHpByWater(THitActor*);
+	void decHpByWater(THitActor *);
 	void setBckAnm(int);
 	void setDeadEffect();
 	void setAfterDeadEffect();
@@ -62,7 +62,6 @@ class TSmallEnemy : public TSpineEnemy
 	bool isFindMario(float);
 	
 	bool isFindMarioFromParam(float) const;
-	
 	
 	int _150;
 	float _154;

@@ -14,18 +14,18 @@ class TItem : public TMapObjGeneral
 	TItem(char const *);
 	~TItem();
 	
-	void load(JSUMemoryInputStream&);
-	void perform(unsigned long, TGraphics*);
+	void load(JSUMemoryInputStream &);
+	void perform(unsigned long, TGraphics *);
 	int recieveMessage(THitActor*, unsigned long);
 	void calcRootMatrix();
 	void appear();
 	void initMapObj();
 	void calc();
-	void touchPlayer(THitActor*);
+	void touchPlayer(THitActor *);
 	void appearing();
 	void appeared();
 	void killByTimer(int);
-	void taken(THitActor*);
+	void taken(THitActor *);
 	
 	int _148;
 	int _14C;

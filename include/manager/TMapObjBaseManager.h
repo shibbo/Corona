@@ -14,9 +14,9 @@ class TMapObjBaseManager : public TLiveManager
 	TMapObjBaseManager(char const *);
 	~TMapObjBaseManager();
 	
-	void load(JSUMemoryInputStream&);
+	void load(JSUMemoryInputStream &);
 	void createModelData();
-	void clipActors(TGraphics*);
+	void clipActors(TGraphics *);
 	TMapObjBase* makeObjAppeared(unsigned long);
 	TMapObjBase* makeObjAppear(unsigned long);
 	TMapObjBase* makeObjAppear(float, float, float, unsigned long, bool);

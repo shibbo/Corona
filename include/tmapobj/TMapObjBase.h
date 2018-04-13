@@ -58,10 +58,10 @@ class TMapObjBase : public TLiveActor
 	float getDepthAtFloating();
 	
 	// non-vtable functions
-	void startSound(unsigned short);
+	void startSound(unsigned short soundID);
 	bool hasModelOrAnimData() const;
 	bool animIsFinished() const;
-	bool hasAnim(unsigned short) const;
+	bool hasAnim(unsigned short animID) const;
 	void soundBas(unsigned long, float, float);
 	void setUpMapCollision(unsigned short);
 	void setUpCurrentMapCollision();
@@ -69,26 +69,26 @@ class TMapObjBase : public TLiveActor
 	void sleep();
 	void awake();
 	void startAnim(unsigned short);
-	void initAndRegister(char const *);
+	void initAndRegister(char const *objName);
 	
 	bool marioHeadAttack() const;
 	bool marioIsOn() const;
-	bool marioIsOn(TLiveActor const *);
+	bool marioIsOn(TLiveActor const *actor);
 	void sendMsg(unsigned long, unsigned long);
-	bool waterHitPlane(THitActor*);
+	bool waterHitPlane(THitActor *);
 	TVec3<float> getWaterPos(THitActor *waterActor);
-	int getWaterSpeed(THitActor *);
-	int getWaterPlane(THitActor *);
-	int getWaterID(THitActor *);
+	int getWaterSpeed(THitActor *waterActor);
+	int getWaterPlane(THitActor *waterActor);
+	int getWaterID(THitActor *waterActor);
 	float getDistance(TVec3<float> const &) const;
 	void startBck(char const *bckName);
 	void startControlAnim(unsigned short);
 	void initUnique();
 	bool isFruit(THitActor *actor);
 	bool isCoin(THitActor *actor);
-	void throwObjFromPointWithRot(TMapObjBase *, TVec3<float> const &throwFrom, TVec3<float> const &throwTo, float, float);
-	void throwObjToFrontFromPoint(TMapObjBase *, TVec3<float> const &, float, float);
-	void throwObjToFront(TMapObjBase *, float, float, float);
+	static void throwObjFromPointWithRot(TMapObjBase *, TVec3<float> const &throwFrom, TVec3<float> const &throwTo, float, float);
+	void throwObjToFrontFromPoint(TMapObjBase *, TVec3<float> const &thrownPoint, float, float);
+	void throwObjToFront(TMapObjBase *obj, float, float, float);
 	void checkOnManhole();
 	bool isDemo();
 	bool isHideObj(THitActor *);

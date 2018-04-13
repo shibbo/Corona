@@ -255,18 +255,18 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	~TMario();
 	
 	/* these are a part of the vtable */
-	void load(JSUMemoryInputStream&);
+	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(unsigned long, TGraphics*);
-	bool recieveMessage(THitActor*, unsigned long);
+	void perform(unsigned long, TGraphics *);
+	bool recieveMessage(THitActor *, unsigned long);
 	int* getTakingMtx();
 	int moveRequest(TVec3<float> const &);
 	void initValues();
 	void checkReturn();
-	void checkController(TGraphics*);
-	void playerControl(TGraphics*);
+	void checkController(TGraphics *);
+	void playerControl(TGraphics *);
 	void initModel();
-	void drawSpecial(TGraphics*);
+	void drawSpecial(TGraphics *);
 	void checkCollision();
 	void damageExec(THitActor *, int, int, int, float, int, float, short);
 	int getVoiceStatus();
@@ -320,7 +320,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	bool canTake(THitActor *);
 	
 	int getWallAngle() const;
-	int getAttackAngle(THitActor* const);
+	int getAttackAngle(THitActor * const);
 	
 	void rumbleStart(int, int);
 	void dropObject();
@@ -328,9 +328,9 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	void incHP(int);
 	bool changePlayerStatus(unsigned long, unsigned long, bool);
 	void setStatusToJumping(unsigned long, unsigned long);
-	void setPlayerVelocity(float);
+	void setPlayerVelocity(float velocity);
 	void doJumping();
-	void throwMario(TVec3<float> const &, float);
+	void throwMario(TVec3<float> const &throwTo, float velocity);
 	void checkPlayerAround(int, float);
 	
 	void normalizeNozzle();
@@ -359,6 +359,9 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	bool catchStop();
 
 	bool isMario();
+
+	void checkThrowObject();
+	void checkEnforceJump();
 
 	// _70 is the TDrawSyncCallback vtable
 	int _74;
@@ -416,7 +419,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	int _114; // ^^
 	int stateFlags; // _118
 	int _11C;
-	short health; // in terms of 10000 (80000 = full health)
+	short health; // in terms of 10000 (80000 = full health) _120
 	short _122;
 	short _124;
 	short _126;

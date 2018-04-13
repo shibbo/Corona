@@ -1,8 +1,10 @@
 #ifndef SMS_H
 #define SMS_H
 
+#include "J3D.h"
 #include "JGeometry.h"
 #include "JKR.h"
+#include "JUT.h"
 #include "actor/THitActor.h"
 #include "actor/TItem.h"
 #include "actor/TLiveActor.h"

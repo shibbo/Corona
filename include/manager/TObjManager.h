@@ -13,9 +13,9 @@ class TObjManager : public TViewObj
 	TObjManager(char const *);
 	~TObjManager();
 	
-	void load(JSUMemoryInputStream&);
+	void load(JSUMemoryInputStream &);
 	TObjManager* searchF(unsigned short, char const *);
-	void perform(TGraphics*);
+	void perform(TGraphics *);
 	void createModelData();
 	void createAnmData();
 	

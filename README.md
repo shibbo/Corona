@@ -2,9 +2,9 @@
 A toolkit designed for custom C++ code injection in Super Mario Sunshine. This kit can be used to create new enemies, objects, bosses, items, anything you can imagine.
 
 # Setting Up
-Corona needs a few things to successfully run. First you need Python 3.6 to run the script that compiles your code. Make sure thar you install the Python YAML library as well. 
+Corona needs a few things to successfully run. First you need Python 3.6 to run the script that compiles your code. Make sure that you install the Python YAML library as well. 
 
-Another thing that is required for use is CodeWarrior. You have the option of searching for one and praying that it works, or message me on Discord (shibboleet#1010) and I will give you the version that Nintendo used. This is preferred over other compilers because of how CodeWarrior deals with inheritance and other factors. Once you have CodeWarrior, please it in the CodeWarrior folder. The binary in CodeWarrior that compiles your code should be named "mwcceppc".
+Another thing that is required for use is CodeWarrior. You have the option of searching for one and praying that it works, or message me on Discord (shibboleet#1010) and I will give you the version that Nintendo used. This is preferred over other compilers because of how CodeWarrior deals with inheritance and other factors. Once you have CodeWarrior, place it in the CodeWarrior folder. The binary in CodeWarrior that compiles your code should be named "mwcceppc".
 
 You will also need Ninji's program that injects the actual code into a DOL file, but this is supplied in the "Kamek" folder. The source to Kamek can be found [here.](https://github.com/Treeki/Kamek)
 
@@ -36,6 +36,9 @@ outputDOL: true // this will output a DOL file to use. If you have this set to t
 
 # Bugs
 If there's any bugs or errors that are spotted, open a Issue in the "Issues" tab and I'll try my best to resolve the error.
+
+# Contributing
+If you want to contribute to this repository, create a pull request! Be sure to follow the same naming convention, pointer placement for arguments: with the variable name and not the type. Make sure it compiles, obviously!
 
 # Credits
 Ninji -- Creating Kamek and helping me with setup

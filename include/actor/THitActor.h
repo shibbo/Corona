@@ -14,7 +14,7 @@ class THitActor : public TActor
 	
 	bool recieveMessage(THitActor *, unsigned long);
 	void initHitActor(unsigned long, unsigned short, int, float, float, float, float);
-	void perform(unsigned long, TGraphics*);
+	void perform(unsigned long, TGraphics *);
 	void calcEntryRadius();
 	
 	int _44;

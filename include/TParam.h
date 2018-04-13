@@ -7,7 +7,7 @@ class TParams
 {
 	public:
 	int load(char const *);
-	void load(JSUMemoryInputStream&);
+	void load(JSUMemoryInputStream &);
 	void init();
 	void finalize();
 	
@@ -20,7 +20,7 @@ class TBaseParam
 	public:
 	TBaseParam(TParams *, unsigned short, char const *);
 	
-	void load(JSUMemoryInputStream&);
+	void load(JSUMemoryInputStream &);
 	
 	int* vtable; // _0
 	short _4;
