@@ -1,6 +1,6 @@
 #include <kamek.h>
 
-#include "actor/TCoin.h"
+#include "actor/item/TCoin.h"
 #include "actor/TMario.h"
 #include "os.h"
 

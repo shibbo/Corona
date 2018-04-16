@@ -5,4 +5,4 @@
 // is the number of coins to increment by. 
 // Old Code: li r5, 1
 // New Code: li r5, 0x64 # 100
-kmWrite32(0x801BECD4, 0x38A002BC);
+kmWrite32(0x801BECD4, 0x38A00064);
