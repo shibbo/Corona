@@ -58,7 +58,7 @@
 #define BGM_PINNAPACO_SEA   0x80010004 // pinna park (beach)
 #define BGM_PINNAPACO       0x80010005 // pinna park (park)
 #define BGM_MARE_SEA        0x80010006
-#define BGM_MONTEVILLAGE    0x80010007
+#define BGM_MONTEVILLAGE    0x80010007 // pianta village
 #define BGM_SIRENA          0x80010008 // sirena beach
 #define BGM_RICCO           0x80010009 // ricco harbor
 #define BGM_GET_SHINE       0x8001000A // shine get
@@ -69,7 +69,7 @@
 #define BGM_BOSSPAKU_DEMO   0x8001000F
 #define BGM_MAIN_TITLE      0x80010010
 #define BGM_CHUBOSS2        0x80010011
-#define BGM_EXTRA           0x80010012
+#define BGM_EXTRA           0x80010012 // sky?
 #define BGM_DELFINO         0x80010013
 #define BGM_MAREVILLAGE     0x80010014 // pianta village
 #define BGM_CORONA          0x80010015 // corona mountain
@@ -77,27 +77,27 @@
 #define BGM_CAMERA          0x80010017
 #define BGM_MONTE_ONSEN     0x80010018
 #define BGM_MECHAKUPPA      0x80010019 // mecha bowser battle
-#define BGM_AIRPORT         0x8001001A
-#define BGM_UNDERGROUND     0x8001001B
+#define BGM_AIRPORT         0x8001001A // delfino airport
+#define BGM_UNDERGROUND     0x8001001B // secret level
 #define BGM_TITLEBACK       0x8001001C
 #define BGM_MONTE_NIGHT     0x8001001D // pianta village (night)
-#define BGM_CASINO          0x8001001E
-#define BGM_EVENT           0x8001001F
-#define BGM_TIME_IVENT      0x80010020
+#define BGM_CASINO          0x8001001E // casino in hotel delfino
+#define BGM_EVENT           0x8001001F // event
+#define BGM_TIME_IVENT      0x80010020 // timed event
 #define BGM_SKY_AND_SEA     0x80010021 // sky & sea levels
 #define BGM_MONTE_RESCUE    0x80010022 // piantas in need
-#define BGM_MERRY_GO_ROUND  0x80010023
-#define BGM_SCENARIO_SELECT 0x80010024
+#define BGM_MERRY_GO_ROUND  0x80010023 // pinna park merry-go-round msuic
+#define BGM_SCENARIO_SELECT 0x80010024 // shine select intro music 
 #define BGM_FANFARE_CASINO  0x80010025
 #define BGM_FANFARE_RACE    0x80010026
 #define BGM_CAMERA_KAGE     0x80010027
-#define BGM_GAMEOVER        0x80010028
-#define BGM_BOSSHANA_2ND3RD 0x80010029
-#define BGM_BOSSGESO_2DN3RD 0x8001002A
-#define BGM_CHUBOSS_MANTA   0x8001002B
+#define BGM_GAMEOVER        0x80010028 // game over
+#define BGM_BOSSHANA_2ND3RD 0x80010029 // wiggler boss 2nd and 3rd phase
+#define BGM_BOSSGESO_2DN3RD 0x8001002A // gooper blooper boss 2nd and 3rd phase
+#define BGM_CHUBOSS_MANTA   0x8001002B // manta ray boss
 #define BGM_MONTE_LAST      0x8001002C
-#define BGM_SHINE_APPEAR    0x8001002D
+#define BGM_SHINE_APPEAR    0x8001002D // shine sprite appear
 #define BGM_KUPPA           0x8001002E
-#define BGM_SPACEWORLD	    0x80011030
+#define BGM_SPACEWORLD	    0x80011030 // spaceworld e3 trailer music
 
 #endif // SOUNDS_H

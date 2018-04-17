@@ -62,6 +62,8 @@ TItem* newItemByName(char const *);
 TItem* newUniqueObjByName(char const *);
 
 J3DModel SMS_CreatePartsModel(char *, unsigned long);
+J3DModel* SMS_CreateMinimumSDLModel(char const *);
+
 void SMS_UnifyMaterial(J3DModel *);
 void SMS_CalcMatAnmAndMakeDL(J3DModel *, unsigned short);
 void SMS_ResetTexCacheRegion();

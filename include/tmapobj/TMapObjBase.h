@@ -94,7 +94,7 @@ class TMapObjBase : public TLiveActor
 	bool isHideObj(THitActor *);
 	void joinToGroup(char const *, THitActor *);
 	
-	int _F4;
+	char* objName; // _F4
 	int _F8; // state related
 	short _FC;
 	short _FE;

@@ -21,6 +21,9 @@ extern "C"
 	void GXBegin(int, int, int);
 	void GXInitTexObjLOD(int, int, int, int, int, int, float, float, float);
 	void GXCallDisplayList(int, int);
+	void GXSetNumIndStages(int);
+	void GXSetTevDirect(int);
+	void GXSetTexCoordGen2(int, int, int, int, int, int);
 }
 #endif
 

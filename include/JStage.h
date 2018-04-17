@@ -55,6 +55,29 @@ namespace JStage
         void JSGSetAnimationFrame(float);
         float JSGGetAnimationFrameMax() const;
     };
+
+    class TCamera : public TObject
+    {
+        public:
+        ~TCamera();
+
+        int JSGFGetType() const;
+        int JSGGetProjectionType() const;
+        void JSGSetProjectionType(int); // JStage::TECameraProjection
+        float JSGGetProjectionNear() const;
+        void JSGSetProjectionNear(float);
+        float JSGGetProjectionFar();
+        void JSGSetProjectionFar(float);
+        float JSGGetProjectionFovy() const;
+        void JSGSetProjectionFovy(float);
+        float JSGGetProjectionAspect() const;
+        void JSGSetProjectionAspect(float);
+        float* JSGGetProjectionField() const;
+        void JSGSetProjectionField(float const *);
+        int JSGGetViewType() const;
+        void JSGSetViewType(int); // JStage::TECameraView
+        
+    };
 };
 
 #endif // JSTAGE_H

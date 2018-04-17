@@ -3,6 +3,19 @@
 
 namespace JGeometry
 {
+	template <typename T>
+	class TVec2
+	{
+		public:
+		TVec2();
+
+		T dot(const TVec2<T> &) const;
+		void sub(const TVec2<T> &);
+
+		T x; // _0
+		T y; // _4
+	};
+
     template <typename T>
 	class TVec3 {
 		public:
@@ -27,7 +40,9 @@ namespace JGeometry
 		TVec3<T> operator-=(const TVec3<T> &);
 		TVec3<T> operator*=(const TVec3<T> &);
 
-		T x, y, z;
+		T x; // _0
+		T y; // _4
+		T z; // _8
     };
 };
 
