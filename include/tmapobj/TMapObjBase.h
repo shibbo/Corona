@@ -4,6 +4,7 @@
 #include "JDrama.h"
 #include "JGeometry.h"
 #include "JSUStream.h"
+#include "actor/MActor.h"
 #include "actor/THitActor.h"
 #include "actor/TLiveActor.h"
 
@@ -69,6 +70,7 @@ class TMapObjBase : public TLiveActor
 	void sleep();
 	void awake();
 	void startAnim(unsigned short);
+	static void startAllAnim(MActor *, char const *animName);
 	void initAndRegister(char const *objName);
 	
 	bool marioHeadAttack() const;
@@ -111,7 +113,7 @@ class TMapObjBase : public TLiveActor
 	float _124;
 	float _128;
 	float _12C;
-	int _130;
+	int* _130;
 	int eventID; // _134
 };
 

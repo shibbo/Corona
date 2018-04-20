@@ -363,6 +363,17 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	void checkThrowObject();
 	void checkEnforceJump();
 
+	bool sleeping();
+	void sleepingEffect();
+	bool waiting();
+	void waitProcess();
+	bool waitingCommonEvents();
+	bool canSleep();
+	void changeMontemanWaitingAnim();
+	void stopCommon(int, int);
+	bool considerRotateStart();
+	bool checkPumpEnable();
+
 	// _70 is the TDrawSyncCallback vtable
 	int _74;
 	int _78;
