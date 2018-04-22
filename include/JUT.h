@@ -10,7 +10,7 @@ namespace JUtility
 	{
 		public:
 		TColor();
-		void set(unsigned char, unsigned char, unsigned char, unsigned char);
+		void set(unsigned char r, unsigned char g, unsigned char b, unsigned char a);
 		
 		unsigned char R; // _0
 		unsigned char G; // _1
@@ -90,7 +90,7 @@ class JUTResFont : public JUTFont
 	
 	int _1C;
 	int _20;
-	char _24[0x44-0x24];
+	char _24[0x44-0x24]; // GXTexObj
 	int _44;
 	int _48;
 	int _4C; // padding?
@@ -112,6 +112,12 @@ enum EPadPort
 	Port2 = 1,
 	Port3 = 2,
 	Port4 = 3,
+};
+
+enum EStickMode
+{
+	NonClamped = 0,
+	Clamped = 1,
 };
 
 enum WhichStick
@@ -161,13 +167,13 @@ class JUTGamePad : public JKRDisposer
 		CStick();
 
 		void clear();
-		void update(signed char, signed char, int, int); // EStickMode, WhichStick
-		char getButton();
+		int update(signed char, signed char, EStickMode, WhichStick);
+		int getButton();
 
-		float _0;
-		float _4;
-		float _8;
-		short _C;
+		float stickX;
+		float stickY;
+		float length;
+		short angle;
 		short _E; // i assume unused
 	};
 

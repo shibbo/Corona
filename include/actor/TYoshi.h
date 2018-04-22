@@ -50,7 +50,7 @@ class TYoshi
     void ride();
     void kill();
     bool disappear();
-    void appearFromEgg(TVec3<float> const &, float, TEggYoshi*);
+    void appearFromEgg(TVec3<float> const &, float, TEggYoshi *);
     void setEggYoshiPtr(TEggYoshi *);
     void getEmitPosDir(TVec3<float> *, TVec3<float> *);
     void changeAnimation(int);

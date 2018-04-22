@@ -76,4 +76,6 @@ JUTRect SMSGetRederRect_Game();
 
 int* SMSLoadArchive(char const *, void *, unsigned long, JKRHeap *); // returns JKRMemArchive
 
+void SMSCalcJumpVelocityXZ(TVec3<float> const &, TVec3<float> const &, float, float, TVec3<float> *)
+
 #endif // SMS_H
