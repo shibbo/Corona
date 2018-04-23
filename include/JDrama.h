@@ -150,7 +150,7 @@ namespace JDrama
         ~TCharacter();
     };
 
-    class TAmbColor : public TViewObj
+    class TAmbColor : public TViewObj, public JStage::TAmbientLight
     {
         public:
         TAmbColor();
