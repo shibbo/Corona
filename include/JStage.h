@@ -78,6 +78,14 @@ namespace JStage
         void JSGSetViewType(int); // JStage::TECameraView
         
     };
+
+    class TAmbientLight : public TObject
+    {
+        public:
+        ~TAmbientLight();
+
+        int JSGFGetType() const;
+    };
 };
 
 #endif // JSTAGE_H

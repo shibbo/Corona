@@ -4,11 +4,13 @@
 // definitions for a lot of pointers in the game, especially classes
 #include "common.h"
 #include "actor/TMario.h"
+#include "JKR.h"
 #include "manager/RumbleManager.h"
 #include "manager/TFlagManager.h"
 #include "manager/TItemManager.h"
 #include "TMarDirector.h"
 
+static JKRHeap* heap = (JKRHeap*)(SDA_ADDR_NUS - 0x5F28);
 static TMarDirector* marDirector = (TMarDirector*)(SDA_ADDR_NUS - 0x6048);
 static TFlagManager* flagManager = (TFlagManager*)(SDA_ADDR_NUS - 0x6060);
 static TMario* mario = (TMario*)(SDA_ADDR_NUS - 0x60D8);

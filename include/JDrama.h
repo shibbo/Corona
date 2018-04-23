@@ -143,6 +143,28 @@ namespace JDrama
         int _1C;  // ^^
         int _20;
     };
+
+    class TCharacter : public TNameRef
+    {
+        public:
+        ~TCharacter();
+    };
+
+    class TAmbColor : public TViewObj
+    {
+        public:
+        TAmbColor();
+        ~TAmbColor();
+
+        void load(JSUMemoryInputStream &);
+        void perform(unsigned long, TGraphics *);
+
+        int* _10;
+        char r; // _14
+        char g; // _15
+        char b; // _16
+        char a; // _17
+    };
 };
 
 #endif // JDRAMA_H
