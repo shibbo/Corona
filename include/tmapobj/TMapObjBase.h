@@ -11,6 +11,22 @@
 using namespace JDrama;
 using namespace JGeometry;
 
+struct ObjData
+{
+	char* objName; // _0
+	float _4; // this might not even be a float
+	char* _8; // manager?
+	char* _C; // manager 2?
+	int* animInfo; // _10
+	int* hitInfo; // _14
+	int* collisionInfo; // _18
+	int* soundInfo; // _1C
+	int unused[0x4]; // _20
+	float _30;
+	int flag; // _34
+	int flag2; // _38
+};
+
 /* Size -- 0x138 */
 class TMapObjBase : public TLiveActor
 {
@@ -95,6 +111,9 @@ class TMapObjBase : public TLiveActor
 	bool isDemo();
 	bool isHideObj(THitActor *);
 	void joinToGroup(char const *, THitActor *);
+
+	void initModelData();
+	void initObjCollisionData();
 	
 	char* objName; // _F4
 	int _F8; // state related
@@ -113,7 +132,7 @@ class TMapObjBase : public TLiveActor
 	float _124;
 	float _128;
 	float _12C;
-	int* _130;
+	ObjData* objData; // _130
 	int eventID; // _134
 };
 

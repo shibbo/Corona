@@ -3,8 +3,10 @@
 
 #include "JDrama.h"
 #include "JGeometry.h"
+#include "JUT.h"
 #include "TParam.h"
 #include "actor/TTakeActor.h"
+#include "actor/TYoshi.h"
 
 // some states
 #define MARIO_FLAG_NEUTRAL   0x00000001
@@ -247,6 +249,39 @@ struct TMarioControllerWork
 	float _1C;
 };
 
+class TMarioGamePad : public JUTGamePad
+{
+	public:
+	~TMarioGamePad();
+
+	void read();
+	void onNeutralMarioKey();
+	void updateMeaning();
+	void reset();
+
+	float _A8;
+	float _AC;
+	float _B0;
+	float _B4;
+	float _B8;
+	float _BC;
+	float stickX; // _C0
+	float stickY; // _C4
+	float _C8;
+	float _CC;
+	int _D0;
+	int _D4;
+	int _D8;
+	short _DC;
+	short _DE;
+	short _E0;
+	short _E2;
+	short _E4;
+	short _E6; // padding?
+	int _E8;
+	int _EC; // padding?
+};
+
 /* Size -- 0x4310 */
 class TMario : public TTakeActor, public TDrawSyncCallback
 {
@@ -373,6 +408,8 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	void stopCommon(int, int);
 	bool considerRotateStart();
 	bool checkPumpEnable();
+
+	void setGamePad(TMarioGamePad *gamePad);
 
 	// _70 is the TDrawSyncCallback vtable
 	int _74;
@@ -568,7 +605,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	int* _3E4; // TWaterGun
 	int _3E8;
 	float _3EC;
-	int* _3F0; // TYoshi
+	TYoshi* yoshi; // _3F0
 	int _3F4;
 	int* _3F8;
 	int _3FC;
@@ -608,7 +645,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	float _4F0;
 	float _4F4;
 	float _4F8;
-	int* _4FC; // TMarioGamePad
+	TMarioGamePad* gamepad; // _4FC
 	TMarioSoundValues soundValues; // _500
 	int _530;
 	char _534;
@@ -662,13 +699,13 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 class TMarioCap
 {
 	public:
-	TMarioCap(TMario*);
+	TMarioCap(TMario *);
 	
 	int* vtable; // _0
 	int state;
 	int _8;
-	int* _10; // J3DModel
-	
+	int _C;
+	J3DModel* model; // _10
 };
 
 #endif // TMARIO_H

@@ -59,7 +59,7 @@ class JSUInputStream : public JSUIosBase
 	~JSUInputStream();
 	
 	int* skip(long);
-	void read(void *, long);
+	void read(void *, long size);
 	char* readString();
     char* readString(char *, unsigned short);
 	
@@ -90,8 +90,8 @@ class JSUMemoryInputStream : public JSURandomInputStream
 	void skip(long);
 	int getPosition() const;
 	int getLength() const;
-	void setBuffer(void const *, long);
-	int* readData(void *, long);
+	void setBuffer(void const *, long size);
+	int* readData(void *, long size);
 	int* seekPos(long, JSUStreamSeekFrom);
 	
 	int _8;

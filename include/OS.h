@@ -4,6 +4,7 @@
 typedef int OSHeapHandle;
 extern volatile OSHeapHandle __OSCurrHeap;
 #define OSAlloc(size)   OSAllocFromHeap(__OSCurrHeap, (size))
+typedef long OSTime;
 
 #ifdef __cplusplus
 extern "C" {
@@ -16,9 +17,11 @@ unsigned int OSGetTick();
 void OSFatal(unsigned int*, unsigned int *, const char *);
 void* OSAllocFromHeap(OSHeapHandle, unsigned int);
 
-typedef struct {
+typedef struct 
+{
 	int sec, min, hour, mday, mon, year, wday, yday, msec, usec;
 } OSCalendarTime;
+
 void OSTicksToCalendarTime(unsigned long, OSCalendarTime *);
 
 int OSGetConsoleType();

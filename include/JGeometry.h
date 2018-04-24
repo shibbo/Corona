@@ -89,7 +89,7 @@ namespace JGeometry
 		public:
 		TRotation3();
 
-		TQuat4 getQuad(TQuat4<float> &) const;
+		void getQuad(TQuat4<float> &) const;
 	};
 
 	// are these class useless?

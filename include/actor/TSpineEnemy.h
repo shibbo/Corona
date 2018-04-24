@@ -50,7 +50,7 @@ class TSpineEnemy : public TLiveActor
 	char _133; // ^^
 	float _134;
 	int _138;
-	char _13C;
+	char health; // _13C
 	char _13D; // padding?
 	char _13E; // ^^
 	char _13F; // ^^

@@ -2,6 +2,7 @@
 #define JUT_H
 
 #include "JKR.h"
+#include "OS.h"
 #include "pad.h"
 
 namespace JUtility
@@ -199,10 +200,15 @@ class JUTGamePad : public JKRDisposer
 	short port; // _78
 	short _7A; // padding?
 	JSUPtrLink ptrLink; // _7C
-	int  _8C;
+	int _8C;
 	int _90;
 	int _94;
 	int _98;
+	char resetFlag; // _9C
+	char _9D; // ^^
+	char _9E; // ^^
+	char _9F; // ^^
+	OSTime resetTime; // _A0
 };
 
 #endif // JUT_H

@@ -17,8 +17,8 @@ class TTakeActor : public THitActor
 	float getRadiusAtY(float) const;
 	bool isTaken() const;
 	
-	TTakeActor* takenActor;
-	int* _6C;
+	TTakeActor* takenActor; // _68
+	THitActor* hitActor; // _6C
 };
 
 #endif // TTAKEACTOR_H
