@@ -10,6 +10,7 @@
 #include "actor/TItem.h"
 #include "actor/TLiveActor.h"
 #include "actor/TMario.h"
+#include "actor/TYoshi.h"
 
 using namespace JGeometry;
 
@@ -35,8 +36,8 @@ bool SMS_IsMarioStatusThrownDown();
 u32 SMS_GetMarioStatus();
 u32 SMS_GetMarioStatus(THitActor *);
 void SMS_AskJumpIntoWaterEffectExist();
-u32* SMS_GetYoshi();
-u8 SMS_getShineIDofExStage( u8);
+TYoshi* SMS_GetYoshi();
+u8 SMS_getShineIDofExStage(s8);
 bool SMS_isOptionMap();
 bool SMS_isDivingMap();
 bool SMS_isMultiPlayerMap();
@@ -55,7 +56,7 @@ u32 SMSGetGameVideoHeight();
 u32 SMSGetGameVideoWidth();
 void SMS_ThrowMario(TVec3<f32> const & ,f32);
 bool SMS_SendMessageToMario(THitActor *, u32);
-u8 SMS_getShineStage( u8);
+u8 SMS_getShineStage(s8);
 TMario* SMS_GetMarioHitActor();
 //TWaterGun* SMS_GetMarioWaterGun();
 
@@ -66,7 +67,7 @@ J3DModel SMS_CreatePartsModel(u8 *, u32);
 J3DModel* SMS_CreateMinimumSDLModel(char const *);
 
 void SMS_UnifyMaterial(J3DModel *);
-void SMS_CalcMatAnmAndMakeDL(J3DModel *,  u16);
+void SMS_CalcMatAnmAndMakeDL(J3DModel *, s16);
 void SMS_ResetTexCacheRegion();
 void SMS_DrawInit();
 void SMS_MakeDLAndLock(J3DModel *);

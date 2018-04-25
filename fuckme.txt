@@ -1,6 +1,0 @@
-Kamek 2.0 by Treeki
-
-adding ../Projects/SpawnCoin/bin/SpawnCoin.o as object..
-linking version default...
-Compiling SpawnCoin...
-Done.

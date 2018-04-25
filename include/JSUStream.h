@@ -27,7 +27,7 @@ class JSUPtrList
 	void initiate();
 	void append(JSUPtrLink *);
 	void prepend(JSUPtrLink *);
-	void insert(JSUPtrLink*, JSUPtrLink *);
+	void insert(JSUPtrLink *, JSUPtrLink *);
 	void remove(JSUPtrLink *);
 	
 	u32 _0;
@@ -62,8 +62,8 @@ class JSUInputStream : public JSUIosBase
 	
 	u32* skip(long);
 	void read(void *, long size);
-	u8* readString();
-    u8* readString(u8 *,  u16);
+	char* readString();
+	char* readString(u8 *, s16);
 	
 	u8 _4;
 	u8 _5; // padding?
