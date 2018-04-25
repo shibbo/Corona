@@ -2,6 +2,7 @@
 #define TGRAPHNODE_H
 
 #include "JGeometry.h"
+#include "types.h"
 
 class TGraphNode
 {
@@ -10,11 +11,11 @@ class TGraphNode
 
     void getPoint(Vec const *);
 
-    int*  _0;
-    int _4
-    float _8;
-    short _C;
-    short _E; // assumed padding
+    u32*  _0;
+    u32 _4
+    f32 _8;
+    u16 _C;
+    u16 _E; // assumed padding
 };
 
 #endif // TGRAPHNODE_H

@@ -16,30 +16,30 @@ class TRailMapObj : public TMapObjBase
     ~TRailMapObj();
 
     void load(JSUMemoryInputStream &);
-    void perform(unsigned long, TGraphcs *);
+    void perform(u32, TGraphcs *);
     void setGroundCollision();
     void control();
-    int getShadowType();
+    u32 getShadowType();
     void initMapObj();
     bool calcRecycle();
     void resetPosition();
 
     bool checkMarioRiding();
-    void moveToNextNode(float);
-    void resetStep(float);
+    void moveToNextNode(f32);
+    void resetStep(f32);
     void initGraphTracer(TGraphWeb *);
 
     TGraphTracer* tracer; // _138
-    int _13C;
-    int _140; // is mario riding?
-    float _144;
-    char _148;
-    char _149; // padding?
-    short _14A;
-    char _14C;
-    char _14D; // padding?
-    char _14E; // ^^
-    char _14F; // ^^
+    u32 _13C;
+    u32 _140; // is mario riding?
+    f32 _144;
+    u8 _148;
+    u8 _149; // padding?
+    u16 _14A;
+    u8 _14C;
+    u8 _14D; // padding?
+    u8 _14E; // ^^
+    u8 _14F; // ^^
 };
 
 #endif // TRAILMAPOBJ_H

@@ -11,24 +11,24 @@ class TMapCollisionData
     public:
     TMapCollisionData();
 
-    float _0;
-    float _4;
-    int _8;
-    int _C;
-    int _10;
-    int _14;
-    int _18;
-    int _1C;
-    int _20;
-    int _24;
-    int _28;
-    int _2C;
-    int _30;
-    int _34;
-    int _38;
-    int _3C;
-    short _40;
-    short entries[256]; // _42
+    f32 _0;
+    f32 _4;
+    u32 _8;
+    u32 _C;
+    u32 _10;
+    u32 _14;
+    u32 _18;
+    u32 _1C;
+    u32 _20;
+    u32 _24;
+    u32 _28;
+    u32 _2C;
+    u32 _30;
+    u32 _34;
+    u32 _38;
+    u32 _3C;
+    u16 _40;
+    u16 entries[256]; // _42
 };
 
 class TMapWarp
@@ -39,13 +39,13 @@ class TMapWarp
     void init(JSUMemoryInputStream &);
     void initModel();
     void watchToWarp();
-    void changeModel(int);
+    void changeModel(u32);
 
 
-    int _0;
-    int _4;
-    int _8;
-    float _C; // init'd to 3.0
+    u32 _0;
+    u32 _4;
+    u32 _8;
+    f32 _C; // init'd to 3.0
 
     class TMapWarpInfo
     {
@@ -62,24 +62,24 @@ class TMap : public TViewObj
 
     void load(JSUMemoryInputStream &);
     void loadAfter();
-    void perform(unsigned long, TGraphics *);
+    void perform(u32, TGraphics *);
 
-    void changeModel(int) const;
-    float checkGround(float, float, float, int const **) const; // TBGCheckData
-    float checkGround(TVec3<float> const &, int const **) const; // TBGCheckData
-    float checkGroundExactY(float, float, float, int const **) const;
+    void changeModel(u32) const;
+    f32 checkGround(f32, f32, f32, u32 const **) const; // TBGCheckData
+    f32 checkGround(TVec3<f32> const &, u32 const **) const; // TBGCheckData
+    f32 checkGroundExactY(f32, f32, f32, u32 const **) const;
     
-    bool isTouchedOneWallAndMoveXZ(float *, float, float *, float) const;
-    bool isTouchedOneWall(float, float, float, float) const;
-    bool intersectLine(TVec3<float> const &, TVec3<float> const &, bool, TVec3<float> *) const;
-    bool isInArea(float, float) const;
-    int* getIllegalCheckData();
+    bool isTouchedOneWallAndMoveXZ(f32 *, f32, f32 *, f32) const;
+    bool isTouchedOneWall(f32, f32, f32, f32) const;
+    bool intersectLine(TVec3<f32> const &, TVec3<f32> const &, bool, TVec3<f32> *) const;
+    bool isInArea(f32, f32) const;
+    u32* getIllegalCheckData();
     void update();
 
     TMapCollisionData* collisionData; // _10
-    int* _14; // TMapModelManager
+    u32* _14; // TMapModelManager
     TMapWarp* mapWarp; // _18
-    int* _1C; // TMapXlu
+    u32* _1C; // TMapXlu
 };
 
 void initStage();

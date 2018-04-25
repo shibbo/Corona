@@ -1,29 +1,31 @@
 #ifndef GX_H
 #define GX_H
 
+#include "types.h"
+
 #ifdef __cplusplus
 extern "C" 
 {
-	void GXSetNumChans(int);
-	void GXSetNumTevStages(int);
-	void GXSetNumTexGens(int);
-	void GXSetTevOrder(int, int, int, int);
-	void GXSetTevOp(int, int);
-	void GXSetBlendMode(int, int, int, int);
-	void GXSetVtxAttrFmt(int, int, int, int, int);
+	void GXSetNumChans(u32);
+	void GXSetNumTevStages(u32);
+	void GXSetNumTexGens(u32);
+	void GXSetTevOrder(u32, u32, u32, u32);
+	void GXSetTevOp(u32, u32);
+	void GXSetBlendMode(u32, u32, u32, u32);
+	void GXSetVtxAttrFmt(u32, u32, u32, u32, u32);
 	void GXClearVtxDesc();
-	void GXSetVtxDesc(int, int);
-	void GXSetTevColorIn(int, int, int, int, int);
-	void GXSetTevAlphaIn(int, int, int, int, int);
-	void GXSetTevColorOp(int, int, int, int, int, int);
-	void GXSetTevAlphaOp(int, int, int, int, int, int);
-	void GXSetTevColor(int, int);
-	void GXBegin(int, int, int);
-	void GXInitTexObjLOD(int, int, int, int, int, int, float, float, float);
-	void GXCallDisplayList(int, int);
-	void GXSetNumIndStages(int);
-	void GXSetTevDirect(int);
-	void GXSetTexCoordGen2(int, int, int, int, int, int);
+	void GXSetVtxDesc(u32, u32);
+	void GXSetTevColorIn(u32, u32, u32, u32, u32);
+	void GXSetTevAlphaIn(u32, u32, u32, u32, u32);
+	void GXSetTevColorOp(u32, u32, u32, u32, u32, u32);
+	void GXSetTevAlphaOp(u32, u32, u32, u32, u32, u32);
+	void GXSetTevColor(u32, u32);
+	void GXBegin(u32, u32, u32);
+	void GXInitTexObjLOD(u32, u32, u32, u32, u32, u32, f32, f32, f32);
+	void GXCallDisplayList(u32, u32);
+	void GXSetNumIndStages(u32);
+	void GXSetTevDirect(u32);
+	void GXSetTexCoordGen2(u32, u32, u32, u32, u32, u32);
 }
 #endif
 

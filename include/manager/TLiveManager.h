@@ -3,6 +3,7 @@
 
 #include "JDrama.h"
 #include "JSUStream.h"
+#include "types.h"
 #include "manager/TObjManager.h"
 
 using namespace JDrama;
@@ -14,13 +15,13 @@ class TLiveManager : public TObjManager
 	~TLiveManager();
 
 	void load(JSUMemoryInputStream &);
-	void perform(unsigned long, TGraphics *);
+	void perform(u32, TGraphics *);
 	void clipActors(TGraphics *);
 	void setFlagOutOfCube();
 	void createSpcBinary();
 	bool hasMapCollsion() const;
 	
-	int _34; // *TSpcBinary
+	u32 _34; // *TSpcBinary
 };
 
 #endif // TLIVEMANAGER_H

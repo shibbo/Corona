@@ -4,6 +4,7 @@
 #include "JDrama.h"
 #include "JGeometry.h"
 #include "JSUStream.h"
+#include "types.h"
 #include "actor/TLiveActor.h"
 
 using namespace JDrama;
@@ -17,47 +18,47 @@ class TSpineEnemy : public TLiveActor
 	~TSpineEnemy();
 	
 	void load(JSUMemoryInputStream &);
-	void perform(unsigned long, TGraphics *);
-	bool recieveMessage(THitActor *, unsigned long);
+	void perform(u32, TGraphics *);
+	bool recieveMessage(THitActor *, u32);
 	void init(TLiveManager *);
 	void calcRootMatrix();
 	void reset();
-	void resetToPosition(TVec3<float> const &);
-	void resetSRTV(TVec3<float> const &, TVec3<float> const &, TVec3<float> const &, TVec3<float> const &);
-	int getSaveParam() const;
-	float getPhaseShift() const;
+	void resetToPosition(TVec3<f32> const &);
+	void resetSRTV(TVec3<f32> const &, TVec3<f32> const &, TVec3<f32> const &, TVec3<f32> const &);
+	u32 getSaveParam() const;
+	f32 getPhaseShift() const;
 	bool isReachedToGoal() const;
 	
-	int _F4;
-	float _F8;
-	float _FC;
-	float _100;
-	int _104;
-	float _108;
-	float _10C;
-	float _110;
-	int _114;
-	int _118;
-	int* _11C; // array
-	int _120;
-	int _124; // padding?
-	short _128;
-	short _12A; // padding?
-	float _12C;
-	char _130;
-	char _131; // padding?
-	char _132; // ^^
-	char _133; // ^^
-	float _134;
-	int _138;
-	char health; // _13C
-	char _13D; // padding?
-	char _13E; // ^^
-	char _13F; // ^^
-	float _140;
-	float _144;
-	float _148;
-	float _14C;
+	u32 _F4;
+	f32 _F8;
+	f32 _FC;
+	f32 _100;
+	u32 _104;
+	f32 _108;
+	f32 _10C;
+	f32 _110;
+	u32 _114;
+	u32 _118;
+	u32* _11C; // array
+	u32 _120;
+	u32 _124; // padding?
+	u16 _128;
+	u16 _12A; // padding?
+	f32 _12C;
+	u8 _130;
+	u8 _131; // padding?
+	u8 _132; // ^^
+	u8 _133; // ^^
+	f32 _134;
+	u32 _138;
+	u8 health; // _13C
+	u8 _13D; // padding?
+	u8 _13E; // ^^
+	u8 _13F; // ^^
+	f32 _140;
+	f32 _144;
+	f32 _148;
+	f32 _14C;
 };
 
 #endif // TSPINEENEMY_H

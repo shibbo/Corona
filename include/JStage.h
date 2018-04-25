@@ -2,6 +2,7 @@
 #define JSTAGE_H
 
 #include "JGeometry.h"
+#include "types.h"
 
 using namespace JGeometry;
 
@@ -12,16 +13,16 @@ namespace JStage
         public:
         ~TObject();
 
-        int JSGGetName() const;
-        int JSGGetFlag() const;
-        void JSGSetFlag(unsigned long);
-        int JSGGetData(unsigned long const, void *, unsigned long);
-        void JSGSetData(unsigned long, void const *, unsigned long);
-        void JSGGetParent(TObject **const, unsigned long *);
-        void JSGSetParent(TObject *, unsigned long);
-        void JSGSetRelation(bool, TObject *, unsigned long);
+        u32 JSGGetName() const;
+        u32 JSGGetFlag() const;
+        void JSGSetFlag(u32);
+        u32 JSGGetData(u32 const, void *, u32);
+        void JSGSetData(u32, void const *, u32);
+        void JSGGetParent(TObject **const, u32 *);
+        void JSGSetParent(TObject *, u32);
+        void JSGSetRelation(bool, TObject *, u32);
 
-        int* vtable; // _0
+        u32* vtable; // _0
     };
 
     class TSystem : public TObject
@@ -29,9 +30,9 @@ namespace JStage
         public:
         ~TSystem();
         
-        int JSGFGetType() const;
-        int JSGGetSystemData(unsigned long);
-        void JSGSetSystemData(unsigned long, unsigned long);
+        u32 JSGFGetType() const;
+        u32 JSGGetSystemData(u32);
+        void JSGSetSystemData(u32, u32);
         void JSGDestroyObject(TObject *);
     };
 
@@ -39,21 +40,21 @@ namespace JStage
     {
         public:
         ~TActor();
-        int JSGFGetType() const;
-        void JSGGetTranslation(TVec3<float> *) const;
-        void JSGSetTranslation(TVec3<float> const &);
-        void JSGGetScaling(TVec3<float> *) const;
-        void JSGSetScaling(const TVec3<float> &);
-        void JSGGetRotation(TVec3<float> *) const;
-        void JSGSetRotation(const TVec3<float> &);
+        u32 JSGFGetType() const;
+        void JSGGetTranslation(TVec3<f32> *) const;
+        void JSGSetTranslation(TVec3<f32> const &);
+        void JSGGetScaling(TVec3<f32> *) const;
+        void JSGSetScaling(const TVec3<f32> &);
+        void JSGGetRotation(TVec3<f32> *) const;
+        void JSGSetRotation(const TVec3<f32> &);
 
-        int JSGGetShape() const;
-        void JSGSetShape(unsigned long);
-        int JSGGetAnimation() const;
-        void JSGSetAnimation(unsigned long);
-        float JSGGetAnimationFrame() const;
-        void JSGSetAnimationFrame(float);
-        float JSGGetAnimationFrameMax() const;
+        u32 JSGGetShape() const;
+        void JSGSetShape(u32);
+        u32 JSGGetAnimation() const;
+        void JSGSetAnimation(u32);
+        f32 JSGGetAnimationFrame() const;
+        void JSGSetAnimationFrame(f32);
+        f32 JSGGetAnimationFrameMax() const;
     };
 
     class TCamera : public TObject
@@ -61,21 +62,21 @@ namespace JStage
         public:
         ~TCamera();
 
-        int JSGFGetType() const;
-        int JSGGetProjectionType() const;
-        void JSGSetProjectionType(int); // JStage::TECameraProjection
-        float JSGGetProjectionNear() const;
-        void JSGSetProjectionNear(float);
-        float JSGGetProjectionFar();
-        void JSGSetProjectionFar(float);
-        float JSGGetProjectionFovy() const;
-        void JSGSetProjectionFovy(float);
-        float JSGGetProjectionAspect() const;
-        void JSGSetProjectionAspect(float);
-        float* JSGGetProjectionField() const;
-        void JSGSetProjectionField(float const *);
-        int JSGGetViewType() const;
-        void JSGSetViewType(int); // JStage::TECameraView
+        u32 JSGFGetType() const;
+        u32 JSGGetProjectionType() const;
+        void JSGSetProjectionType(u32); // JStage::TECameraProjection
+        f32 JSGGetProjectionNear() const;
+        void JSGSetProjectionNear(f32);
+        f32 JSGGetProjectionFar();
+        void JSGSetProjectionFar(f32);
+        f32 JSGGetProjectionFovy() const;
+        void JSGSetProjectionFovy(f32);
+        f32 JSGGetProjectionAspect() const;
+        void JSGSetProjectionAspect(f32);
+        f32* JSGGetProjectionField() const;
+        void JSGSetProjectionField(f32 const *);
+        u32 JSGGetViewType() const;
+        void JSGSetViewType(u32); // JStage::TECameraView
         
     };
 
@@ -84,7 +85,7 @@ namespace JStage
         public:
         ~TAmbientLight();
 
-        int JSGFGetType() const;
+        u32 JSGFGetType() const;
     };
 };
 

@@ -2,6 +2,7 @@
 #define RUMBLEMANAGER_H
 
 #include "JGeometry.h"
+#include "types.h"
 
 using namespace JGeometry;
 
@@ -14,28 +15,28 @@ class RumbleMgr
     void finishPause();
     void setActive(bool);
     void update();
-    void stop(int);
+    void stop(u32);
     void stop();
-    void start(int, int, TVec3<float> *);
-    void start(int, int, float *);
-    void start(int, TVec3<float> *);
-    void start(int, float *);
+    void start(u32, u32, TVec3<f32> *);
+    void start(u32, u32, f32 *);
+    void start(u32, TVec3<f32> *);
+    void start(u32, f32 *);
     void reset();
     void init();
 
 
-    float _0;
-    float _4;
-    char _8;
-    char _9;
-    char _A;
-    char _B;
-    char _C[0x1C-0xC];
-    int _1C;
-    int _20;
-    int _24;
-    int _28;
-    int* _2C;
+    f32 _0;
+    f32 _4;
+    u8 _8;
+    u8 _9;
+    u8 _A;
+    u8 _B;
+    u8 _C[0x1C-0xC];
+    u32 _1C;
+    u32 _20;
+    u32 _24;
+    u32 _28;
+    u32* _2C;
 };
 
 #endif // RUMBLEMANAGER_H

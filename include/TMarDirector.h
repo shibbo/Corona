@@ -7,6 +7,7 @@
 #include "JDrama.h"
 #include "JGeometry.h"
 #include "TGCConsole2.h"
+#include "types.h"
 
 using namespace JDrama;
 using namespace JGeometry;
@@ -20,27 +21,27 @@ class TMarDirector : public TDirector
     void direct();
     void moveStage();
     void updateGameMode();
-    void nextStateInitialize(unsigned char);
+    void nextStateInitialize( u8);
     void setMario();
-    void currentStateFinalize(unsigned char);
+    void currentStateFinalize( u8);
     void changeState();
-    void fireStreamingMovie(unsigned char);
+    void fireStreamingMovie( u8);
     void fireEndDemoCamera();
-    void fireStartDemoCamera(char const *, TVec3<float> const *, long, float, bool, long (*)(unsigned long, unsigned long), unsigned long, TActor *, TFlagT<unsigned short>);
-    void setNextStage(unsigned short stageID, TActor *);
+    void fireStartDemoCamera(char const *, TVec3<f32> const *, long, f32, bool, long (*)(u32, u32), u32, TActor *, TFlagT< u16>);
+    void setNextStage( u16 stageID, TActor *);
     void movement();
     void fireRideYoshi(TYoshi *);
     void fireGetStar(TShine *);
-    void fireGetNozzle(int *); // TItemNozzle
+    void fireGetNozzle(u32 *); // TItemNozzle
     void fireGetBlueCoin(TCoin *);
     void movement_game();
-    int* findNearestTalkNPC();
-    int createObjects(); // returns 0
+    u32* findNearestTalkNPC();
+    u32 createObjects(); // returns 0
     void setupObjects();
 
-    char _28[0x24];
-    short state; // _4C
-    char _4E[0x74-0x4E];
+    u8 _28[0x24];
+    u16 state; // _4C
+    u8 _4E[0x74-0x4E];
     TGCConsole2* gccConsole; // _74
 };
 

@@ -19,11 +19,11 @@ class TLiveActor : public TTakeActor
 	~TLiveActor();
 	
 	void load(JSUMemoryInputStream &);
-	void perform(unsigned long, TGraphics *);
-	bool recieveMessage(THitActor *, unsigned long);
-	int* getTakingMtx();
+	void perform(u32, TGraphics *);
+	bool recieveMessage(THitActor *, u32);
+	u32* getTakingMtx();
 	bool belongToGround() const;
-	int getRootJointMtx() const;
+	u32 getRootJointMtx() const;
 	void init(TLiveManager *);
 	void calcRootMatrix();
 	void setGroundCollision();
@@ -32,61 +32,61 @@ class TLiveActor : public TTakeActor
 	void moveObject();
 	void requestShadow();
 	void drawObject(TGraphics *);
-	void performOnlyDraw(unsigned long, TGraphics *);
-	int getShadowType();
+	void performOnlyDraw(u32, TGraphics *);
+	u32 getShadowType();
 	void kill();
-	float getGravityY() const;
+	f32 getGravityY() const;
 	bool hasMapCollision() const;
 	void getFocalPoint() const;
 	void updateAnmSound();
-	int getBasNameTable() const;
+	u32 getBasNameTable() const;
 	MActor* getMActor() const;
 	void stopAnmSound();
 	void setCurAnmSound();
 	void setAnmSound(char const *);
 	void initAnmSound();
-	void getJointTransByIndex(int, TVec3<float> *) const;
-	void calcVelocityToJumpToY(TVec3<float> const &, float, float) const;
-	void initLodAnm(int *, int, float); // TLodAnmIndex
-	int* getModel() const;
+	void getJointTransByIndex(u32, TVec3<f32> *) const;
+	void calcVelocityToJumpToY(TVec3<f32> const &, f32, f32) const;
+	void initLodAnm(u32 *, u32, f32); // TLodAnmIndex
+	u32* getModel() const;
 	void calcRideMomentum();
 	void calcRidePos();
 	
-	int* _70; // TMActorKeeper
-	int* _74; // model data related
-	int* _78; // TMActorKeeper
-	short _7C;
-	short _7E; // padding?
-	int _80;
-	int _84;
-	int _88;
-	int* _8C;
-	int* _90;
-	float _94;
-	float _98;
-	float _9C;
-	float _A0;
-	float _A4;
-	float _A8;
-	TVec3<float> velocity; // _AC
-	float _B8;
-	float _BC;
-	float _C0;
-	int* _C4; // TMapCollisionData::mIllegalCheckData
-	float _C8;
-	float _CC;
-	int _D0;
-	int _D4;
-	float _D8;
-	float _DC;
-	float _E0;
-	float _E4;
-	char _E8;
-	char _E9; // padding?
-	char _EA; // ^^
-	char _EB; // ^^
-	int flags;
-	int _F0;
+	u32* _70; // TMActorKeeper
+	u32* _74; // model data related
+	u32* _78; // TMActorKeeper
+	u16 _7C;
+	u16 _7E; // padding?
+	u32 _80;
+	u32 _84;
+	u32 _88;
+	u32* _8C;
+	u32* _90;
+	f32 _94;
+	f32 _98;
+	f32 _9C;
+	f32 _A0;
+	f32 _A4;
+	f32 _A8;
+	TVec3<f32> velocity; // _AC
+	f32 _B8;
+	f32 _BC;
+	f32 _C0;
+	u32* _C4; // TMapCollisionData::mIllegalCheckData
+	f32 _C8;
+	f32 _CC;
+	u32 _D0;
+	u32 _D4;
+	f32 _D8;
+	f32 _DC;
+	f32 _E0;
+	f32 _E4;
+	u8 _E8;
+	u8 _E9; // padding?
+	u8 _EA; // ^^
+	u8 _EB; // ^^
+	u32 flags;
+	u32 _F0;
 };
 
 #endif // TLIVEACTOR_H

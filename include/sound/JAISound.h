@@ -1,12 +1,14 @@
 #ifndef JAISOUND_H
 #define JAISOUND_H
 
+#include "types.h"
+
 struct JAIMoveParaSet
 {
-    float _0;
-    float _4;
-    float _8;
-    int* _C;
+    f32 _0;
+    f32 _4;
+    f32 _8;
+    u32* _C;
 };
 
 class JAISound
@@ -15,46 +17,46 @@ class JAISound
     JAISound();
 
     void setSeDistanceParameters();
-    void setSeDistanceVolume(unsigned char);
-    void setSeDistancePan(unsigned char);
-    void setSeDistancePitch(unsigned char);
-    void setSeDistanceFxmix(unsigned char);
-    void setSeDistanceFir(unsigned char);
-    void setSeDistanceDolby(unsigned char);
+    void setSeDistanceVolume( u8);
+    void setSeDistancePan( u8);
+    void setSeDistancePitch( u8);
+    void setSeDistanceFxmix( u8);
+    void setSeDistanceFir( u8);
+    void setSeDistanceDolby( u8);
     void setSePositionDopplar();
-    void setPositionDopplarCommon(unsigned long);
-    void setDistanceVolumeCommon(float, unsigned char);
+    void setPositionDopplarCommon(u32);
+    void setDistanceVolumeCommon(f32,  u8);
     void setDistancePanCommon();
 
-    bool initMoveParameter(JAIMoveParaSet *, float, unsigned long);
-    int getSeCategoryNumber();
-    int getSwBit();
-    int checkSwBit(unsigned long);
-    char getInfoPriority();
+    bool initMoveParameter(JAIMoveParaSet *, f32, u32);
+    u32 getSeCategoryNumber();
+    u32 getSwBit();
+    u32 checkSwBit(u32);
+    u8 getInfoPriority();
     void claerMainSoundPPointer();
     void release();
-    void stop(unsigned long);
-    void setVolume(float, unsigned long, unsigned char);
-    void setPan(float, unsigned long, unsigned char);
-    void setPitch(float, unsigned long, unsigned char);
-    void setFxmix(float, unsigned long, unsigned char);
+    void stop(u32);
+    void setVolume(f32, u32,  u8);
+    void setPan(f32, u32,  u8);
+    void setPitch(f32, u32,  u8);
+    void setFxmix(f32, u32,  u8);
     
 
-    char _0;
-    char _1;
-    char _2;
-    char _3;
-    int _4;
-    int ID; // _8
-    char _C[0x18-0xC];
-    int _18;
-    int _1C;
-    int _20;
-    char _24[0x34-0x24];
-    int* _34; // sound pointer, maybe?
-    int* streamParam; // _38
+    u8 _0;
+    u8 _1;
+    u8 _2;
+    u8 _3;
+    u32 _4;
+    u32 ID; // _8
+    u8 _C[0x18-0xC];
+    u32 _18;
+    u32 _1C;
+    u32 _20;
+    u8 _24[0x34-0x24];
+    u32* _34; // sound pointer, maybe?
+    u32* streamParam; // _38
     void* _3C;
-    int* vtable; // _40
+    u32* vtable; // _40
 };
 
 #endif // JAISOUND_H

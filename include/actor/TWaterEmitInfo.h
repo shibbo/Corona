@@ -2,56 +2,57 @@
 #define TWATEREMITINFO_H
 
 #include "TParam.h"
+#include "types.h"
 
 class TWaterEmitInfo
 {
 	public:
 	TWaterEmitInfo(char const *);
 	
-	char* _0;
-	int _4;
+	u8* _0;
+	u32 _4;
 	TBaseParam param1; // _8
-	int _18;
+	u32 _18;
 	TBaseParam param2; // _1C
-	short _2C;
-	short _2E; // padding
+	u16 _2C;
+	u16 _2E; // padding
 	TBaseParam param3; // _30
-	short _40;
-	short _42; // padding
+	u16 _40;
+	u16 _42; // padding
 	TBaseParam param4; // _44
-	int _54;
-	int _58;
-	int _5C;
+	u32 _54;
+	u32 _58;
+	u32 _5C;
 	TBaseParam param5; // _60
-	int _70; // not sure why this wasn't declared in the ctor
-	int _74;
-	int _78;
+	u32 _70; // not sure why this wasn't declared in the ctor
+	u32 _74;
+	u32 _78;
 	TBaseParam param6; // _7C
-	int _8C;
-	int _90;
-	int _94;
+	u32 _8C;
+	u32 _90;
+	u32 _94;
 	TBaseParam param7; // _98
-	float _A8;
+	f32 _A8;
 	TBaseParam param8; // _AC
-	float _BC;
+	f32 _BC;
 	TBaseParam param9; // _C0
-	float _D0;
+	f32 _D0;
 	TBaseParam param10; // _D4
-	float _E4;
+	f32 _E4;
 	TBaseParam param11; // _E8
-	float _F8;
+	f32 _F8;
 	TBaseParam param12; // _FC
-	float _10C;
+	f32 _10C;
 	TBaseParam param13; // _110
-	float _120;
+	f32 _120;
 	TBaseParam param14; // _124
-	int _134;
+	u32 _134;
 	TBaseParam param15; // _138
-	short _148;
-	short _14A; // padding
+	u16 _148;
+	u16 _14A; // padding
 	TBaseParam param16; // _14C
-	short _15C;
-	short _15E; // padding
+	u16 _15C;
+	u16 _15E; // padding
 };
 
 #endif // TWATEREMITINFO_H

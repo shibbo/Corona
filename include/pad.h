@@ -1,6 +1,8 @@
 #ifndef PAD_H
 #define PAD_H
 
+#include "types.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -11,23 +13,23 @@ extern "C" {
 
 struct PADStatus
 {
-    short button; // _0
-    signed char  stickX; // _2
-    signed char  stickY; // _3
-    signed char  subStickX; // c stick X (_4)
-    signed char  subStickY; // c stick Y (_5)
-    char  triggerLeft; // left trigger pressure (_6)
-    char  triggerRight; // right trigger pressure (_7)
-    char  analogA; // _8
-    char  analogB; // _9
-    signed char curError; // some odd number based on some constant (_10)
+    u16 button; // _0
+    u8  stickX; // _2
+    u8  stickY; // _3
+    u8  subStickX; // c stick X (_4)
+    u8  subStickY; // c stick Y (_5)
+    u8  triggerLeft; // left trigger pressure (_6)
+    u8  triggerRight; // right trigger pressure (_7)
+    u8  analogA; // _8
+    u8  analogB; // _9
+    u8 curError; // some odd number based on some constant (_10)
 };
 
-bool PADReset(int mask);
-bool PADRecalibrate(int mask);
+bool PADReset(u32 mask);
+bool PADRecalibrate(u32 mask);
 bool PADInit();
-int PADRead(PADStatus * padStat);
-void PADControlMotor(int channel, int command);
+u32 PADRead(PADStatus * padStat);
+void PADControlMotor(u32 channel, u32 command);
 
 #ifdef __cplusplus
 }

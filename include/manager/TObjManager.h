@@ -3,6 +3,7 @@
 
 #include "JDrama.h"
 #include "JSUStream.h"
+#include "types.h"
 
 using namespace JDrama;
 
@@ -14,20 +15,20 @@ class TObjManager : public TViewObj
 	~TObjManager();
 	
 	void load(JSUMemoryInputStream &);
-	TObjManager* searchF(unsigned short, char const *);
+	TObjManager* searchF( u16, char const *);
 	void perform(TGraphics *);
 	void createModelData();
 	void createAnmData();
 	
-	int _10;
-	int _14;
-	int _18;
-	int* _1C; // TItemManager
-	int _20;
-	int _24;
-	int _28;
-	int _2C;
-	int _30;
+	u32 _10;
+	u32 _14;
+	u32 _18;
+	u32* _1C; // TItemManager
+	u32 _20;
+	u32 _24;
+	u32 _28;
+	u32 _2C;
+	u32 _30;
 };
 
 #endif // TOBJMANAGER_H

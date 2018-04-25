@@ -1,45 +1,47 @@
 #ifndef THP_H
 #define THP_H
 
+#include "types.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 struct VideoInfo
 {
-	int h;
-	int w;
+	u32 h;
+	u32 w;
 };
 
 struct GXRenderModeObj
 {
-	int _0; // some VI shit
-	short _4;
-	short _6;
-	short _8;
-	short _A;
-	short _C;
-	short _E;
-	short _10;
-	int _12;
-	char _16;
-	char _17;
-	char _18[12][2];
-	char _19[7];
+	u32 _0; // some VI shit
+	u16 _4;
+	u16 _6;
+	u16 _8;
+	u16 _A;
+	u16 _C;
+	u16 _E;
+	u16 _10;
+	u32 _12;
+	u8 _16;
+	u8 _17;
+	u8 _18[12][2];
+	u8 _19[7];
 };
 
-bool THPPlayerInit(int);
-bool THPPlayerOpen(char *, int);
+bool THPPlayerInit(u32);
+bool THPPlayerOpen(u8 *, u32);
 bool THPPlayerClose();
-int THPPlayerCalcNeedMemory();
-bool THPPlayerSetBuffer(char *);
+u32 THPPlayerCalcNeedMemory();
+bool THPPlayerSetBuffer(u8 *);
 bool THPPlayerPlay();
-bool THPPlayerPrepare(int, int, int);
+bool THPPlayerPrepare(u32, u32, u32);
 void THPPlayerStop();
 bool THPPlayerPause();
 void THPPlayerDrawDone();
-signed int THPPlayerDrawCurrentFrame(GXRenderModeObj *, int, int, int, int);
-bool THPPlayerPrepare(int, int, int);
+u32 THPPlayerDrawCurrentFrame(GXRenderModeObj *, u32, u32, u32, u32);
+bool THPPlayerPrepare(u32, u32, u32);
 void THPPlayerQuit();
 bool THPPlayerGetVideoInfo(VideoInfo *);
 

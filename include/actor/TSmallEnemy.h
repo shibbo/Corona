@@ -2,6 +2,7 @@
 #define TSMALLENEMY_H
 
 #include "JDrama.h"
+#include "types.h"
 #include "actor/THitActor.h"
 #include "manager/TLiveManager.h"
 #include "actor/TSpineEnemy.h"
@@ -16,8 +17,8 @@ class TSmallEnemy : public TSpineEnemy
 	
 	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(unsigned long, TGraphics *);
-	bool recieveMessage(THitActor *, unsigned long);
+	void perform(u32, TGraphics *);
+	bool recieveMessage(THitActor *, u32);
 	void init(TLiveManager *);
 	void moveObject();
 	void kill();
@@ -32,7 +33,7 @@ class TSmallEnemy : public TSpineEnemy
 	void behaveToWater(THitActor *);
 	bool changeByJuice();
 	bool changeMove();
-	int* getChangeBlockTime();
+	u32* getChangeBlockTime();
 	void scalingChangeActor();
 	void changeOut();
 	void behaveToTaken(THitActor *);
@@ -48,43 +49,43 @@ class TSmallEnemy : public TSpineEnemy
 	void forceKill();
 	void setMActorAndKeeper();
 	void initAttacker(THitActor *);
-	bool isHitValid(unsigned long);
+	bool isHitValid(u32);
 	bool isCollidMove(THitActor *);
 	bool isInhibitedForceMove();
 	void endHitWaterJump();
 	void sendAttackMsgToMario();
 	void decHpByWater(THitActor *);
-	void setBckAnm(int);
+	void setBckAnm(u32);
 	void setDeadEffect();
 	void setAfterDeadEffect();
-	int doKeepDistance();
+	u32 doKeepDistance();
 	void generateEffectColumWater();
-	bool isFindMario(float);
+	bool isFindMario(f32);
 	
-	bool isFindMarioFromParam(float) const;
+	bool isFindMarioFromParam(f32) const;
 	
-	int _150;
-	float _154;
-	float _158;
-	int _15C;
-	int _160;
-	char _164;
-	char _165;
-	char _166; // padding?
-	char _167; // ^^
-	int _168;  // ^^
-	int _16C;  // ^^
-	int _170;  // ^^
-	int _174;
-	int _178;
-	int _17C; // 
-	int _180;
-	char _184; // set to 1 in initAttacker
-	char _185;
-	char _186; // padding?
-	char _187; // ^^
-	float _188;
-	int _18C;
+	u32 _150;
+	f32 _154;
+	f32 _158;
+	u32 _15C;
+	u32 _160;
+	u8 _164;
+	u8 _165;
+	u8 _166; // padding?
+	u8 _167; // ^^
+	u32 _168;  // ^^
+	u32 _16C;  // ^^
+	u32 _170;  // ^^
+	u32 _174;
+	u32 _178;
+	u32 _17C; // 
+	u32 _180;
+	u8 _184; // set to 1 in initAttacker
+	u8 _185;
+	u8 _186; // padding?
+	u8 _187; // ^^
+	f32 _188;
+	u32 _18C;
 };
 
 #endif // TSMALLENEMY_H

@@ -1,15 +1,17 @@
 #ifndef TNPCTRAMPLE_H
 #define TNPCTRAMPLE_H
 
+#include "types.h"
+
 class TNpcTrample
 {
     public:
-    bool updateTrample(float, float *);
+    bool updateTrample(f32, f32 *);
     void startTrample();
 
-    float _0;
-    short _4;
-    short _6;
+    f32 _0;
+    u16 _4;
+    u16 _6;
 };
 
 #endif // TNPCTRAMPLE_H

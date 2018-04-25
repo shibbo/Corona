@@ -18,8 +18,8 @@ class TMapObjGeneral : public TMapObjBase
 	
 	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(unsigned long, TGraphics *);
-	bool recieveMessage(THitActor *, unsigned long);
+	void perform(u32, TGraphics *);
+	bool recieveMessage(THitActor *, u32);
 	void ensureTakeSituation();
 	void calcRootMatrix();
 	void control();
@@ -29,10 +29,10 @@ class TMapObjGeneral : public TMapObjBase
 	void initMapObj();
 	void checkIllegalAttr() const;
 	void touchPlayer(THitActor *);
-	int touchWater(THitActor *);
-	int getLivingTime() const;
-	int getFlushTime() const;
-	bool isPollutedGround(TVec3<float> const &);
+	u32 touchWater(THitActor *);
+	u32 getLivingTime() const;
+	u32 getFlushTime() const;
+	bool isPollutedGround(TVec3<f32> const &);
 	void work();
 	void appearing();
 	void appeared();
@@ -54,17 +54,17 @@ class TMapObjGeneral : public TMapObjBase
 	void makeObjRecovered();
 	void recieveMessageFromPlayer();
 	void calcVelocity();
-	void checkGroundCollision(TVec3<float> *);
-	void touchGround(TVec3<float> *);
-	void checkWallCollision(TVec3<float> *);
-	void touch(TVec3<float> *, int *); // TBGWallCheckRecord*
-	void checkRoofCollision(TVec3<float> *);
-	void touchRoof(TVec3<float> *);
+	void checkGroundCollision(TVec3<f32> *);
+	void touchGround(TVec3<f32> *);
+	void checkWallCollision(TVec3<f32> *);
+	void touch(TVec3<f32> *, u32 *); // TBGWallCheckRecord*
+	void checkRoofCollision(TVec3<f32> *);
+	void touchRoof(TVec3<f32> *);
 	
 	THitActor* _138;
-	int _13C;
-	float _140;
-	float _144;
+	u32 _13C;
+	f32 _140;
+	f32 _144;
 };
 
 #endif // TMAPOBJGENERAL_H

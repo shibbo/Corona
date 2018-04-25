@@ -12,21 +12,21 @@ class THitActor : public TActor
 	THitActor(char const *);
 	~THitActor();
 	
-	bool recieveMessage(THitActor *, unsigned long);
-	void initHitActor(unsigned long, unsigned short, int, float, float, float, float);
-	void perform(unsigned long, TGraphics *);
+	bool recieveMessage(THitActor *, u32);
+	void initHitActor(u32,  u16, u32, f32, f32, f32, f32);
+	void perform(u32, TGraphics *);
 	void calcEntryRadius();
 	
-	int _44;
-    short _48;
-    short _4A;
-    int _4C;
-	float _50;
-    float _54;
-    float radiusAtY; // _58
-    float _5C;
-    float _60;
-    int collisionFlags; // _64
+	u32 _44;
+    u16 _48;
+    u16 _4A;
+    u32 _4C;
+	f32 _50;
+    f32 _54;
+    f32 radiusAtY; // _58
+    f32 _5C;
+    f32 _60;
+    u32 collisionFlags; // _64
 };
 
 #endif // THITACTOR_H

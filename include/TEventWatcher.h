@@ -2,6 +2,7 @@
 #define TEVENTWATCHER_H
 
 #include "JDrama.h"
+#include "types.h"
 
 using namespace JDrama;
 
@@ -11,11 +12,11 @@ class TEventWatcher : public TViewObj
     TEventWatcher(char const *, char const *);
     ~TEventWatcher();
 
-    void perform(unsigned long, TGraphics *);
+    void perform(u32, TGraphics *);
     void launchScript(char const *);
 
-    int _10;
-    int _14;
+    u32 _10;
+    u32 _14;
 };
 
 #endif // TEVENTWATCHER_H

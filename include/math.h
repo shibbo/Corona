@@ -1,29 +1,31 @@
 #ifndef MATH_H
 #define MATH_H
 
-//float fabs(double);
-float fabsf(float);
-float atan(float);
-float cos(float);
-float sin(float);
+#include "types.h"
+
+//f32 fabs(double);
+f32 fabsf(f32);
+f32 atan(f32);
+f32 cos(f32);
+f32 sin(f32);
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-//float frexp(float);
-//float atan2(float, float);
-float atanf(float, float);
-float _inv_sqrtf(float);
-float acosf(float);
-float atan2f(float, float);
-float tanf(float);
-float cosf(float);
-float sinf(float);
-float powf(float);
-float expf(float);
+//f32 frexp(f32);
+//f32 atan2(f32, f32);
+f32 atanf(f32, f32);
+f32 _inv_sqrtf(f32);
+f32 acosf(f32);
+f32 atan2f(f32, f32);
+f32 tanf(f32);
+f32 cosf(f32);
+f32 sinf(f32);
+f32 powf(f32);
+f32 expf(f32);
 
-int rand();
+u32 rand();
 
 #ifdef __cplusplus
 }

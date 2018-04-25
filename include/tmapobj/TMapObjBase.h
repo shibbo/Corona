@@ -13,18 +13,18 @@ using namespace JGeometry;
 
 struct ObjData
 {
-	char* objName; // _0
-	float _4; // this might not even be a float
-	char* _8; // manager?
-	char* _C; // manager 2?
-	int* animInfo; // _10
-	int* hitInfo; // _14
-	int* collisionInfo; // _18
-	int* soundInfo; // _1C
-	int unused[0x4]; // _20
-	float _30;
-	int flag; // _34
-	int flag2; // _38
+	u8* objName; // _0
+	f32 _4; // this might not even be a f32
+	u8* _8; // manager?
+	u8* _C; // manager 2?
+	u32* animInfo; // _10
+	u32* hitInfo; // _14
+	u32* collisionInfo; // _18
+	u32* soundInfo; // _1C
+	u32 unused[0x4]; // _20
+	f32 _30;
+	u32 flag; // _34
+	u32 flag2; // _38
 };
 
 /* Size -- 0x138 */
@@ -36,77 +36,77 @@ class TMapObjBase : public TLiveActor
 	
 	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(unsigned long, TGraphics *);
-	bool recieveMessage(THitActor *, unsigned long);
-	int* getTakingMtx();
+	void perform(u32, TGraphics *);
+	bool recieveMessage(THitActor *, u32);
+	u32* getTakingMtx();
 	void ensureTakeSituation();
-	float getRadiusAtY() const;
-	int* getRootJointMtx() const;
+	f32 getRadiusAtY() const;
+	u32* getRootJointMtx() const;
 	void calcRootMatrix();
 	void setGroundCollision();
 	void control();
-	int getShadowType();
+	u32 getShadowType();
 	void kill();
 	void appear();
 	void makeObjAppeared();
 	void makeObjDead();
-	void changeObjSRT(TVec3<float> const &, TVec3<float> const &, TVec3<float> const &);
-	void changeObjMtx(float* [4]);
+	void changeObjSRT(TVec3<f32> const &, TVec3<f32> const &, TVec3<f32> const &);
+	void changeObjMtx(f32* [4]);
 	void updateObjMtx();
 	void setUpCurrentMapColision();
-	void setObjHitData(unsigned short);
-	void setModelMtx(float* [4]);
+	void setObjHitData( u16);
+	void setModelMtx(f32* [4]);
 	void initMapObj();
 	void loadBeforeInit();
 	void initMapCollisionData();
 	void makeMActors();
-	int getSDLModelFlag() const;
+	u32 getSDLModelFlag() const;
 	void checkIllegalAttr() const;
 	void calc();
 	void draw() const;
 	void dead();
 	void touchActor(THitActor *);
 	void touchPlayer(THitActor *);
-	int touchWater(THitActor *);
+	u32 touchWater(THitActor *);
 	void touchEnemy(THitActor *);
 	void touchBoss(THitActor *);
 	void makeObjDefault();
-	int getHitObjNumMax();
-	float getDepthAtFloating();
+	u32 getHitObjNumMax();
+	f32 getDepthAtFloating();
 	
 	// non-vtable functions
-	void startSound(unsigned short soundID);
+	void startSound( u16 soundID);
 	bool hasModelOrAnimData() const;
 	bool animIsFinished() const;
-	bool hasAnim(unsigned short animID) const;
-	void soundBas(unsigned long, float, float);
-	void setUpMapCollision(unsigned short);
+	bool hasAnim( u16 animID) const;
+	void soundBas(u32, f32, f32);
+	void setUpMapCollision( u16);
 	void setUpCurrentMapCollision();
 	void removeMapCollision();
 	void sleep();
 	void awake();
-	void startAnim(unsigned short);
+	void startAnim( u16);
 	static void startAllAnim(MActor *, char const *animName);
 	void initAndRegister(char const *objName);
 	
 	bool marioHeadAttack() const;
 	bool marioIsOn() const;
 	bool marioIsOn(TLiveActor const *actor);
-	void sendMsg(unsigned long, unsigned long);
+	void sendMsg(u32, u32);
 	bool waterHitPlane(THitActor *);
-	TVec3<float> getWaterPos(THitActor *waterActor);
-	int getWaterSpeed(THitActor *waterActor);
-	int getWaterPlane(THitActor *waterActor);
-	int getWaterID(THitActor *waterActor);
-	float getDistance(TVec3<float> const &) const;
+	TVec3<f32> getWaterPos(THitActor *waterActor);
+	u32 getWaterSpeed(THitActor *waterActor);
+	u32 getWaterPlane(THitActor *waterActor);
+	u32 getWaterID(THitActor *waterActor);
+	f32 getDistance(TVec3<f32> const &) const;
 	void startBck(char const *bckName);
-	void startControlAnim(unsigned short);
+	void startControlAnim( u16);
 	void initUnique();
 	bool isFruit(THitActor *actor);
 	bool isCoin(THitActor *actor);
-	static void throwObjFromPointWithRot(TMapObjBase *, TVec3<float> const &throwFrom, TVec3<float> const &throwTo, float, float);
-	void throwObjToFrontFromPoint(TMapObjBase *, TVec3<float> const &thrownPoint, float, float);
-	void throwObjToFront(TMapObjBase *obj, float, float, float);
+	static void throwObjFromPointWithRot(TMapObjBase *, TVec3<f32> const &throwFrom, TVec3<f32> const &throwTo, f32, f32);
+	void throwObjToFrontFromPoint(TMapObjBase *, TVec3<f32> const &thrownPoint, f32, f32);
+	void throwObjToFront(TMapObjBase *obj, f32, f32, f32);
 	void checkOnManhole();
 	bool isDemo();
 	bool isHideObj(THitActor *);
@@ -115,25 +115,25 @@ class TMapObjBase : public TLiveActor
 	void initModelData();
 	void initObjCollisionData();
 	
-	char* objName; // _F4
-	int _F8; // state related
-	short _FC;
-	short _FE;
-	short _100;
-	short _102;
-	int _104;
-	float _108;
-	float _10C;
-	float _110;
-	float _114;
-	float _118;
-	float _11C;
-	float _120;
-	float _124;
-	float _128;
-	float _12C;
+	u8* objName; // _F4
+	u32 _F8; // state related
+	u16 _FC;
+	u16 _FE;
+	u16 _100;
+	u16 _102;
+	u32 _104;
+	f32 _108;
+	f32 _10C;
+	f32 _110;
+	f32 _114;
+	f32 _118;
+	f32 _11C;
+	f32 _120;
+	f32 _124;
+	f32 _128;
+	f32 _12C;
 	ObjData* objData; // _130
-	int eventID; // _134
+	u32 eventID; // _134
 };
 
 #endif // TMAPOBJBASE_H

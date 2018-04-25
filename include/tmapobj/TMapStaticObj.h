@@ -17,18 +17,18 @@ class TMapStaticObj : public THitActor
 	
 	void load(JSUMemoryStream &);
 	void loadAfter();
-	void perform(unsigned long, TGraphics *);
+	void perform(u32, TGraphics *);
 	void init(char const *);
 	void initUnique();
 	void initModel(char const *);
-	int* getModelData() const;
+	u32* getModelData() const;
 	
-	char* actorName; // _68
-	char* modelName; // _6C
+	u8* actorName; // _68
+	u8* modelName; // _6C
 	MActor* actor; // _70
-	int _74;
-	int _78;
-	int _7C;
+	u32 _74;
+	u32 _78;
+	u32 _7C;
 };
 
 #endif // TMAPSTATICOBJ_H

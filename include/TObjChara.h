@@ -3,6 +3,7 @@
 
 #include "JDrama.h"
 #include "JSUStream.h"
+#include "types.h"
 
 using namespace JDrama;
 
@@ -12,7 +13,7 @@ class TObjChara : public TCharacter
     ~TObjChara();
 
     void load(JSUMemoryInputStream &);
-    int* getGlbResource(char const *) const; // return type is probably JKRArchive*
+    u32* getGlbResource(char const *) const; // return type is probably JKRArchive*
 };
 
 #endif // TOBJCHARA_H

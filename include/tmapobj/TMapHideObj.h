@@ -16,20 +16,20 @@ class TMapHideObj : public TMapObjBase
 
     void load(JSUMemoryInputStream &);
     void loadAfter();
-    int recieveMessage(THitActor *, unsigned long);
-    void appearObj(float);
-    void appearObjFromPoint(TVec3<float> const &);
+    u32 recieveMessage(THitActor *, u32);
+    void appearObj(f32);
+    void appearObjFromPoint(TVec3<f32> const &);
     void emitEffect();
 
-    float _138;
-    float _13C;
-    float _140;
-    int _144;
-    int _148;
-    char _14C;
-    char _14D; // padding?
-    char _14E; // ^^
-    char _14F; // ^^
+    f32 _138;
+    f32 _13C;
+    f32 _140;
+    u32 _144;
+    u32 _148;
+    u8 _14C;
+    u8 _14D; // padding?
+    u8 _14E; // ^^
+    u8 _14F; // ^^
 };
 
 #endif // TMAPHIDEOBJ_H

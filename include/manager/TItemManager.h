@@ -3,6 +3,7 @@
 
 #include "JDrama.h"
 #include "JSUStream.h"
+#include "types.h"
 #include "manager/TMapObjBaseManager.h"
 
 using namespace JDrama;
@@ -16,26 +17,26 @@ class TItemManager : public TMapObjBaseManager
 	
 	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(unsigned long, TGraphics *);
+	void perform(u32, TGraphics *);
 	bool hasMapCollision() const;
-	void makeShineAppearWithDemoOffset(char const *, char const *, float, float, float);
-	void makeShineAppearWithDemo(char const *, char const *, float, float, float);
+	void makeShineAppearWithDemoOffset(char const *, char const *, f32, f32, f32);
+	void makeShineAppearWithDemo(char const *, char const *, f32, f32, f32);
 	
-	float _40;
-	float _44;
-	float _48;
-	float _4C;
-	float _50;
-	float _54;
-	float _58;
-	float _5C;
-	float _60;
-	float _64;
-	float _68; // padding? maybe.
-	float _6C;
-	float _70;
-	float _74;
-	int _78;
+	f32 _40;
+	f32 _44;
+	f32 _48;
+	f32 _4C;
+	f32 _50;
+	f32 _54;
+	f32 _58;
+	f32 _5C;
+	f32 _60;
+	f32 _64;
+	f32 _68; // padding? maybe.
+	f32 _6C;
+	f32 _70;
+	f32 _74;
+	u32 _78;
 };
 
 #endif // TITEMMANAGER_H

@@ -1,16 +1,18 @@
 #ifndef TPATHNODE_H
 #define TPATHNODE_H
 
+#include "types.h"
+
 class TPathNode
 {
     public:
     TPathNode();
     ~TPathNode();
     
-    int getPoint() const;
+    u32 getPoint() const;
 
-    int _0;
-    float _4;
-    float _8;
-    float _C;
+    u32 _0;
+    f32 _4;
+    f32 _8;
+    f32 _C;
 };

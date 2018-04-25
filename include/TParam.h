@@ -2,32 +2,33 @@
 #define TPARAM_H
 
 #include "JSUStream.h"
+#include "types.h"
 
 class TParams
 {
 	public:
-	int load(char const *);
+	u32 load(char const *);
 	void load(JSUMemoryInputStream &);
 	void init();
 	void finalize();
 	
-	int* _0;
-	int* _4;
+	u32* _0;
+	u32* _4;
 };
 
 class TBaseParam
 {
 	public:
-	TBaseParam(TParams *, unsigned short, char const *);
+	TBaseParam(TParams *,  u16, char const *);
 	
 	void load(JSUMemoryInputStream &);
 	
-	int* vtable; // _0
-	short _4;
-	short _6; // padding?
-	char _7; // ^^
-	int _8;
-	int _C;
+	u32* vtable; // _0
+	u16 _4;
+	u16 _6; // padding?
+	u8 _7; // ^^
+	u32 _8;
+	u32 _C;
 };
 
 #endif // TPARAM_H

@@ -1,6 +1,7 @@
 #ifndef TPOLLUTIONOBJ_H
 #define TPOLLUTIONOBJ_H
 
+#include "types.h"
 #include "j3d/TJoint.h"
 
 class TPollutionObj : public TJointObj
@@ -10,12 +11,12 @@ class TPollutionObj : public TJointObj
 	
 	*TPollutionObj newJointObj() const;
 	
-	int _20;
-	int _24;
-	int _28;
-	int _2C;
-	int _30;
-	int _34;
+	u32 _20;
+	u32 _24;
+	u32 _28;
+	u32 _2C;
+	u32 _30;
+	u32 _34;
 };
 
 #endif // TPOLLUTIONOBJ_H

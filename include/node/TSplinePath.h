@@ -1,26 +1,28 @@
 #ifndef TSPLINEPATH_H
 #define TSPLINEPATH_H
 
+#include "types.h"
+
 class TSplinePath
 {
     public:
-    TSplinePath(int); // this integer is nodeCount + 3
+    TSplinePath(u32); // this integer is nodeCount + 3
 
-    float calcSpline(float, float *, float *, float *);
+    f32 calcSpline(f32, f32 *, f32 *, f32 *);
     void calcTable();
-    void makeTable(float *, float *, float *);
-    void getFloat(float);
+    void makeTable(f32 *, f32 *, f32 *);
+    void getFloat(f32);
 
-    int _0; // said nodeCount + 3 is stored here
-    float* _4;
-    float* _8;
-    float* _C;
-    float* _10;
-    float* _14;
-    float* _18;
-    float* _1C;
-    float* _20;
-    float* _24;
+    u32 _0; // said nodeCount + 3 is stored here
+    f32* _4;
+    f32* _8;
+    f32* _C;
+    f32* _10;
+    f32* _14;
+    f32* _18;
+    f32* _1C;
+    f32* _20;
+    f32* _24;
 };
 
 #endif // TSPLINEPATH_H

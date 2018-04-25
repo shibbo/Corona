@@ -1,11 +1,12 @@
 #include <kamek.h>
 
+#include "types.h"
+#include "os.h"
 #include "actor/item/TCoin.h"
 #include "actor/TMario.h"
-#include "os.h"
 
 // timer that we use to see if we can spawn a coin
-int timeSinceLastCoin = 0;
+u32 timeSinceLastCoin = 0;
 
 TMario* SpawnObject(TMario* mario)
 {

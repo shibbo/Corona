@@ -1,9 +1,10 @@
 #ifndef TCOIN_H
 #define TCOIN_H
 
+#include "JDrama.h"
+#include "types.h"
 #include "actor/TItem.h"
 #include "actor/THitActor.h"
-#include "JDrama.h"
 
 using namespace JDrama;
 
@@ -14,14 +15,14 @@ class TCoin : public TItem
 	~TCoin();
 	
 	void loadAfter();
-	void perform(unsigned long, TGraphics*);
+	void perform(u32, TGraphics*);
 	void appear();
 	void makeObjAppeared();
 	void makeObjDead();
 	void initMapObj();
 	void taken(THitActor*);
 	
-	int _154;
+	u32 _154;
 };
 
 #endif // TCOIN_H

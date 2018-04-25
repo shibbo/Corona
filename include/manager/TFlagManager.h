@@ -3,19 +3,20 @@
 
 #include "JKR.h"
 #include "JSUStream.h"
+#include "types.h"
 
 class TFlagManager
 {
 	public:
 	// doesn't have a ctor or dtor
-	bool getBool(unsigned long) const;
-	void setFlag(unsigned long, unsigned long);
-	char getFlag(unsigned long) const;
-	void setShineFlag(unsigned char stageID);
-	bool getShineFlag(unsigned char stageID) const;
-	void setBlueCoinFlag(unsigned char stageID, unsigned char);
-	bool getBlueCoinFlag(unsigned char stageID, unsigned char) const;
-	void incGoldCoinFlag(unsigned char stageNo, long howMany);
+	bool getBool(u32) const;
+	void setFlag(u32, u32);
+	u8 getFlag(u32) const;
+	void setShineFlag( u8 stageID);
+	bool getShineFlag( u8 stageID) const;
+	void setBlueCoinFlag( u8 stageID,  u8);
+	bool getBlueCoinFlag( u8 stageID,  u8) const;
+	void incGoldCoinFlag( u8 stageNo, long howMany);
 	void incMario(long);
 	void resetStage();
 	void resetGame();
@@ -30,27 +31,27 @@ class TFlagManager
 	void firstStart();
 	void restore();
 	void load(JSUMemoryInputStream &);
-	void setNozzleRight(unsigned char stageID, unsigned char);
-	void getNozzleRight(unsigned char stageID, unsigned char) const;	
+	void setNozzleRight( u8 stageID,  u8);
+	void getNozzleRight( u8 stageID,  u8) const;	
 
-	char _0[0x78];
-	int _78;
-	int _7C;
-	int _80;
-	int _84;
-	int _88;
-	int _8C;
-	int _90;
-	int _94;
-	int _98;
-	int _9C;
-	int _A0;
-	int _A4;
-	int _A8;
-	int _AC;
-	int _B0;
-	int _B4;
-	char _B8[0x37C-0xB8];
+	u8 _0[0x78];
+	u32 _78;
+	u32 _7C;
+	u32 _80;
+	u32 _84;
+	u32 _88;
+	u32 _8C;
+	u32 _90;
+	u32 _94;
+	u32 _98;
+	u32 _9C;
+	u32 _A0;
+	u32 _A4;
+	u32 _A8;
+	u32 _AC;
+	u32 _B0;
+	u32 _B4;
+	u8 _B8[0x37C-0xB8];
 };
 
 #endif // TFLAGMANAGER_H

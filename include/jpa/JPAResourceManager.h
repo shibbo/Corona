@@ -2,14 +2,15 @@
 #define JPARESOURCEMANAGER_H
 
 #include "JKR.h"
+#include "types.h"
 
 class JPAResourceManager
 {
     public:
-    JPAResourceManager(unsigned long, unsigned long, JKRHeap *);
+    JPAResourceManager(u32, u32, JKRHeap *);
 
-    void load(char const *, unsigned short);
-    void load(void const *, unsigned short);
+    void load(char const *,  u16);
+    void load(void const *,  u16);
     
 };
 

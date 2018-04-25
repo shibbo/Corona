@@ -11,10 +11,10 @@ class TPathNode
     TPathNode();
     ~TPathNode();
 
-    float getPoint() const;
+    f32 getPoint() const;
 
-    int _0;
-    TVec3<float> position; // _4
+    u32 _0;
+    TVec3<f32> position; // _4
 };
 
 #endif // TPATHNODE_H

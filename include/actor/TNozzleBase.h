@@ -1,8 +1,9 @@
 #ifndef TNOZZLEBASE_H
 #define TNOZZLEBASE_H
 
-#include "actor/TMario.h"
 #include "TParam.h"
+#include "types.h"
+#include "actor/TMario.h"
 #include "actor/TWaterEmitInfo.h"
 #include "actor/TWaterGun.h"
 
@@ -12,128 +13,128 @@ class TNozzleBase
 	TNozzleBase(char const *, char const *, TWaterGun *);
 	
 	void init();
-	int getNozzleKind() const;
-	short getGunAngle();
-	short getWaistAngle();
+	u32 getNozzleKind() const;
+	u16 getGunAngle();
+	u16 getWaistAngle();
 	void movement(TMarioControllerWork const &);
-	void emitCommon(int, TWaterEmitInfo *);
-	void emit(int);
-	void animation(int);
+	void emitCommon(u32, TWaterEmitInfo *);
+	void emit(u32);
+	void animation(u32);
 	
-	char* _0;
-	int _4;
+	u8* _0;
+	u32 _4;
 	TBaseParam param1; // _8
-	char _18;
-	char _19; // padding
-	char _1A; // ^^
-	char _1B; // ^^
+	u8 _18;
+	u8 _19; // padding
+	u8 _1A; // ^^
+	u8 _1B; // ^^
 	TBaseParam param2; // _1C
-	float _2C;
+	f32 _2C;
 	TBaseParam param3; // _30
-	short _40;
-	short _42; // padding
+	u16 _40;
+	u16 _42; // padding
 	TBaseParam param4; // _44
-	float _54;
+	f32 _54;
 	TBaseParam param5; // _58
-	float _68;
+	f32 _68;
 	TBaseParam param6; // _6C
-	float _7C;
+	f32 _7C;
 	TBaseParam param7; // _80
-	float _90;
+	f32 _90;
 	TBaseParam param8; // _94
-	float _A4;
+	f32 _A4;
 	TBaseParam param9; // _A8
-	float _B8;
+	f32 _B8;
 	TBaseParam param10; // _BC
-	int _CC;
+	u32 _CC;
 	TBaseParam param11; // _D0
-	float _E0;
+	f32 _E0;
 	TBaseParam param12; // _E4
-	float _F4;
+	f32 _F4;
 	TBaseParam param13; // _F8
-	short _108;
-	short _10A; // padding
+	u16 _108;
+	u16 _10A; // padding
 	TBaseParam param14; // _10C
-	short _11C;
-	short _11E; // padding
+	u16 _11C;
+	u16 _11E; // padding
 	TBaseParam param15; // _120
-	int _130;
+	u32 _130;
 	TBaseParam param16; // _134
-	float _144;
+	f32 _144;
 	TBaseParam param17; // _148
-	float _158;
+	f32 _158;
 	TBaseParam param18; // _15C
-	float _16C;
+	f32 _16C;
 	TBaseParam param19; // _170
-	short _180;
-	short _182; // padding
+	u16 _180;
+	u16 _182; // padding
 	TBaseParam param20; // _184
-	short _194;
-	short _196; // padding
+	u16 _194;
+	u16 _196; // padding
 	TBaseParam param21; // _198
-	short _1A8;
-	short _1AA; // padding
+	u16 _1A8;
+	u16 _1AA; // padding
 	TBaseParam param22; // _1AC
-	short _1BC;
-	short _1BE; // padding
+	u16 _1BC;
+	u16 _1BE; // padding
 	TBaseParam param23; // _1C0
-	short _1D0;
-	short _1D2; // padding
+	u16 _1D0;
+	u16 _1D2; // padding
 	TBaseParam param24; // _1D4
-	float _1E4;
+	f32 _1E4;
 	TBaseParam param25; // _1E8
-	float _1F8;
+	f32 _1F8;
 	TBaseParam param26; // _1FC
-	float _20C;
+	f32 _20C;
 	TBaseParam param27; // _210
-	float _220;
+	f32 _220;
 	TBaseParam param28; // _224
-	short _234;
-	short _236; // padding
+	u16 _234;
+	u16 _236; // padding
 	TBaseParam param29; // _238
-	float _248;
+	f32 _248;
 	TBaseParam param30; // _24C
-	float _25C;
+	f32 _25C;
 	TBaseParam param31; // _260
-	float _270;
+	f32 _270;
 	TBaseParam param32; // _274
-	float _284;
+	f32 _284;
 	TBaseParam param33; // _288
-	float _298;
+	f32 _298;
 	TBaseParam param34; // _29C
-	float _2AC;
+	f32 _2AC;
 	TBaseParam param35; // _2B0
-	float _2C0;
+	f32 _2C0;
 	TBaseParam param36; // _2C4
-	float _2D4;
+	f32 _2D4;
 	TBaseParam param37; // _2D8
-	short _2E8;
-	short _2EA; // padding
+	u16 _2E8;
+	u16 _2EA; // padding
 	TBaseParam param38; // _2EC
-	short _2FC;
-	short _2FE; // padding
+	u16 _2FC;
+	u16 _2FE; // padding
 	TBaseParam param39; // _300
-	short _310;
-	short _312; // padding
+	u16 _310;
+	u16 _312; // padding
 	TBaseParam param40; // _314
-	short _324;
-	short _326; // padding
+	u16 _324;
+	u16 _326; // padding
 	TBaseParam param41; // _328
-	short _338;
-	short _33A; // padding
+	u16 _338;
+	u16 _33A; // padding
 	TBaseParam param42; // _33C
-	float _34C;
+	f32 _34C;
 	TBaseParam param43; // _350
-	float _360;
-	int* vtable; // _364
-	int* TWaterGun; // _368
-	short _36C;
-	short gunAngle; // _36E
-	short waistAngle; // _370
-	short _372;
-	short _374; // padding?
-	float _378;
-	float _37C;
+	f32 _360;
+	u32* vtable; // _364
+	u32* TWaterGun; // _368
+	u16 _36C;
+	u16 gunAngle; // _36E
+	u16 waistAngle; // _370
+	u16 _372;
+	u16 _374; // padding?
+	f32 _378;
+	f32 _37C;
 };
 
 #endif // TNOZZLE_H

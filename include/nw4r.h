@@ -27,7 +27,7 @@ namespace nw4r
 
 		struct VEC2 : public Vec2 { };
 		struct VEC3 : public Vec {
-			void Report(bool addNewLine, const char *prefixText = 0);
+			void Report(bool addNewLine, const u8 *prefixText = 0);
 		};
 
 		struct MTX33 { f32 data[3][3]; };
@@ -40,8 +40,8 @@ namespace nw4r
 		void MTX34Add(MTX34 *dest, const MTX34 *sourceA, const MTX34 *sourceB);
 		void MTX34Scale(MTX34 *dest, const MTX34 *sourceMatrix, const VEC3 *sourceVector);
 		void MTX34Trans(MTX34 *dest, const MTX34 *sourceMatrix, const VEC3 *sourceVector);
-		void MTX34RotAxisFIdx(MTX34 *dest, const VEC3 *vector, float fidx);
-		void MTX34RotXYZFIdx(MTX34 *dest, float x, float y, float z);
+		void MTX34RotAxisFIdx(MTX34 *dest, const VEC3 *vector, f32 fidx);
+		void MTX34RotXYZFIdx(MTX34 *dest, f32 x, f32 y, f32 z);
 		void VEC3TransformNormal(VEC3 *dest, const MTX34 *sourceMatrix, const VEC3 *sourceVector);
 		void MTX44Identity(MTX44 *mtx);
 		void MTX44Copy(MTX44 *dest, const MTX44 *source);
@@ -69,7 +69,7 @@ namespace nw4r
 
 			void Set(f32 fovy, f32 aspect, f32 near, f32 far, const MTX34 &matrix);
 			void Set(f32 top, f32 bottom, f32 left, f32 right, f32 near, f32 far, const MTX34 &matrix);
-			int IntersectAABB_Ex(const AABB *otherAabb);
+			u32 IntersectAABB_Ex(const AABB *otherAabb);
 		};
 
 		struct SEGMENT3 { VEC3 a, b; };
@@ -77,8 +77,8 @@ namespace nw4r
 		struct SPHERE { VEC3 point; f32 radius; };
 
 		f32 DistSqSegment3ToSegment3(const SEGMENT3 *a, const SEGMENT3 *b, f32 *pOut1, f32 *pOut2);
-		int IntersectionLine3Sphere(const LINE3 *a, const SPHERE *b, f32 *pOut1, f32 *pOut2);
-		int IntersectionSegment3Sphere(const SEGMENT3 *a, const SPHERE *b, f32 *pOut1, f32 *pOut2);
+		u32 IntersectionLine3Sphere(const LINE3 *a, const SPHERE *b, f32 *pOut1, f32 *pOut2);
+		u32 IntersectionSegment3Sphere(const SEGMENT3 *a, const SPHERE *b, f32 *pOut1, f32 *pOut2);
 		bool IntersectionAABB(const AABB *a, const AABB *b);
 	}
 }

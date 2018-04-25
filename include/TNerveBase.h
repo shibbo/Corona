@@ -1,6 +1,8 @@
 #ifndef TNERVEBASE_H
 #define TNERVEBASE_H
 
+#include "types.h"
+
 // i've seen TLiveActor with this
 template <typename T>
 class TNerveBase
@@ -9,7 +11,7 @@ class TNerveBase
     TNerveBase();
     ~TNerveBase();
 
-    int* vtable; // _0
+    u32* vtable; // _0
 };
 
 #endif // TNERVEBASE_H

@@ -4,9 +4,9 @@
 /* This actually isn't a part of JGeometry, but shrug */
 struct Vec
 {
-	float x;
-	float y;
-	float z;
+	f32 x;
+	f32 y;
+	f32 z;
 };
 
 namespace JGeometry
@@ -89,7 +89,7 @@ namespace JGeometry
 		public:
 		TRotation3();
 
-		void getQuad(TQuat4<float> &) const;
+		void getQuad(TQuat4<f32> &) const;
 	};
 
 	// are these class useless?

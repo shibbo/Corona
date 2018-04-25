@@ -4,6 +4,7 @@
 #include "JKR.h"
 #include "OS.h"
 #include "pad.h"
+#include "types.h"
 
 namespace JUtility
 {
@@ -11,12 +12,12 @@ namespace JUtility
 	{
 		public:
 		TColor();
-		void set(unsigned char r, unsigned char g, unsigned char b, unsigned char a);
+		void set( u8 r,  u8 g,  u8 b,  u8 a);
 		
-		unsigned char R; // _0
-		unsigned char G; // _1
-		unsigned char B; // _2
-		unsigned char A; // _3
+		 u8 R; // _0
+		 u8 G; // _1
+		 u8 B; // _2
+		 u8 A; // _3
 	};
 };
 
@@ -27,30 +28,30 @@ class JUTPoint
 	public:
 	JUTPoint();
 	
-	int X; // _0
-	int Y; // _4
+	u32 X; // _0
+	u32 Y; // _4
 };
 
 class JUTRect
 {
 	public:
 	JUTRect();
-	JUTRect(int, int, int, int);
+	JUTRect(u32, u32, u32, u32);
 	
-	void set(int, int, int, int);
+	void set(u32, u32, u32, u32);
 	void copy(JUTRect const &);
-	void add(int, int);
-	int intersect(JUTRect const &);
-	void move(int, int);
-	void resize(int, int);
-	void reform(int, int, int, int);
+	void add(u32, u32);
+	u32 intersect(JUTRect const &);
+	void move(u32, u32);
+	void resize(u32, u32);
+	void reform(u32, u32, u32, u32);
 	void normalize();
 	bool isEmpty() const;
 	
-	int X; // _0
-	int Y; // _4
-	int Height; // _8
-	int Width; // _C
+	u32 X; // _0
+	u32 Y; // _4
+	u32 Height; // _8
+	u32 Width; // _C
 };
 
 /* Size -- 0x1C */
@@ -61,17 +62,17 @@ class JUTFont
 	~JUTFont();
 	
 	void initiate(); // nullsub
-	void setCharColor(TColor);
+	void setu8Color(TColor);
 	void setGradColor(TColor, TColor);
-	void drawString_size_scale(float, float, float, float, char const *, unsigned long, bool);
+	void drawString_size_scale(f32, f32, f32, f32, char const *, u32, bool);
 	void setGX(TColor, TColor);
 	
-	int* vtable; // _0
-	char _4;
-	char _5; // padding?
-	char _6; // ^^
-	char _7; // ^^
-	int _8;
+	u32* vtable; // _0
+	u8 _4;
+	u8 _5; // padding?
+	u8 _6; // ^^
+	u8 _7; // ^^
+	u32 _8;
 	TColor color1; // _C
 	TColor color2; // _10
 	TColor color3; // _14
@@ -82,29 +83,29 @@ class JUTFont
 class JUTResFont : public JUTFont
 {
 	public:
-	JUTResFont(int const *, JKRArchive *); // ResFont
+	JUTResFont(u32 const *, JKRArchive *); // ResFont
 	~JUTResFont();
 	
-	void initiate(int const *, JKRArchive *); // ResFont
+	void initiate(u32 const *, JKRArchive *); // ResFont
 	void setGX();
 	void setGX(TColor, TColor);
 	
-	int _1C;
-	int _20;
-	char _24[0x44-0x24]; // GXTexObj
-	int _44;
-	int _48;
-	int _4C; // padding?
-	int _50;
-	int _54;
-	int _58;
-	short _5C;
-	short _5E;
-	short _60;
-	short _62;
-	short _64;
-	short _66;
-	int _68;
+	u32 _1C;
+	u32 _20;
+	u8 _24[0x44-0x24]; // GXTexObj
+	u32 _44;
+	u32 _48;
+	u32 _4C; // padding?
+	u32 _50;
+	u32 _54;
+	u32 _58;
+	u16 _5C;
+	u16 _5E;
+	u16 _60;
+	u16 _62;
+	u16 _64;
+	u16 _66;
+	u32 _68;
 };
 
 enum EPadPort
@@ -130,7 +131,7 @@ enum WhichStick
 class JUTGamePad : public JKRDisposer
 {
 	public:
-	JUTGamePad(int); // EPadPort
+	JUTGamePad(EPadPort port);
 	~JUTGamePad();
 
 	void assign();
@@ -142,24 +143,24 @@ class JUTGamePad : public JKRDisposer
 		CButton();
 
 		void clear();
-		void update(PADStatus const *, unsigned long);
-		void setRepeat(unsigned long, unsigned long, unsigned long);
+		void update(PADStatus const *, u32);
+		void setRepeat(u32, u32, u32);
 
-		int _0;
-		int _4;
-		int _8;
-		char analogA; // _C
-		char analogB; // _D
-		char triggerLeft; // _E
-		char triggerRight; // _F
-		float _10;
-		float _14;
-		int _18;
-		int _1C;
-		int _20;
-		int _24;
-		int _28;
-		int _2C;
+		u32 _0;
+		u32 _4;
+		u32 _8;
+		u8 analogA; // _C
+		u8 analogB; // _D
+		u8 triggerLeft; // _E
+		u8 triggerRight; // _F
+		f32 _10;
+		f32 _14;
+		u32 _18;
+		u32 _1C;
+		u32 _20;
+		u32 _24;
+		u32 _28;
+		u32 _2C;
 	};
 
 	class CStick
@@ -168,46 +169,46 @@ class JUTGamePad : public JKRDisposer
 		CStick();
 
 		void clear();
-		int update(signed char, signed char, EStickMode, WhichStick);
-		int getButton();
+		u32 update(s8, s8, EStickMode, WhichStick);
+		u32 getButton();
 
-		float stickX;
-		float stickY;
-		float length;
-		short angle;
-		short _E; // i assume unused
+		f32 stickX;
+		f32 stickY;
+		f32 length;
+		u16 angle;
+		u16 _E; // i assume unused
 	};
 
 	class CRumble
 	{
 		public:
 		void clear(JUTGamePad *);
-		void stopMotor(int);
-		void stopMotorHard(int);
-		void update(short);
-		void setEnable(unsigned long);
+		void stopMotor(u32);
+		void stopMotorHard(u32);
+		void update(u16);
+		void setEnable(u32);
 
-		int _0;
-		int _4;
-		int _8;
-		int _C;
+		u32 _0;
+		u32 _4;
+		u32 _8;
+		u32 _C;
 	};
 
 	CButton buttons; // _18
 	CStick controlStick; // _48
 	CStick cStick; // _58
 	CRumble rumble; // _68
-	short port; // _78
-	short _7A; // padding?
+	u16 port; // _78
+	u16 _7A; // padding?
 	JSUPtrLink ptrLink; // _7C
-	int _8C;
-	int _90;
-	int _94;
-	int _98;
-	char resetFlag; // _9C
-	char _9D; // ^^
-	char _9E; // ^^
-	char _9F; // ^^
+	u32 _8C;
+	u32 _90;
+	u32 _94;
+	u32 _98;
+	u8 resetFlag; // _9C
+	u8 _9D; // ^^
+	u8 _9E; // ^^
+	u8 _9F; // ^^
 	OSTime resetTime; // _A0
 };
 

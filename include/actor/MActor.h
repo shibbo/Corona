@@ -2,6 +2,7 @@
 #define MACTOR_H
 
 #include "JDrama.h"
+#include "types.h"
 
 using namespace JDrama;
 
@@ -11,27 +12,27 @@ class MActorAnmData
 	MActorAnmData();
 	
 	void init(char const *, char const **);
-	int partsNameToIndx(char const *);
+	u32 partsNameToIndx(char const *);
 	
-	int _0;
-	int* _4; // _4->_4 = *J3DModelData
-	int _8;
-	int _C;
-	int _10;
-	int _14;
-	int _18;
-	int _1C;
-	int _20;
-	int _24;
-	int _28;
-	int _2C;
-	int _30;
-	int _34;
-	int _38;
-	int _3C;
-	int _40;
-	int _44;
-	int _48;
+	u32 _0;
+	u32* _4; // _4->_4 = *J3DModelData
+	u32 _8;
+	u32 _C;
+	u32 _10;
+	u32 _14;
+	u32 _18;
+	u32 _1C;
+	u32 _20;
+	u32 _24;
+	u32 _28;
+	u32 _2C;
+	u32 _30;
+	u32 _34;
+	u32 _38;
+	u32 _3C;
+	u32 _40;
+	u32 _44;
+	u32 _48;
 };
 
 class MActor
@@ -44,60 +45,60 @@ class MActor
 	void entryIn();
 	void updateOut();
 	void updateIn();
-	void setBrkFromIndex(int index);
+	void setBrkFromIndex(u32 index);
 	void setBrk(char const *brkName);
 	void setBlk(char const *blkName);
-	void setBtkFromIndex(int index);
+	void setBtkFromIndex(u32 index);
 	void setBtk(char const *btkName);
-	void setBtpFromIndex(int index);
+	void setBtpFromIndex(u32 index);
 	void setBtp(char const *btpName);
-	void setpBpkFromIndex(int index);
+	void setpBpkFromIndex(u32 index);
 	void setBpk(char const *bpkName);
-	void setBckFromIndex(int index);
+	void setBckFromIndex(u32 index);
 	void setBck(char const *bckName);
-	void setFrameRate(float, int);
-	int getCurAnmIdx(int) const;
-	bool checkBckPass(float);
-	int getFrameCtrl(int);
-	bool checkAnmFileExist(char const *fileName, int);
+	void setFrameRate(f32, u32);
+	u32 getCurAnmIdx(u32) const;
+	bool checkBckPass(f32);
+	u32 getFrameCtrl(u32);
+	bool checkAnmFileExist(char const *fileName, u32);
 
-	void perform(unsigned long, TGraphics *);
+	void perform(u32, TGraphics *);
 	void matAnmFrameUpdate();
 	void frameUpdate();
 	void entry();
 
-	void setLightType(int lightType);
-	void setLightID(short lightID);
+	void setLightType(u32 lightType);
+	void setLightID(u16 lightID);
 	void viewCalc();
 	void calc();
 	void calcAnim();
 
 	void resetDL();
 	
-	int _0;
-	int _4;
-	int _8;
-	int _C;
-	int _10;
-	int _14;
-	int _18;
-	int _1C;
-	int _20;
-	int _24;
-	int* _28;
-	int _2C;
-	int _30;
-	int _34;
-	char _38;
-	char _39;
-	char _3A; // padding?
-	char _3B; // ^^
-	int lightID; // _3C
-	char _40;
-	char _41; // padding?
-	char _42; // ^^
-	char _43; // ^^
-	int lightType; // _44
+	u32 _0;
+	u32 _4;
+	u32 _8;
+	u32 _C;
+	u32 _10;
+	u32 _14;
+	u32 _18;
+	u32 _1C;
+	u32 _20;
+	u32 _24;
+	u32* _28;
+	u32 _2C;
+	u32 _30;
+	u32 _34;
+	u8 _38;
+	u8 _39;
+	u8 _3A; // padding?
+	u8 _3B; // ^^
+	u32 lightID; // _3C
+	u8 _40;
+	u8 _41; // padding?
+	u8 _42; // ^^
+	u8 _43; // ^^
+	u32 lightType; // _44
 };
 
 #endif // MACTOR_H

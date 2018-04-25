@@ -3,6 +3,7 @@
 
 #include "JDrama.h"
 #include "JSUStream.h"
+#include "types.h"
 #include "actor/THitActor.h"
 #include "tmapobj/TMapObjGeneral.h"
 
@@ -15,8 +16,8 @@ class TItem : public TMapObjGeneral
 	~TItem();
 	
 	void load(JSUMemoryInputStream &);
-	void perform(unsigned long, TGraphics *);
-	int recieveMessage(THitActor*, unsigned long);
+	void perform(u32, TGraphics *);
+	u32 recieveMessage(THitActor*, u32);
 	void calcRootMatrix();
 	void appear();
 	void initMapObj();
@@ -24,12 +25,12 @@ class TItem : public TMapObjGeneral
 	void touchPlayer(THitActor *);
 	void appearing();
 	void appeared();
-	void killByTimer(int);
+	void killByTimer(u32);
 	void taken(THitActor *);
 	
-	int _148;
-	int _14C;
-	int _150;
+	u32 _148;
+	u32 _14C;
+	u32 _150;
 };
 
 #endif // TITEM_H

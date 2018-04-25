@@ -1,15 +1,16 @@
 #ifndef TYOSHI_H
 #define TYOSHI_H
 
-#include "actor/TMario.h"
-#include "actor/THitActor.h"
 #include "J3D.h"
 #include "JDrama.h"
 #include "JGeometry.h"
+#include "actor/THitActor.h"
 #include "tmapobj/TMapObjGeneral.h"
 
 using namespace JDrama;
 using namespace JGeometry;
+
+class TMario;
 
 class TEggYoshi : public TMapObjGeneral
 {
@@ -18,19 +19,19 @@ class TEggYoshi : public TMapObjGeneral
     ~TEggYoshi();
 
     void load(JSUMemoryInputStream &);
-    void peform(unsigned long, TGraphics *);
-    bool recieveMessage(THitActor *, unsigned long);
+    void peform(u32, TGraphics *);
+    bool recieveMessage(THitActor *, u32);
     void control();
     void touchActor(THitActor *);
-    int getHitObjNumMax();
+    u32 getHitObjNumMax();
 
     void startFruit();
     void touchFruit(THitActor *);
     void decideRandomLoveFruit();
 
-    int _148;
-    int _14C;
-    int _150;
+    u32 _148;
+    u32 _14C;
+    u32 _150;
 };
 
 class TYoshi
@@ -42,7 +43,7 @@ class TYoshi
     void calcAnim();
     void movement();
     void thinkHoldOut();
-    void doEat(unsigned long);
+    void doEat(u32);
     void doSearch();
     void thinkUpper();
     void thinkAnimation();
@@ -50,102 +51,102 @@ class TYoshi
     void ride();
     void kill();
     bool disappear();
-    void appearFromEgg(TVec3<float> const &, float, TEggYoshi *);
+    void appearFromEgg(TVec3<f32> const &, f32, TEggYoshi *);
     void setEggYoshiPtr(TEggYoshi *);
-    void getEmitPosDir(TVec3<float> *, TVec3<float> *);
-    void changeAnimation(int);
-    void thinkBtp(int);
+    void getEmitPosDir(TVec3<f32> *, TVec3<f32> *);
+    void changeAnimation(u32);
+    void thinkBtp(u32);
     void initInLoadAfter();
-    void init(TMario*);
+    void init(TMario *mario);
 
-    char _0;
-    char _1;
-    short _2;
-    short _4;
-    short _6;
-    int _8;
-    int _C;
+    u8 _0;
+    u8 _1;
+    u16 _2;
+    u16 _4;
+    u16 _6;
+    u32 _8;
+    u32 _C;
     TMario* mario; // _10
-    char _14[0x20-0x14];
-    float _20;
-    float _24;
-    float _28;
-    float _2C;
-    int* _30; // MActorAnmData
+    u8 _14[0x20-0x14];
+    f32 _20;
+    f32 _24;
+    f32 _28;
+    f32 _2C;
+    u32* _30; // MActorAnmData
     J3DModel* model; // _34
-    int _38;
-    short _3C;
-    short _3E;
-    short _40;
-    short _42;
-    short _44;
-    short _46; // padding?
-    int _48;
-    int _4C;
-    int _50;
-    int _54;
-    int _58;
-    int _5C; // padding?
-    char _60;
-    char _61; // padding?
-    short _62;
-    int _64; // padding?
-    float _68;
-    float _6C;
-    short _70;
-    short _72;
-    char _74[0x80-0x74];
-    float _80;
-    float _84;
-    float _88;
-    float _8C;
-    float _90;
-    int _94;
-    float _98;
-    float _9C;
-    float _A0;
-    float _A4;
-    int _A8;
-    int _AC;
-    int _B0;
-    int _B4;
-    char _B8;
-    char _B9; // padding?
-    char _BA; // ^^
-    char _BB; // ^^
-    short _BC;
-    short _BE; // padding?
-    float _C0;
-    float _C4;
-    char _D0;
-    char _D1; // padding?
-    char _D2; // ^^
-    char _D3; // ^^
-    int _D4;
-    int _D8;
-    char _DC;
-    char _DD; // padding?
-    short _DE;
-    short _E0;
-    float _E4;
-    short _E8;
-    short _EA;
-    float _EC;
+    u32 _38;
+    u16 _3C;
+    u16 _3E;
+    u16 _40;
+    u16 _42;
+    u16 _44;
+    u16 _46; // padding?
+    u32 _48;
+    u32 _4C;
+    u32 _50;
+    u32 _54;
+    u32 _58;
+    u32 _5C; // padding?
+    u8 _60;
+    u8 _61; // padding?
+    u16 _62;
+    u32 _64; // padding?
+    f32 _68;
+    f32 _6C;
+    u16 _70;
+    u16 _72;
+    u8 _74[0x80-0x74];
+    f32 _80;
+    f32 _84;
+    f32 _88;
+    f32 _8C;
+    f32 _90;
+    u32 _94;
+    f32 _98;
+    f32 _9C;
+    f32 _A0;
+    f32 _A4;
+    u32 _A8;
+    u32 _AC;
+    u32 _B0;
+    u32 _B4;
+    u8 _B8;
+    u8 _B9; // padding?
+    u8 _BA; // ^^
+    u8 _BB; // ^^
+    u16 _BC;
+    u16 _BE; // padding?
+    f32 _C0;
+    f32 _C4;
+    u8 _D0;
+    u8 _D1; // padding?
+    u8 _D2; // ^^
+    u8 _D3; // ^^
+    u32 _D4;
+    u32 _D8;
+    u8 _DC;
+    u8 _DD; // padding?
+    u16 _DE;
+    u16 _E0;
+    f32 _E4;
+    u16 _E8;
+    u16 _EA;
+    f32 _EC;
     TEggYoshi* _F0;
-    short _F4;
-    short _F6;
-    short _F8;
-    short _FA; // padding?
-    int _FC; // ^^
-    float _100;
-    float _104;
-    float _108;
-    float _10C;
-    float _110;
-    float _114;
-    int _118;
-    int _11C;
-    int _120;
+    u16 _F4;
+    u16 _F6;
+    u16 _F8;
+    u16 _FA; // padding?
+    u32 _FC; // ^^
+    f32 _100;
+    f32 _104;
+    f32 _108;
+    f32 _10C;
+    f32 _110;
+    f32 _114;
+    u32 _118;
+    u32 _11C;
+    u32 _120;
 };
 
 #endif // TYOSHI_H
