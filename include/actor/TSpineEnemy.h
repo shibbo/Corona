@@ -28,6 +28,11 @@ class TSpineEnemy : public TLiveActor
 	u32 getSaveParam() const;
 	f32 getPhaseShift() const;
 	bool isReachedToGoal() const;
+
+	void doShortCut();
+	void walkToCurPathNode(f32, f32, f32);
+	void turnToCurPathNode(f32);
+	void zigzagToCurPathNode(f32, f32, f32, f32);
 	
 	u32 _F4;
 	f32 _F8;

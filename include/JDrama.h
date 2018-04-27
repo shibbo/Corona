@@ -150,6 +150,17 @@ namespace JDrama
         ~TCharacter();
     };
 
+    template<typename T, typename U>
+    class TNameRefPtrListT : public TNameRef
+    {
+        public:
+        ~TNameRefPtrListT();
+
+        void load(JSUMemoryInputStream &);
+        void loadAfter();
+        //T* searchF(u16, char const *);
+    };
+
     class TAmbColor : public TViewObj, public JStage::TAmbientLight
     {
         public:

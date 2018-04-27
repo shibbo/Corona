@@ -11,6 +11,8 @@
 #define kctInjectCall 4
 #define kctPatchExit 5
 
+#include "types.h"
+
 
 #define kmIdentifier(key, counter) \
 	_k##key##counter

@@ -9,7 +9,9 @@
 #include "manager/TFlagManager.h"
 #include "manager/TItemManager.h"
 #include "TMarDirector.h"
+#include "TMarNameRefGen.h"
 
+static TMarNameRefGen* nameRefGen = (TMarNameRefGen*)(SDA_ADDR_NUS - 0x5DB8);
 static JKRHeap* heap = (JKRHeap*)(SDA_ADDR_NUS - 0x5F28);
 static TMarDirector* marDirector = (TMarDirector*)(SDA_ADDR_NUS - 0x6048);
 static TFlagManager* flagManager = (TFlagManager*)(SDA_ADDR_NUS - 0x6060);

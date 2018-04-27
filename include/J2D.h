@@ -137,6 +137,22 @@ enum J2DTextBoxVBinding
 	Top = 2
 };
 
+enum J2DBinding
+{
+	Bottom = (1 << 0),
+	Top = (1 << 1),
+	Right = (1 << 2),
+	Left = (1 << 3),
+};
+
+enum J2DWrapMode 
+{
+		None,
+		Clamp,
+		Repeat,
+		Mirror,
+};
+
 class J2DScreen : public J2DPane
 {
 	public:
@@ -188,11 +204,61 @@ class J2DTextBox : public J2DPane
 	u32 _120;
 };
 
-class J2DPicture
+class J2DPicture : public J2DPane
 {
 	public:
 	J2DPicture(J2DPane *, JSURandomInputStream *, bool);
 	~J2DPicture();
+
+	void drawSelf(u32, u32);
+	void drawSelf(u32, u32, f32 *[3][4]);
+	void drawFullSet(u32, u32, u32, u32, J2DBinding, u32, bool, J2DWrapMode, J2DWrapMode, float *[3][4]);
+	void draw(u32, u32, u32, u32, bool, bool, bool);
+	void drawTexCoord(u32, u32, u32, u32, f32, f32, f32, f32, f32, f32, f32, f32, f32 *[3][4]);
+	void setTevMode();
+	void swap(f32 &, f32 &);
+	void setBlendKonstColor();
+	void setBlendKonstAlpha();
+	
+	u32* _EC;
+	u8 _F0[0xFC-0xF0];
+	u8 _FC; // padding?
+	u8 _FD; // ^^
+	u8 _FE; // ^^
+	u8 _FF; // ^^
+	u8 _100[0x128-0x100];
+	u32 _128;
+	u32 _12C;
+	u8 _130;
+	u8 _131; // padding?
+	u8 _132; // ^^
+	u8 _133; // ^^
+	u32 _134;
+	u32 _138;
+};
+
+class J2DPrint
+{
+	public:
+	J2DPrint(JUTFont *, u32, u32, TColor, TColor);
+	J2DPrint(JUTFont *, u32);
+	~J2DPrint();
+
+	void initiate();
+	void private_initiate(JUTFont *, u32, u32, TColor, TColor);
+	static void setBuffer(u32);
+	void locate(u32, u32);
+	void setFontSize();
+	void print(u32, u32, char const *, ...);
+	void print(u32, u32, u8, char const *, ...);
+	void getWidth(char const *, ...);
+	void printReturn(char const *, u32, u32, J2DTextBoxHBinding, J2DTextBoxVBinding, u32, u32, u8);
+
+	u32* vtable; // _0
+	JUTFont* font; // _4
+	u32 _8;
+	u32 _C;
+	// there's more
 };
 
 /* ----- Some functions for J2D not assigned to a class */

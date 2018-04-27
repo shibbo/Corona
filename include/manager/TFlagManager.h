@@ -12,11 +12,11 @@ class TFlagManager
 	bool getBool(u32) const;
 	void setFlag(u32, u32);
 	u8 getFlag(u32) const;
-	void setShineFlag( u8 stageID);
-	bool getShineFlag( u8 stageID) const;
-	void setBlueCoinFlag( u8 stageID,  u8);
-	bool getBlueCoinFlag( u8 stageID,  u8) const;
-	void incGoldCoinFlag( u8 stageNo, long howMany);
+	void setShineFlag(s8 stageID);
+	bool getShineFlag(s8 stageID) const;
+	void setBlueCoinFlag(s8 stageID, s8);
+	bool getBlueCoinFlag(s8 stageID, s8) const;
+	void incGoldCoinFlag(s8 stageNo, long howMany);
 	void incMario(long);
 	void resetStage();
 	void resetGame();
@@ -31,8 +31,8 @@ class TFlagManager
 	void firstStart();
 	void restore();
 	void load(JSUMemoryInputStream &);
-	void setNozzleRight( u8 stageID,  u8);
-	void getNozzleRight( u8 stageID,  u8) const;	
+	void setNozzleRight(s8 stageID, s8);
+	void getNozzleRight(s8 stageID, s8) const;	
 
 	u8 _0[0x78];
 	u32 _78;
