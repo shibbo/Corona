@@ -80,12 +80,12 @@ class TMapObjBase : public TLiveActor
 	bool animIsFinished() const;
 	bool hasAnim( u16 animID) const;
 	void soundBas(u32, f32, f32);
-	void setUpMapCollision( u16);
+	void setUpMapCollision(s16);
 	void setUpCurrentMapCollision();
 	void removeMapCollision();
 	void sleep();
 	void awake();
-	void startAnim( u16);
+	void startAnim(s16);
 	static void startAllAnim(MActor *, char const *animName);
 	void initAndRegister(char const *objName);
 	
@@ -100,7 +100,7 @@ class TMapObjBase : public TLiveActor
 	u32 getWaterID(THitActor *waterActor);
 	f32 getDistance(TVec3<f32> const &) const;
 	void startBck(char const *bckName);
-	void startControlAnim( u16);
+	void startControlAnim(s16);
 	void initUnique();
 	bool isFruit(THitActor *actor);
 	bool isCoin(THitActor *actor);
@@ -114,6 +114,8 @@ class TMapObjBase : public TLiveActor
 
 	void initModelData();
 	void initObjCollisionData();
+
+	static void makeLowerStr(char const *, char const *);
 	
 	u8* objName; // _F4
 	u32 _F8; // state related

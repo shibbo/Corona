@@ -44,7 +44,7 @@ class TMapObjGeneral : public TMapObjBase
 	void waitingToAppear();
 	void touchingPlayer();
 	void touchingWater();
-	void hold(TTakeActor*);
+	void hold(TTakeActor *);
 	void put();
 	void thrown();
 	void sink();

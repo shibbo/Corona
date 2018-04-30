@@ -5,6 +5,7 @@
 #include "JSUStream.h"
 #include "types.h"
 #include "manager/TObjManager.h"
+#include "spc/TSpcBinary.h"
 
 using namespace JDrama;
 
@@ -21,7 +22,7 @@ class TLiveManager : public TObjManager
 	void createSpcBinary();
 	bool hasMapCollsion() const;
 	
-	u32 _34; // *TSpcBinary
+	TSpcBinary* spc; // _34 
 };
 
 #endif // TLIVEMANAGER_H

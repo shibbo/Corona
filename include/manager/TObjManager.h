@@ -4,6 +4,7 @@
 #include "JDrama.h"
 #include "JSUStream.h"
 #include "types.h"
+#include "manager/TItemManager.h"
 
 using namespace JDrama;
 
@@ -15,15 +16,15 @@ class TObjManager : public TViewObj
 	~TObjManager();
 	
 	void load(JSUMemoryInputStream &);
-	TObjManager* searchF( u16, char const *);
+	TObjManager* searchF(s16, char const *);
 	void perform(TGraphics *);
 	void createModelData();
 	void createAnmData();
 	
 	u32 _10;
-	u32 _14;
-	u32 _18;
-	u32* _1C; // TItemManager
+	u32 _14; // I think this is obj number
+	u32* _18;
+	TItemManager* itemManager; // _1C
 	u32 _20;
 	u32 _24;
 	u32 _28;
