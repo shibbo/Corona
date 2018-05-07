@@ -11,13 +11,13 @@ class TFlagManager
 	// doesn't have a ctor or dtor
 	bool getBool(u32) const;
 	void setFlag(u32, u32);
-	u8 getFlag(u32) const;
+	s8 getFlag(u32) const;
 	void setShineFlag(s8 stageID);
 	bool getShineFlag(s8 stageID) const;
 	void setBlueCoinFlag(s8 stageID, s8);
 	bool getBlueCoinFlag(s8 stageID, s8) const;
-	void incGoldCoinFlag(s8 stageNo, long howMany);
-	void incMario(long);
+	void incGoldCoinFlag(s8 stageNo, u32 howMany);
+	void incMario(u32);
 	void resetStage();
 	void resetGame();
 	void resetCard();

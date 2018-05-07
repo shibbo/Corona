@@ -356,4 +356,23 @@ class J3DShapeMtx
 	u16 _6; // padding?
 };
 
+class J3DDrawBuffer
+{
+	public:
+	J3DDrawBuffer(u32 size);
+
+	void frameInit();
+	void draw(const);
+
+	u32* _0;
+	u32 size; // _4
+	u32 _8;
+	u32 _C;
+	f32 _10;
+	f32 _14;
+	f32 _18;
+	u32 _1C;
+	u32 _20;
+};
+
 #endif // J3D_H

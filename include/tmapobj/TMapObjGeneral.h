@@ -49,7 +49,7 @@ class TMapObjGeneral : public TMapObjBase
 	void thrown();
 	void sink();
 	void recover();
-	void waitToAppear(long);
+	void waitToAppear(u32);
 	void makeObjBuried();
 	void makeObjRecovered();
 	void recieveMessageFromPlayer();

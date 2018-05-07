@@ -23,7 +23,7 @@ class TMapObjBaseManager : public TLiveManager
 	TMapObjBase* makeObjAppear(f32, f32, f32, u32, bool);
 
 	static TMapObjBase* newAndRegisterObjByEventID(u32, char const *);
-	static u32 getActorTypeByEventID(unsigned long eventID);
+	static u32 getActorTypeByEventID(unsigned u32 eventID);
 	
 	f32 _38; // clip actor related
 	f32 _3C; // ^^

@@ -158,7 +158,7 @@ class J2DScreen : public J2DPane
 	public:
 	~J2DScreen();
 
-	void makeHiearachyPanes(J2DPane *, JSURandomInputStream *, bool, bool, bool, long *);
+	void makeHiearachyPanes(J2DPane *, JSURandomInputStream *, bool, bool, bool, u32 *);
 	void drawSelf(u32, u32, f32 *[3][4]);
 	u32* search(u32);
 	u32 makeUserPane(s16, J2DPane *,JSURandomInputStream *);

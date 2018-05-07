@@ -27,7 +27,7 @@ class TMarDirector : public TDirector
     void changeState();
     void fireStreamingMovie( u8);
     void fireEndDemoCamera();
-    void fireStartDemoCamera(char const *, TVec3<f32> const *, long, f32, bool, long (*)(u32, u32), u32, TActor *, TFlagT< u16>);
+    void fireStartDemoCamera(char const *, TVec3<f32> const *, u32, f32, bool, u32 (*)(u32, u32), u32, TActor *, TFlagT< u16>);
     void setNextStage( u16 stageID, TActor *);
     void movement();
     void fireRideYoshi(TYoshi *);

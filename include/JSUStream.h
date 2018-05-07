@@ -60,8 +60,8 @@ class JSUInputStream : public JSUIosBase
 	JSUInputStream();
 	~JSUInputStream();
 	
-	u32* skip(long);
-	void read(void *, long size);
+	u32* skip(u32);
+	void read(void *, u32 size);
 	char* readString();
 	char* readString(u8 *, s16);
 	
@@ -77,10 +77,10 @@ class JSURandomInputStream : public JSUInputStream
 	~JSURandomInputStream();
 	
 	u32 getAvailable() const;
-	u32* align(long);
-	void skip(long);
-	u32* peek(void *, long);
-	void seek(long, JSUStreamSeekFrom);
+	u32* align(u32);
+	void skip(u32);
+	u32* peek(void *, u32);
+	void seek(u32, JSUStreamSeekFrom);
 };
 
 class JSUMemoryInputStream : public JSURandomInputStream
@@ -89,14 +89,14 @@ class JSUMemoryInputStream : public JSURandomInputStream
     ~JSUMemoryInputStream();
 	
 	u32 getAvailable() const;
-	void skip(long);
+	void skip(u32);
 	u32 getPosition() const;
 	u32 getLength() const;
-	void setBuffer(void const *, long size);
-	u32* readData(void *, long size);
-	u32* seekPos(long, JSUStreamSeekFrom);
+	void setBuffer(void const *, u32 size);
+	u32* readData(void *, u32 size);
+	u32* seekPos(u32, JSUStreamSeekFrom);
 	
-	u32 _8;
+	void* _8;
 	u32 length; // _C
 	u32 position; // _10
 };
@@ -107,8 +107,8 @@ class JSUOutputStream : public JSUIosBase
 	public:
 	~JSUOutputStream();
 	
-	void skip(long, u8);
-	void write(void const *, long);
+	void skip(u32, u8);
+	void write(void const *, u32);
 	
 	u8 _4;
 	u8 _5; // padding?
@@ -121,7 +121,7 @@ class JSURandomOutputStream : public JSUOutputStream
 	public:
 	~JSURandomOutputStream();
 	
-	void seek(long, JSUStreamSeekFrom);
+	void seek(u32, JSUStreamSeekFrom);
 	u32 getAvailable() const;
 };
 
@@ -132,9 +132,9 @@ class JSUMemoryOutputStream : public JSURandomOutputStream
 	
 	u32 getPosition() const;
 	u32 getLength() const;
-	void setBuffer(void *, long);
-	u32* writeData(void const *, long);
-	u32* seekPos(long, JSUStreamSeekFrom);
+	void setBuffer(void *, u32);
+	u32* writeData(void const *, u32);
+	u32* seekPos(u32, JSUStreamSeekFrom);
 	
 	u32 _8;
 	u32 length; // _C

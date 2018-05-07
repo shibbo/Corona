@@ -1,6 +1,7 @@
 #ifndef JDRAMA_H
 #define JDRAMA_H
 
+#include "J3D.h"
 #include "JSUStream.h"
 #include "JGeometry.h"
 #include "JStage.h"
@@ -12,7 +13,7 @@ namespace JDrama
 	class TNameRefGen
 	{
 		public:
-		void load(JSUMemoryInputStream &);
+		void load(JSUMemoryInputStream &stream);
 		u32* getNameRef(char const *) const;
 		u32 getRootNameRef();
 		u32* getInstance();
@@ -62,10 +63,10 @@ namespace JDrama
 
         // note -- some of these may be static
         u32 getType() const;
-		u32 getType(JSUMemoryInputStream &, JSUMemoryInputStream &);
-		void genObject(JSUMemoryInputStream &, JSUMemoryInputStream &);
-        void load(JSUMemoryInputStream &);
-        void save(JSUMemoryOutputStream &);
+		u32 getType(JSUMemoryInputStream &stream, JSUMemoryInputStream &);
+		void genObject(JSUMemoryInputStream &stream, JSUMemoryInputStream &);
+        void load(JSUMemoryInputStream &stream);
+        void save(JSUMemoryOutputStream &stream);
         void loadAfter(void);
 		void search(char const *);
         TNameRef* searchF(s16, char const *);
@@ -98,7 +99,7 @@ namespace JDrama
         public:
         ~TPlacement();
 		
-        void load(JSUMemoryInputStream &);
+        void load(JSUMemoryInputStream &stream);
 
         TVec3<f32> position; // _10
         u16 _1C;
@@ -113,7 +114,7 @@ namespace JDrama
         ~TActor();
 
         u32 getType() const;
-        void load(JSUMemoryInputStream &);
+        void load(JSUMemoryInputStream &stream);
         void perform(u32, TGraphics *);
         void JSGGetTranslation(TVec3<f32> *) const;
         void JSGSetTranslation(TVec3<f32> const &);
@@ -156,7 +157,7 @@ namespace JDrama
         public:
         ~TNameRefPtrListT();
 
-        void load(JSUMemoryInputStream &);
+        void load(JSUMemoryInputStream &stream);
         void loadAfter();
         //T* searchF(u16, char const *);
     };
@@ -167,7 +168,7 @@ namespace JDrama
         TAmbColor();
         ~TAmbColor();
 
-        void load(JSUMemoryInputStream &);
+        void load(JSUMemoryInputStream &stream);
         void perform(u32, TGraphics *);
 
         u32* _10;
@@ -175,6 +176,21 @@ namespace JDrama
         u8 g; // _15
         u8 b; // _16
         u8 a; // _17
+    };
+
+    class TDrawBufObj : public TViewObj
+    {
+        public:
+        TDrawBufObj();
+        TDrawBufObj(u32, u32, char const *);
+        ~TDrawBufObj();
+
+        void load(JSUMemoryInputStream &stream);
+        void perform(u32, TGraphics *);
+
+        J3DDrawBuffer* drawBuffer; // _10
+        u32 bufferSize; // _14
+        u32 _18; // init'd to 7
     };
 };
 

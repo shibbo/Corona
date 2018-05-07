@@ -29,14 +29,14 @@ class TGCConsole2 : public TViewObj
     void startMoveTimer(u32);
     void countBlueCoin();
     void countShine();
-    void setTimer(long);
+    void setTimer(u32);
     u32* checkDolpic8();
 
     void startAppearRedCoin();
     void startInsertJetBalloon();
     void startAppearJetBalloon(u32, u32);
     void startInsertTimer();
-    void startAppearTimer(u32, long timeInSeconds);
+    void startAppearTimer(u32, u32 timeInSeconds);
     void startDisappearTimer();
 
     void startCameraDemo();

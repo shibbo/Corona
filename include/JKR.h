@@ -27,15 +27,43 @@ class JKRHeap : public JKRDisposer
 	void becomeSystemHeap();
 	void becomeCurrentHeap();
 	bool initArena(u8 **, u32 *, u32);
-	void alloc(u32, u32, JKRHeap *);
+	static void alloc(u32, u32, JKRHeap *);
 	void free(void *, JKRHeap *);
-	u32* findFromRoot(void *);
+	void freeAll();
+	static u32* findFromRoot(void *);
+	u32* find(void *) const;
+	void dispose_subroutine(u32, u32);
+	void dispose(void *, u32);
+	void dispose(void *, void *);
+	void dispose();
+	static u32* copyMemory(void *, void *, u32);
+	u32 dump_sort();
+	u32 changeGroupID(u8 newID);
+	u32 getCurrentGroupId();
 
 	u8 _18[0x30-0x18];
 	u32 _30;
 	u32 _34;
 	u32 _38;
 	JSUPtrList ptrList; // _3C
+};
+
+class JKRThread : public JKRDisposer
+{
+	public:
+	JKRThread(u32, u32, u32);
+	~JKRThread();
+
+	void start(void *);
+	u32 run();
+
+	JSUPtrLink threadPtrs; // _18
+	JKRHeap* heap; // _28
+	u32* osThread; // _2C (this is OSThread*)
+	u32* messageQueue; // _30 (this is OSMessageQueue*)
+	u8 _34[0x50-0x34];
+	u32* osMessage; // _50 (this is OSMessage*)
+	s32 messageCount; // _54
 };
 
 class JKRFileLoader : public JKRDisposer
@@ -52,7 +80,7 @@ class JKRFileLoader : public JKRDisposer
 	u32 getResSize(void *, JKRFileLoader *);
 	u32* findVolume(char const **);
 	JKRArchive* findFirstFile(char const *);
-	u8* fetchVolumeName(u8 *, long, char const *);
+	u8* fetchVolumeName(u8 *, u32, char const *);
 	
 	JSUPtrLink ptrLink2; // _18
 	u32 _28;
@@ -73,7 +101,7 @@ class JKRArchive : public JKRFileLoader
 {
 	public:
 	JKRArchive();
-	JKRArchive(long, EMountMode);
+	JKRArchive(u32, EMountMode);
 	~JKRArchive();
 	
 	u32* _38;
@@ -83,5 +111,7 @@ class JKRArchive : public JKRFileLoader
 	u8 _3F; // ^^
 	
 };
+
+void JKRDefaultMemoryErrorRoutine(void *, u64, u32);
 
 #endif // JKR_H

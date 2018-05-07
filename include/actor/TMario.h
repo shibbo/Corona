@@ -307,7 +307,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	void drawSyncCallBack(s16);
 	
 	/* the following are not */
-	u32 checkStatusType(long) const;
+	u32 checkStatusType(u32) const;
 	u32 actnMain();
 	u32 taking();
 	u32 demoMain();
