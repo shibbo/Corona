@@ -16,7 +16,7 @@ class TNameRefAryT : public TNameRef
 
     void load(JSUMemoryInputStream&);
     void loadAfter();
-    TNameRefAryT* searchF( u16, char const *);
+    TNameRefAryT* searchF(s16, char const *);
 };
 
 class TMarNameRefGen : public TNameRefGen

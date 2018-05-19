@@ -7,6 +7,7 @@
 #include "actor/MActor.h"
 #include "actor/TTakeActor.h"
 #include "manager/TLiveManager.h"
+#include "sound/MAnmSound.h"
 
 using namespace JDrama;
 using namespace JGeometry;
@@ -53,13 +54,13 @@ class TLiveActor : public TTakeActor
 	void calcRidePos();
 	
 	u32* _70; // TMActorKeeper
-	u32* _74; // model data related
+	MActor* mActor; // _74
 	u32* _78; // TMActorKeeper
 	u16 _7C;
 	u16 _7E; // padding?
-	u32 _80;
+	MAnmSound* anmSound; // _80
 	u32 _84;
-	u32 _88;
+	u32* _88;
 	u32* _8C;
 	u32* _90;
 	f32 _94;
@@ -73,20 +74,18 @@ class TLiveActor : public TTakeActor
 	f32 _BC;
 	f32 _C0;
 	u32* _C4; // TMapCollisionData::mIllegalCheckData
-	f32 _C8;
-	f32 _CC;
+	f32 _C8; // gravity X?
+	f32 gravityY; // _CC
 	u32 _D0;
-	u32 _D4;
-	f32 _D8;
-	f32 _DC;
-	f32 _E0;
+	THitActor* hitActor; // _D4
+	TVec3<f32> unkVector; // _D8
 	f32 _E4;
 	u8 _E8;
 	u8 _E9; // padding?
 	u8 _EA; // ^^
 	u8 _EB; // ^^
-	u32 flags;
-	u32 _F0;
+	u32* _EC; // TMapCollisionBase*
+	u32 flags; // _F0
 };
 
 #endif // TLIVEACTOR_H

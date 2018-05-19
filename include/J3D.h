@@ -94,7 +94,7 @@ class J3DModelData
 	u32 _28;
 	u16 _2C;
 	u16 _2E; // padding?
-	u32 _30;
+	u32 _30; // JUTNameTab (joints)
 	u16 _34;
 	u16 _36; // padding?
 	u32 _38;

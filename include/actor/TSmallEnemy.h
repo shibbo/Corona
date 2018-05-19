@@ -4,8 +4,9 @@
 #include "JDrama.h"
 #include "types.h"
 #include "actor/THitActor.h"
-#include "manager/TLiveManager.h"
 #include "actor/TSpineEnemy.h"
+#include "actor/item/TCoin.h"
+#include "manager/TLiveManager.h"
 
 using namespace JDrama;
 
@@ -79,7 +80,7 @@ class TSmallEnemy : public TSpineEnemy
 	u32 _174;
 	u32 _178;
 	u32 _17C; // 
-	u32 _180;
+	TCoin* spawnedCoin; // _180
 	u8 _184; // set to 1 in initAttacker
 	u8 _185;
 	u8 _186; // padding?

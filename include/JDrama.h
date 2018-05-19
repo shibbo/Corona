@@ -192,6 +192,52 @@ namespace JDrama
         u32 bufferSize; // _14
         u32 _18; // init'd to 7
     };
+
+    class TCamera : public TPlacement, public JStage::TCamera
+    {
+        public:
+        ~TCamera();
+
+        u32 getType() const;
+        u32 JSGGetFlag() const;
+        void JSGSetFlag(u32 flag);
+        f32 JSGGetProjectionNear() const;
+        void JSGSetProjectionNear(f32 projectionNear);
+        f32 JSGGetProjectionFar() const;
+        void JSGSetProjectionFar(f32 projectionFar);
+
+        u32 _20; // this is a vtable, I think to JStage::TCamera
+        u16 flag; // _24
+        u16 _26; // padding?
+        f32 projectionNear; // _28
+        f32 projectionFar; // _2C
+    };
+
+    class TLookAtCamera : public TCamera
+    {
+        public:
+        ~TLookAtCamera();
+
+        void perform(u32, TGraphics *);
+
+        u32 JSGGetProjectionType() const;
+        void JSGSetProjectionType(u32); // JStage::TECameraProjection
+        f32 JSGGetProjectionFovy() const;
+        void JSGSetProjectionFovy(f32 projectionFovy);
+        f32 JSGGetProjectionAspect() const;
+        void JSGSetProjectionAspect(f32 projectionAspect);
+        Vec* JSGGetViewPosition() const;
+        void JSGSetViewPosition(Vec *viewPos);
+        Vec* JSGGetViewUpVector() const;
+        void JSGSetViewUpVector(Vec *upVector);
+        Vec* JSGGetViewTargetPosition() const;
+        void JSGSetViewTargetPosition(Vec *targetPos);
+
+        TVec3<f32> viewUp; // _30
+        TVec3<f32> targetPos; // _3C
+        f32 projectionFovy; // _48
+        f32 projectionAspect; // _4C
+    };
 };
 
 #endif // JDRAMA_H

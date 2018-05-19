@@ -1,6 +1,7 @@
 #ifndef J2D_H
 #define J2D_H
 
+#include "JKR.h"
 #include "JSUStream.h"
 #include "JUT.h"
 #include "types.h"
@@ -166,6 +167,22 @@ class J2DScreen : public J2DPane
 
 	void stop();
 	void draw(u32, u32, J2DGrafContext const *);
+
+	u8 _EC;
+	u8 _ED; // padding?
+	u8 _EE; // ^^
+	u8 _EF; // ^^
+	u32 _D0;
+	u8 _D4[0xF0-0xD4];
+	u32 _F0;
+};
+
+class J2DSetScreen : public J2DScreen
+{
+	public:
+	J2DSetScreen(char const *, JKRArchive *);
+
+	void makeHiearachyPanes(J2DPane *, JSURandomInputStream *, bool, bool, bool, u32 *);
 };
 
 class J2DTextBox : public J2DPane

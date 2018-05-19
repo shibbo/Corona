@@ -409,6 +409,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	bool checkPumpEnable();
 
 	void setGamePad(TMarioGamePad *gamePad);
+	bool askJumpIntoWaterEffectExist() const;
 
 	// _70 is the TDrawSyncCallback vtable
 	u32 _74;

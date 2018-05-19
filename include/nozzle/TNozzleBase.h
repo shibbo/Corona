@@ -1,11 +1,12 @@
 #ifndef TNOZZLEBASE_H
 #define TNOZZLEBASE_H
 
+#include "MActor.h"
 #include "TParam.h"
 #include "types.h"
 #include "actor/TMario.h"
 #include "actor/TWaterEmitInfo.h"
-#include "actor/TWaterGun.h"
+#include "nozzle/TWaterGun.h"
 
 class TNozzleBase
 {
@@ -127,14 +128,16 @@ class TNozzleBase
 	TBaseParam param43; // _350
 	f32 _360;
 	u32* vtable; // _364
-	u32* TWaterGun; // _368
+	TWaterGun* waterGun; // _368
 	u16 _36C;
 	u16 gunAngle; // _36E
 	u16 waistAngle; // _370
 	u16 _372;
 	u16 _374; // padding?
+	u16 _376; // ^^
 	f32 _378;
 	f32 _37C;
+	MActor* mActor; // _380
 };
 
 #endif // TNOZZLE_H

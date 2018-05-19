@@ -5,6 +5,7 @@
 #include "JGeometry.h"
 #include "JKR.h"
 #include "JUT.h"
+#include "TRidingInfo.h"
 #include "types.h"
 #include "actor/THitActor.h"
 #include "actor/TItem.h"
@@ -35,8 +36,10 @@ bool SMS_IsMarioStatusElecDamage();
 bool SMS_IsMarioStatusThrownDown();
 u32 SMS_GetMarioStatus();
 u32 SMS_GetMarioStatus(THitActor *);
-void SMS_AskJumpIntoWaterEffectExist();
+bool SMS_AskJumpIntoWaterEffectExist();
 TYoshi* SMS_GetYoshi();
+void SMS_SetMarioAccessParams();
+
 u8 SMS_getShineIDofExStage(s8);
 bool SMS_isOptionMap();
 bool SMS_isDivingMap();
@@ -58,7 +61,7 @@ void SMS_ThrowMario(TVec3<f32> const & ,f32);
 bool SMS_SendMessageToMario(THitActor *, u32);
 u8 SMS_getShineStage(s8);
 TMario* SMS_GetMarioHitActor();
-//TWaterGun* SMS_GetMarioWaterGun();
+TWaterGun* SMS_GetMarioWaterGun();
 
 TItem* newItemByName(char const *);
 TItem* newUniqueObjByName(char const *);
@@ -78,6 +81,14 @@ JUTRect SMSGetRederRect_Game();
 
 u32* SMSLoadArchive(char const *, void *, u32, JKRHeap *); // returns JKRMemArchive
 
-void SMSCalcJumpVelocityXZ(TVec3<f32> const &, TVec3<f32> const &, f32, f32, TVec3<f32> *)
+void SMSCalcJumpVelocityXZ(TVec3<f32> const &, TVec3<f32> const &, f32, f32, TVec3<f32> *);
+
+void SMS_EmitSinkInPollutionEffect(TVec3<f32> const &, TVec3<f32> const &, bool);
+bool SMS_EmitRippleSea(f32 *[4], void *);
+bool SMS_EmitRipplePool(f32 *[4],void *);
+bool SMS_EmitRippleTiny(TVec3<f32> *);
+
+void SMS_RideMoveCalcLocalPos(TRidingInfo *, TVec3<f32> const &);
+void SMS_RideMoveByGroundActor(TRidingInfo *, TVec3<f32> *, float *);
 
 #endif // SMS_H
