@@ -12,20 +12,21 @@ namespace JDrama
 {
 	class TNameRefGen
 	{
-		public:
-		void load(JSUMemoryInputStream &stream);
-		u32* getNameRef(char const *) const;
-		u32 getRootNameRef();
-		u32* getInstance();
+        public:
+        void load(JSUMemoryInputStream &stream);
+        u32* getNameRef(char const *) const;
+        u32 getRootNameRef();
+        u32* getInstance();
 		
-		u32* vtable; // _0
-		u32 rootName; // _4
+        u32* vtable; // _0
+        u32 rootName; // _4
 	};
 	
 	template <typename T>
-	class TFlagT {
+	class TFlagT 
+    {
         public:
-		TFlagT(T);
+	    TFlagT(T);
         TFlagT(const TFlagT &);
         void set(T);
 
