@@ -1,6 +1,7 @@
 #ifndef TJOINT_H
 #define TJOINT_H
 
+#include "J3D.h"
 #include "types.h"
 
 class TJointObj
@@ -15,10 +16,10 @@ class TJointObj
 	void sit();
 	TJointObj* newJointObj() const;
 	
-	u32* vtable; // _0
+	VTABLE; // _0
 	u32 _4;
 	u32 _8;
-	u32* _C; // J3DJoint *
+	J3DJoint* joint; // _C
 	u32 _10;
 	u32 _14;
 	u32 _18;

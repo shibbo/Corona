@@ -11,7 +11,7 @@ class TNerveBase
     TNerveBase();
     ~TNerveBase();
 
-    u32* vtable; // _0
+    VTABLE; // _0
 };
 
 #endif // TNERVEBASE_H

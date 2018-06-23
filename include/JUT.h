@@ -67,7 +67,7 @@ class JUTFont
 	void drawString_size_scale(f32, f32, f32, f32, char const *, u32, bool);
 	void setGX(TColor, TColor);
 	
-	u32* vtable; // _0
+	VTABLE; // _0
 	u8 _4;
 	u8 _5; // padding?
 	u8 _6; // ^^
@@ -210,6 +210,21 @@ class JUTGamePad : public JKRDisposer
 	u8 _9E; // ^^
 	u8 _9F; // ^^
 	OSTime resetTime; // _A0
+};
+
+class JUTNameTab
+{
+	public:
+	JUTNameTab(u32 const *); // ResNTab*
+
+	s32 getIndex(char const *name) const;
+	u16 calcKeyCode(char const *name) const;
+	char* getName(unsigned short const);
+
+	
+	u32* _0; // ResNTab*
+	u32 _4;
+	u16 _8;
 };
 
 #endif // JUT_H

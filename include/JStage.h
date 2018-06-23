@@ -22,7 +22,7 @@ namespace JStage
         void JSGSetParent(TObject *, u32);
         void JSGSetRelation(bool, TObject *, u32);
 
-        u32* vtable; // _0
+        VTABLE; // _0
     };
 
     class TSystem : public TObject

@@ -36,7 +36,7 @@ class TGraphWeb
     u8* railName; // _C
     u32 nearestNodeIndex; // _10
     TSplineRail* splineRail; // _14
-    u32* vtable; // _18
+    VTABLE; // _18
 };
 
 #endif // TGRAPHWEB_H

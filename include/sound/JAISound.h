@@ -56,7 +56,7 @@ class JAISound
     u32* _34; // sound pointer, maybe?
     u32* streamParam; // _38
     void* _3C;
-    u32* vtable; // _40
+    VTABLE; // _40
 };
 
 #endif // JAISOUND_H

@@ -23,7 +23,7 @@ class TBaseParam
 	
 	void load(JSUMemoryInputStream &);
 	
-	u32* vtable; // _0
+	VTABLE; // _0
 	u16 _4;
 	u16 _6; // padding?
 	u8 _7; // ^^

@@ -211,7 +211,7 @@ class TDeParams
 class TDrawSyncCallback
 {
 	public:
-	u32* vtable; // _0
+	VTABLE; // _0
 };
 
 class TMarioSoundValues
@@ -701,7 +701,7 @@ class TMarioCap
 	public:
 	TMarioCap(TMario *);
 	
-	u32* vtable; // _0
+	VTABLE; // _0
 	u32 state;
 	u32 _8;
 	u32 _C;

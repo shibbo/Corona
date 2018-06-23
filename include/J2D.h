@@ -28,7 +28,7 @@ class J2DGrafContext
 	void scissor(JUTRect const &);
 	void fillBox(JUTRect const &);
 	
-	u32* vtable; // _0
+	VTABLE; // _0
 	u32 _4; // padding?
 	JUTRect _8;
 	JUTRect _18;
@@ -95,7 +95,7 @@ class J2DPane
 	void move(u32, u32);
 	void add(u32, u32);
 	
-	u32* vtable; // _0
+	VTABLE; // _0
 	u16 _4;
 	u16 _6; // padding?
 	u32 id; // _8
@@ -271,7 +271,7 @@ class J2DPrint
 	void getWidth(char const *, ...);
 	void printReturn(char const *, u32, u32, J2DTextBoxHBinding, J2DTextBoxVBinding, u32, u32, u8);
 
-	u32* vtable; // _0
+	VTABLE; // _0
 	JUTFont* font; // _4
 	u32 _8;
 	u32 _C;

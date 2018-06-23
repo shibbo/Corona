@@ -11,6 +11,8 @@ extern "C" {
 #define PAD_START_RUMBLE        1
 #define PAD_STOP_HARD           2
 
+typedef void (*PADSamplingCallback)();
+
 struct PADStatus
 {
     u16 button; // _0
@@ -27,9 +29,12 @@ struct PADStatus
 
 bool PADReset(u32 mask);
 bool PADRecalibrate(u32 mask);
+void PADClamp(PADStatus *padStat);
 bool PADInit();
-u32 PADRead(PADStatus * padStat);
+u32 PADRead(PADStatus *padStat);
 void PADControlMotor(u32 channel, u32 command);
+void PADSetAnalogMode(u32 mode);
+void PADSetSpec(u32 padModel);
 
 #ifdef __cplusplus
 }

@@ -17,7 +17,7 @@ class TSpcBinary
     
     
     void* spcBinary; // _0
-    u32* vtable; // _4
+    VTABLE; // _4
 };
 
 

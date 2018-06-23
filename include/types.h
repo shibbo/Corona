@@ -12,6 +12,8 @@ typedef unsigned long long  u64;
 typedef float               f32;
 typedef double              f64;
 
+#define VTABLE u32* vtable;
+
 typedef f32 Mtx[3][4];
 
 #endif // TYPES_H

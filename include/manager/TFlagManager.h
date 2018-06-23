@@ -5,6 +5,12 @@
 #include "JSUStream.h"
 #include "types.h"
 
+#define FLAG_SHINES		0x00004
+#define FLAG_REDCOIN 	0x00006
+#define FLAG_LIVES 		0x20001
+#define FLAG_BLUECOINS	0x40001
+#define FLAG_COINS		0x40002
+
 class TFlagManager
 {
 	public:
@@ -17,7 +23,7 @@ class TFlagManager
 	void setBlueCoinFlag(s8 stageID, s8);
 	bool getBlueCoinFlag(s8 stageID, s8) const;
 	void incGoldCoinFlag(s8 stageNo, u32 howMany);
-	void incMario(u32);
+	void incMario(u32 howMany);
 	void resetStage();
 	void resetGame();
 	void resetCard();
@@ -31,7 +37,7 @@ class TFlagManager
 	void firstStart();
 	void restore();
 	void load(JSUMemoryInputStream &);
-	void setNozzleRight(s8 stageID, s8);
+	void setNozzleRight(s8 stageID, s8 whatNozzle);
 	void getNozzleRight(s8 stageID, s8) const;	
 
 	u8 _0[0x78];

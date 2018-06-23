@@ -1,6 +1,7 @@
 #ifndef JDRAMA_H
 #define JDRAMA_H
 
+#include "GX.h"
 #include "J3D.h"
 #include "JSUStream.h"
 #include "JGeometry.h"
@@ -18,7 +19,7 @@ namespace JDrama
         u32 getRootNameRef();
         u32* getInstance();
 		
-        u32* vtable; // _0
+        VTABLE; // _0
         u32 rootName; // _4
 	};
 	
@@ -74,7 +75,7 @@ namespace JDrama
 
         static s16 calcKeyCode(char const *);
 
-        u32* vtable; // _0
+        VTABLE; // _0
         u8* className; // _4
         s16 keyCode; // _8
         u8 _A; // padding
@@ -238,6 +239,21 @@ namespace JDrama
         TVec3<f32> targetPos; // _3C
         f32 projectionFovy; // _48
         f32 projectionAspect; // _4C
+    };
+
+    class TDisplay
+    {
+        public:
+        TDisplay(u16, void *, void *, _GXRenderModeObj const &);
+
+        void startRendering();
+        void endRendering();
+    };
+
+    class TVideo
+    {
+        public:
+        TVideo();
     };
 };
 

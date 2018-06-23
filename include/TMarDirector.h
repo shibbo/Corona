@@ -38,6 +38,11 @@ class TMarDirector : public TDirector
     u32* findNearestTalkNPC();
     u32 createObjects(); // returns 0
     void setupObjects();
+    bool thpInit();
+    void loadParticleMario();
+    void loadParticle();
+    void initLoadParticle();
+    void loadResource();
 
     u8 _28[0x24];
     u16 state; // _4C

@@ -29,7 +29,7 @@ class TMarNameRefGen : public TNameRefGen
 	u32* getNameRef_Map(char const *) const;
 	u32* getNameRef_MapObj(char const *) const;
 
-	u32* vtable; // _0
+	VTABLE; // _0
 	
 };
 

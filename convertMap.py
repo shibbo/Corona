@@ -7,6 +7,10 @@
 
 import os, sys
 
+if len(sys.argv) < 2:
+        print(f"Syntax: convertMap.py <inFile>")
+        sys.exit()
+
 if not os.path.exists(sys.argv[1]):
 	raise RuntimeError(f"Error: Input file {sys.argv[1]} not found.")
 

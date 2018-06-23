@@ -127,7 +127,7 @@ class TNozzleBase
 	f32 _34C;
 	TBaseParam param43; // _350
 	f32 _360;
-	u32* vtable; // _364
+	VTABLE; // _364
 	TWaterGun* waterGun; // _368
 	u16 _36C;
 	u16 gunAngle; // _36E

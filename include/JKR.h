@@ -11,7 +11,7 @@ class JKRDisposer
 	JKRDisposer();
 	~JKRDisposer();
 	
-	u32* vtable; // _0
+	VTABLE; // _0
 	u32 _4;
 	JSUPtrLink ptrLink; // _8
 };

@@ -11,7 +11,7 @@ class TWaterGun
 	public:
 	TWaterGun(TMario *);
 	
-	u32* vtable; // _0
+	VTABLE; // _0
 	u32 _4;
 	TMario* mario; // _8
 	TNozzleBase nozzleDeform; // _C

@@ -49,7 +49,7 @@ class JSUIosBase
     JSUIosBase();
     ~JSUIosBase();
 
-    u32* vtable; // _0
+    VTABLE; // _0
 };
 
 /* INPUT */

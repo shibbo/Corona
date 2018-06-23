@@ -55,7 +55,7 @@ class TSpineEnemy : public TLiveActor
 	u8 _132; // ^^
 	u8 _133; // ^^
 	f32 _134;
-	u32 _138;
+	u32* _138;
 	u8 health; // _13C
 	u8 _13D; // padding?
 	u8 _13E; // ^^

@@ -29,4 +29,21 @@ extern "C"
 }
 #endif
 
+struct _GXRenderModeObj
+{
+    u32 tvMode;
+    u16 fbWidth;
+    u16 efbHeight;
+    u16 externFBHeight;
+    u16 viOrigX;
+    u16 viOrigY;
+    u16 viWidth;
+    u16 viHeight;
+    u32 externalFrameBufferMode;
+    u8 isFieldRendering;
+    u8 isAntiAliasing;
+    u8 sample_pattern[12][2];
+    u8 vfilter[7];
+};
+
 #endif // GX_H

@@ -55,7 +55,7 @@ class J3DVertexBuffer
 	u32 _2C;
 	u32 _30;
 	u32 _34;
-	u32* vtable; // _38
+	VTABLE; // _38
 };
 
 class J3DDrawMtxData
@@ -79,7 +79,7 @@ class J3DModelData
 	void clear();
 	bool isDeformableVertexFormat() const;
 	
-	u32* vtable; // _0
+	VTABLE; // _0
 	u32 _4;
 	u32 _8;
 	u32 _C;
@@ -125,7 +125,7 @@ class J3DSkinDeform
 	void calcNrmMtx(J3DModel *);
 	void deform(J3DModel *);
 	
-	u32* vtable; // _0
+	VTABLE; // _0
 	u32 _4;
 	u32 _8;
 	u32 _C;
@@ -165,6 +165,8 @@ class J3DMaterial
 	void copy(J3DMaterial *);
 	void change();
 	void newSharedDisplayList(u32);
+	void calc(f32 *[4]);
+	void setCurrentMtx();
 	
 	u32* _0;
 	J3DShape* shape; // _4
@@ -200,7 +202,7 @@ class J3DNode
 	void calcOut();
 	u32 getType() const;
 	
-	u32* vtable; // _0
+	VTABLE; // _0
 	u32 _4;
 	u32 _8;
 	u32 _C; // padding?
@@ -270,7 +272,7 @@ class J3DModel
 	void prepareShapePackets();
 	void calcWeightEnvelopeMtx();
 	
-	u32* vtable; // _0
+	VTABLE; // _0
 	J3DModelData* data; // _4
 	u32 _8;
 	u32 _C;
@@ -351,7 +353,7 @@ class J3DShapeMtx
 	u32 getUseMtxNum() const;
 	u16 getUseMtxIndex( u16) const;
 	
-	u32* vtable; // _0
+	VTABLE; // _0
 	u16 mtxIndex; // _4
 	u16 _6; // padding?
 };
@@ -362,7 +364,7 @@ class J3DDrawBuffer
 	J3DDrawBuffer(u32 size);
 
 	void frameInit();
-	void draw(const);
+	void draw();
 
 	u32* _0;
 	u32 size; // _4
@@ -374,5 +376,41 @@ class J3DDrawBuffer
 	u32 _1C;
 	u32 _20;
 };
+
+class J3DColorChan
+{
+	public:
+	J3DColorChan();
+
+	u16 colorChanID; // _0
+};
+
+class J3DGXColor
+{
+	public:
+	J3DGXColor();
+};
+
+class J3DColorBlock
+{
+	public:
+	~J3DColorBlock();
+
+	void reset(J3DColorBlock *);
+
+	VTABLE; // _0
+};
+
+class J3DTexCoord
+{
+	public:
+	J3DTexCoord();
+
+	u8 _0;
+	u8 _1;
+	u8 _2;
+};
+
+u16 calcColorChanID(unsigned short, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
 
 #endif // J3D_H
