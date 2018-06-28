@@ -3,10 +3,8 @@
 
 #include "JDrama.h"
 
-using namespace JDrama;
-
 // as much as I would love to add this to JDrama, but it's not a part of that namespace
-class THitActor : public TActor
+class THitActor : public JDrama::TActor
 {
 	public:
 	THitActor(char const *);
@@ -14,7 +12,7 @@ class THitActor : public TActor
 	
 	bool recieveMessage(THitActor *, u32);
 	void initHitActor(u32,  u16, u32, f32, f32, f32, f32);
-	void perform(u32, TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	void calcEntryRadius();
 	
 	u32 _44;

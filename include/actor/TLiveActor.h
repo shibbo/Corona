@@ -9,9 +9,6 @@
 #include "manager/TLiveManager.h"
 #include "sound/MAnmSound.h"
 
-using namespace JDrama;
-using namespace JGeometry;
-
 /* Size -- 0xF4 */
 class TLiveActor : public TTakeActor
 {
@@ -20,7 +17,7 @@ class TLiveActor : public TTakeActor
 	~TLiveActor();
 	
 	void load(JSUMemoryInputStream &);
-	void perform(u32, TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	bool recieveMessage(THitActor *, u32);
 	u32* getTakingMtx();
 	bool belongToGround() const;
@@ -32,8 +29,8 @@ class TLiveActor : public TTakeActor
 	void bind();
 	void moveObject();
 	void requestShadow();
-	void drawObject(TGraphics *);
-	void performOnlyDraw(u32, TGraphics *);
+	void drawObject(JDrama::TGraphics *);
+	void performOnlyDraw(u32, JDrama::TGraphics *);
 	u32 getShadowType();
 	void kill();
 	f32 getGravityY() const;
@@ -46,8 +43,8 @@ class TLiveActor : public TTakeActor
 	void setCurAnmSound();
 	void setAnmSound(char const *);
 	void initAnmSound();
-	void getJointTransByIndex(u32, TVec3<f32> *) const;
-	void calcVelocityToJumpToY(TVec3<f32> const &, f32, f32) const;
+	void getJointTransByIndex(u32, JGeometry::TVec3<f32> *) const;
+	void calcVelocityToJumpToY(JGeometry::TVec3<f32> const &, f32, f32) const;
 	void initLodAnm(u32 *, u32, f32); // TLodAnmIndex
 	u32* getModel() const;
 	void calcRideMomentum();
@@ -69,7 +66,7 @@ class TLiveActor : public TTakeActor
 	f32 _A0;
 	f32 _A4;
 	f32 _A8;
-	TVec3<f32> velocity; // _AC
+	JGeometry::TVec3<f32> velocity; // _AC
 	f32 _B8;
 	f32 _BC;
 	f32 _C0;
@@ -78,7 +75,7 @@ class TLiveActor : public TTakeActor
 	f32 gravityY; // _CC
 	u32 _D0;
 	THitActor* hitActor; // _D4
-	TVec3<f32> unkVector; // _D8
+	JGeometry::TVec3<f32> unkVector; // _D8
 	f32 _E4;
 	u8 _E8;
 	u8 _E9; // padding?

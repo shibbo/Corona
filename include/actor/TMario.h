@@ -6,7 +6,9 @@
 #include "JGeometry.h"
 #include "JUT.h"
 #include "TParam.h"
+#include "actor/MActor.h"
 #include "actor/TTakeActor.h"
+#include "TM/TMBindShadowBody.h"
 
 // some states
 #define MARIO_FLAG_NEUTRAL   0x00000001
@@ -14,10 +16,8 @@
 
 #define MARIO_STATE_HANGPOLE 0x10100341
 
-using namespace JDrama;
-using namespace JGeometry;
-
 class TMarioCap;
+class TMarioEffect;
 class TYoshi;
 
 /* Size -- 0x42C */
@@ -291,16 +291,16 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	/* these are a part of the vtable */
 	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(u32, TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	bool recieveMessage(THitActor *, u32);
 	u32* getTakingMtx();
-	u32 moveRequest(TVec3<f32> const &);
+	u32 moveRequest(JGeometry::TVec3<f32> const &);
 	void initValues();
 	void checkReturn();
-	void checkController(TGraphics *);
-	void playerControl(TGraphics *);
+	void checkController(JDrama::TGraphics *);
+	void playerControl(JDrama::TGraphics *);
 	void initModel();
-	void drawSpecial(TGraphics *);
+	void drawSpecial(JDrama::TGraphics *);
 	void checkCollision();
 	void damageExec(THitActor *, u32, u32, u32, f32, u32, f32, u16);
 	u32 getVoiceStatus();
@@ -315,9 +315,9 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	u32 electricDamage();
 	u32 warpOut();
 	void toroccoStart();
-	u32 waitingStart(TVec3<f32> const *, f32);
-	u32 returnStart(TVec3<f32> const *, f32, bool, u32);
-	u32 rollingStart(TVec3<f32> const *, f32);
+	u32 waitingStart(JGeometry::TVec3<f32> const *, f32);
+	u32 returnStart(JGeometry::TVec3<f32> const *, f32, bool, u32);
+	u32 rollingStart(JGeometry::TVec3<f32> const *, f32);
 	u32 isUnUsualStageStart();
 	void warpIn();
 	u32 jumpingDemoCommon(u32, u32, f32);
@@ -325,12 +325,12 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	u32 winDemo();
 	void emitGetEffect();
 	void emitGetWaterEffect();
-	void emitGetCoinEffect(TVec3<f32> *);
+	void emitGetCoinEffect(JGeometry::TVec3<f32> *);
 	void emitSweatSometimes();
 	void emitSweat(u16);
 	void emitSmoke(u16);
 	void emitParticle(u32);
-	bool emitParticle(u32, TVec3<f32> const *);
+	bool emitParticle(u32, JGeometry::TVec3<f32> const *);
 	bool emitParticle(u32, u16);
 	void moveParticle();
 	void initParticle();
@@ -364,7 +364,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	void setStatusToJumping(u32, u32);
 	void setPlayerVelocity(f32 velocity);
 	void doJumping();
-	void throwMario(TVec3<f32> const &throwTo, f32 velocity);
+	void throwMario(JGeometry::TVec3<f32> const &throwTo, f32 velocity);
 	void checkPlayerAround(u32, f32);
 	
 	void normalizeNozzle();
@@ -431,12 +431,12 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	u16 _9E;
 	u16 _A0;
 	u16 _A2; // padding?
-	TVec3<f32> speed; // _A4
+	JGeometry::TVec3<f32> speed; // _A4
 	f32 velocity; // _B0
-	f32 _B4;
-	f32 _B8;
-	f32 _BC;
-	f32 _C0;
+	f32* boxDrawX; // _B4
+	f32* boxDrawY; // _B8
+	f32* boxDrawWidth; // _BC
+	f32* boxDrawHeight; // _C0
 	u16 _C4;
 	u16 _C6; // padding?
 	f32 _C8;
@@ -446,12 +446,12 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	u8 _D5;
 	u8 _D6; // padding?
 	u8 _D7; // ^^
-	u32 _D8;
-	u32 _DC;
+	u32 wallPlane; // _D8
+	u32 roofPlane; // _DC
 	u32* illegalCheckData; // _E0
 	u32 _E4;
 	f32 _E8;
-	f32 _EC;
+	f32 groundLevel; // _EC
 	f32 _F0;
 	u16 _F4;
 	u16 _F6;
@@ -568,9 +568,9 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	u8 _38A; // ^^
 	u8 _38B; // ^^
 	u32 _38C; // ^^
-	u32 _390;
-	u32 _394;
-	u32 _398;
+	TMBindShadowBody* shadowBody; // _390
+	J3DDrawBuffer* drawBuffer1; // _394
+	J3DDrawBuffer* drawBuffer2; // _398
 	u32 _39C;
 	u32 _3A0;
 	u32 _3A4; // padding?
@@ -619,7 +619,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	f32 _418;
 	f32 _41C;
 	u32 _420;
-	u32* _424; // TMarioEffect
+	TMarioEffect* marioEffect; // 424
 	f32 _428;
 	f32 _42C;
 	f32 _430;
@@ -706,6 +706,31 @@ class TMarioCap
 	u32 _8;
 	u32 _C;
 	J3DModel* model; // _10
+};
+
+class TMarioEffect : public THitActor
+{
+	public:
+	~TMarioEffect();
+
+	void init(TMario *mario);
+
+	TMario* mario; // _68
+	u32 _6C;
+	u32 _70;
+	u32 _74;
+	u32 _78;
+	u32 _7C;
+	MActor* mActor; // _80
+};
+
+class TMarioPositionObj : public JDrama::TViewObj
+{
+	public:
+	~TMarioPositionObj();
+
+	void load(JSUMemoryInputStream &stream);
+	void perform(u32, JDrama::TGraphics *graphics);
 };
 
 #endif // TMARIO_H

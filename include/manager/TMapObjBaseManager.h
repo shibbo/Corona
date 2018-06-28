@@ -1,13 +1,8 @@
 #ifndef TMAPOBJBASEMANAGER_H
 #define TMAPOBJBASEMANAGER_H
 
-#include "JDrama.h"
-#include "JSUStream.h"
-#include "types.h"
-#include "tmapobj/TMapObjBase.h"
 #include "manager/TLiveManager.h"
-
-using namespace JDrama;
+#include "tmapobj/TMapObjBase.h"
 
 class TMapObjBaseManager : public TLiveManager
 {
@@ -17,13 +12,13 @@ class TMapObjBaseManager : public TLiveManager
 	
 	void load(JSUMemoryInputStream &);
 	void createModelData();
-	void clipActors(TGraphics *);
+	void clipActors(JDrama::TGraphics *);
 	TMapObjBase* makeObjAppeared(u32);
 	TMapObjBase* makeObjAppear(u32);
 	TMapObjBase* makeObjAppear(f32, f32, f32, u32, bool);
 
 	static TMapObjBase* newAndRegisterObjByEventID(u32, char const *);
-	static u32 getActorTypeByEventID(unsigned u32 eventID);
+	static u32 getActorTypeByEventID(u32 eventID);
 	
 	f32 _38; // clip actor related
 	f32 _3C; // ^^

@@ -6,8 +6,6 @@
 #include "actor/TItem.h"
 #include "actor/THitActor.h"
 
-using namespace JDrama;
-
 class TCoin : public TItem
 {
 	public:
@@ -15,12 +13,12 @@ class TCoin : public TItem
 	~TCoin();
 	
 	void loadAfter();
-	void perform(u32, TGraphics*);
+	void perform(u32, JDrama::TGraphics *);
 	void appear();
 	void makeObjAppeared();
 	void makeObjDead();
 	void initMapObj();
-	void taken(THitActor*);
+	void taken(THitActor *);
 	
 	u32 _154;
 };

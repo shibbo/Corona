@@ -7,8 +7,6 @@
 #include "node/TGraphWeb.h"
 #include "tmapobj/TMapObjBase.h"
 
-using namespace JDrama;
-
 class TRailMapObj : public TMapObjBase
 {
     public:
@@ -16,7 +14,7 @@ class TRailMapObj : public TMapObjBase
     ~TRailMapObj();
 
     void load(JSUMemoryInputStream &);
-    void perform(u32, TGraphcs *);
+    void perform(u32, JDrama::TGraphcs *);
     void setGroundCollision();
     void control();
     u32 getShadowType();

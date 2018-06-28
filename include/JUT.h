@@ -21,8 +21,6 @@ namespace JUtility
 	};
 };
 
-using namespace JUtility;
-
 class JUTPoint
 {
 	public:
@@ -62,10 +60,10 @@ class JUTFont
 	~JUTFont();
 	
 	void initiate(); // nullsub
-	void setu8Color(TColor);
-	void setGradColor(TColor, TColor);
+	void setu8Color(JUtility::TColor);
+	void setGradColor(JUtility::TColor, JUtility::TColor);
 	void drawString_size_scale(f32, f32, f32, f32, char const *, u32, bool);
-	void setGX(TColor, TColor);
+	void setGX(JUtility::TColor, JUtility::TColor);
 	
 	VTABLE; // _0
 	u8 _4;
@@ -73,10 +71,10 @@ class JUTFont
 	u8 _6; // ^^
 	u8 _7; // ^^
 	u32 _8;
-	TColor color1; // _C
-	TColor color2; // _10
-	TColor color3; // _14
-	TColor color4; // _18
+	JUtility::TColor color1; // _C
+	JUtility::TColor color2; // _10
+	JUtility::TColor color3; // _14
+	JUtility::TColor color4; // _18
 };
 
 /* Size -- 0x6C */
@@ -88,7 +86,7 @@ class JUTResFont : public JUTFont
 	
 	void initiate(u32 const *, JKRArchive *); // ResFont
 	void setGX();
-	void setGX(TColor, TColor);
+	void setGX(JUtility::TColor, JUtility::TColor);
 	
 	u32 _1C;
 	u32 _20;
@@ -221,7 +219,6 @@ class JUTNameTab
 	u16 calcKeyCode(char const *name) const;
 	char* getName(unsigned short const);
 
-	
 	u32* _0; // ResNTab*
 	u32 _4;
 	u16 _8;

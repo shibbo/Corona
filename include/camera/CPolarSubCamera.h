@@ -8,9 +8,6 @@
 #include "camera/TCameraInbetween.h"
 #include "camera/TCameraMarioData.h"
 
-using namespace JDrama;
-using namespace JGeometry;
-
 class CPolarSubCamera : public TLookAtCamera
 {
     public:
@@ -18,14 +15,14 @@ class CPolarSubCamera : public TLookAtCamera
     ~CPolarSubCamera();
 
     void loadAfter();
-    void perform(u32, TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
 
     bool execGroundCheck_(Vec position);
     bool execRoofCheck_(Vec position);
     bool execWallCheck_(Vec *position);
     void ctrlMultiPlayerCamera_();
-    bool removeMultiPlayer(TVec3<f32> const *);
-    bool addMultiPlayer(TVec3<f32> const *, f32);
+    bool removeMultiPlayer(JGeometry::TVec3<f32> const *);
+    bool addMultiPlayer(JGeometry::TVec3<f32> const *, f32);
     void createMultiPlayer(u8 howMany);
     u8 isLButtonCameraSpecifyMode(u32) const;
     u8 isLButtonCameraInbetween() const;

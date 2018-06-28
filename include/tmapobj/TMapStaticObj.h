@@ -6,8 +6,6 @@
 #include "MActor.h"
 #include "THitActor.h"
 
-using namespace JDrama;
-
 /* Size -- 0x80 */
 class TMapStaticObj : public THitActor
 {
@@ -17,7 +15,7 @@ class TMapStaticObj : public THitActor
 	
 	void load(JSUMemoryStream &);
 	void loadAfter();
-	void perform(u32, TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	void init(char const *);
 	void initUnique();
 	void initModel(char const *);

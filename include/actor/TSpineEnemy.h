@@ -7,9 +7,6 @@
 #include "types.h"
 #include "actor/TLiveActor.h"
 
-using namespace JDrama;
-using namespace JGeometry;
-
 /* Size -- 0x150 */
 class TSpineEnemy : public TLiveActor
 {
@@ -18,13 +15,13 @@ class TSpineEnemy : public TLiveActor
 	~TSpineEnemy();
 	
 	void load(JSUMemoryInputStream &);
-	void perform(u32, TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	bool recieveMessage(THitActor *, u32);
 	void init(TLiveManager *);
 	void calcRootMatrix();
 	void reset();
-	void resetToPosition(TVec3<f32> const &);
-	void resetSRTV(TVec3<f32> const &, TVec3<f32> const &, TVec3<f32> const &, TVec3<f32> const &);
+	void resetToPosition(JGeometry::TVec3<f32> const &);
+	void resetSRTV(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &);
 	u32 getSaveParam() const;
 	f32 getPhaseShift() const;
 	bool isReachedToGoal() const;

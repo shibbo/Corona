@@ -1,6 +1,7 @@
 #ifndef SMS_H
 #define SMS_H
 
+#include "GX.h"
 #include "J3D.h"
 #include "JGeometry.h"
 #include "JKR.h"
@@ -12,13 +13,12 @@
 #include "actor/TLiveActor.h"
 #include "actor/TMario.h"
 #include "actor/TYoshi.h"
+#include "nozzle/TWaterGun.h"
 
-using namespace JGeometry;
-
-void SMS_WindMoveMario(TVec3<f32> const &);
-void SMS_FlowMoveMario(TVec3<f32> const &);
-void SMS_MarioWarpRequest(TVec3<f32> const &, f32);
-void SMS_MarioMoveRequest(TVec3<f32> const &);
+void SMS_WindMoveMario(JGeometry::TVec3<f32> const &);
+void SMS_FlowMoveMario(JGeometry::TVec3<f32> const &);
+void SMS_MarioWarpRequest(JGeometry::TVec3<f32> const &, f32);
+void SMS_MarioMoveRequest(JGeometry::TVec3<f32> const &);
 bool SMS_IsMarioDashing();
 bool SMS_IsMarioOnYoshi();
 bool SMS_IsMarioOpeningDoor();
@@ -57,9 +57,9 @@ u32 SMSGetTitleVideoHeight();
 u32 SMSGetTitleVideoWidth();
 u32 SMSGetGameVideoHeight();
 u32 SMSGetGameVideoWidth();
-void SMS_ThrowMario(TVec3<f32> const & ,f32);
+void SMS_ThrowMario(JGeometry::TVec3<f32> const & ,f32);
 bool SMS_SendMessageToMario(THitActor *, u32);
-u8 SMS_getShineStage(s8);
+u8 SMS_getShineStage(s8 shineID);
 TMario* SMS_GetMarioHitActor();
 TWaterGun* SMS_GetMarioWaterGun();
 
@@ -81,14 +81,21 @@ JUTRect SMSGetRederRect_Game();
 
 u32* SMSLoadArchive(char const *, void *, u32, JKRHeap *); // returns JKRMemArchive
 
-void SMSCalcJumpVelocityXZ(TVec3<f32> const &, TVec3<f32> const &, f32, f32, TVec3<f32> *);
+void SMSCalcJumpVelocityXZ(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, f32, f32, JGeometry::TVec3<f32> *);
 
 void SMS_EmitSinkInPollutionEffect(TVec3<f32> const &, TVec3<f32> const &, bool);
 bool SMS_EmitRippleSea(f32 *[4], void *);
 bool SMS_EmitRipplePool(f32 *[4],void *);
-bool SMS_EmitRippleTiny(TVec3<f32> *);
+bool SMS_EmitRippleTiny(JGeometry::TVec3<f32> *);
 
-void SMS_RideMoveCalcLocalPos(TRidingInfo *, TVec3<f32> const &);
-void SMS_RideMoveByGroundActor(TRidingInfo *, TVec3<f32> *, float *);
+void SMS_RideMoveCalcLocalPos(TRidingInfo *, JGeometry::TVec3<f32> const &);
+void SMS_RideMoveByGroundActor(TRidingInfo *, JGeometry::TVec3<f32> *, float *);
+
+void SMSSetupMovieRenderingInfo(JDrama::TDisplay *);
+void SMSSetupGameRenderingInfo(JDrama::TDisplay *, bool);
+void SMSSetupTitleRenderingInfo(JDrama::TDisplay *);
+void SMSSetupTitleRenderMode(_GXRenderModeObj *);
+void SMSSetupGCLogoRenderingInfo(JDrama::TDisplay *);
+void SMSGetRederRect_Game();
 
 #endif // SMS_H

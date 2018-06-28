@@ -5,11 +5,9 @@
 #include "JSUStream.h"
 #include "types.h"
 
-using namespace JDrama;
-
-class TObjChara : public TCharacter
+class TObjChara : public JDrama::TCharacter
 {
-    public;
+    public:
     ~TObjChara();
 
     void load(JSUMemoryInputStream &);

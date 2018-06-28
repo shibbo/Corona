@@ -4,8 +4,6 @@
 #include "JDrama.h"
 #include "types.h"
 
-using namespace JDrama;
-
 class MActorAnmData
 {
 	public:
@@ -62,7 +60,7 @@ class MActor
 	u32 getFrameCtrl(u32);
 	bool checkAnmFileExist(char const *fileName, u32);
 
-	void perform(u32, TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	void matAnmFrameUpdate();
 	void frameUpdate();
 	void entry();

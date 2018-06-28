@@ -92,14 +92,29 @@ namespace JGeometry
 		void getQuad(TQuat4<f32> &) const;
 	};
 
-	// are these class useless?
 	template <typename T>
 	class SMatrix34C
 	{
 		public:
 		SMatrix34C(); // nullsub
+
+		void set(T, T, T, T, T, T, T, T, T, T, T, T);
+
+		T _0;
+		T _4;
+		T _8;
+		T _C;
+		T _10;
+		T _14;
+		T _18;
+		T _1C;
+		T _20;
+		T _24;
+		T _28;
+		T _2C;
 	};
 
+	// are these class useless?
 	template <typename T>
 	class TMatrix34
 	{

@@ -2,8 +2,7 @@
 #define TPATHNODE_H
 
 #include "JGeometry.h"
-
-using namespace JGeometry;
+#include "types.h"
 
 class TPathNode
 {
@@ -14,7 +13,7 @@ class TPathNode
     f32 getPoint() const;
 
     u32 _0;
-    TVec3<f32> position; // _4
+    JGeometry::TVec3<f32> position; // _4
 };
 
 #endif // TPATHNODE_H

@@ -5,14 +5,12 @@
 #include "types.h"
 #include "node/TGraphWeb.h"
 
-using namespace JDrama;
-
 class TGraphGroup
 {
     public:
     TGraphGroup(void *);
 
-    void perform(u32, TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
     TGraphWeb* getGraphByName(char const *graphName);
     void initGraphGroup();
 

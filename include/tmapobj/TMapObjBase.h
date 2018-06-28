@@ -8,9 +8,6 @@
 #include "actor/THitActor.h"
 #include "actor/TLiveActor.h"
 
-using namespace JDrama;
-using namespace JGeometry;
-
 struct ObjData
 {
 	u8* objName; // _0
@@ -36,7 +33,7 @@ class TMapObjBase : public TLiveActor
 	
 	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(u32, TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	bool recieveMessage(THitActor *, u32);
 	u32* getTakingMtx();
 	void ensureTakeSituation();
@@ -50,11 +47,11 @@ class TMapObjBase : public TLiveActor
 	void appear();
 	void makeObjAppeared();
 	void makeObjDead();
-	void changeObjSRT(TVec3<f32> const &, TVec3<f32> const &, TVec3<f32> const &);
+	void changeObjSRT(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &);
 	void changeObjMtx(f32* [4]);
 	void updateObjMtx();
 	void setUpCurrentMapColision();
-	void setObjHitData( u16);
+	void setObjHitData(s16);
 	void setModelMtx(f32* [4]);
 	void initMapObj();
 	void loadBeforeInit();
@@ -75,10 +72,10 @@ class TMapObjBase : public TLiveActor
 	f32 getDepthAtFloating();
 	
 	// non-vtable functions
-	void startSound( u16 soundID);
+	void startSound(s16 soundID);
 	bool hasModelOrAnimData() const;
 	bool animIsFinished() const;
-	bool hasAnim( u16 animID) const;
+	bool hasAnim(s16 animID) const;
 	void soundBas(u32, f32, f32);
 	void setUpMapCollision(s16);
 	void setUpCurrentMapCollision();
@@ -94,18 +91,18 @@ class TMapObjBase : public TLiveActor
 	bool marioIsOn(TLiveActor const *actor);
 	void sendMsg(u32, u32);
 	bool waterHitPlane(THitActor *);
-	TVec3<f32> getWaterPos(THitActor *waterActor);
+	JGeometry::TVec3<f32> getWaterPos(THitActor *waterActor);
 	u32 getWaterSpeed(THitActor *waterActor);
 	u32 getWaterPlane(THitActor *waterActor);
 	u32 getWaterID(THitActor *waterActor);
-	f32 getDistance(TVec3<f32> const &) const;
+	f32 getDistance(JGeometry::TVec3<f32> const &) const;
 	void startBck(char const *bckName);
 	void startControlAnim(s16);
 	void initUnique();
 	bool isFruit(THitActor *actor);
 	bool isCoin(THitActor *actor);
-	static void throwObjFromPointWithRot(TMapObjBase *, TVec3<f32> const &throwFrom, TVec3<f32> const &throwTo, f32, f32);
-	void throwObjToFrontFromPoint(TMapObjBase *, TVec3<f32> const &thrownPoint, f32, f32);
+	static void throwObjFromPointWithRot(TMapObjBase *, JGeometry::TVec3<f32> const &throwFrom, JGeometry::TVec3<f32> const &throwTo, f32, f32);
+	void throwObjToFrontFromPoint(TMapObjBase *, JGeometry::TVec3<f32> const &thrownPoint, f32, f32);
 	void throwObjToFront(TMapObjBase *obj, f32, f32, f32);
 	void checkOnManhole();
 	bool isDemo();

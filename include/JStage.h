@@ -4,8 +4,6 @@
 #include "JGeometry.h"
 #include "types.h"
 
-using namespace JGeometry;
-
 namespace JStage
 {
     class TObject
@@ -41,12 +39,12 @@ namespace JStage
         public:
         ~TActor();
         u32 JSGFGetType() const;
-        void JSGGetTranslation(TVec3<f32> *) const;
-        void JSGSetTranslation(TVec3<f32> const &);
-        void JSGGetScaling(TVec3<f32> *) const;
-        void JSGSetScaling(const TVec3<f32> &);
-        void JSGGetRotation(TVec3<f32> *) const;
-        void JSGSetRotation(const TVec3<f32> &);
+        void JSGGetTranslation(JGeometry::TVec3<f32> *) const;
+        void JSGSetTranslation(JGeometry::TVec3<f32> const &);
+        void JSGGetScaling(JGeometry::TVec3<f32> *) const;
+        void JSGSetScaling(const JGeometry::TVec3<f32> &);
+        void JSGGetRotation(JGeometry::TVec3<f32> *) const;
+        void JSGSetRotation(const JGeometry::TVec3<f32> &);
 
         u32 JSGGetShape() const;
         void JSGSetShape(u32);

@@ -9,22 +9,19 @@
 #include "manager/TEnemyManager.h"
 #include "manager/TLiveManager.h"
 
-using namespace JDrama;
-using namespace JGeometry;
-
-class TConductor : public TViewObj
+class TConductor : public JDrama::TViewObj
 {
     public:
     TConductor(char const *);
     ~TConductor();
 
     TNameRef* searchF(u16, char const *);
-    void perform(u32, TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
 
     void genEnemyFromPollution();
-    void killEnemiesWithin(TVec3<f32> const &position, f32 distance);
-    TSmallEnemy* makeOneEnemyAppear(TVec3<f32> const &position, char const *name, u32);
-    TSmallEnemy* makeEnemyAppear(TVec3<f32> const &position, char const *name, u32, u32);
+    void killEnemiesWithin(JGeometry::TVec3<f32> const &position, f32 distance);
+    TSmallEnemy* makeOneEnemyAppear(JGeometry::TVec3<f32> const &position, char const *name, u32);
+    TSmallEnemy* makeEnemyAppear(JGeometry::TVec3<f32> const &position, char const *name, u32, u32);
     bool isBossDefeated();
     TLiveManager* getManagerByName(char const *managerName);
     TGraphGroup* getGraphByName(char const *graphName);

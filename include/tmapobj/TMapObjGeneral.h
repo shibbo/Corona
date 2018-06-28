@@ -7,9 +7,6 @@
 #include "actor/THitActor.h"
 #include "tmapobj/TMapObjBase.h"
 
-using namespace JDrama;
-using namespace JGeometry;
-
 class TMapObjGeneral : public TMapObjBase
 {
 	public:
@@ -18,7 +15,7 @@ class TMapObjGeneral : public TMapObjBase
 	
 	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(u32, TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	bool recieveMessage(THitActor *, u32);
 	void ensureTakeSituation();
 	void calcRootMatrix();
@@ -32,7 +29,7 @@ class TMapObjGeneral : public TMapObjBase
 	u32 touchWater(THitActor *);
 	u32 getLivingTime() const;
 	u32 getFlushTime() const;
-	bool isPollutedGround(TVec3<f32> const &);
+	bool isPollutedGround(JGeometry::TVec3<f32> const &);
 	void work();
 	void appearing();
 	void appeared();
@@ -54,12 +51,12 @@ class TMapObjGeneral : public TMapObjBase
 	void makeObjRecovered();
 	void recieveMessageFromPlayer();
 	void calcVelocity();
-	void checkGroundCollision(TVec3<f32> *);
-	void touchGround(TVec3<f32> *);
-	void checkWallCollision(TVec3<f32> *);
-	void touch(TVec3<f32> *, u32 *); // TBGWallCheckRecord*
-	void checkRoofCollision(TVec3<f32> *);
-	void touchRoof(TVec3<f32> *);
+	void checkGroundCollision(JGeometry::TVec3<f32> *);
+	void touchGround(JGeometry::TVec3<f32> *);
+	void checkWallCollision(JGeometry::TVec3<f32> *);
+	void touch(JGeometry::TVec3<f32> *, u32 *); // TBGWallCheckRecord*
+	void checkRoofCollision(JGeometry::TVec3<f32> *);
+	void touchRoof(JGeometry::TVec3<f32> *);
 	
 	THitActor* _138;
 	u32 _13C;

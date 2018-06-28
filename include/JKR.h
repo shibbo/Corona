@@ -2,6 +2,7 @@
 #define JKR_H
 
 #include "JSUStream.h"
+#include "OS.h"
 
 class JKRArchive;
 
@@ -22,16 +23,14 @@ class JKRHeap : public JKRDisposer
 	JKRHeap(void *, u32, JKRHeap *, bool);
 	~JKRHeap();
 
-	void freeAll();
-
 	void becomeSystemHeap();
 	void becomeCurrentHeap();
 	bool initArena(u8 **, u32 *, u32);
 	static void alloc(u32, u32, JKRHeap *);
 	void free(void *, JKRHeap *);
 	void freeAll();
-	static u32* findFromRoot(void *);
-	u32* find(void *) const;
+	static JKRHeap* findFromRoot(void *);
+	JKRHeap* find(void *) const;
 	void dispose_subroutine(u32, u32);
 	void dispose(void *, u32);
 	void dispose(void *, void *);
@@ -51,19 +50,20 @@ class JKRHeap : public JKRDisposer
 class JKRThread : public JKRDisposer
 {
 	public:
-	JKRThread(u32, u32, u32);
+	JKRThread(u32 stackSize, s32 messageCount, u32);
 	~JKRThread();
 
-	void start(void *);
+	static void* start(void *src);
 	u32 run();
 
 	JSUPtrLink threadPtrs; // _18
 	JKRHeap* heap; // _28
-	u32* osThread; // _2C (this is OSThread*)
-	u32* messageQueue; // _30 (this is OSMessageQueue*)
-	u8 _34[0x50-0x34];
-	u32* osMessage; // _50 (this is OSMessage*)
+	OSThread* thread; // _2C
+	OSMessageQueue messageQueue; // _30
+	OSMessage* message; // _50
 	s32 messageCount; // _54
+	void* stackPtr; // _58
+	u32 stackSize; // _5C
 };
 
 class JKRFileLoader : public JKRDisposer
@@ -73,7 +73,7 @@ class JKRFileLoader : public JKRDisposer
 	~JKRFileLoader();
 	
 	void unmount();
-	JKRArchive* getVolume(char const *);
+	JKRFileLoader* getVolume(char const *);
 	void changeDirectory(char const *);
 	u32* getGlbResource(char const *);
 	u32* getGlbResource(char const *, JKRFileLoader *);
@@ -110,6 +110,36 @@ class JKRArchive : public JKRFileLoader
 	u8 _3E; // ^^
 	u8 _3F; // ^^
 	
+};
+
+class JKRFileFinder
+{
+	public:
+	~JKRFileFinder();
+
+	u32 _0;
+	u32 _4;
+	u16 _8;
+	u16 _A;
+	VTABLE; // _C
+};
+
+class JKRArcFinder : public JKRFileFinder
+{
+	public:
+	JKRArcFinder(JKRArchive *, u32, u32);
+	~JKRArcFinder();
+
+	bool findNextFile();
+
+	u8 _10;
+	u8 _11;
+	u8 _12; // padding?
+	u8 _13; // ^^
+	JKRArchive* archive; // _14
+	u32 _18;
+	u32 _1C;
+	u32 _20;
 };
 
 void JKRDefaultMemoryErrorRoutine(void *, u64, u32);

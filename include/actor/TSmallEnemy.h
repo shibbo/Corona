@@ -8,8 +8,6 @@
 #include "actor/item/TCoin.h"
 #include "manager/TLiveManager.h"
 
-using namespace JDrama;
-
 class TSmallEnemy : public TSpineEnemy
 {
 	public:
@@ -18,7 +16,7 @@ class TSmallEnemy : public TSpineEnemy
 	
 	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(u32, TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	bool recieveMessage(THitActor *, u32);
 	void init(TLiveManager *);
 	void moveObject();

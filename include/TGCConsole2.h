@@ -5,9 +5,7 @@
 #include "JSUStream.h"
 #include "types.h"
 
-using namespace JDrama;
-
-class TGCConsole2 : public TViewObj
+class TGCConsole2 : public JDrama::TViewObj
 {
     public:
     TGCConsole2(char const *);
@@ -15,7 +13,7 @@ class TGCConsole2 : public TViewObj
 
     void load(JSUMemoryInputStream &);
     void loadAfter();
-    void perform(u32, TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
 
     // not all of them
     bool processDisappearBalloon();

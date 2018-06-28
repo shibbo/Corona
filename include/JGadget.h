@@ -1,6 +1,7 @@
 #ifndef JGADGET_H
 #define JGADGET_H
 
+#include "types.h"
 
 namespace JGadget
 {

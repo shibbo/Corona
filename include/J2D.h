@@ -6,8 +6,6 @@
 #include "JUT.h"
 #include "types.h"
 
-using namespace JUtility;
-
 typedef f32 Mtx[3][4];
 typedef u32* ResFONT; // just to be more percise
 
@@ -32,10 +30,10 @@ class J2DGrafContext
 	u32 _4; // padding?
 	JUTRect _8;
 	JUTRect _18;
-	TColor _28;
-	TColor _2C;
-	TColor _30;
-	TColor _34;
+	JUtility::TColor _28;
+	JUtility::TColor _2C;
+	JUtility::TColor _30;
+	JUtility::TColor _34;
 	u8 lineWidth; // _38
 	u8 _39; // padding?
 	u8 _3A; // ^^
@@ -257,12 +255,12 @@ class J2DPicture : public J2DPane
 class J2DPrint
 {
 	public:
-	J2DPrint(JUTFont *, u32, u32, TColor, TColor);
+	J2DPrint(JUTFont *, u32, u32, JUtility::TColor, JUtility::TColor);
 	J2DPrint(JUTFont *, u32);
 	~J2DPrint();
 
 	void initiate();
-	void private_initiate(JUTFont *, u32, u32, TColor, TColor);
+	void private_initiate(JUTFont *, u32, u32, JUtility::TColor, JUtility::TColor);
 	static void setBuffer(u32);
 	void locate(u32, u32);
 	void setFontSize();
@@ -279,7 +277,7 @@ class J2DPrint
 };
 
 /* ----- Some functions for J2D not assigned to a class */
-void J2DFillBox(u32, u32, u32, u32, TColor);
-void J2DFillBox(JUTRect, TColor);
+void J2DFillBox(u32, u32, u32, u32, JUtility::TColor);
+void J2DFillBox(JUTRect, JUtility::TColor);
 
 #endif // J2D_H

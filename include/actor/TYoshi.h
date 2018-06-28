@@ -7,9 +7,6 @@
 #include "actor/THitActor.h"
 #include "tmapobj/TMapObjGeneral.h"
 
-using namespace JDrama;
-using namespace JGeometry;
-
 class TMario;
 
 class TEggYoshi : public TMapObjGeneral
@@ -19,7 +16,7 @@ class TEggYoshi : public TMapObjGeneral
     ~TEggYoshi();
 
     void load(JSUMemoryInputStream &);
-    void peform(u32, TGraphics *);
+    void peform(u32, JDrama::TGraphics *);
     bool recieveMessage(THitActor *, u32);
     void control();
     void touchActor(THitActor *);
@@ -107,7 +104,7 @@ class TYoshi
     f32 _A0;
     f32 _A4;
     u32 _A8;
-    u32 _AC;
+    J3DDrawBuffer* drawBuffer; // _AC
     u32 _B0;
     u32 _B4;
     u8 _B8;

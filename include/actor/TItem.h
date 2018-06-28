@@ -7,8 +7,6 @@
 #include "actor/THitActor.h"
 #include "tmapobj/TMapObjGeneral.h"
 
-using namespace JDrama;
-
 class TItem : public TMapObjGeneral
 {
 	public:
@@ -16,8 +14,8 @@ class TItem : public TMapObjGeneral
 	~TItem();
 	
 	void load(JSUMemoryInputStream &);
-	void perform(u32, TGraphics *);
-	u32 recieveMessage(THitActor*, u32);
+	void perform(u32, JDrama::TGraphics *);
+	u32 recieveMessage(THitActor *, u32);
 	void calcRootMatrix();
 	void appear();
 	void initMapObj();

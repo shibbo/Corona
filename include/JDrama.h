@@ -7,8 +7,6 @@
 #include "JGeometry.h"
 #include "JStage.h"
 
-using namespace JGeometry;
-
 namespace JDrama
 {
 	class TNameRefGen
@@ -103,7 +101,7 @@ namespace JDrama
 		
         void load(JSUMemoryInputStream &stream);
 
-        TVec3<f32> position; // _10
+        JGeometry::TVec3<f32> position; // _10
         u16 _1C;
         u16 _1E; // pad
     };
@@ -118,15 +116,15 @@ namespace JDrama
         u32 getType() const;
         void load(JSUMemoryInputStream &stream);
         void perform(u32, TGraphics *);
-        void JSGGetTranslation(TVec3<f32> *) const;
-        void JSGSetTranslation(TVec3<f32> const &);
-        void JSGGetScaling(TVec3<f32> *) const;
-        void JSGSetScaling(const TVec3<f32> &);
-        void JSGGetRotation(TVec3<f32> *) const;
-        void JSGSetRotation(const TVec3<f32> &);
+        void JSGGetTranslation(JGeometry::TVec3<f32> *) const;
+        void JSGSetTranslation(JGeometry::TVec3<f32> const &);
+        void JSGGetScaling(JGeometry::TVec3<f32> *) const;
+        void JSGSetScaling(const JGeometry::TVec3<f32> &);
+        void JSGGetRotation(JGeometry::TVec3<f32> *) const;
+        void JSGSetRotation(const JGeometry::TVec3<f32> &);
 
-        TVec3<f32> scale; // _24
-        TVec3<f32> rotation; // _30
+        JGeometry::TVec3<f32> scale; // _24
+        JGeometry::TVec3<f32> rotation; // _30
         u32 _3C;
         u32* _40;  
     };	
@@ -235,8 +233,8 @@ namespace JDrama
         Vec* JSGGetViewTargetPosition() const;
         void JSGSetViewTargetPosition(Vec *targetPos);
 
-        TVec3<f32> viewUp; // _30
-        TVec3<f32> targetPos; // _3C
+        JGeometry::TVec3<f32> viewUp; // _30
+        JGeometry::TVec3<f32> targetPos; // _3C
         f32 projectionFovy; // _48
         f32 projectionAspect; // _4C
     };
@@ -255,6 +253,12 @@ namespace JDrama
         public:
         TVideo();
     };
+
+    void CalcRenderModeXFBHeight(_GXRenderModeObj *, u16);
+    void CalcRenderModeVIXOrigin(_GXRenderModeObj *);
+    void CalcRenderModeVIYOrigin(_GXRenderModeObj *);
+    void CopyRenderModeSamplePattern(_GXRenderModeObj *, u8 const *[2]);
+    void CopyRenderModeVFilter(_GXRenderModeObj *, u8 const *);
 };
 
 #endif // JDRAMA_H

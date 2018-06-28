@@ -4,8 +4,6 @@
 #include "JDrama.h"
 #include "JSUStream.h"
 
-using namespace JDrama;
-
 class TMapCollisionData
 {
     public:
@@ -54,7 +52,7 @@ class TMapWarp
     };
 };
 
-class TMap : public TViewObj
+class TMap : public JDrama::TViewObj
 {
     public:
     TMap(char const *);
@@ -62,16 +60,16 @@ class TMap : public TViewObj
 
     void load(JSUMemoryInputStream &);
     void loadAfter();
-    void perform(u32, TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
 
     void changeModel(u32) const;
     f32 checkGround(f32, f32, f32, u32 const **) const; // TBGCheckData
-    f32 checkGround(TVec3<f32> const &, u32 const **) const; // TBGCheckData
+    f32 checkGround(JGeometry::TVec3<f32> const &, u32 const **) const; // TBGCheckData
     f32 checkGroundExactY(f32, f32, f32, u32 const **) const;
     
     bool isTouchedOneWallAndMoveXZ(f32 *, f32, f32 *, f32) const;
     bool isTouchedOneWall(f32, f32, f32, f32) const;
-    bool intersectLine(TVec3<f32> const &, TVec3<f32> const &, bool, TVec3<f32> *) const;
+    bool intersectLine(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, bool, JGeometry::TVec3<f32> *) const;
     bool isInArea(f32, f32) const;
     u32* getIllegalCheckData();
     void update();

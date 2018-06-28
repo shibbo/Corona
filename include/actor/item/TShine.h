@@ -5,8 +5,6 @@
 #include "types.h"
 #include "actor/TItem.h"
 
-using namespace JDrama;
-
 class TShine : public TItem
 {
     public:
@@ -14,7 +12,7 @@ class TShine : public TItem
     ~TShine();
 
     void loadAfter();
-    void perform(u32, TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
     bool recieveMessage(THitActor *, u32);
     void control();
     void kill();

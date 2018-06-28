@@ -7,8 +7,6 @@
 #include "actor/TSpineEnemy.h"
 #include "manager/TLiveManager.h"
 
-using namespace JDrama;
-
 class TEnemyManager : public TLiveManager
 {
     public:
@@ -16,22 +14,22 @@ class TEnemyManager : public TLiveManager
     ~TEnemyManager();
 
     void load(JSUMemoryInputStream &stream);
-    void perform(u32, TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
     
     u32 createEnemyInstance();
-    void clipEnemies(TGraphics *);
+    void clipEnemies(JDrama::TGraphics *);
     void restoreDrawBuffer(u32);
     void createEnemies(u32);
     void changeDrawBuffer(u32);
 
     u8 copyAnmMatrix(TSpineEnemy *);
     u32 countLivingEnemy() const;
-    void killChildrenWithin(TVec3<f32> const &basePoint, f32 distance);
+    void killChildrenWithin(JGeometry::TVec3<f32> const &basePoint, f32 distance);
     void killChildren();
     u32* getFarOutEnemy();
     u32* getDeadEnemy();
-    u32* getNearestEnemy(TVec3<f32> const &pos);
-    void performShared(u32, TGraphics *);
+    u32* getNearestEnemy(JGeometry::TVec3<f32> const &pos);
+    void performShared(u32, JDrama::TGraphics *);
     void copyFromShared();
     void updateAnmSoundShared();
     void setSharedFlags();

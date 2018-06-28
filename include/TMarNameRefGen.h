@@ -5,8 +5,6 @@
 #include "JSUStream.h"
 #include "types.h"
 
-using namespace JDrama;
-
 // not completed
 template <class T, class T2>
 class TNameRefAryT : public TNameRef
@@ -19,7 +17,7 @@ class TNameRefAryT : public TNameRef
     TNameRefAryT* searchF(s16, char const *);
 };
 
-class TMarNameRefGen : public TNameRefGen
+class TMarNameRefGen : public JDrama::TNameRefGen
 {
 	public:
 	u32* getNameRef(char const *) const;

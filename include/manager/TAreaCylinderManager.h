@@ -3,9 +3,7 @@
 
 #include "JDrama.h"
 
-using namespace JDrama;
-
-class TAreaCylinderManager : public TViewObj
+class TAreaCylinderManager : public JDrama::TViewObj
 {
     public:
     ~TAreaCylinderManager();

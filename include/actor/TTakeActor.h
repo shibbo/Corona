@@ -5,8 +5,6 @@
 #include "types.h"
 #include "actor/THitActor.h"
 
-using namespace JGeometry;
-
 /* Size -- 0x70 */
 class TTakeActor : public THitActor
 {
@@ -14,7 +12,7 @@ class TTakeActor : public THitActor
 	~TTakeActor();
 	
 	void ensureTakeSituation();
-	u32 moveRequest(TVec3<f32> const &);
+	u32 moveRequest(JGeometry::TVec3<f32> const &);
 	f32 getRadiusAtY(f32) const;
 	bool isTaken() const;
 	

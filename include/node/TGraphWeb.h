@@ -6,8 +6,6 @@
 #include "node/TRailNode.h"
 #include "node/TSplineRail.h"
 
-using namespace JGeometry;
-
 class TGraphWeb
 {
     public:
@@ -15,16 +13,16 @@ class TGraphWeb
     ~TGraphWeb();
 
     u32 getNeighborNodeIndexByFlag(u32, u32, u32) const;
-    TVec3<f32> getNearestPosOnGraphLink(TVec3<f32> const &) const;
+    JGeometry::TVec3<f32> getNearestPosOnGraphLink(JGeometry::TVec3<f32> const &) const;
     bool isDummy() const;
     u32 indexToPoint(u32) const;
     bool startIsEnd() const;
     void initGoalIndex(Vec const &);
     void calcGraphDirection(u32);
-    u32 findNearestVisibleIndex(TVec3<f32> const &, f32, f32, f32, u32) const;
-    u32 findNearestNodeInde(TVec3<f32> const &, u32) const;
-    u16 getEscapeDirLimited(u32, u32, TVec3<f32> const &, TVec3<f32> const &, f32, u32) const;
-    u16 getEscapeFromMarioIndex(u32, u32, TVec3<f32> const &, u32) const;
+    u32 findNearestVisibleIndex(JGeometry::TVec3<f32> const &, f32, f32, f32, u32) const;
+    u32 findNearestNodeInde(JGeometry::TVec3<f32> const &, u32) const;
+    u16 getEscapeDirLimited(u32, u32, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, f32, u32) const;
+    u16 getEscapeFromMarioIndex(u32, u32, JGeometry::TVec3<f32> const &, u32) const;
     u16 getRandomNextIndex(u32, u32, u32) const;
     u16 getu16estNextIndex(u32, u32, u32) const;
     void translateNodes(TRailNode *);

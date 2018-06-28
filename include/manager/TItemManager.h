@@ -6,8 +6,6 @@
 #include "types.h"
 #include "manager/TMapObjBaseManager.h"
 
-using namespace JDrama;
-
 /* Size -- 0x7C */
 class TItemManager : public TMapObjBaseManager
 {
@@ -17,7 +15,7 @@ class TItemManager : public TMapObjBaseManager
 	
 	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(u32, TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	bool hasMapCollision() const;
 	void makeShineAppearWithDemoOffset(char const *, char const *, f32, f32, f32);
 	void makeShineAppearWithDemo(char const *, char const *, f32, f32, f32);

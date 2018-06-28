@@ -5,8 +5,6 @@
 #include "spc/TSpcTypedInterp.h"
 #include "TEventWatcher.h"
 
-using namespace JDrama;
-
 void SpcTrace(char const *, ...);
 
 void evStartMontemanFanfare(TSpcTypedInterp<TEventWatcher> *, u32);

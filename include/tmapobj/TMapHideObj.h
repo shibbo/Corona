@@ -6,8 +6,6 @@
 #include "actor/THitActor.h"
 #include "tmapobj/TMapObjBase.h"
 
-using namespace JGeometry;
-
 class TMapHideObj : public TMapObjBase
 {
     public:
@@ -18,7 +16,7 @@ class TMapHideObj : public TMapObjBase
     void loadAfter();
     u32 recieveMessage(THitActor *, u32);
     void appearObj(f32);
-    void appearObjFromPoint(TVec3<f32> const &);
+    void appearObjFromPoint(JGeometry::TVec3<f32> const &);
     void emitEffect();
 
     f32 _138;

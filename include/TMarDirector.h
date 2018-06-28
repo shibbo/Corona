@@ -9,10 +9,7 @@
 #include "TGCConsole2.h"
 #include "types.h"
 
-using namespace JDrama;
-using namespace JGeometry;
-
-class TMarDirector : public TDirector
+class TMarDirector : public JDrama::TDirector
 {
     public:
     TMarDirector();
@@ -21,14 +18,14 @@ class TMarDirector : public TDirector
     void direct();
     void moveStage();
     void updateGameMode();
-    void nextStateInitialize( u8);
+    void nextStateInitialize(s8);
     void setMario();
-    void currentStateFinalize( u8);
+    void currentStateFinalize(s8);
     void changeState();
-    void fireStreamingMovie( u8);
+    void fireStreamingMovie(s8);
     void fireEndDemoCamera();
-    void fireStartDemoCamera(char const *, TVec3<f32> const *, u32, f32, bool, u32 (*)(u32, u32), u32, TActor *, TFlagT< u16>);
-    void setNextStage( u16 stageID, TActor *);
+    void fireStartDemoCamera(char const *, JGeometry::TVec3<f32> const *, u32, f32, bool, u32 (*)(u32, u32), u32, JDrama::TActor *, JDrama::TFlagT<s16>);
+    void setNextStage(s16 stageID, JDrama::TActor *);
     void movement();
     void fireRideYoshi(TYoshi *);
     void fireGetStar(TShine *);
