@@ -15,6 +15,7 @@ class TSpineBase
     u32* getLatestNerve() const;
 
     VTABLE; // _0
+    u8 _4[0x14-0x4];
     TNerveBase* nerveBase; // _14
     
 };
