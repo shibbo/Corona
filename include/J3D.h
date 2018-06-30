@@ -2,6 +2,7 @@
 #define J3D_H
 
 #include "types.h"
+#include "JUT.h"
 
 // declaration for J3DSkinDeform to use J3DModel
 class J3DModel;
@@ -409,6 +410,75 @@ class J3DTexCoord
 	u8 _0;
 	u8 _1;
 	u8 _2;
+};
+
+class J3DTexture
+{
+	public:
+	~J3DTexture();
+
+	u16 _0;
+	u16 _2;
+	u32 _4;
+	VTABLE; // _8
+};
+
+class J3DMaterialTable
+{
+	public:
+	J3DMaterialTable();
+	~J3DMaterialTable();
+
+	void clear();
+
+	VTABLE; // _0
+	u16 _4;
+	u16 _6;
+	u32 _8;
+	J3DTexture* texture; // _C
+	u32 _10;
+	u32 _14;
+};
+
+class J3DAnmBase
+{
+	public:
+	J3DAnmBase();
+	J3DAnmBase(u16);
+	~J3DAnmBase();
+
+	u16 _0;
+	u16 _2;
+	f32 _4;
+	u32 _8; // guessed
+	VTABLE; // _C
+};
+
+class J3DAnmTexPattern : public J3DAnmBase
+{
+	public:
+	~J3DAnmTexPattern();
+	
+	void getTexNo(u16, u16 *texNo);
+	void searchUpdateMaterialID(J3DModelData *);
+
+	u32 _10;
+	u32 _14;
+	u16 _18;
+	u16 _1A;
+	u32 _1C;
+	JUTNameTab* nameTab; // _20
+};
+
+class J3DTexNoAnm
+{
+	public:
+	J3DTexNoAnm();
+	~J3DTexNoAnm();
+
+	VTABLE; // _0
+	u16 _4;
+	u16 _6; // padding?
 };
 
 u16 calcColorChanID(unsigned short, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);

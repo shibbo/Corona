@@ -15,5 +15,10 @@ typedef double              f64;
 #define VTABLE u32* vtable;
 
 typedef f32 Mtx[3][4];
+typedef f32 (*MtxPtr)[4];
+typedef f32 ROMtx[4][3];
+typedef f32 (*ROMtxPtr)[3];
+typedef f32 Mtx44[4][4];
+typedef f32 (*Mtx44Ptr)[4];
 
 #endif // TYPES_H

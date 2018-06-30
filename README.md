@@ -22,6 +22,9 @@ As noted, the input DOL and output DOL names are optional if you are not injecti
 
 If your code fails to compile, read the error and attempt to fix it, and if you can't seem to get something to compile, contact me.
 
+# Symbols
+In order for the functions / classes that are in this kit to be used, you have to include the symbols for them. This is done by supplying the text files found in "Symbols". If you wish to create your own, you have to make sure that the symbols in the file match exactly to the ones found in the symbol map. If named correctly in IDA Pro, you can use File -> Produce File -> MAP File. When asked what to include, uncheck all possible options. Once the map has exported, you have to remove the symbols that are not functions. This can be done by searching for "__destroy_global_chain_reference" and deleting every line below it, leaving no blank lines underneath. After that is done, simply run the convertMap script, using your map as an argument.
+
 # YAML
 As said above, the library uses a YAML file to determine what to do with your code. The comments next to each variable explains how it works.
 ```yaml

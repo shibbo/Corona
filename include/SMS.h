@@ -70,6 +70,12 @@ J3DModel SMS_CreatePartsModel(u8 *, u32);
 J3DModel* SMS_CreateMinimumSDLModel(char const *);
 
 void SMS_UnifyMaterial(J3DModel *);
+void SMS_DrawShape(J3DModelData *, u16);
+void SMS_SettingDrawShape(J3DModelData *, u16);
+void SMS_DrawCube(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &);
+u32 SMS_CountPolygonNumInShape(J3DShape *);
+void SMS_ResetDamageFogEffect(J3DModelData *);
+void SMS_AddDamageFogEffect(J3DModelData *, JGeometry::TVec3<f32> const &, JDrama::TGraphics *);
 void SMS_CalcMatAnmAndMakeDL(J3DModel *, s16);
 void SMS_ResetTexCacheRegion();
 void SMS_DrawInit();

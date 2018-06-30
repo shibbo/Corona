@@ -6,6 +6,7 @@
 #include "JGeometry.h"
 #include "JUT.h"
 #include "TParam.h"
+#include "types.h"
 #include "actor/MActor.h"
 #include "actor/TTakeActor.h"
 #include "TM/TMBindShadowBody.h"
@@ -293,7 +294,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	void loadAfter();
 	void perform(u32, JDrama::TGraphics *);
 	bool recieveMessage(THitActor *, u32);
-	u32* getTakingMtx();
+	Mtx* getTakingMtx();
 	u32 moveRequest(JGeometry::TVec3<f32> const &);
 	void initValues();
 	void checkReturn();
@@ -410,6 +411,17 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 
 	void setGamePad(TMarioGamePad *gamePad);
 	bool askJumpIntoWaterEffectExist() const;
+
+	void loadAnmTexPattern(J3DAnmTexPattern **, u8 *, J3DModelData *);
+	void loadBas(void **, char const *);
+	void setReverseAnimation(u32, f32);
+
+	Mtx* getTakenMtx();
+	bool isUpperPumpingStyle() const;
+	void considerWaist();
+	void calcBaseMtx(f32 *[4]);
+	void addCallBack(JDrama::TGraphics *);
+	void addUpper();
 
 	// _70 is the TDrawSyncCallback vtable
 	u32 _74;
@@ -561,7 +573,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	f32 _374;
 	f32 _378;
 	u16 _37E;
-	u32 _380;
+	u32 pumpingStyle; // _380
 	u32 _384;
 	u8 _388;
 	u8 _389; // padding?
@@ -574,14 +586,14 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	u32 _39C;
 	u32 _3A0;
 	u32 _3A4; // padding?
-	u32* _3A8;
-	u32* _3AC;
+	u32* _3A8; // M3UModel*
+	J3DModelData* marioMDL; // _3AC
 	u32 _3B0;
 	u32 _3B4;
 	u32 _3B8;
 	u32 _3BC;
-	u32 _3C0; // padding?
-	u8 _3C4; // ^^
+	u32 _3C0;
+	u8 centerTabIndex; // _3C4 
 	u8 _3C5;
 	u8 _3C6;
 	u8 _3C7;
@@ -633,7 +645,9 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	f32 _450;
 	f32 _454;
 	f32 _458;
-	u8 _45C[0x4DC-0x45C]; // something is here
+	u8 _45C[0x470-0x45C]; // something is here
+	u32* _470; // ResTIMG const & (/scene/map/pollution/H_ma_rak.bti)
+	u8 _474[0x4DC-0x474];
 	u32* _4DC; // MAnmSound
 	u32 _4E0;
 	u32 _4E4;
