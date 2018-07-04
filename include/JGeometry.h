@@ -135,6 +135,18 @@ namespace JGeometry
 		public:
 		TPartition3(); // nullsub
 	};
+
+	// notice: this class only supports floats in Sunshine
+	// so if any other type is used that is not float, the symbol will be generated
+	template <typename T>
+	class TUtil
+	{
+		public:
+		T sqrt(T val);
+		T inv_sqrt(T val);
+		T mod(T, T);
+		T one();
+	};
 };
 
 #endif // JGEOMETRY_H
