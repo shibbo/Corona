@@ -16,8 +16,8 @@ class TTakeActor : public THitActor
 	f32 getRadiusAtY(f32) const;
 	bool isTaken() const;
 	
-	TTakeActor* takenActor; // _68
-	THitActor* hitActor; // _6C
+	TTakeActor* holder; // _68
+	TTakeActor* heldActor; // _6C
 };
 
 #endif // TTAKEACTOR_H

@@ -27,7 +27,7 @@ class TEggYoshi : public TMapObjGeneral
     void decideRandomLoveFruit();
 
     u32 _148;
-    u32 _14C;
+    u32 wantedFruit;
     u32 _150;
 };
 
@@ -94,9 +94,9 @@ class TYoshi
     u16 _72;
     u8 _74[0x80-0x74];
     f32 _80;
-    f32 _84;
-    f32 _88;
-    f32 _8C;
+    f32 colorR; // _84
+    f32 colorG; // _88
+    f32 colorB; // _8C
     f32 _90;
     u32 _94;
     f32 _98;

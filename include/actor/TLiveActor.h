@@ -5,6 +5,7 @@
 #include "JGeometry.h"
 #include "JSUStream.h"
 #include "actor/MActor.h"
+#include "actor/TSpineBase.h"
 #include "actor/TTakeActor.h"
 #include "manager/TLiveManager.h"
 #include "sound/MAnmSound.h"
@@ -58,17 +59,15 @@ class TLiveActor : public TTakeActor
 	MAnmSound* anmSound; // _80
 	u32 _84;
 	u32* _88;
-	u32* _8C;
+	TSpineBase<TLiveActor>* objAI; // _8C
 	u32* _90;
-	f32 _94;
-	f32 _98;
-	f32 _9C;
+	JGeometry::TVec3<f32> movement; // _94
 	f32 _A0;
 	f32 _A4;
 	f32 _A8;
 	JGeometry::TVec3<f32> velocity; // _AC
 	f32 _B8;
-	f32 _BC;
+	f32 maxSpeed; // _BC
 	f32 _C0;
 	u32* _C4; // TMapCollisionData::mIllegalCheckData
 	f32 _C8; // gravity X?

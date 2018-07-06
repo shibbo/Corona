@@ -46,12 +46,14 @@ If you want to contribute to this repository, create a pull request! Be sure to 
 # Credits
 Ninji -- Creating Kamek and helping me with setup
 
-Yoshi2 -- Misc Reverse Engineering
+arookas -- Misc Reverse Engineering
 
 MasterF0x -- Misc Reverse Engineering
 
 Miluaces -- Misc Reverse Engineering
 
-arookas -- Misc Reverse Engineering
+Noki Doki -- Misc Reverse Engineering
+
+Yoshi2 -- Misc Reverse Engineering
 
 Have fun.
