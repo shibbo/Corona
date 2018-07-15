@@ -7,6 +7,7 @@
 void makeShineAppear(u32 type, f32 xPos, f32 yPos, f32 zPos);
 void incCoins(u32 howMany);
 void incLives(u32 howMany);
+void changeYoshiColor(u8 r, u8 g, u8 b);
 
 enum ShineSpawnType
 {

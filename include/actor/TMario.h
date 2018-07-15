@@ -542,7 +542,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	u32 _2B0;
 	u32 _2B4;
 	u16 _2B8;
-	u16 _2BA;
+	u16 outOfBoundsCounter; // _2BA
 	f32 _2BC;
 	u32 _2C0;
 	Mtx mtx5; // _2C4

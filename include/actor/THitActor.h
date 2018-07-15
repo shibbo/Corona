@@ -15,14 +15,14 @@ class THitActor : public JDrama::TActor
 	void perform(u32, JDrama::TGraphics *);
 	void calcEntryRadius();
 	
-	u32 _44;
-    u16 _48;
-    u16 _4A;
+	THitActor** collisionArray; // _44
+    u16 collisionArrayCount; // _48
+    u16 collisionArrayCap; // _4A
     u32 _4C;
-	f32 _50;
-    f32 _54;
-    f32 radiusAtY; // _58
-    f32 _5C;
+	f32 attackRadius; // _50
+    f32 attackHeight; // _54
+    f32 recieveRadius; // _58
+    f32 recieveHeight; // _5C
     f32 _60;
     u32 collisionFlags; // _64
 };

@@ -51,3 +51,16 @@ void killMario()
 {
     mario->loserExec();
 }
+
+void changeYoshiColor(u8 r, u8 g, u8 b)
+{
+    if (mario->yoshi == nullptr)
+    {
+        OSReport("Can't get a Yoshi that doesn't exist, now can we?\n");
+        return;
+    }
+
+    mario->yoshi->colorR = r;
+    mario->yoshi->colorG = g;
+    mario->yoshi->colorB = b;
+}
