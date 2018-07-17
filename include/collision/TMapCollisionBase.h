@@ -31,7 +31,7 @@ class TMapCollisionBase
     u32 groupCount; // _18
     u32* groups; // _1C
     Mtx _20;
-    JGeometry::Tvec3<f32> _50;
+    JGeometry::TVec3<f32> _50;
     u16 _5C;
     u16 _5E; // padding
 };
