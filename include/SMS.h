@@ -82,7 +82,7 @@ void SMS_DrawInit();
 void SMS_MakeDLAndLock(J3DModel *);
 f32 SMS_GetSandRiseUpRatio(TLiveActor const *);
 u32 SMS_GetMonteVillageAreaInMario();
-void SMS_MakeJointsToArc(J3DModel *,JGeometry::TVec3<f> const &,JGeometry::TVec3<f> const &,JGeometry::TVec3<f> const &);
+void SMS_MakeJointsToArc(J3DModel *,JGeometry::TVec3<f32> const &,JGeometry::TVec3<f32> const &,JGeometry::TVec3<f32> const &);
 
 JUTRect SMSGetRenderRect_Game();
 
@@ -90,7 +90,7 @@ u32* SMSLoadArchive(char const *, void *, u32, JKRHeap *); // returns JKRMemArch
 
 void SMSCalcJumpVelocityXZ(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, f32, f32, JGeometry::TVec3<f32> *);
 
-void SMS_EmitSinkInPollutionEffect(JGeometry::TVec3<f32> const &, TVec3<f32> const &, bool);
+void SMS_EmitSinkInPollutionEffect(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, bool);
 bool SMS_EmitRippleSea(f32 *[4], void *);
 bool SMS_EmitRipplePool(f32 *[4],void *);
 bool SMS_EmitRippleTiny(JGeometry::TVec3<f32> *);
