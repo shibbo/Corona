@@ -5,9 +5,11 @@
 #include "JDrama.h"
 #include "JGeometry.h"
 #include "actor/THitActor.h"
+#include "actor/TTakeActor.h"
 #include "tmapobj/TMapObjGeneral.h"
 
 class TMario;
+class TYoshi;
 
 class TEggYoshi : public TMapObjGeneral
 {
@@ -31,6 +33,56 @@ class TEggYoshi : public TMapObjGeneral
     u32 _150;
 };
 
+class TYoshiTongue : public TTakeActor
+{
+    public:
+    ~TYoshiTongue();
+
+    Mtx* getTakingMtx();
+    void init(TYoshi *yoshi);
+    void movement();
+    void checkTaking();
+    void checkTaken();
+
+    void entry();
+    void viewCalc();
+    void calcAnim(f32 *[4]);
+    u32 findTarget(bool, bool);
+    bool canGo();
+    void emit(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &);
+    void initInLoadAfter();
+
+    TYoshi* yoshi; // _70
+    J3DModel* tongueModel; // _74
+    J3DModel* tongueTipModel; // _78
+    u16 _7C;
+    u16 _7E;
+    u16 _80;
+    u16 _82;
+    f32 _84;
+    f32 _88;
+    f32 _8C;
+    f32 _90;
+    f32 _94;
+    f32 _98;
+    f32 _9C;
+    f32 _A0;
+    f32 _A4;
+    f32 _A8;
+    f32 _AC;
+    f32 _B0;
+    f32 _B4;
+    f32 _B8;
+    f32 _BC;
+    f32 _C0;
+    f32 _C4;
+    f32 _C8;
+    f32 _CC;
+    f32 _D0;
+    f32 _D4;
+
+};
+
 class TYoshi
 {
     public:
@@ -48,9 +100,9 @@ class TYoshi
     void ride();
     void kill();
     bool disappear();
-    void appearFromEgg(TVec3<f32> const &, f32, TEggYoshi *);
+    void appearFromEgg(JGeometry::TVec3<f32> const &, f32, TEggYoshi *);
     void setEggYoshiPtr(TEggYoshi *);
-    void getEmitPosDir(TVec3<f32> *, TVec3<f32> *);
+    void getEmitPosDir(JGeometry::TVec3<f32> *, JGeometry::TVec3<f32> *);
     void changeAnimation(u32);
     void thinkBtp(u32);
     void initInLoadAfter();
@@ -71,7 +123,7 @@ class TYoshi
     f32 _2C;
     u32* _30; // MActorAnmData
     J3DModel* model; // _34
-    u32 _38;
+    TYoshiTongue* tongue; // _38
     u16 _3C;
     u16 _3E;
     u16 _40;
@@ -145,5 +197,7 @@ class TYoshi
     u32 _11C;
     u32 _120;
 };
+
+bool YoshiHeadCtrl(J3DNode* node, u32);
 
 #endif // TYOSHI_H

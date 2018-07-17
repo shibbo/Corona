@@ -151,8 +151,8 @@ class JUTGamePad : public JKRDisposer
 		u8 analogB; // _D
 		u8 triggerLeft; // _E
 		u8 triggerRight; // _F
-		f32 _10;
-		f32 _14;
+		f32 analogL; // _10
+		f32 analogR; // _14
 		u32 _18;
 		u32 _1C;
 		u32 _20;
@@ -172,7 +172,7 @@ class JUTGamePad : public JKRDisposer
 
 		f32 stickX;
 		f32 stickY;
-		f32 length;
+		f32 lengthFromNeutral;
 		u16 angle;
 		u16 _E; // i assume unused
 	};
