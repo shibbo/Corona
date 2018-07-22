@@ -80,7 +80,6 @@ class TYoshiTongue : public TTakeActor
     f32 _CC;
     f32 _D0;
     f32 _D4;
-
 };
 
 class TYoshi

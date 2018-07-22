@@ -4,27 +4,12 @@
 #include "types.h"
 
 typedef u32 OSHeapHandle;
-extern volatile OSHeapHandle __OSCurrHeap;
-
-#define OSAlloc(size)   OSAllocFromHeap(__OSCurrHeap, (size))
-
 typedef u64 OSTime;
 typedef s32 OSPriority; // 0 is highest priority, 31 is lowest
 typedef void* OSMessage;
+extern volatile OSHeapHandle __OSCurrHeap;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-void OSReport(const u8 *, ...);
-void OSPanic (u8 *, u32, u8 *, ...);
-u32 OSGetTime();
-u32 OSGetTick();
-void OSFatal(u32*, u32 *, const u8 *);
-void* OSAllocFromHeap(OSHeapHandle, u32);
-
-struct OSThread;
-struct OSMutex;
+#define OSAlloc(size)   OSAllocFromHeap(__OSCurrHeap, (size))
 
 struct OSCalendarTime
 {
@@ -81,7 +66,6 @@ struct OSContext
     u16 state;
     u32 gqr[8];
     f64 psf[32];
-
 };
 
 struct OSThread
@@ -103,22 +87,52 @@ struct OSThread
     u32* stackEnd;
 };
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// report / panic
+void OSReport(const u8 *, ...);
+void OSPanic(u8 *, u32, u8 *, ...);
+void OSFatal(u32 *, u32 *, const u8 *);
+void OSResetSystem(u32, u32, bool);
+u32 OSGetResetCode();
+u32 OSGetConsoleType();
+
+// ticks
+u32 OSGetTime();
+u32 OSGetTick();
 void OSTicksToCalendarTime(u32, OSCalendarTime *);
 
-u32 OSGetConsoleType();
+// allocation
+void* OSAllocFromHeap(OSHeapHandle, u32);
+
+// thread
+void OSYeildThread();
+bool OSCreateThread(OSThread *thread, void*(*funcToThread)(void*), void *parameter, void *stack, u32 stackSize, OSPriority priority, u16 attributes);
+void OSExitThread(void *);
+void OSCancelThread(OSThread *thread);
+bool OSJoinThread(OSThread *thread, void **);
+void OSDetachThread(OSThread *thread);
+s32 OSResumeThread(OSThread *thread);
+s32 OSSuspendThread(OSThread *thread);
+void OSSleepThread(OSThreadQueue *queue);
+void OSWakeupThread(OSThreadQueue *queue);
+OSPriority OSGetThreadPriority(OSThread *thread);
+
+// init
 void OSInit();
 void OSExceptionInit();
 
+// alarm
 void OSInitAlarm();
 
+// DC ranges
 void DCInvalidateRange(void *, u32);
 void DCFlushRange(void *, u32);
 void DCStoreRange(void *, u32);
 void DCFlushRangeNoSync(void *, u32);
 void DCZeroRange(void *, u32);
-
-void OSResetSystem(u32, u32, bool);
-u32 OSGetResetCode();
 
 #ifdef __cplusplus
 }

@@ -16,10 +16,12 @@
 #include "manager/RumbleManager.h"
 #include "manager/TFlagManager.h"
 #include "manager/TItemManager.h"
+#include "sound/MSound.h"
 
 // globals are in their own category, ordered by lowest address to highest
 
 /* OS Related globals */
+static u32 aramSize = (u32)(SDA_ADDR_NUS - 0x5834);
 static u32 arenaHi = (u32)(SDA_ADDR_NUS - 0x5A28);
 
 /* JKR globals */
@@ -49,5 +51,9 @@ static TConductor** conductor = (TConductor**)(SDA_ADDR_NUS - 0x70B0);
 /* Camera globals */
 static CPolarSubCamera** subCamera = (CPolarSubCamera**)(SDA_ADDR_NUS - 0x7118);
 static TCameraMarioData** marioCameraData = (TCameraMarioData**)(SDA_ADDR_NUS - 0x7150);
+
+/* Sound globals */
+static MSound** mSoundBoot = (MSound**)(SDA_ADDR_NUS - 0x6044); // used on afterBoot
+static MSound** mSound = (MSound**)(SDA_ADDR_NUS - 0x7164); // used for mario, etc
 
 #endif // GLOBALS_H

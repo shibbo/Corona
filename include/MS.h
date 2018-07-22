@@ -14,4 +14,10 @@ void MsMtxSetXYZRPH(f32 *[4], f32, f32, f32, u16, u16, u16);
 void MsMtxSetRotRPH(f32 *[4], f32, f32, f32);
 void MsGetRotFromZaxis(JGeometry::TVec3<f32> const &);
 
+f32 FConverge(f32, f32, f32, f32);
+u32 IConverge(u32, u32, u32, u32);
+
+template<typename T>
+T MsWrap(T, T, T);
+
 #endif // MS_H

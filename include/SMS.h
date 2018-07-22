@@ -105,4 +105,21 @@ void SMSSetupTitleRenderMode(_GXRenderModeObj *);
 void SMSSetupGCLogoRenderingInfo(JDrama::TDisplay *);
 void SMSGetRederRect_Game();
 
+void SMS_ShowAllShapePacket(J3DModel *);
+void SMS_HideAllShapePacket(J3DModel *);
+
+void SMS_GoRotate(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, f32, f32 *);
+
+void SMS_InitPacket_TwoTevColorAndOneTevKColor(J3DModel *, u16, _GXTevRegID, _GXColorS10 const *, _GXTevRegID, _GXColorS10 const *, _GXColor const *);
+void SMS_InitPacket_OneTevColorAndOneTevKColor(J3DModel *, u16, _GXTevRegID, _GXColorS10 const *, _GXColor const *);
+void SMS_InitPacket_OneTevKColorAndFog(J3DModel *, u16, _GXTevKColorID, _GXColor const *);
+void SMS_InitPacket_TwoTevKColor(J3DModel *, u16, _GXTevKColorID, _GXColor const *, _GXTevKColorID, _GXColor const *);
+void SMS_InitPacket_OneTevKColor(J3DModel *, u16, _GXTevKColorID, _GXColor const *);
+void SMS_InitPacket_Fog(J3DModel *, u16);
+void SMS_InitPacket_TwoTevColor(J3DModel *, u16, _GXTevRegID, _GXColorS10 const *, _GXTevRegID, _GXColorS10 const *);
+void SMS_InitPacket_OneTevColor(J3DModel *, u16, _GXTevRegID, _GXColorS10 const *);
+void SMS_InitPacket_MatColor(J3DModel *, u16, _GXChannelID, _GXColor const *);
+
+
+
 #endif // SMS_H
