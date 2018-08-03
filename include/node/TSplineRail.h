@@ -10,11 +10,11 @@
 class TSplineRail
 {
     public:
-    TSplineRail(TGraphWeb const *);
+    //TSplineRail(TGraphWeb const *);
 
-    void getPosAndRot(f32, JGeometry::TVec3<f32> *position, JGeometry::TVec3<f32> *rotation)
+    void getPosAndRot(f32, JGeometry::TVec3<f32> *position, JGeometry::TVec3<f32> *rotation);
 
-    TSplinePath* splinePath; // _0
+    TSplinePath* mSplinePath; // _0
     u32 _4;
 };
 

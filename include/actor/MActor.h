@@ -60,7 +60,7 @@ class MActor
 	u32 getFrameCtrl(u32);
 	bool checkAnmFileExist(char const *fileName, u32);
 
-	void perform(u32, JDrama::TGraphics *);
+	void perform(u64, JDrama::TGraphics *);
 	void matAnmFrameUpdate();
 	void frameUpdate();
 	void entry();
@@ -91,12 +91,12 @@ class MActor
 	u8 _39;
 	u8 _3A; // padding?
 	u8 _3B; // ^^
-	u32 lightID; // _3C
+	u32 mLightID; // _3C
 	u8 _40;
 	u8 _41; // padding?
 	u8 _42; // ^^
 	u8 _43; // ^^
-	u32 lightType; // _44
+	u32 mLightType; // _44
 };
 
 #endif // MACTOR_H

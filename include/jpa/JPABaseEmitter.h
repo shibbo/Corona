@@ -9,7 +9,7 @@ class JPABaseEmitter
     public:
     JPABaseEmitter();
 
-    JSUPtrLink baseEmitterLink; // _0
+    JSUPtrLink mBaseEmitterLink; // _0
     f32 _10;
     f32 _14;
     f32 _18;
@@ -19,10 +19,10 @@ class JPABaseEmitter
     u32 _28;
     u32 _2C;
     JPADraw; // _30
-    JSUPtrList ptrList1; // _F4
-    JSUPtrList ptrList2; // _100
+    JSUPtrList mPtrList1; // _F4
+    JSUPtrList mPtrList2; // _100
     u8 _10C[0x124-0x10C];
-    Mtx mtx1; // _124
+    Mtx mMtx1; // _124
 };
 
 #endif // JPABASEEMITTER_H

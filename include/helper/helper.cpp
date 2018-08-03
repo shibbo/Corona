@@ -64,3 +64,14 @@ void changeYoshiColor(u8 r, u8 g, u8 b)
     mario->yoshi->colorG = g;
     mario->yoshi->colorB = b;
 }
+
+void changeYoshiFruit(Fruits fruit)
+{
+    if (mario->yoshi == nullptr)
+    {
+        OSReport("Can't get a Yoshi that doesn't exist, now can we?\n");
+        return;
+    }
+
+    mario->yoshi->wantedFruit = fruit;
+}

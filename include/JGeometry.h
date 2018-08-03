@@ -1,6 +1,8 @@
 #ifndef JGEOMETRY_H
 #define JGEOMETRY_H
 
+#include "types.h"
+
 /* This actually isn't a part of JGeometry, but shrug */
 struct Vec
 {
@@ -90,6 +92,7 @@ namespace JGeometry
 		TRotation3();
 
 		void getQuad(TQuat4<f32> &) const;
+		void setEular(s16, s16, s16);
 	};
 
 	template <typename T>

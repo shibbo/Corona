@@ -292,7 +292,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	/* these are a part of the vtable */
 	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(u32, JDrama::TGraphics *);
+	void perform(u64, JDrama::TGraphics *);
 	bool recieveMessage(THitActor *, u32);
 	Mtx* getTakingMtx();
 	u32 moveRequest(JGeometry::TVec3<f32> const &);

@@ -1,12 +1,13 @@
 #ifndef TNOZZLEBASE_H
 #define TNOZZLEBASE_H
 
-#include "MActor.h"
 #include "TParam.h"
 #include "types.h"
+#include "actor/MActor.h"
 #include "actor/TMario.h"
 #include "actor/TWaterEmitInfo.h"
-#include "nozzle/TWaterGun.h"
+
+class TWaterGun;
 
 class TNozzleBase
 {
@@ -24,38 +25,38 @@ class TNozzleBase
 	
 	u8* _0;
 	u32 _4;
-	TBaseParam param1; // _8
+	TBaseParam mParam1; // _8
 	u8 _18;
 	u8 _19; // padding
 	u8 _1A; // ^^
 	u8 _1B; // ^^
-	TBaseParam param2; // _1C
+	TBaseParam mParam2; // _1C
 	f32 _2C;
-	TBaseParam param3; // _30
+	TBaseParam mParam3; // _30
 	u16 _40;
 	u16 _42; // padding
-	TBaseParam param4; // _44
+	TBaseParam mParam4; // _44
 	f32 _54;
-	TBaseParam param5; // _58
+	TBaseParam mParam5; // _58
 	f32 _68;
-	TBaseParam param6; // _6C
+	TBaseParam mParam6; // _6C
 	f32 _7C;
-	TBaseParam param7; // _80
+	TBaseParam mParam7; // _80
 	f32 _90;
-	TBaseParam param8; // _94
+	TBaseParam mParam8; // _94
 	f32 _A4;
-	TBaseParam param9; // _A8
+	TBaseParam mParam9; // _A8
 	f32 _B8;
-	TBaseParam param10; // _BC
+	TBaseParam mParam10; // _BC
 	u32 _CC;
-	TBaseParam param11; // _D0
+	TBaseParam mParam11; // _D0
 	f32 _E0;
-	TBaseParam param12; // _E4
+	TBaseParam mParam12; // _E4
 	f32 _F4;
-	TBaseParam param13; // _F8
+	TBaseParam mParam13; // _F8
 	u16 _108;
 	u16 _10A; // padding
-	TBaseParam param14; // _10C
+	TBaseParam mParam14; // _10C
 	u16 _11C;
 	u16 _11E; // padding
 	TBaseParam param15; // _120
@@ -128,10 +129,10 @@ class TNozzleBase
 	TBaseParam param43; // _350
 	f32 _360;
 	VTABLE; // _364
-	TWaterGun* waterGun; // _368
+	TWaterGun* mWaterGun; // _368
 	u16 _36C;
-	u16 gunAngle; // _36E
-	u16 waistAngle; // _370
+	u16 mGunAngle; // _36E
+	u16 mWaistAngle; // _370
 	u16 _372;
 	u16 _374; // padding?
 	u16 _376; // ^^

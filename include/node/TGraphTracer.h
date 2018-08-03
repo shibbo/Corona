@@ -16,7 +16,7 @@ class TGraphTracer
     void setTo(u32);
 
     u32* _0; // not sure WHAT graph yet
-    u32 graphIndex;
+    u32 mGraphIndex;
     u32 _8;
     f32 _C;
     f32 _10;

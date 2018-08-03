@@ -18,7 +18,7 @@ class JPABaseField
     void calcFieldVelocity(JPAParticle *);
     f32 calcFieldFadeScale(f32);
 
-    JSUPtrLink ptrLink; // _0
+    JSUPtrLink mPtrLink; // _0
     f32 _10;
     f32 _14;
     f32 _18;

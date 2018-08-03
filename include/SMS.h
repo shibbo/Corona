@@ -14,6 +14,7 @@
 #include "actor/TMario.h"
 #include "actor/TYoshi.h"
 #include "nozzle/TWaterGun.h"
+#include "sdl/SDLModelData.h"
 
 void SMS_WindMoveMario(JGeometry::TVec3<f32> const &);
 void SMS_FlowMoveMario(JGeometry::TVec3<f32> const &);
@@ -120,6 +121,7 @@ void SMS_InitPacket_TwoTevColor(J3DModel *, u16, _GXTevRegID, _GXColorS10 const 
 void SMS_InitPacket_OneTevColor(J3DModel *, u16, _GXTevRegID, _GXColorS10 const *);
 void SMS_InitPacket_MatColor(J3DModel *, u16, _GXChannelID, _GXColor const *);
 
-
+SDLModelData* SMS_MakeSDLModelData(char const *, u64);
+MActor* SMS_MakeMActorFromSDLModelData(SDLModelData *, MActorAnmData *, u64);
 
 #endif // SMS_H

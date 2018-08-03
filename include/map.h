@@ -60,7 +60,7 @@ class TMap : public JDrama::TViewObj
 
     void load(JSUMemoryInputStream &);
     void loadAfter();
-    void perform(u32, JDrama::TGraphics *);
+    void perform(u64, JDrama::TGraphics *);
 
     void changeModel(u32) const;
     f32 checkGround(f32, f32, f32, u32 const **) const; // TBGCheckData

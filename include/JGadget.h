@@ -16,10 +16,10 @@ namespace JGadget
         public:
         TVector_pointer_void(TAllocator<void *> const &);
         
-        char _0;
-        char _1; // padding?
-        char _2; // ^^
-        char _3; // ^^
+        s8 _0;
+        s8 _1; // padding?
+        s8 _2; // ^^
+        s8 _3; // ^^
         u32 _4;
         u32 _8;
         u32 _C;
@@ -49,6 +49,16 @@ namespace JGadget
         void end();
 
         u32 _0;
+    };
+
+    class TSingleNodeLinkList
+    {
+        public:
+        void Initalize_();
+
+        u32 _0;
+        u32 _4;
+        u32 _8;
     };
 };
 

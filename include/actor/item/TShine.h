@@ -12,7 +12,7 @@ class TShine : public TItem
     ~TShine();
 
     void loadAfter();
-    void perform(u32, JDrama::TGraphics *);
+    void perform(u64, JDrama::TGraphics *);
     bool recieveMessage(THitActor *, u32);
     void control();
     void kill();

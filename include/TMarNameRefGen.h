@@ -7,7 +7,7 @@
 
 // not completed
 template <class T, class T2>
-class TNameRefAryT : public TNameRef
+class TNameRefAryT : public JDrama::TNameRef
 {
     public:
     ~TNameRefAryT();
@@ -25,10 +25,7 @@ class TMarNameRefGen : public JDrama::TNameRefGen
 	u32* getNameRef_Enemy(char const *) const;
 	u32* getNameRef_NPC(char const *) const;
 	u32* getNameRef_Map(char const *) const;
-	u32* getNameRef_MapObj(char const *) const;
-
-	VTABLE; // _0
-	
+	u32* getNameRef_MapObj(char const *) const;	
 };
 
 #endif // TMARNAMEREFGEN_H

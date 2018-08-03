@@ -12,7 +12,7 @@ class TMapCollisionStatic : public TMapCollisionBase
     void setUp();
     void remove();
 
-    TLiveActor* actor; // _60
+    TLiveActor* mActor; // _60
 };
 
 #endif // TMAPCOLLISIONSTATIC_H

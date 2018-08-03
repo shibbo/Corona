@@ -1,6 +1,7 @@
 #ifndef TYOSHI_H
 #define TYOSHI_H
 
+#include "common.h"
 #include "J3D.h"
 #include "JDrama.h"
 #include "JGeometry.h"
@@ -29,7 +30,7 @@ class TEggYoshi : public TMapObjGeneral
     void decideRandomLoveFruit();
 
     u32 _148;
-    u32 wantedFruit;
+    Fruits mWantedFruit; // _14C
     u32 _150;
 };
 
@@ -52,9 +53,9 @@ class TYoshiTongue : public TTakeActor
     void emit(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &);
     void initInLoadAfter();
 
-    TYoshi* yoshi; // _70
-    J3DModel* tongueModel; // _74
-    J3DModel* tongueTipModel; // _78
+    TYoshi* mYoshi; // _70
+    J3DModel* mTongueModel; // _74
+    J3DModel* mTongueTipModel; // _78
     u16 _7C;
     u16 _7E;
     u16 _80;
@@ -114,15 +115,15 @@ class TYoshi
     u16 _6;
     u32 _8;
     u32 _C;
-    TMario* mario; // _10
+    TMario* mMario; // _10
     u8 _14[0x20-0x14];
     f32 _20;
     f32 _24;
     f32 _28;
     f32 _2C;
     u32* _30; // MActorAnmData
-    J3DModel* model; // _34
-    TYoshiTongue* tongue; // _38
+    J3DModel* mModel; // _34
+    TYoshiTongue* mTongue; // _38
     u16 _3C;
     u16 _3E;
     u16 _40;
@@ -155,7 +156,7 @@ class TYoshi
     f32 _A0;
     f32 _A4;
     u32 _A8;
-    J3DDrawBuffer* drawBuffer; // _AC
+    J3DDrawBuffer* mDrawBuffer; // _AC
     u32 _B0;
     u32 _B4;
     u8 _B8;
@@ -180,7 +181,7 @@ class TYoshi
     u16 _E8;
     u16 _EA;
     f32 _EC;
-    TEggYoshi* _F0;
+    TEggYoshi* mYoshiEgg; // _F0
     u16 _F4;
     u16 _F6;
     u16 _F8;

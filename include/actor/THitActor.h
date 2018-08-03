@@ -12,19 +12,19 @@ class THitActor : public JDrama::TActor
 	
 	bool recieveMessage(THitActor *, u32);
 	void initHitActor(u32,  u16, u32, f32, f32, f32, f32);
-	void perform(u32, JDrama::TGraphics *);
+	void perform(u64, JDrama::TGraphics *);
 	void calcEntryRadius();
 	
-	THitActor** collisionArray; // _44
-    u16 collisionArrayCount; // _48
-    u16 collisionArrayCap; // _4A
+	THitActor** mCollisionArray; // _44
+    u16 mCollisionArrayCount; // _48
+    u16 mCollisionArrayCap; // _4A
     u32 _4C;
-	f32 attackRadius; // _50
-    f32 attackHeight; // _54
-    f32 recieveRadius; // _58
-    f32 recieveHeight; // _5C
+	f32 mAttackRadius; // _50
+    f32 mAttackHeight; // _54
+    f32 mRecieveRadius; // _58
+    f32 mRecieveHeight; // _5C
     f32 _60;
-    u32 collisionFlags; // _64
+    u32 mCollisionFlags; // _64
 };
 
 #endif // THITACTOR_H

@@ -15,7 +15,7 @@ class TSpineEnemy : public TLiveActor
 	~TSpineEnemy();
 	
 	void load(JSUMemoryInputStream &);
-	void perform(u32, JDrama::TGraphics *);
+	void perform(u64, JDrama::TGraphics *);
 	bool recieveMessage(THitActor *, u32);
 	void init(TLiveManager *);
 	void calcRootMatrix();

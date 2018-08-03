@@ -11,6 +11,9 @@ extern volatile OSHeapHandle __OSCurrHeap;
 
 #define OSAlloc(size)   OSAllocFromHeap(__OSCurrHeap, (size))
 
+struct OSMutex;
+struct OSThread;
+
 struct OSCalendarTime
 {
 	u32 sec, min, hour, mday, mon, year, wday, yday, msec, usec;
@@ -87,12 +90,20 @@ struct OSThread
     u32* stackEnd;
 };
 
+struct OSMutex
+{
+    OSThreadQueue queue;
+    OSThread* thread;
+    s32 lockCount;
+    OSMutexLink link;
+};
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 // report / panic
-void OSReport(const u8 *, ...);
+void OSReport(const char *, ...);
 void OSPanic(u8 *, u32, u8 *, ...);
 void OSFatal(u32 *, u32 *, const u8 *);
 void OSResetSystem(u32, u32, bool);

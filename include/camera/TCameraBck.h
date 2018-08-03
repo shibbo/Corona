@@ -16,12 +16,12 @@ class TCameraBck
     void startDemo(char const *, JGeometry::TVec3<f32> const *);
     bool isFileExist(char const *) const;
 
-    MActor* actor; // _0
-    MActorAnmData* anmData; // _4
-    u32 nameTabIndex; // _8
-    u32 positionJointMtxOffset; // _C
-    u32 interestJointMtxOffset; // _10
-    JGeometry::TVec3<f32>* unkVector; // _14
+    MActor* mActor; // _0
+    MActorAnmData* mAnmData; // _4
+    u32 mNameTabIndex; // _8
+    u32 mPositionJointMtxOffset; // _C
+    u32 mInterestJointMtxOffset; // _10
+    JGeometry::TVec3<f32>* mUnkVector; // _14
 };
 
 #endif // TCAMERABCK_H

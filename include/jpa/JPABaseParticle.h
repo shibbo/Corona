@@ -24,7 +24,7 @@ class JPABaseParticle
     f32 _38;
     f32 _3C;
     f32 _40;
-    f32 timer; // _44
+    f32 mTimer; // _44
     f32 _4C;
     u32* _50;
     u32 _54;

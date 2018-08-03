@@ -15,8 +15,8 @@ class TMapObjGeneral : public TMapObjBase
 	
 	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(u32, JDrama::TGraphics *);
-	bool recieveMessage(THitActor *, u32);
+	void perform(u64, JDrama::TGraphics *);
+	bool recieveMessage(THitActor *, u64);
 	void ensureTakeSituation();
 	void calcRootMatrix();
 	void control();
@@ -46,7 +46,7 @@ class TMapObjGeneral : public TMapObjBase
 	void thrown();
 	void sink();
 	void recover();
-	void waitToAppear(u32);
+	void waitToAppear(s32);
 	void makeObjBuried();
 	void makeObjRecovered();
 	void recieveMessageFromPlayer();

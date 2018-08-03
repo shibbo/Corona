@@ -17,19 +17,19 @@ TMario* SpawnObject(TMario* mario)
 		TCoin* coin = new TCoin("coin");
 
 		// now we set our position based on mario's position
-		coin->position.x = mario->position.x;
-		coin->position.y = mario->position.y + 200;
-		coin->position.z = mario->position.z;
+		coin->mPosition.x = mario->mPosition.x;
+		coin->mPosition.y = mario->mPosition.y + 200;
+		coin->mPosition.z = mario->mPosition.z;
 		
 		// set our rotation to 0, 0, 0
-		coin->rotation.x = 0;
-		coin->rotation.y = 0;
-		coin->rotation.z = 0;
+		coin->mRotation.x = 0;
+		coin->mRotation.y = 0;
+		coin->mRotation.z = 0;
 		
 		// set our scale to the normal 1, 1, 1
-		coin->scale.x = 1;
-		coin->scale.y = 1;
-		coin->scale.z = 1;
+		coin->mScale.x = 1;
+		coin->mScale.y = 1;
+		coin->mScale.z = 1;
 		
 		// we call this to register our coin to tell the system that we will spawn it soon
 		coin->initAndRegister("coin");

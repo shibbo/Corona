@@ -11,7 +11,6 @@ class JPAResourceManager
 
     void load(char const *,  u16);
     void load(void const *,  u16);
-    
 };
 
 #endif // JPARESOURCEMANAGER_H

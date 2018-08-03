@@ -15,14 +15,14 @@ class TFlagManager
 {
 	public:
 	// doesn't have a ctor or dtor
-	bool getBool(u32) const;
-	void setFlag(u32, u32);
-	s8 getFlag(u32) const;
+	bool getBool(u64) const;
+	void setFlag(u64, s64);
+	s8 getFlag(u64) const;
 	void setShineFlag(s8 stageID);
 	bool getShineFlag(s8 stageID) const;
 	void setBlueCoinFlag(s8 stageID, s8);
 	bool getBlueCoinFlag(s8 stageID, s8) const;
-	void incGoldCoinFlag(s8 stageNo, u32 howMany);
+	void incGoldCoinFlag(s8 stageNo, s64 howMany);
 	void incMario(u32 howMany);
 	void resetStage();
 	void resetGame();

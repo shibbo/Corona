@@ -6,7 +6,6 @@
 #include "JUT.h"
 #include "types.h"
 
-typedef f32 Mtx[3][4];
 typedef u32* ResFONT; // just to be more percise
 
 class J2DGrafContext
@@ -34,7 +33,7 @@ class J2DGrafContext
 	JUtility::TColor _2C;
 	JUtility::TColor _30;
 	JUtility::TColor _34;
-	u8 lineWidth; // _38
+	u8 mLineWidth; // _38
 	u8 _39; // padding?
 	u8 _3A; // ^^
 	u8 _3B; // ^^
@@ -131,17 +130,17 @@ enum J2DTextBoxHBinding
 
 enum J2DTextBoxVBinding
 {
-	Center = 0,
-	Bottom = 1,
-	Top = 2
+	VBindingCenter = 0,
+	VBindingBottom = 1,
+	VBindingTop = 2
 };
 
 enum J2DBinding
 {
-	Bottom = (1 << 0),
-	Top = (1 << 1),
-	Right = (1 << 2),
-	Left = (1 << 3),
+	BindingBottom = (1 << 0),
+	BindingTop = (1 << 1),
+	BindingRight = (1 << 2),
+	BindingLeft = (1 << 3),
 };
 
 enum J2DWrapMode 

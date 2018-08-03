@@ -14,7 +14,7 @@ class TItem : public TMapObjGeneral
 	~TItem();
 	
 	void load(JSUMemoryInputStream &);
-	void perform(u32, JDrama::TGraphics *);
+	void perform(u64, JDrama::TGraphics *);
 	u32 recieveMessage(THitActor *, u32);
 	void calcRootMatrix();
 	void appear();
@@ -26,8 +26,8 @@ class TItem : public TMapObjGeneral
 	void killByTimer(u32);
 	void taken(THitActor *);
 	
-	u32 _148;
-	u32 _14C;
+	u32* _148;
+	u32 mKillTimer; // _14C
 	u32 _150;
 };
 

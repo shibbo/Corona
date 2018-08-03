@@ -13,30 +13,30 @@ class TWaterGun
 	
 	VTABLE; // _0
 	u32 _4;
-	TMario* mario; // _8
-	TNozzleBase nozzleDeform; // _C
-	TNozzleBase nozzleDeformBomb; // _390
+	TMario* mMario; // _8
+	TNozzleBase mNozzleDeform; // _C
+	TNozzleBase mNozzleDeformBomb; // _390
 	u8 _714;
 	u8 _715;
 	u8 _716;
 	u8 _717; // padding?
 	u16 _718;
-	TNozzleBase nozzleRocket; // _720
+	TNozzleBase mNozzleRocket; // _720
 	u8 _AA4;
 	u8 _AA5;
 	u16 _AA6;
 	f32 _AA8;
 	u32 _AAC;
-	TNozzleBase nozzleHover; // _AB0
-	TNozzleBase nozzleDummy; // _E34 (parameters are "nozzle diving"?)
-	TNozzleBase nozzleBase6; // _11B8 ("deformbomb")
+	TNozzleBase mNozzleHover; // _AB0
+	TNozzleBase mNozzleDummy; // _E34 (parameters are "nozzle diving"?)
+	TNozzleBase mNozzleBase6; // _11B8 ("deformbomb")
 	u8 _153C;
 	u8 _153D;
 	u8 _153E;
 	u8 _153F; // padding?
 	f32 _1540;
 	u32 _1544;
-	TNozzleBase nozzleBase7; // _1548
+	TNozzleBase mNozzleBase7; // _1548
 	u8 _18CC[0x1DD0-0x18CC]; // one more nozzlebase and parameters
 
 };

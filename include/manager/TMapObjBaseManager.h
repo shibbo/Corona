@@ -13,12 +13,12 @@ class TMapObjBaseManager : public TLiveManager
 	void load(JSUMemoryInputStream &);
 	void createModelData();
 	void clipActors(JDrama::TGraphics *);
-	TMapObjBase* makeObjAppeared(u32);
-	TMapObjBase* makeObjAppear(u32);
-	TMapObjBase* makeObjAppear(f32, f32, f32, u32, bool);
+	TMapObjBase* makeObjAppeared(u64);
+	TMapObjBase* makeObjAppear(u64);
+	TMapObjBase* makeObjAppear(f32, f32, f32, u64, bool);
 
-	static TMapObjBase* newAndRegisterObjByEventID(u32, char const *);
-	static u32 getActorTypeByEventID(u32 eventID);
+	static TMapObjBase* newAndRegisterObjByEventID(u64 eventID, char const *objName);
+	static u32 getActorTypeByEventID(u64 eventID);
 	
 	f32 _38; // clip actor related
 	f32 _3C; // ^^

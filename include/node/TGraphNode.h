@@ -11,10 +11,10 @@ class TGraphNode
 
     void getPoint(Vec const *);
 
-    u32*  _0;
-    u32 _4
+    u32* _0;
+    u32 _4;
     f32 _8;
-    u16 _C;
+    s16 _C;
     u16 _E; // assumed padding
 };
 

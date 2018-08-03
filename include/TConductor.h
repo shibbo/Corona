@@ -8,6 +8,7 @@
 #include "node/TGraphGroup.h"
 #include "manager/TEnemyManager.h"
 #include "manager/TLiveManager.h"
+#include "sdl/SDLModelData.h"
 
 class TConductor : public JDrama::TViewObj
 {
@@ -16,7 +17,7 @@ class TConductor : public JDrama::TViewObj
     ~TConductor();
 
     TNameRef* searchF(u16, char const *);
-    void perform(u32, JDrama::TGraphics *);
+    void perform(u64, JDrama::TGraphics *);
 
     void genEnemyFromPollution();
     void killEnemiesWithin(JGeometry::TVec3<f32> const &position, f32 distance);
@@ -27,7 +28,7 @@ class TConductor : public JDrama::TViewObj
     TGraphGroup* getGraphByName(char const *graphName);
     void init();
     void registerEnemyInfoTable(u32 *); // TStageEnemyInfoTable
-    void registerSDLModelData(u32 *); // SDLModelData
+    void registerSDLModelData(SDLModelData *);
     void registerAreaCylinderManager(u32 *); // AreaCylinderManager
     void registerGenerator(u32 *); // TGenerator
     void registerOtherObj(TViewObj *obj);

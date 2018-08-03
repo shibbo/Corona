@@ -8,7 +8,7 @@ class JPAFieldManager
     public:
     JPAFieldManager();
 
-    JSUPtrList ptrList; // _0
+    JSUPtrList mPtrList; // _0
 };
 
 #endif // JPAFIELDMANAGER_H

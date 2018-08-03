@@ -18,7 +18,7 @@ namespace JDrama
         u32* getInstance();
 		
         VTABLE; // _0
-        u32 rootName; // _4
+        u32 mRootName; // _4
 	};
 	
 	template <typename T>
@@ -29,7 +29,7 @@ namespace JDrama
         TFlagT(const TFlagT &);
         void set(T);
 
-        T value;
+        T mValue;
     };
 	
 	struct TRect
@@ -74,8 +74,8 @@ namespace JDrama
         static s16 calcKeyCode(char const *);
 
         VTABLE; // _0
-        u8* className; // _4
-        s16 keyCode; // _8
+        u8* mClassName; // _4
+        s16 mKeyCode; // _8
         u8 _A; // padding
         u8 _B; // padding
     };
@@ -89,7 +89,7 @@ namespace JDrama
 		
 		void testPerform(u32, TGraphics *);
 
-        TFlagT<s16> flags; // _C
+        TFlagT<s16> mFlags; // _C
         u16 _E; // _E
     };
 
@@ -101,7 +101,7 @@ namespace JDrama
 		
         void load(JSUMemoryInputStream &stream);
 
-        JGeometry::TVec3<f32> position; // _10
+        JGeometry::TVec3<f32> mPosition; // _10
         u16 _1C;
         u16 _1E; // pad
     };
@@ -123,8 +123,8 @@ namespace JDrama
         void JSGGetRotation(JGeometry::TVec3<f32> *) const;
         void JSGSetRotation(const JGeometry::TVec3<f32> &);
 
-        JGeometry::TVec3<f32> scale; // _24
-        JGeometry::TVec3<f32> rotation; // _30
+        JGeometry::TVec3<f32> mScale; // _24
+        JGeometry::TVec3<f32> mRotation; // _30
         u32 _3C;
         u32* _40;  
     };	
@@ -188,8 +188,8 @@ namespace JDrama
         void load(JSUMemoryInputStream &stream);
         void perform(u32, TGraphics *);
 
-        J3DDrawBuffer* drawBuffer; // _10
-        u32 bufferSize; // _14
+        J3DDrawBuffer* mDrawBuffer; // _10
+        u32 mBufferSize; // _14
         u32 _18; // init'd to 7
     };
 
@@ -207,10 +207,10 @@ namespace JDrama
         void JSGSetProjectionFar(f32 projectionFar);
 
         u32 _20; // this is a vtable, I think to JStage::TCamera
-        u16 flag; // _24
+        u16 mFlag; // _24
         u16 _26; // padding?
-        f32 projectionNear; // _28
-        f32 projectionFar; // _2C
+        f32 mProjectionNear; // _28
+        f32 mProjectionFar; // _2C
     };
 
     class TLookAtCamera : public TCamera
@@ -233,10 +233,10 @@ namespace JDrama
         Vec* JSGGetViewTargetPosition() const;
         void JSGSetViewTargetPosition(Vec *targetPos);
 
-        JGeometry::TVec3<f32> viewUp; // _30
-        JGeometry::TVec3<f32> targetPos; // _3C
-        f32 projectionFovy; // _48
-        f32 projectionAspect; // _4C
+        JGeometry::TVec3<f32> mViewUp; // _30
+        JGeometry::TVec3<f32> mTargetPos; // _3C
+        f32 mProjectionFovy; // _48
+        f32 mProjectionAspect; // _4C
     };
 
     class TDisplay

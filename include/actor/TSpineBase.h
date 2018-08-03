@@ -11,13 +11,13 @@ class TSpineBase
     ~TSpineBase();
 
     void update();
-    void pushNerve(TNerveBase<TLiveActor> const *);
+    //void pushNerve(TNerveBase<TLiveActor> const *);
     u32* getLatestNerve() const;
 
     VTABLE; // _0
     u8 _4[0x14-0x4];
-    TNerveBase* nerveBase; // _14
-    
+    u32* _14;
+    //TNerveBase* nerveBase; // _14
 };
 
 #endif // TSPINEBASE_H

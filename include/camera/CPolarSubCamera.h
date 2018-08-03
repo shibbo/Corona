@@ -8,14 +8,14 @@
 #include "camera/TCameraInbetween.h"
 #include "camera/TCameraMarioData.h"
 
-class CPolarSubCamera : public TLookAtCamera
+class CPolarSubCamera : public JDrama::TLookAtCamera
 {
     public:
     CPolarSubCamera(char const *);
     ~CPolarSubCamera();
 
     void loadAfter();
-    void perform(u32, JDrama::TGraphics *);
+    void perform(u64, JDrama::TGraphics *);
 
     bool execGroundCheck_(Vec position);
     bool execRoofCheck_(Vec position);
@@ -28,22 +28,22 @@ class CPolarSubCamera : public TLookAtCamera
     u8 isLButtonCameraInbetween() const;
     u8 isTalkCameraSpecifyMode(u32) const;
 
-    u32 mode; // _50
+    u32 mMode; // _50
     u32 _54;
     u32 _58;
     u32 _5C;
     u32 _60;
     u16 _64; // something relating to a state
     u16 _66; // padding?
-    TCameraMarioData* cameraMarioData; // _68 
-    TCameraInbetween* cameraInbetween; // _6C
+    TCameraMarioData* mCameraMarioData; // _68 
+    TCameraInbetween* mCameraInbetween; // _6C
     u32 _70;
     u32 _74;
     u32 _78;
     u32 _7C;
     u8 _80[0x11C-0x80];
     u32 _11C;
-    TMarioGamePad* gamePad; // _120
+    TMarioGamePad* mGamePad; // _120
     u8 _124[0x24C-0x124];
     f32 _24C;
     f32 _250;
@@ -73,7 +73,7 @@ class CPolarSubCamera : public TLookAtCamera
     u32* _2A4;
     u32 _2A8; // ??
     u32 _2AC;
-    TCameraBck* cameraBck; // _2B0
+    TCameraBck* mCameraBck; // _2B0
     u32 _2B4;
     u32* _2B8; // TCameraJetCoaster*
     u32 _2BC; // array of multi-player stuff

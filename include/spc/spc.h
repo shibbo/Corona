@@ -2,8 +2,8 @@
 #define SPC_H
 
 #include "JDrama.h"
+#include "event/TEventWatcher.h"
 #include "spc/TSpcTypedInterp.h"
-#include "TEventWatcher.h"
 
 void SpcTrace(char const *, ...);
 

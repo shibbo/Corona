@@ -136,7 +136,7 @@ class J3DSkinDeform
 class J3DDisplayListObj
 {
 	public:
-	void newDisplayList(u32);
+	void newDisplayList(u64 numLists);
 	void callDL();
 	
 	u32 _0;
@@ -352,10 +352,10 @@ class J3DShapeMtx
 	void load() const;
 	u32 getType() const;
 	u32 getUseMtxNum() const;
-	u16 getUseMtxIndex( u16) const;
+	u16 getUseMtxIndex(s16) const;
 	
 	VTABLE; // _0
-	u16 mtxIndex; // _4
+	s16 mtxIndex; // _4
 	u16 _6; // padding?
 };
 
@@ -479,6 +479,71 @@ class J3DTexNoAnm
 	VTABLE; // _0
 	u16 _4;
 	u16 _6; // padding?
+};
+
+class J3DPacket
+{
+	public:
+	~J3DPacket();
+
+	bool isSame() const;
+	u32 entry(J3DDrawBuffer *);
+	void draw();
+
+	void addChildPacket(J3DPacket *parent);
+
+	VTABLE;
+	J3DPacket* parentPacket; // _4
+	J3DPacket* childPacket; // _8
+};
+
+class J3DDrawPacket : public J3DPacket
+{
+	public:
+	~J3DDrawPacket();
+
+	void draw();
+
+	void beginDL();
+	void endDL();
+
+	u8 _C[0x30-0xC];
+	u32* _30;
+};
+
+class J3DCallbackPacket : public J3DPacket
+{
+	public:
+	~J3DCallbackPacket();
+
+	void draw();
+};
+
+class J3DShapePacket : public J3DCallbackPacket
+{
+	public:
+	J3DShapePacket();
+	~J3DShapePacket();
+
+	void draw();
+};
+
+class J3DMatPacket : public J3DDrawPacket
+{
+	public:
+	J3DMatPacket();
+
+	bool isSame(J3DMatPacket *);
+	void entry(J3DDrawBuffer *);
+	void draw();
+
+	void addShapePacket(J3DShapePacket *);
+
+	J3DShapePacket* shapePacket; // _34
+	u32 _38;
+	u32 _3C;
+	u32 _40;
+	u32 _44;
 };
 
 u16 calcColorChanID(unsigned short, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);

@@ -14,7 +14,7 @@ class JKRDisposer
 	
 	VTABLE; // _0
 	u32 _4;
-	JSUPtrLink ptrLink; // _8
+	JSUPtrLink mPtrLink; // _8
 };
 
 class JKRHeap : public JKRDisposer
@@ -56,14 +56,14 @@ class JKRThread : public JKRDisposer
 	static void* start(void *src);
 	u32 run();
 
-	JSUPtrLink threadPtrs; // _18
-	JKRHeap* heap; // _28
-	OSThread* thread; // _2C
-	OSMessageQueue messageQueue; // _30
-	OSMessage* message; // _50
-	s32 messageCount; // _54
-	void* stackPtr; // _58
-	u32 stackSize; // _5C
+	JSUPtrLink mThreadPtrs; // _18
+	JKRHeap* mHeap; // _28
+	OSThread* mThread; // _2C
+	OSMessageQueue mMessageQueue; // _30
+	OSMessage* mMessage; // _50
+	s32 mMessageCount; // _54
+	void* mStackPtr; // _58
+	u32 mStackSize; // _5C
 };
 
 class JKRFileLoader : public JKRDisposer
@@ -82,7 +82,7 @@ class JKRFileLoader : public JKRDisposer
 	JKRArchive* findFirstFile(char const *);
 	u8* fetchVolumeName(u8 *, u32, char const *);
 	
-	JSUPtrLink ptrLink2; // _18
+	JSUPtrLink mPtrLink2; // _18
 	u32 _28;
 	u32 _2C;
 	u8 _30;
@@ -136,7 +136,7 @@ class JKRArcFinder : public JKRFileFinder
 	u8 _11;
 	u8 _12; // padding?
 	u8 _13; // ^^
-	JKRArchive* archive; // _14
+	JKRArchive* mArchive; // _14
 	u32 _18;
 	u32 _1C;
 	u32 _20;

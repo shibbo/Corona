@@ -15,7 +15,6 @@ class TSpcBinary
     u32* searchSymbol(char const *);
     void init();
     
-    
     void* spcBinary; // _0
     VTABLE; // _4
 };

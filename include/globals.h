@@ -16,6 +16,7 @@
 #include "manager/RumbleManager.h"
 #include "manager/TFlagManager.h"
 #include "manager/TItemManager.h"
+#include "manager/TMapObjManager.h"
 #include "sound/MSound.h"
 
 // globals are in their own category, ordered by lowest address to highest
@@ -42,6 +43,7 @@ static JPAResourceManager** jpaRsrcMgr = (JPAResourceManager**)(SDA_ADDR_NUS - 0
 static TFlagManager** flagManager = (TFlagManager**)(SDA_ADDR_NUS - 0x6060);
 static RumbleMgr** rumbleMgr = (RumbleMgr**)(SDA_ADDR_NUS - 0x60F0);
 static TItemManager** itemManager = (TItemManager**)(SDA_ADDR_NUS - 0x62B0);
+static TMapObjManager** mapObjManager = (TMapObjManager**)(SDA_ADDR_NUS - 0x62B8);
 
 /* Game process globals */
 static TMarNameRefGen** nameRefGen = (TMarNameRefGen**)(SDA_ADDR_NUS - 0x5DB8);

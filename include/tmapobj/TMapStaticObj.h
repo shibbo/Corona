@@ -15,7 +15,7 @@ class TMapStaticObj : public THitActor
 	
 	void load(JSUMemoryStream &);
 	void loadAfter();
-	void perform(u32, JDrama::TGraphics *);
+	void perform(u64, JDrama::TGraphics *);
 	void init(char const *);
 	void initUnique();
 	void initModel(char const *);
@@ -25,8 +25,8 @@ class TMapStaticObj : public THitActor
 	u8* modelName; // _6C
 	MActor* actor; // _70
 	u32 _74;
-	u32 _78;
-	u32 _7C;
+	s32 _78;
+	s32 _7C;
 };
 
 #endif // TMAPSTATICOBJ_H

@@ -15,7 +15,7 @@ class TMarDirector : public JDrama::TDirector
     TMarDirector();
     ~TMarDirector();
 
-    void direct();
+    s32 direct();
     void moveStage();
     void updateGameMode();
     void nextStateInitialize(s8);
@@ -42,9 +42,9 @@ class TMarDirector : public JDrama::TDirector
     void loadResource();
 
     u8 _28[0x24];
-    u16 state; // _4C
+    u16 mState; // _4C
     u8 _4E[0x74-0x4E];
-    TGCConsole2* gccConsole; // _74
+    TGCConsole2* mConsole; // _74
 };
 
 #endif // TMARDIRECTOR_H

@@ -33,8 +33,8 @@ class TMapObjBase : public TLiveActor
 	
 	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(u32, JDrama::TGraphics *);
-	bool recieveMessage(THitActor *, u32);
+	void perform(u64, JDrama::TGraphics *);
+	bool recieveMessage(THitActor *, u64);
 	u32* getTakingMtx();
 	void ensureTakeSituation();
 	f32 getRadiusAtY() const;
@@ -76,7 +76,7 @@ class TMapObjBase : public TLiveActor
 	bool hasModelOrAnimData() const;
 	bool animIsFinished() const;
 	bool hasAnim(s16 animID) const;
-	void soundBas(u32, f32, f32);
+	void soundBas(u64, f32, f32);
 	void setUpMapCollision(s16);
 	void setUpCurrentMapCollision();
 	void removeMapCollision();
@@ -89,7 +89,7 @@ class TMapObjBase : public TLiveActor
 	bool marioHeadAttack() const;
 	bool marioIsOn() const;
 	bool marioIsOn(TLiveActor const *actor);
-	void sendMsg(u32, u32);
+	void sendMsg(u64, u64);
 	bool waterHitPlane(THitActor *);
 	JGeometry::TVec3<f32> getWaterPos(THitActor *waterActor);
 	u32 getWaterSpeed(THitActor *waterActor);
@@ -107,12 +107,16 @@ class TMapObjBase : public TLiveActor
 	void checkOnManhole();
 	bool isDemo();
 	bool isHideObj(THitActor *);
-	void joinToGroup(char const *, THitActor *);
+	static void joinToGroup(char const *, THitActor *);
 
 	void initModelData();
 	void initObjCollisionData();
 
 	static void makeLowerStr(char const *, char const *);
+	MActor* initMActor(char const *, char const *, u64);
+	void setJointScaleY(J3DJoint *joint, f32 scale);
+	static f32 getJointScaleY(J3DJoint *);
+	static void setJointTransY(J3DJoint *, f32);
 	
 	u8* objName; // _F4
 	u32 _F8; // state related

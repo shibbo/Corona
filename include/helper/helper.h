@@ -1,6 +1,7 @@
 #ifndef HELPER_H
 #define HELPER_H
 
+#include "common.h"
 #include "globals.h"
 #include "types.h"
 

@@ -11,13 +11,13 @@ class TLiveManager : public TObjManager
 	~TLiveManager();
 
 	void load(JSUMemoryInputStream &);
-	void perform(u32, JDrama::TGraphics *);
+	void perform(u64, JDrama::TGraphics *);
 	void clipActors(JDrama::TGraphics *);
 	void setFlagOutOfCube();
 	void createSpcBinary();
 	bool hasMapCollsion() const;
 	
-	TSpcBinary* spc; // _34 
+	TSpcBinary* mSpcBinary; // _34 
 };
 
 #endif // TLIVEMANAGER_H

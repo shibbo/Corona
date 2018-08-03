@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include "spc/TSpcBinary.h"
+#include "spc/TSpcSlice.h"
 
 class TSpcInterp
 {
@@ -31,9 +32,9 @@ class TSpcInterp
     u32 _C;
     u32 _10;
     u32 _14;
-    u32 _18;
+    u32 mNumSplices; // _18
     u32 _1C;
-    u32 _20;
+    TSpcSlice* mSlices; // _20 (array of TSpcSlice*)
     u32 _24;
     u32 _28;
     u32 _2C;
@@ -42,7 +43,7 @@ class TSpcInterp
     u32 _38;
     u32 _3C;
     u32 _40;
-    u32 _44;
+    VTABLE; // _44 -- TSpcStack vtable
     u32 _48;
     u32 _4C;
     u32 _50;

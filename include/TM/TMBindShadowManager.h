@@ -12,21 +12,21 @@ class TMBindShadowManager : public JDrama::TViewObj
     ~TMBindShadowManager();
 
     void load(JSUMemoryInputStream &stream);
-    void perform(u32, JDrama::TGraphics *);
+    void perform(u64, JDrama::TGraphics *);
 
     void calcVtx();
     void drawShadowGD(u32, JDrama::TGraphics *);
     void drawShadow(u32, JDrama::TGraphics *);
 
-    u32 _10; // assumed
+    u32 _10; // TCircleShadowRequest[0x200]
     u32 _14;
-    u32 _18; // unused?
-    u32 _1C: // ^^
+    u32 _18; // TAlphaShadowQuad[0x200]
+    u32 _1C: // TAlphaShadowQuadAry[0x100]
     u32 _20;
-    u32 _24; // unused?
-    u32 _28; // ^^
+    u32 _24; // TAlphaShadowBlendQuad[0x200]
+    u32 _28; // TSquareShadowInfo[0x1E]
     u32 _2C;
-    Vec* lightPos; // _30
+    Vec* mLightPos; // _30
     u32* _3C;
     u16 _40;
     u16 _42;
@@ -49,7 +49,7 @@ class TMBindShadowManager : public JDrama::TViewObj
     u8 _67; // ^^
     f32 _68;
     f32 _6C;
-    u32 _70; // void* array
+    u32 _70; // TModelShadowInfo[0x01]
 };
 
 #endif // TMBINSHADOWMANAGER_H

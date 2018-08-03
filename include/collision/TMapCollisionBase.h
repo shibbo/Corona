@@ -26,10 +26,10 @@ class TMapCollisionBase
     VTABLE; // _0
     u32* _4;
     s32 _8;
-    u32 numVerts; // _10
-    u32 vertOffset; // _14
-    u32 groupCount; // _18
-    u32* groups; // _1C
+    u32 mNumVerts; // _10
+    u32 mVertOffset; // _14
+    u32 mGroupCount; // _18
+    u32* mGroups; // _1C
     Mtx _20;
     JGeometry::TVec3<f32> _50;
     u16 _5C;
