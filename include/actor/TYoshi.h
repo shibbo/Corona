@@ -47,7 +47,7 @@ class TYoshiTongue : public TTakeActor
 
     void entry();
     void viewCalc();
-    void calcAnim(f32 *[4]);
+    void calcAnim(MtxPtr);
     u32 findTarget(bool, bool);
     bool canGo();
     void emit(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &);
@@ -103,8 +103,8 @@ class TYoshi
     void appearFromEgg(JGeometry::TVec3<f32> const &, f32, TEggYoshi *);
     void setEggYoshiPtr(TEggYoshi *);
     void getEmitPosDir(JGeometry::TVec3<f32> *, JGeometry::TVec3<f32> *);
-    void changeAnimation(u32);
-    void thinkBtp(u32);
+    void changeAnimation(int);
+    void thinkBtp(int);
     void initInLoadAfter();
     void init(TMario *mario);
 

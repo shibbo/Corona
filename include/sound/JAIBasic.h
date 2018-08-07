@@ -20,7 +20,7 @@ class JAIBasic
     bool setRegisterTrackCallback();
     void checkStream();
     void checkNextFrameSe();
-    void loadGroupWave(s32, s32);
+    void loadGroupWave(int, int);
 
     u32 _0;
     VTABLE; // _4

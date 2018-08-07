@@ -8,7 +8,7 @@
 class TSpcInterp
 {
     public:
-    TSpcInterp(TSpcBinary *, void *, u32, u32, u32, u32);
+    TSpcInterp(TSpcBinary *, void *, int, int, int, int);
     ~TSpcInterp();
 
     void update();

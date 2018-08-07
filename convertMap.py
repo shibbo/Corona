@@ -59,6 +59,10 @@ for line in data:
 	# add our address to this list as well as add the symbol to it
 	newFile.append(f"{symbol}=0x{lineAddress}\n")
 	numSymbols += 1
+	
+	# lol lazy
+	if symbol == "__destroy_global_chain_reference":
+		break
 
 with open("symbols/symbols-us.txt", "w") as f:
         for line in newFile:

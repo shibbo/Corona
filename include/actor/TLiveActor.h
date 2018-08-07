@@ -18,7 +18,7 @@ class TLiveActor : public TTakeActor
 	~TLiveActor();
 	
 	void load(JSUMemoryInputStream &);
-	void perform(u64, JDrama::TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	bool recieveMessage(THitActor *, u32);
 	u32* getTakingMtx();
 	bool belongToGround() const;
@@ -44,9 +44,9 @@ class TLiveActor : public TTakeActor
 	void setCurAnmSound();
 	void setAnmSound(char const *);
 	void initAnmSound();
-	void getJointTransByIndex(u32, JGeometry::TVec3<f32> *) const;
+	void getJointTransByIndex(int, JGeometry::TVec3<f32> *) const;
 	void calcVelocityToJumpToY(JGeometry::TVec3<f32> const &, f32, f32) const;
-	void initLodAnm(u32 *, u32, f32); // TLodAnmIndex
+	void initLodAnm(u32 *, int, f32); // TLodAnmIndex
 	u32* getModel() const;
 	void calcRideMomentum();
 	void calcRidePos();

@@ -10,7 +10,7 @@ class TCameraInbetween
 
     void execCameraInbetween(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &);
     void initCameraInbetween(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &);
-    void startCameraInbetween(u32);
+    void startCameraInbetween(int);
     void addMoveCameraAndMario(Vec const &);
     void warpPosAndAt(Vec const &, Vec const &);
 

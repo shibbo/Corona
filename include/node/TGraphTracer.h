@@ -12,8 +12,8 @@ class TGraphTracer
     u32* getGraph() const;
     u32 traceSpline(f32);
     f32 calcSplineSpeed(f32);
-    void moveTo(u32);
-    void setTo(u32);
+    void moveTo(int);
+    void setTo(int);
 
     u32* _0; // not sure WHAT graph yet
     u32 mGraphIndex;

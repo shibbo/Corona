@@ -2,14 +2,15 @@
 #define TMAPCOLLISIONBASE_H
 
 #include "actor/TLiveActor.h"
+#include "collison/TBG.h"
 
 class TMapCollisionBase
 {
     public:
     void init(char const *, u16, TLiveActor *actor);
     void moveSRT(JGeometry::TVec3<f32> const &,JGeometry::TVec3<f32> const &,JGeometry::TVec3<f32> const &);
-    void moveTrans(JGeometry::TVec3<f> const &);
-    void moveMtx(f32 *[4]);
+    void moveTrans(JGeometry::TVec3<f32> const &);
+    void moveMtx(MtxPtr);
     void setUp();
     void setUpTrans(JGeometry::TVec3<f32> const &);
     void remove();
@@ -22,6 +23,7 @@ class TMapCollisionBase
     void initAllCheckData(s16, f32 const *, u16, TLiveActor *);
     void update();
     void updateTrans(JGeometry::TVec3<f32> const &);
+    void setCheckData(f32 const *, s16 *,TBGCheckData *, int);
 
     VTABLE; // _0
     u32* _4;

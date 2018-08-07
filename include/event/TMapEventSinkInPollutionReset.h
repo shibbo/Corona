@@ -9,7 +9,7 @@ class TMapEventSinkInPollutionReset : public TMapEventSinkInPollution
     ~TMapEventSinkInPollutionReset();
 
     void loadAfter();
-    void makeBuildingRecovered(s32);
+    void makeBuildingRecovered(int);
 };
 
 #endif // TMAPEVENTSINKINPOLLUTIONRESET_H

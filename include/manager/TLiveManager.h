@@ -11,7 +11,7 @@ class TLiveManager : public TObjManager
 	~TLiveManager();
 
 	void load(JSUMemoryInputStream &);
-	void perform(u64, JDrama::TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	void clipActors(JDrama::TGraphics *);
 	void setFlagOutOfCube();
 	void createSpcBinary();

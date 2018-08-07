@@ -37,7 +37,7 @@ class TJointModelManager : public JDrama::TViewObj
 	~TJointModelManager();
 
 	void perform(JDrama::TGraphics *);
-	TJointModel* newJointModel(s32) const;
+	TJointModel* newJointModel(int) const;
 
 	u32 _10;
 	u32 _14;

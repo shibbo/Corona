@@ -16,7 +16,7 @@ class TSmallEnemy : public TSpineEnemy
 	
 	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(u64, JDrama::TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	bool recieveMessage(THitActor *, u32);
 	void init(TLiveManager *);
 	void moveObject();

@@ -13,16 +13,16 @@ class TSpcTypedBinary
 
 };
 
-void linPushNerve(TSpcTypedInterp<TLiveActor> *, u64);
-void linSetBck(TSpcTypedInterp<TLiveActor> *, u64);
-void linSetBpk(TSpcTypedInterp<TLiveActor> *, u64);
-void linSetBtp(TSpcTypedInterp<TLiveActor> *, u64);
-void linSetBtk(TSpcTypedInterp<TLiveActor> *, u64);
-void linSetBlk(TSpcTypedInterp<TLiveActor> *, u64);
-void linSetBls(TSpcTypedInterp<TLiveActor> *, u64);
-void linSetSRT(TSpcTypedInterp<TLiveActor> *, u64);
-void linGetSRT(TSpcTypedInterp<TLiveActor> *, u64);
-void linSetAnmRate(TSpcTypedInterp<TLiveActor> *, u64);
+void linPushNerve(TSpcTypedInterp<TLiveActor> *, u32);
+void linSetBck(TSpcTypedInterp<TLiveActor> *, u32);
+void linSetBpk(TSpcTypedInterp<TLiveActor> *, u32);
+void linSetBtp(TSpcTypedInterp<TLiveActor> *, u32);
+void linSetBtk(TSpcTypedInterp<TLiveActor> *, u32);
+void linSetBlk(TSpcTypedInterp<TLiveActor> *, u32);
+void linSetBls(TSpcTypedInterp<TLiveActor> *, u32);
+void linSetSRT(TSpcTypedInterp<TLiveActor> *, u32);
+void linGetSRT(TSpcTypedInterp<TLiveActor> *, u32);
+void linSetAnmRate(TSpcTypedInterp<TLiveActor> *, u32);
 
 
 #endif // TSPCTYPEDBINARY_H

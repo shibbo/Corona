@@ -28,7 +28,7 @@ class TBGCheckData
     bool isWaterSlip() const;
     bool isWaterSurface() const;
     bool isIllegalData() const;
-    TVec3<f32> getNormal() const;
+    JGeometry::TVec3<f32> getNormal() const;
     void setVertex(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &);
 };
 

@@ -13,7 +13,7 @@ class TCoin : public TItem
 	~TCoin();
 	
 	void loadAfter();
-	void perform(u64, JDrama::TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	void appear();
 	void makeObjAppeared();
 	void makeObjDead();

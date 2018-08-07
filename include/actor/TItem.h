@@ -14,7 +14,7 @@ class TItem : public TMapObjGeneral
 	~TItem();
 	
 	void load(JSUMemoryInputStream &);
-	void perform(u64, JDrama::TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	u32 recieveMessage(THitActor *, u32);
 	void calcRootMatrix();
 	void appear();
@@ -23,11 +23,11 @@ class TItem : public TMapObjGeneral
 	void touchPlayer(THitActor *);
 	void appearing();
 	void appeared();
-	void killByTimer(u32);
+	void killByTimer(int);
 	void taken(THitActor *);
 	
 	u32* _148;
-	u32 mKillTimer; // _14C
+	int mKillTimer; // _14C
 	u32 _150;
 };
 

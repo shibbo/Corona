@@ -11,8 +11,8 @@ class THitActor : public JDrama::TActor
 	~THitActor();
 	
 	bool recieveMessage(THitActor *, u32);
-	void initHitActor(u32,  u16, u32, f32, f32, f32, f32);
-	void perform(u64, JDrama::TGraphics *);
+	void initHitActor(u32, u16, int, f32, f32, f32, f32);
+	void perform(u32, JDrama::TGraphics *);
 	void calcEntryRadius();
 	
 	THitActor** mCollisionArray; // _44

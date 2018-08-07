@@ -92,8 +92,8 @@ u32* SMSLoadArchive(char const *, void *, u32, JKRHeap *); // returns JKRMemArch
 void SMSCalcJumpVelocityXZ(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, f32, f32, JGeometry::TVec3<f32> *);
 
 void SMS_EmitSinkInPollutionEffect(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, bool);
-bool SMS_EmitRippleSea(f32 *[4], void *);
-bool SMS_EmitRipplePool(f32 *[4],void *);
+bool SMS_EmitRippleSea(MtxPtr, void *);
+bool SMS_EmitRipplePool(MtxPtr,void *);
 bool SMS_EmitRippleTiny(JGeometry::TVec3<f32> *);
 
 void SMS_RideMoveCalcLocalPos(TRidingInfo *, JGeometry::TVec3<f32> const &);
@@ -121,7 +121,9 @@ void SMS_InitPacket_TwoTevColor(J3DModel *, u16, _GXTevRegID, _GXColorS10 const 
 void SMS_InitPacket_OneTevColor(J3DModel *, u16, _GXTevRegID, _GXColorS10 const *);
 void SMS_InitPacket_MatColor(J3DModel *, u16, _GXChannelID, _GXColor const *);
 
-SDLModelData* SMS_MakeSDLModelData(char const *, u64);
-MActor* SMS_MakeMActorFromSDLModelData(SDLModelData *, MActorAnmData *, u64);
+SDLModelData* SMS_MakeSDLModelData(char const *, u32);
+MActor* SMS_MakeMActorFromSDLModelData(SDLModelData *, MActorAnmData *, u32);
+MActor* SMS_MakeMActorWithAnmData(char const *, MActorAnmData *, u32, u32);
+int* SMS_MakeMActorsWithAnmData(char const *, MActorAnmData *, int numActors, u32, u32);
 
 #endif // SMS_H

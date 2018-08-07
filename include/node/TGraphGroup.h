@@ -10,7 +10,7 @@ class TGraphGroup
     public:
     TGraphGroup(void *);
 
-    void perform(u64, JDrama::TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
     TGraphWeb* getGraphByName(char const *graphName);
     void initGraphGroup();
 

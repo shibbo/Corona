@@ -17,12 +17,12 @@ class TConductor : public JDrama::TViewObj
     ~TConductor();
 
     TNameRef* searchF(u16, char const *);
-    void perform(u64, JDrama::TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
 
     void genEnemyFromPollution();
     void killEnemiesWithin(JGeometry::TVec3<f32> const &position, f32 distance);
-    TSmallEnemy* makeOneEnemyAppear(JGeometry::TVec3<f32> const &position, char const *name, u32);
-    TSmallEnemy* makeEnemyAppear(JGeometry::TVec3<f32> const &position, char const *name, u32, u32);
+    TSmallEnemy* makeOneEnemyAppear(JGeometry::TVec3<f32> const &position, char const *name, int);
+    TSmallEnemy* makeEnemyAppear(JGeometry::TVec3<f32> const &position, char const *name, int, int);
     bool isBossDefeated();
     TLiveManager* getManagerByName(char const *managerName);
     TGraphGroup* getGraphByName(char const *graphName);

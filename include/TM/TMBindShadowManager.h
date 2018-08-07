@@ -12,7 +12,7 @@ class TMBindShadowManager : public JDrama::TViewObj
     ~TMBindShadowManager();
 
     void load(JSUMemoryInputStream &stream);
-    void perform(u64, JDrama::TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
 
     void calcVtx();
     void drawShadowGD(u32, JDrama::TGraphics *);

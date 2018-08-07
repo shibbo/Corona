@@ -6,7 +6,7 @@
 class TSplinePath
 {
     public:
-    TSplinePath(u32); // this integer is nodeCount + 3
+    TSplinePath(int); // this integer is nodeCount + 3
 
     f32 calcSpline(f32, f32 *, f32 *, f32 *);
     void calcTable();

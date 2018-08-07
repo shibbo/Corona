@@ -16,7 +16,7 @@ class TOptionSoundUnit
     void initSurroundAnm();
     void initSteleoAnm();
     static s32 typeToFlag(u32); // TOptionSoundUnit::SoundType
-    static u32 flagToType(u32);
+    static u32 flagToType(int);
 
     J2DScreen* screen; // _0
     // todo -- finish

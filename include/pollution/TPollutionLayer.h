@@ -24,7 +24,7 @@ class TPollutionLayer : public TJointModel
 
     TPollutionObj* newJointObj() const;
     void initJointModel(TJointModelManager *, char const *name, MActorAnmData *);
-    void perform(u64, JDrama::TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
     u32 getJ3DModelDataFlag() const;
     u32 getPlaneType() const;
     u32 getTexPosT(f32) const;
@@ -64,14 +64,14 @@ class TPollutionLayer : public TJointModel
     u32 _8C;
     u32 _90;
     s32 arrayCount; // _94
-    TVec3<f32>* someArray; // _98 (count is defined by 0x94)
+    JGeomtry::TVec3<f32>* someArray; // _98 (count is defined by 0x94)
     u32 _9C;
     u32 _A0;
     u32 _A4;
     u32 _A8;
 };
 
-void initGXforStamp(u8 const *, u16, u16, s32);
+void initGXforStamp(u8 const *, u16, u16, int);
 void initGXforPollutionLayer(s16, u32, u8, u8);
 void drawTex(u16, u16);
 void initDrawObjGX();

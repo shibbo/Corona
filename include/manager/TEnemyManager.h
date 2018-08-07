@@ -14,13 +14,13 @@ class TEnemyManager : public TLiveManager
     ~TEnemyManager();
 
     void load(JSUMemoryInputStream &stream);
-    void perform(u64, JDrama::TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
     
     u32 createEnemyInstance();
     void clipEnemies(JDrama::TGraphics *);
-    void restoreDrawBuffer(u64);
-    void createEnemies(s32);
-    void changeDrawBuffer(u64);
+    void restoreDrawBuffer(u32);
+    void createEnemies(int);
+    void changeDrawBuffer(u32);
 
     u8 copyAnmMatrix(TSpineEnemy *);
     u32 countLivingEnemy() const;
@@ -33,6 +33,7 @@ class TEnemyManager : public TLiveManager
     void copyFromShared();
     void updateAnmSoundShared();
     void setSharedFlags();
+    void createEnemies(int);
 
     u32* _38;
     f32 _3C;

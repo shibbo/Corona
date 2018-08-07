@@ -10,26 +10,26 @@
 class TGraphWeb
 {
     public:
-    TGraphWeb(TRailNode *, char const *railName, s32 nodeCount);
+    TGraphWeb(TRailNode *, char const *railName, int nodeCount);
     ~TGraphWeb();
 
-    u32 getNeighborNodeIndexByFlag(s32, s32, u64) const;
+    u32 getNeighborNodeIndexByFlag(int, int, u32) const;
     JGeometry::TVec3<f32> getNearestPosOnGraphLink(JGeometry::TVec3<f32> const &) const;
     bool isDummy() const;
-    Vec* indexToPoint(s32) const;
+    Vec* indexToPoint(int) const;
     bool startIsEnd() const;
     void initGoalIndex(Vec const &);
-    void calcGraphDirection(s32);
-    s32 findNearestVisibleIndex(JGeometry::TVec3<f32> const &, f32, f32, f32, u64) const;
-    s32 findNearestNodeIndex(JGeometry::TVec3<f32> const &, u64) const;
-    s16 getEscapeDirLimited(s32, s32, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, f32, u64) const;
-    s16 getEscapeFromMarioIndex(u32, u32, JGeometry::TVec3<f32> const &, u64) const;
-    s16 getRandomNextIndex(s32, s32, u64) const;
-    s16 getShortestNextIndex(s32, s32, u64) const;
+    void calcGraphDirection(int);
+    s32 findNearestVisibleIndex(JGeometry::TVec3<f32> const &, f32, f32, f32, u32) const;
+    s32 findNearestNodeIndex(JGeometry::TVec3<f32> const &, u32) const;
+    s16 getEscapeDirLimited(int, int, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, f32, u32) const;
+    s16 getEscapeFromMarioIndex(int, int, JGeometry::TVec3<f32> const &, u32) const;
+    s16 getRandomNextIndex(int, int, u32) const;
+    s16 getShortestNextIndex(int, int, u32) const;
     void translateNodes(TRailNode *);
-    s16 filterRailNode(u64, TRailNode const *, TRailNode const *, TRailNode *) const;
-    s32 getRandomButDirLimited(s32, s32, JGeometry::TVec3<f32> const &,JGeometry::TVec3<f32> const &, f32, u64) const;
-    s32 getAimToDirNextIndex(s32, s32, JGeometry::TVec3<f32> const &,JGeometry::TVec3<f32> const &, u64) const;
+    s16 filterRailNode(u32, TRailNode const *, TRailNode const *, TRailNode *) const;
+    s32 getRandomButDirLimited(int, int, JGeometry::TVec3<f32> const &,JGeometry::TVec3<f32> const &, f32, u32) const;
+    s32 getAimToDirNextIndex(int, int, JGeometry::TVec3<f32> const &,JGeometry::TVec3<f32> const &, u32) const;
 
     TGraphNode* mNodes; // _0 (array of nodes)
     TRailNode* mRailNode; // _4

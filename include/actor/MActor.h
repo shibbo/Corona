@@ -43,24 +43,24 @@ class MActor
 	void entryIn();
 	void updateOut();
 	void updateIn();
-	void setBrkFromIndex(u32 index);
+	void setBrkFromIndex(int index);
 	void setBrk(char const *brkName);
 	void setBlk(char const *blkName);
-	void setBtkFromIndex(u32 index);
+	void setBtkFromIndex(int index);
 	void setBtk(char const *btkName);
-	void setBtpFromIndex(u32 index);
+	void setBtpFromIndex(int index);
 	void setBtp(char const *btpName);
-	void setpBpkFromIndex(u32 index);
+	void setpBpkFromIndex(int index);
 	void setBpk(char const *bpkName);
-	void setBckFromIndex(u32 index);
+	void setBckFromIndex(int index);
 	void setBck(char const *bckName);
-	void setFrameRate(f32, u32);
-	u32 getCurAnmIdx(u32) const;
+	void setFrameRate(f32, int);
+	int getCurAnmIdx(int) const;
 	bool checkBckPass(f32);
-	u32 getFrameCtrl(u32);
-	bool checkAnmFileExist(char const *fileName, u32);
+	int getFrameCtrl(int);
+	bool checkAnmFileExist(char const *fileName, int);
 
-	void perform(u64, JDrama::TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	void matAnmFrameUpdate();
 	void frameUpdate();
 	void entry();
@@ -72,6 +72,7 @@ class MActor
 	void calcAnim();
 
 	void resetDL();
+	void setJointCallback(int, int (*)(J3DNode *, int));
 	
 	u32 _0;
 	u32 _4;

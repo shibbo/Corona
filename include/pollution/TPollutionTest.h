@@ -9,7 +9,7 @@ class TPollutionTest : public JDrama::TViewObj
     ~TPollutionTest();
 
     void loadAfter();
-    void perform(u64, JDrama::TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
 };
 
 #endif // TPOLLUTIONTEST_H

@@ -136,7 +136,7 @@ class J3DSkinDeform
 class J3DDisplayListObj
 {
 	public:
-	void newDisplayList(u64 numLists);
+	void newDisplayList(u32 numLists);
 	void callDL();
 	
 	u32 _0;
@@ -155,9 +155,9 @@ class J3DMaterial
 	void addShape(J3DShape *);
 	void createColorBlock(u32);
 	void createTexGenBlock(u32);
-	void createTevBlock(u32);
+	void createTevBlock(int);
 	void createIndBlock(u32);
-	void createPEBlock(u32, u32);
+	void createPEBlock(int, u32);
 	u32 countDLSize();
 	void makeDisplayList();
 	void safeMakeDisplayList();
@@ -166,7 +166,7 @@ class J3DMaterial
 	void copy(J3DMaterial *);
 	void change();
 	void newSharedDisplayList(u32);
-	void calc(f32 *[4]);
+	void calc(MtxPtr);
 	void setCurrentMtx();
 	
 	u32* _0;

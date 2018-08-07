@@ -10,11 +10,11 @@ class TMapEvent : public TEventWatcher
     ~TMapEvent();
 
     void load(JSUMemoryInputStream &stream);
-    void perform(u64, JDrama::TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
     bool isFinishedAll() const;
     void startControl();
     void finishControl();
-    u32* getBuilding(s32) const;
+    u32* getBuilding(int) const;
 
     u32 mEventState; // _18
     u32* _1C;

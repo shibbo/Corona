@@ -11,7 +11,7 @@ class MSound : public JAIBasic
 
     f32 getDistPowFromCamera(Vec const &);
     f32 getDistFromCamera(Vec *);
-    void setPlayerInfo(Vec *, Vec *, f32 *[4], bool);
+    void setPlayerInfo(Vec *, Vec *, MtxPtr, bool);
     bool cameraLooksAtMario();
     void startSoundActorSpecial(u32, Vec const *, f32, f32, u32, JAISound **, u32, u8);
     void startBeeSe(Vec *, u32);

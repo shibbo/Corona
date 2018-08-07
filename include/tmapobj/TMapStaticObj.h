@@ -13,9 +13,9 @@ class TMapStaticObj : public THitActor
 	TMapStaticObj(char const *);
 	~TMapStaticObj();
 	
-	void load(JSUMemoryStream &);
+	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(u64, JDrama::TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	void init(char const *);
 	void initUnique();
 	void initModel(char const *);

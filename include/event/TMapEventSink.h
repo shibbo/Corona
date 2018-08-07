@@ -15,12 +15,12 @@ class TMapEventSink : public TMapEvent
     void startContorl();
     s32 control();
     void finishControl();
-    u32* getBuilding(s32) const;
-    void initBuilding(s32, JSUMemoryInputStream &);
+    u32* getBuilding(int) const;
+    void initBuilding(int, JSUMemoryInputStream &);
     void initWithBuildingNum(JSUMemoryInputStream &);
     void rising();
     f32 getSinkOffsetY() const;
-    void makeBuildingRecovered(s32);
+    void makeBuildingRecovered(int);
 
     u32 _20; // defined in map binary
     u32 _24;
@@ -34,7 +34,7 @@ class TMapEventSink : public TMapEvent
     u32 _44;
     u32 _48;
     u32 _4C;
-    TVec3<f32>* _50; // array of something, count is this + 0x20
+    JGeometry::TVec3<f32>* _50; // array of something, count is this + 0x20
     void* _54;
     void* _58;
     void* _5C;

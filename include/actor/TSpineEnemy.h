@@ -15,7 +15,7 @@ class TSpineEnemy : public TLiveActor
 	~TSpineEnemy();
 	
 	void load(JSUMemoryInputStream &);
-	void perform(u64, JDrama::TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	bool recieveMessage(THitActor *, u32);
 	void init(TLiveManager *);
 	void calcRootMatrix();
@@ -30,6 +30,8 @@ class TSpineEnemy : public TLiveActor
 	void walkToCurPathNode(f32, f32, f32);
 	void turnToCurPathNode(f32);
 	void zigzagToCurPathNode(f32, f32, f32, f32);
+
+	f32 getCurAnmFrameNo(int) const;
 	
 	u32 _F4;
 	f32 _F8;

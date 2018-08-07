@@ -15,7 +15,7 @@ class CPolarSubCamera : public JDrama::TLookAtCamera
     ~CPolarSubCamera();
 
     void loadAfter();
-    void perform(u64, JDrama::TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
 
     bool execGroundCheck_(Vec position);
     bool execRoofCheck_(Vec position);

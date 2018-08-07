@@ -25,8 +25,8 @@ class JKRHeap : public JKRDisposer
 
 	void becomeSystemHeap();
 	void becomeCurrentHeap();
-	bool initArena(u8 **, u32 *, u32);
-	static void alloc(u32, u32, JKRHeap *);
+	bool initArena(u8 **, u32 *, int);
+	static void alloc(u32, int, JKRHeap *);
 	void free(void *, JKRHeap *);
 	void freeAll();
 	static JKRHeap* findFromRoot(void *);
@@ -50,7 +50,7 @@ class JKRHeap : public JKRDisposer
 class JKRThread : public JKRDisposer
 {
 	public:
-	JKRThread(u32 stackSize, s32 messageCount, u32);
+	JKRThread(u32 stackSize, int messageCount, int);
 	~JKRThread();
 
 	static void* start(void *src);
@@ -61,7 +61,7 @@ class JKRThread : public JKRDisposer
 	OSThread* mThread; // _2C
 	OSMessageQueue mMessageQueue; // _30
 	OSMessage* mMessage; // _50
-	s32 mMessageCount; // _54
+	int mMessageCount; // _54
 	void* mStackPtr; // _58
 	u32 mStackSize; // _5C
 };
@@ -142,6 +142,6 @@ class JKRArcFinder : public JKRFileFinder
 	u32 _20;
 };
 
-void JKRDefaultMemoryErrorRoutine(void *, u64, u32);
+void JKRDefaultMemoryErrorRoutine(void *, u32, u32);
 
 #endif // JKR_H

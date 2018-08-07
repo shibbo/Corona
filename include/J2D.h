@@ -11,12 +11,12 @@ typedef u32* ResFONT; // just to be more percise
 class J2DGrafContext
 {
 	public:
-	J2DGrafContext(u32, u32, u32, u32);
+	J2DGrafContext(int, int, int, int);
 	J2DGrafContext(JUTRect const &);
 	~J2DGrafContext();
 
 	void place(JUTRect const &);
-	void place(u32, u32, u32, u32);
+	void place(int, int, int, int);
 	void setPort();
 	void setup2D();
 	void setScissor();
@@ -79,18 +79,18 @@ class J2DPane
 	J2DPane(J2DPane *, JSURandomInputStream *, bool);
 	~J2DPane();
 	
-	void draw(u32, u32, J2DGrafContext const *, bool);
-	void drawSelf(u32, u32, f32 *[3][4]);
+	void draw(int, int, J2DGrafContext const *, bool);
+	void drawSelf(int, int, f32 *[3][4]);
 	void clip(JUTRect const &);
 	u32* search(u32);
-	void makeMatrix(u32, u32);
+	void makeMatrix(int, int);
 	void setCullBack(u32); // GXCullback
 	void setBasePosition(u32); // J2DBasePosition
 	bool setConnectParent(bool);
 	void drawSelf(u32, u32);
-	void resize(u32, u32);
-	void move(u32, u32);
-	void add(u32, u32);
+	void resize(int, int);
+	void move(int, int);
+	void add(int, int);
 	
 	VTABLE; // _0
 	u16 _4;
@@ -190,17 +190,17 @@ class J2DTextBox : public J2DPane
 	J2DTextBox(u32, JUTRect const &, ResFONT const *, char const *, J2DTextBoxHBinding, J2DTextBoxVBinding);
 	~J2DTextBox();
 	
-	void resize(u32, u32);
+	void resize(int, int);
 	void setConnectParent(bool);
-	void drawSelf(u32, u32);
-	void drawSelf(u32, u32, f32 *[3][4]);
+	void drawSelf(int, int);
+	void drawSelf(int, int, f32 *[3][4]);
 
 	void initiate(ResFONT const *, char const *, J2DTextBoxHBinding, J2DTextBoxVBinding);
 	
 	u32 getStringPtr() const;
 	u8* setString(char const *, ...);
 	void setFont(JUTFont *);
-	void draw(u32, u32);
+	void draw(int, int);
 	
 	JUTFont* font; // _EC
 	u32 _F0;
@@ -224,11 +224,11 @@ class J2DPicture : public J2DPane
 	J2DPicture(J2DPane *, JSURandomInputStream *, bool);
 	~J2DPicture();
 
-	void drawSelf(u32, u32);
-	void drawSelf(u32, u32, f32 *[3][4]);
-	void drawFullSet(u32, u32, u32, u32, J2DBinding, u32, bool, J2DWrapMode, J2DWrapMode, float *[3][4]);
-	void draw(u32, u32, u32, u32, bool, bool, bool);
-	void drawTexCoord(u32, u32, u32, u32, f32, f32, f32, f32, f32, f32, f32, f32, f32 *[3][4]);
+	void drawSelf(int, int);
+	void drawSelf(int, int, f32 *[3][4]);
+	void drawFullSet(int, int, int, int, J2DBinding, u32, bool, J2DWrapMode, J2DWrapMode, float *[3][4]);
+	void draw(int, int, int, int, bool, bool, bool);
+	void drawTexCoord(int, int, int, int, f32, f32, f32, f32, f32, f32, f32, f32, f32 *[3][4]);
 	void setTevMode();
 	void swap(f32 &, f32 &);
 	void setBlendKonstColor();
@@ -254,19 +254,19 @@ class J2DPicture : public J2DPane
 class J2DPrint
 {
 	public:
-	J2DPrint(JUTFont *, u32, u32, JUtility::TColor, JUtility::TColor);
-	J2DPrint(JUTFont *, u32);
+	J2DPrint(JUTFont *, int, int, JUtility::TColor, JUtility::TColor);
+	J2DPrint(JUTFont *, int);
 	~J2DPrint();
 
 	void initiate();
-	void private_initiate(JUTFont *, u32, u32, JUtility::TColor, JUtility::TColor);
+	void private_initiate(JUTFont *, int, int, JUtility::TColor, JUtility::TColor);
 	static void setBuffer(u32);
-	void locate(u32, u32);
+	void locate(int, int);
 	void setFontSize();
-	void print(u32, u32, char const *, ...);
-	void print(u32, u32, u8, char const *, ...);
+	void print(int, int, char const *, ...);
+	void print(int, int, u8, char const *, ...);
 	void getWidth(char const *, ...);
-	void printReturn(char const *, u32, u32, J2DTextBoxHBinding, J2DTextBoxVBinding, u32, u32, u8);
+	void printReturn(char const *, int, int, J2DTextBoxHBinding, J2DTextBoxVBinding, int, int, u8);
 
 	VTABLE; // _0
 	JUTFont* font; // _4

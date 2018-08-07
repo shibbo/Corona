@@ -4,7 +4,7 @@
 #include "JGeometry.h"
 #include "types.h"
 
-void JPAVecToRotaMtx(f32 *[4], JGeometry::TVec3<f32>, JGeometry::TVec3<f32>);
+void JPAVecToRotaMtx(MtxPtr, JGeometry::TVec3<f32>, JGeometry::TVec3<f32>);
 f32 JPAConvertFixToFloat(u16);
 
 #endif // JPA_H

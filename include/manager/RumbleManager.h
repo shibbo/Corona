@@ -15,10 +15,10 @@ class RumbleMgr
     void update();
     void stop(u32);
     void stop();
-    void start(s32, s32, JGeometry::TVec3<f32> *);
-    void start(s32, s32, f32 *);
-    void start(s32, JGeometry::TVec3<f32> *);
-    void start(s32, f32 *);
+    void start(int, int, JGeometry::TVec3<f32> *);
+    void start(int, int, f32 *);
+    void start(int, JGeometry::TVec3<f32> *);
+    void start(int, f32 *);
     void reset();
     void init();
 

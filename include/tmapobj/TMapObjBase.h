@@ -8,16 +8,72 @@
 #include "actor/THitActor.h"
 #include "actor/TLiveActor.h"
 
+struct AnimationData
+{
+	char* modelKey; // _0
+	int unk[0x9]; // _4
+	char* model; // _28
+	char* animKey; // _2C
+	int _30;
+	int _34;
+	int _38;
+};
+
+struct AnimationInfo
+{
+	int _0;
+	AnimationData* data; // _4
+};
+
+struct CollisionData
+{
+	char* collisionKey; // _0
+	int _4;
+};
+
+struct CollisionInfo 
+{
+	int _0;
+	CollisionData* collisionData; // _4
+};
+
+struct HitTable
+{
+	f32 _0;
+	f32 _4;
+	f32 _8;
+	f32 _C;
+ };
+
+struct HitInfo
+{
+	int _0;
+	int _4;
+	int _8;
+	HitTable* hitData; // _C
+};
+
+struct NormalSoundData 
+{
+	int _0[0xA];
+};
+
+struct SoundInfo 
+{
+	int _0;
+	NormalSoundData* normalSoundData; // _4
+};
+
 struct ObjData
 {
 	u8* objName; // _0
 	f32 _4; // this might not even be a f32
 	u8* _8; // manager?
 	u8* _C; // manager 2?
-	u32* animInfo; // _10
-	u32* hitInfo; // _14
-	u32* collisionInfo; // _18
-	u32* soundInfo; // _1C
+	AnimationInfo* animInfo; // _10
+	HitInfo* hitInfo; // _14
+	CollisionInfo* collisionInfo; // _18
+	SoundInfo* soundInfo; // _1C
 	u32 unused[0x4]; // _20
 	f32 _30;
 	u32 flag; // _34
@@ -33,8 +89,8 @@ class TMapObjBase : public TLiveActor
 	
 	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(u64, JDrama::TGraphics *);
-	bool recieveMessage(THitActor *, u64);
+	void perform(u32, JDrama::TGraphics *);
+	bool recieveMessage(THitActor *, u32);
 	u32* getTakingMtx();
 	void ensureTakeSituation();
 	f32 getRadiusAtY() const;
@@ -76,7 +132,7 @@ class TMapObjBase : public TLiveActor
 	bool hasModelOrAnimData() const;
 	bool animIsFinished() const;
 	bool hasAnim(s16 animID) const;
-	void soundBas(u64, f32, f32);
+	void soundBas(u32, f32, f32);
 	void setUpMapCollision(s16);
 	void setUpCurrentMapCollision();
 	void removeMapCollision();
@@ -89,7 +145,7 @@ class TMapObjBase : public TLiveActor
 	bool marioHeadAttack() const;
 	bool marioIsOn() const;
 	bool marioIsOn(TLiveActor const *actor);
-	void sendMsg(u64, u64);
+	void sendMsg(u32, u32);
 	bool waterHitPlane(THitActor *);
 	JGeometry::TVec3<f32> getWaterPos(THitActor *waterActor);
 	u32 getWaterSpeed(THitActor *waterActor);
@@ -113,10 +169,12 @@ class TMapObjBase : public TLiveActor
 	void initObjCollisionData();
 
 	static void makeLowerStr(char const *, char const *);
-	MActor* initMActor(char const *, char const *, u64);
+	MActor* initMActor(char const *, char const *, u32);
 	void setJointScaleY(J3DJoint *joint, f32 scale);
 	static f32 getJointScaleY(J3DJoint *);
 	static void setJointTransY(J3DJoint *, f32);
+	void newAndInitBuildingCollisionMove(int, TLiveActor *);
+	void newAndInitBuildingCollisionWarp(int,TLiveActor *);
 	
 	u8* objName; // _F4
 	u32 _F8; // state related

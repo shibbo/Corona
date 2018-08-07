@@ -7,9 +7,9 @@
 class SDLModel : public J3DModel
 {
     public:
-    SDLModel(SDLModelData *, u64, u64);
+    SDLModel(SDLModelData *, u32, u32);
 
-    void entryModelDataSDL(SDLModelData *, u64, u64);
+    void entryModelDataSDL(SDLModelData *, u32, u32);
 
 };
 

@@ -11,7 +11,7 @@ class TMapCollisionMove : public TMapCollisionBase
     void init(char const *, u16, TLiveActor *actor);
     void moveSRT(JGeometry::TVec3<f32> const &,JGeometry::TVec3<f32> const &,JGeometry::TVec3<f32> const &);
     void moveTrans(JGeometry::TVec3<f> const &);
-    void moveMtx(f32 *[4]);
+    void moveMtx(MtxPtr);
 
     void move();
     void setList();

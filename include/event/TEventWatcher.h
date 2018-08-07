@@ -12,7 +12,7 @@ class TEventWatcher : public JDrama::TViewObj
     TEventWatcher(char const *);
     ~TEventWatcher();
 
-    void perform(u64, JDrama::TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
     void launchScript(char const *);
 
     TSpcTypedBinary<TEventWatcher>* _10;

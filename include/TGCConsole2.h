@@ -13,18 +13,18 @@ class TGCConsole2 : public JDrama::TViewObj
 
     void load(JSUMemoryInputStream &);
     void loadAfter();
-    void perform(u64, JDrama::TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
 
     // not all of them
     bool processDisappearBalloon();
     bool processAppearBalloon();
-    bool processAppearTimer(s32);
-    bool processAppearRed(s32);
-    bool processAppearJet(s32);
+    bool processAppearTimer(int);
+    bool processAppearRed(int);
+    bool processAppearJet(int);
 
     u32 getFinishedTime();
     void stopMoveTimer();
-    void startMoveTimer(s32);
+    void startMoveTimer(int);
     void countBlueCoin();
     void countShine();
     void setTimer(u32);
@@ -32,9 +32,9 @@ class TGCConsole2 : public JDrama::TViewObj
 
     void startAppearRedCoin();
     void startInsertJetBalloon();
-    void startAppearJetBalloon(s32, s32);
+    void startAppearJetBalloon(int, int);
     void startInsertTimer();
-    void startAppearTimer(s32, s64 timeInSeconds);
+    void startAppearTimer(int, long timeInSeconds);
     void startDisappearTimer();
 
     void startCameraDemo();

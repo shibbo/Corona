@@ -34,22 +34,22 @@ class JUTRect
 {
 	public:
 	JUTRect();
-	JUTRect(u32, u32, u32, u32);
+	JUTRect(int, int, int, int);
 	
-	void set(u32, u32, u32, u32);
+	void set(int, int, int, int);
 	void copy(JUTRect const &);
-	void add(u32, u32);
+	void add(int, int);
 	u32 intersect(JUTRect const &);
-	void move(u32, u32);
-	void resize(u32, u32);
-	void reform(u32, u32, u32, u32);
+	void move(int, int);
+	void resize(int, int);
+	void reform(int, int, int, int);
 	void normalize();
 	bool isEmpty() const;
 	
-	u32 X; // _0
-	u32 Y; // _4
-	u32 Height; // _8
-	u32 Width; // _C
+	int X; // _0
+	int Y; // _4
+	int Height; // _8
+	int Width; // _C
 };
 
 /* Size -- 0x1C */
@@ -181,8 +181,8 @@ class JUTGamePad : public JKRDisposer
 	{
 		public:
 		void clear(JUTGamePad *);
-		void stopMotor(u32);
-		void stopMotorHard(u32);
+		void stopMotor(int);
+		void stopMotorHard(int);
 		void update(u16);
 		void setEnable(u32);
 

@@ -9,6 +9,7 @@
 #include "types.h"
 #include "actor/MActor.h"
 #include "actor/TTakeActor.h"
+#include "collision/TBG.h"
 #include "TM/TMBindShadowBody.h"
 
 // some states
@@ -292,7 +293,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	/* these are a part of the vtable */
 	void load(JSUMemoryInputStream &);
 	void loadAfter();
-	void perform(u64, JDrama::TGraphics *);
+	void perform(u32, JDrama::TGraphics *);
 	bool recieveMessage(THitActor *, u32);
 	Mtx* getTakingMtx();
 	u32 moveRequest(JGeometry::TVec3<f32> const &);
@@ -303,7 +304,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	void initModel();
 	void drawSpecial(JDrama::TGraphics *);
 	void checkCollision();
-	void damageExec(THitActor *, u32, u32, u32, f32, u32, f32, u16);
+	void damageExec(THitActor *, int, int, int, f32, int, f32, u16);
 	u32 getVoiceStatus();
 	void drawSyncCallBack(s16);
 	
@@ -317,11 +318,11 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	u32 warpOut();
 	void toroccoStart();
 	u32 waitingStart(JGeometry::TVec3<f32> const *, f32);
-	u32 returnStart(JGeometry::TVec3<f32> const *, f32, bool, u32);
+	u32 returnStart(JGeometry::TVec3<f32> const *, f32, bool, int);
 	u32 rollingStart(JGeometry::TVec3<f32> const *, f32);
 	u32 isUnUsualStageStart();
 	void warpIn();
-	u32 jumpingDemoCommon(u32, u32, f32);
+	u32 jumpingDemoCommon(u32, int, f32);
 	u32 readBillboard();
 	u32 winDemo();
 	void emitGetEffect();
@@ -330,9 +331,10 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	void emitSweatSometimes();
 	void emitSweat(u16);
 	void emitSmoke(u16);
-	void emitParticle(u32);
-	bool emitParticle(u32, JGeometry::TVec3<f32> const *);
-	bool emitParticle(u32, u16);
+	void emitParticle(int);
+	bool emitParticle(int, JGeometry::TVec3<f32> const *);
+	bool emitParticle(int, u16);
+	void emitFootPrintWithEffect(int, int);
 	void moveParticle();
 	void initParticle();
 	
@@ -344,6 +346,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	void animSound();
 	void soundMovement();
 	
+	void floorDamageExec(int, int, int, int);
 	void loserExec();
 	
 	bool onYoshi() const;
@@ -357,21 +360,24 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	u32 getWallAngle() const;
 	u32 getAttackAngle(THitActor * const);
 	
-	void rumbleStart(u32, u32);
+	void rumbleStart(int, int);
 	void dropObject();
-	void decHP(u32);
-	void incHP(u32);
+	void decHP(int howMuch);
+	void incHP(int howMuch);
 	bool changePlayerStatus(u32, u32, bool);
 	void setStatusToJumping(u32, u32);
 	void setPlayerVelocity(f32 velocity);
 	void doJumping();
 	void throwMario(JGeometry::TVec3<f32> const &throwTo, f32 velocity);
-	void checkPlayerAround(u32, f32);
+	void checkPlayerAround(int, f32);
 	
 	void normalizeNozzle();
 	
-	void setAnimation(u32, f32); // this *might* return a f32
+	void setAnimation(int, f32); // this *might* return a f32
+	void changeHand(int);
 	bool isAnimeLoopOrStop();
+	int* getMotionFrameCtrl();
+	f32 getCurrentFrame(int);
 	void isLast1AnimeFrame();
 	void takeOffGlass();
 	void wearGlass();
@@ -405,7 +411,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	bool waitingCommonEvents();
 	bool canSleep();
 	void changeMontemanWaitingAnim();
-	void stopCommon(u32, u32);
+	void stopCommon(int, int);
 	bool considerRotateStart();
 	bool checkPumpEnable();
 
@@ -414,14 +420,23 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 
 	void loadAnmTexPattern(J3DAnmTexPattern **, u8 *, J3DModelData *);
 	void loadBas(void **, char const *);
-	void setReverseAnimation(u32, f32);
+	void setReverseAnimation(int, f32);
 
 	Mtx* getTakenMtx();
 	bool isUpperPumpingStyle() const;
 	void considerWaist();
-	void calcBaseMtx(f32 *[4]);
+	void calcBaseMtx(MtxPtr);
 	void addCallBack(JDrama::TGraphics *);
 	void addUpper();
+
+	bool checkGroundPlane(f32, f32, f32, f32 *, TBGCheckData const **);
+	void makeHistory();
+	bool checkStickRotate(int *);
+	bool isFrontSlip(int);
+	void slipBackCommon(int, int, int);
+	void slipForeCommon(int, int, int, int);
+	void slippingBasic(int, int, int);
+
 
 	// _70 is the TDrawSyncCallback vtable
 	u32 _74;

@@ -4,7 +4,7 @@
 #include "types.h"
 
 typedef u32 OSHeapHandle;
-typedef u64 OSTime;
+typedef u32 OSTime;
 typedef s32 OSPriority; // 0 is highest priority, 31 is lowest
 typedef void* OSMessage;
 extern volatile OSHeapHandle __OSCurrHeap;

@@ -12,7 +12,7 @@ class TShine : public TItem
     ~TShine();
 
     void loadAfter();
-    void perform(u64, JDrama::TGraphics *);
+    void perform(u32, JDrama::TGraphics *);
     bool recieveMessage(THitActor *, u32);
     void control();
     void kill();
@@ -22,9 +22,9 @@ class TShine : public TItem
     void calc();
     void touchPlayer(THitActor *);
     void appearWithDemo(char const *);
-    void appearSimple(u32);
-    void appearWithTimeCallback(u32, u32);
-    void appearWithTime(u32, u32, u32, u32);
+    void appearSimple(int);
+    void appearWithTimeCallback(int, int);
+    void appearWithTime(int, int, int, int);
 
     u32 _154;
     f32 _158;
