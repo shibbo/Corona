@@ -13,6 +13,7 @@
 #include "actor/TLiveActor.h"
 #include "actor/TMario.h"
 #include "actor/TYoshi.h"
+#include "message/TMessageLoader.h"
 #include "nozzle/TWaterGun.h"
 #include "sdl/SDLModelData.h"
 
@@ -125,5 +126,8 @@ SDLModelData* SMS_MakeSDLModelData(char const *, u32);
 MActor* SMS_MakeMActorFromSDLModelData(SDLModelData *, MActorAnmData *, u32);
 MActor* SMS_MakeMActorWithAnmData(char const *, MActorAnmData *, u32, u32);
 int* SMS_MakeMActorsWithAnmData(char const *, MActorAnmData *, int numActors, u32, u32);
+
+JMSMesgEntry* SMSGetMessageData(void *, u32 message);
+void SMSMakeTextBuffer(J2DTextBox *textbox, int);
 
 #endif // SMS_H
