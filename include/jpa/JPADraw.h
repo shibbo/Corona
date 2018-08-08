@@ -7,7 +7,6 @@
 class JPADraw
 {
     public:
-
     void setParticleClipBoard();
     void setChildClipBoard();
     void drawParticle();

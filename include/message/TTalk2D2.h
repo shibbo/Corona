@@ -4,6 +4,7 @@
 #include "J2D.h"
 #include "JDrama.h"
 #include "message/TMessageLoader.h"
+#include "npc/TBaseNPC.h"
 
 class TTalk2D2 : public JDrama::TViewObj
 {
@@ -19,6 +20,19 @@ class TTalk2D2 : public JDrama::TViewObj
     void setTagParam(JSUMemoryInputStream &stream, J2DTextBox &textbox, int *, int *);
     void setupTextBox(void const *, JMSMesgEntry *);
     void setupBoardTextBox(void const *, JMSMesgEntry *);
+    void eraseBoardWindow();
+    void eraseNormalWindow();
+    void closeNormalWindow();
+    void checkControler();
+    void moveTalkWindow();
+    void checkBoardControler();
+    void moveBoardWindow();
+    void openNormalWindow();
+    void openBoardWindow();
+    void makeBoxLine(s8, u8 *);
+    void openTalkWindow(TBaseNPC *);
+    void forceCloseTalk();
+    void setMessageID(u32, u32);
 
     J2DScreen* _10;
     u32* _14; // TBoundPane*

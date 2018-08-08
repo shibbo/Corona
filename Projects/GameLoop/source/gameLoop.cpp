@@ -1,15 +1,9 @@
 #include <kamek.h>
 
-#include "actor/TMario.h"
 #include "J2D.h"
 #include "OS.h"
 #include "SMS.h"
 #include "TMarDirector.h"
-
-bool hasCreated = false;
-bool hasMadeTimer = false;
-int timer = 0;
-TMario* mario;
 
 // this is ran once
 void OnSetup(TMarDirector* director)

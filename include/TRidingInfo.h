@@ -7,8 +7,8 @@
 
 struct TRidingInfo
 {
-    THitActor *hitActor; // _0
-    JGeometry::TVec3<f32> unkVector; // _4
+    THitActor* mHitActor; // _0
+    JGeometry::TVec3<f32> mUnkVector; // _4
 };
 
 #endif // TRIDINGINFO_H

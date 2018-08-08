@@ -38,7 +38,7 @@ class J3DVertexBuffer
 {
 	public:
 	J3DVertexBuffer(J3DVertexData *);
-	~J3DVertexBuffer();
+	virtual ~J3DVertexBuffer();
 	
 	void copyTransformedVtxArray();
 	
@@ -75,7 +75,7 @@ class J3DModelData
 {
 	public:
 	J3DModelData();
-	~J3DModelData();
+	virtual ~J3DModelData();
 	
 	void clear();
 	bool isDeformableVertexFormat() const;
@@ -120,11 +120,12 @@ class J3DSkinDeform
 {
 	public:
 	J3DSkinDeform();
-	~J3DSkinDeform();
-	
+	virtual ~J3DSkinDeform();
+
+	virtual void deform(J3DModel *);
+		
 	void initMtxIndexArray(J3DModelData *);
 	void calcNrmMtx(J3DModel *);
-	void deform(J3DModel *);
 	
 	VTABLE; // _0
 	u32 _4;
@@ -192,16 +193,17 @@ class J3DNode
 {
 	public:
 	J3DNode();
-	~J3DNode();
-	
+	virtual ~J3DNode();
+
+	virtual void init(J3DModelData *);
+	virtual void updateIn();
+	virtual void updateOut();
+	virtual void entryIn();
+	virtual void calcIn();
+	virtual void calcOut();
+	virtual u32 getType() const;
+		
 	void appendChild(J3DNode *);
-	void init(J3DModelData *);
-	void updateIn();
-	void updateOut();
-	void entryIn();
-	void calcIn();
-	void calcOut();
-	u32 getType() const;
 	
 	VTABLE; // _0
 	u32 _4;
@@ -214,14 +216,15 @@ class J3DNode
 class J3DJoint : public J3DNode
 {
 	public:
-	~J3DJoint();
+	virtual ~J3DJoint();
 	
-	void updateIn();
-	void updateOut();
-	void entryIn();
-	void calcIn();
-	void calcOut();
-	u32 getType() const;
+	virtual void updateIn();
+	virtual void updateOut();
+	virtual void entryIn();
+	virtual void calcIn();
+	virtual void calcOut();
+	virtual u32 getType() const;
+	
 	void addMesh(J3DMaterial *);
 	void initialize();
 	
@@ -254,12 +257,12 @@ class J3DModel
 	public:
 	J3DModel();
 	J3DModel(J3DModelData *, u32, u32);
-	~J3DModel();
+	virtual ~J3DModel();
 	
-	void update();
-	void entry();
-	void calc();
-	void viewCalc();
+	virtual void update();
+	virtual void entry();
+	virtual void calc();
+	virtual void viewCalc();
 	
 	void initialize();
 	void entryModelData(J3DModelData *, u32, u32);
@@ -304,7 +307,6 @@ class J3DModel
 class J3DShape
 {
 	public:
-	
 	void initialize();
 	u32 countBumpMtxNum() const;
 	void makeVtxArrayCmd();
@@ -343,16 +345,17 @@ class J3DShape
 class J3DShapeMtx
 {
 	public:
-	~J3DShapeMtx();
+	virtual ~J3DShapeMtx();
+
+	virtual void load() const;
+	virtual u32 getType() const;
+	virtual u32 getUseMtxNum() const;
+	virtual u16 getUseMtxIndex(s16) const;
 	
-	void loadMtxIndx_PNGP(u32,  u16) const;
-	void loadMtxIndx_PCPU(u32,  u16) const;
-	void loadMtxIndx_NCPU(u32,  u16) const;
-	void loadMtxIndx_PNCPU(u32,  u16) const;
-	void load() const;
-	u32 getType() const;
-	u32 getUseMtxNum() const;
-	u16 getUseMtxIndex(s16) const;
+	void loadMtxIndx_PNGP(u32, u16) const;
+	void loadMtxIndx_PCPU(u32, u16) const;
+	void loadMtxIndx_NCPU(u32, u16) const;
+	void loadMtxIndx_PNCPU(u32, u16) const;
 	
 	VTABLE; // _0
 	s16 mtxIndex; // _4
@@ -395,10 +398,14 @@ class J3DGXColor
 class J3DColorBlock
 {
 	public:
-	~J3DColorBlock();
+	virtual ~J3DColorBlock();
 
-	void reset(J3DColorBlock *);
-
+	virtual void reset(J3DColorBlock *);
+	virtual s32 countDLSize() = 0;
+	virtual s32 getType() = 0;
+	
+	virtual void load() = 0;
+	
 	VTABLE; // _0
 };
 
@@ -410,12 +417,13 @@ class J3DTexCoord
 	u8 _0;
 	u8 _1;
 	u8 _2;
+	u8 _3; // padding?
 };
 
 class J3DTexture
 {
 	public:
-	~J3DTexture();
+	virtual ~J3DTexture();
 
 	u16 _0;
 	u16 _2;
@@ -427,7 +435,7 @@ class J3DMaterialTable
 {
 	public:
 	J3DMaterialTable();
-	~J3DMaterialTable();
+	virtual ~J3DMaterialTable();
 
 	void clear();
 

@@ -15,7 +15,9 @@ class TMarDirector : public JDrama::TDirector
     TMarDirector();
     ~TMarDirector();
 
-    s32 direct();
+    virtual s32 direct();
+    virtual void JSGFindObject(char const *, u32); // JStage::TEObject
+
     void moveStage();
     void updateGameMode();
     void nextStateInitialize(s8);

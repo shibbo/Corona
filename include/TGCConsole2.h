@@ -9,11 +9,11 @@ class TGCConsole2 : public JDrama::TViewObj
 {
     public:
     TGCConsole2(char const *);
-    ~TGCConsole2();
+    virtual ~TGCConsole2();
 
-    void load(JSUMemoryInputStream &);
-    void loadAfter();
-    void perform(u32, JDrama::TGraphics *);
+    virtual void load(JSUMemoryInputStream &);
+    virtual void loadAfter();
+    virtual void perform(u32, JDrama::TGraphics *);
 
     // not all of them
     bool processDisappearBalloon();
@@ -45,16 +45,16 @@ class TGCConsole2 : public JDrama::TViewObj
     u16 _1C;
     u16 _1E; // padding?
     u8 _20[0x4A-0x20];
-    u8 isTimerMoving; // _4A
+    u8 mIsTimerMoving; // _4A
     u8 _4B[0x500-0x4B];
-    u32 finishedTime; // _500
+    u32 mFinishedTime; // _500
     u32 _504;
     u32 _508;
     u32 _50C;
     u32 _510;
     u32 _514;
     u32 _518;
-    u32 timerRelated; // _51C
+    u32 mTimerRelated; // _51C
 };
 
 #endif // TGCCONSOLE2_h

@@ -7,9 +7,10 @@ class TSpcBinary
 {
     public:
     TSpcBinary(void *);
-    ~TSpcBinary();
+    virtual ~TSpcBinary();
 
-    void initUserBuiltin();
+    virtual void initUserBuiltin();
+
     void* getHeader() const;
     void bindSystemDataToSymbol(char const *, u32);
     u32* searchSymbol(char const *);

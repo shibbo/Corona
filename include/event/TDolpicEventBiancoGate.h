@@ -7,12 +7,12 @@ class TDolpicEventBiancoGate : public TMapEventSink
 {
     public:
     TDolpicEventBiancoGate(char const *);
-    ~TDolpicEventBiancoGate();
+    virtual ~TDolpicEventBiancoGate();
 
-    void loadAfter();
-    bool isFinishedAll() const;
-    s32 watch();
-    void control();
+    virtual void loadAfter();
+    virtual bool isFinishedAll() const;
+    virtual s32 watch();
+    virtual s32 control();
 
     u32* _20;
     f32 _24;

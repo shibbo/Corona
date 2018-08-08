@@ -10,14 +10,14 @@ class TMapHideObj : public TMapObjBase
 {
     public:
     TMapHideObj(char const *name);
-    ~TMapHideObj();
+    virtual ~TMapHideObj();
 
-    void load(JSUMemoryInputStream &);
-    void loadAfter();
-    u32 recieveMessage(THitActor *, u32);
-    void appearObj(f32);
-    void appearObjFromPoint(JGeometry::TVec3<f32> const &);
-    void emitEffect();
+    virtual void load(JSUMemoryInputStream &);
+    virtual void loadAfter();
+    virtual bool recieveMessage(THitActor *, u32);
+    virtual void appearObj(f32);
+    virtual void appearObjFromPoint(JGeometry::TVec3<f32> const &);
+    virtual void emitEffect();
 
     f32 _138;
     f32 _13C;

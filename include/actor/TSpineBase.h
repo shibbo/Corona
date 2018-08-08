@@ -8,7 +8,7 @@ template <typename T>
 class TSpineBase
 {
     public:
-    ~TSpineBase();
+    virtual ~TSpineBase();
 
     void update();
     //void pushNerve(TNerveBase<TLiveActor> const *);

@@ -10,11 +10,11 @@ class TMapObjManager : public TMapObjBaseManager
 {
     public:
     TMapObjManager();
-    ~TMapObjManager();
+    virtual ~TMapObjManager();
 
-    void load(JSUMemoryInputStream &stream);
-    void loadAfter();
-    bool hasMapCollision() const;
+    virtual void load(JSUMemoryInputStream &stream);
+    virtual void loadAfter();
+    virtual bool hasMapCollision() const;
 
     void initKeyCode(); // can't tell if this is static or not, overwritten instantly
     void entryStaticDrawBufferSun(J3DModel *);

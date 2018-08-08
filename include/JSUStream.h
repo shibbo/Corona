@@ -32,7 +32,14 @@ class JSUPtrList
 	
 	u32 _0;
 	u32 _4;
-	u32 _8;
+	s32 numPtrs; // _8
+};
+
+template<typename T>
+class JSUList : public JSUPtrList
+{
+	public:
+	~JSUList();
 };
 
 enum JSUStreamSeekFrom
@@ -140,4 +147,5 @@ class JSUMemoryOutputStream : public JSURandomOutputStream
 	u32 length; // _C
 	u32 position; // _10
 };
+
 #endif // JSUSTREAM_H

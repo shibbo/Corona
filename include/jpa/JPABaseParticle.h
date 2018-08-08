@@ -6,11 +6,12 @@
 class JPABaseParticle
 {
     public:
+    virtual void executeParticleCallBack(JPABaseEmitter *);
+    virtual void drawParticleCallBack(JPABaseEmitter *);
+
     void initGlobalPosition();
     void calcGlobalPosition();
     void incTimer();
-    void executeParticleCallBack(JPABaseEmitter *);
-    void drawParticleCallBack(JPABaseEmitter *);
 
     u8 _0[0x14];
     f32 _14;

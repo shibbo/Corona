@@ -16,17 +16,17 @@ class JAISound
     public:
     JAISound();
 
-    void setSeDistanceParameters();
-    void setSeDistanceVolume( u8);
-    void setSeDistancePan( u8);
-    void setSeDistancePitch( u8);
-    void setSeDistanceFxmix( u8);
-    void setSeDistanceFir( u8);
-    void setSeDistanceDolby( u8);
-    void setSePositionDopplar();
-    void setPositionDopplarCommon(u32);
-    void setDistanceVolumeCommon(f32,  u8);
-    void setDistancePanCommon();
+    virtual void setSeDistanceParameters();
+    virtual void setSeDistanceVolume( u8);
+    virtual void setSeDistancePan( u8);
+    virtual void setSeDistancePitch( u8);
+    virtual void setSeDistanceFxmix( u8);
+    virtual void setSeDistanceFir( u8);
+    virtual void setSeDistanceDolby( u8);
+    virtual void setSePositionDopplar();
+    virtual void setPositionDopplarCommon(u32);
+    virtual void setDistanceVolumeCommon(f32,  u8);
+    virtual void setDistancePanCommon();
 
     bool initMoveParameter(JAIMoveParaSet *, f32, u32);
     u32 getSeCategoryNumber();
@@ -41,7 +41,6 @@ class JAISound
     void setPitch(f32, u32,  u8);
     void setFxmix(f32, u32,  u8);
     
-
     u8 _0;
     u8 _1;
     u8 _2;

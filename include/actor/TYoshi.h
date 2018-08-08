@@ -16,14 +16,14 @@ class TEggYoshi : public TMapObjGeneral
 {
     public:
     TEggYoshi(char const *);
-    ~TEggYoshi();
+    virtual ~TEggYoshi();
 
-    void load(JSUMemoryInputStream &);
-    void peform(u32, JDrama::TGraphics *);
-    bool recieveMessage(THitActor *, u32);
-    void control();
-    void touchActor(THitActor *);
-    u32 getHitObjNumMax();
+    virtual void load(JSUMemoryInputStream &);
+    virtual void peform(u32, JDrama::TGraphics *);
+    virtual bool recieveMessage(THitActor *, u32);
+    virtual void control();
+    virtual void touchActor(THitActor *);
+    virtual u32 getHitObjNumMax();
 
     void startFruit();
     void touchFruit(THitActor *);
@@ -37,13 +37,14 @@ class TEggYoshi : public TMapObjGeneral
 class TYoshiTongue : public TTakeActor
 {
     public:
-    ~TYoshiTongue();
+    virtual ~TYoshiTongue();
 
-    Mtx* getTakingMtx();
-    void init(TYoshi *yoshi);
-    void movement();
-    void checkTaking();
-    void checkTaken();
+    virtual Mtx* getTakingMtx();
+
+    virtual void init(TYoshi *yoshi);
+    virtual void movement();
+    virtual void checkTaking();
+    virtual void checkTaken();
 
     void entry();
     void viewCalc();

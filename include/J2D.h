@@ -77,20 +77,21 @@ class J2DPane
 	J2DPane(J2DPane *, s16, bool, u32, JUTRect const &);
 	J2DPane(s16, u32, JUTRect const &);
 	J2DPane(J2DPane *, JSURandomInputStream *, bool);
-	~J2DPane();
+	virtual ~J2DPane();
 	
+	virtual void drawSelf(int, int, f32 *[3][4]);
+	virtual bool setConnectParent(bool);
+	virtual void drawSelf(u32, u32);
+	virtual void resize(int, int);
+	virtual void move(int, int);
+	virtual void add(int, int);
+	virtual u32* search(u32);
+	virtual void makeMatrix(int, int);
+
 	void draw(int, int, J2DGrafContext const *, bool);
-	void drawSelf(int, int, f32 *[3][4]);
 	void clip(JUTRect const &);
-	u32* search(u32);
-	void makeMatrix(int, int);
 	void setCullBack(u32); // GXCullback
 	void setBasePosition(u32); // J2DBasePosition
-	bool setConnectParent(bool);
-	void drawSelf(u32, u32);
-	void resize(int, int);
-	void move(int, int);
-	void add(int, int);
 	
 	VTABLE; // _0
 	u16 _4;
@@ -154,11 +155,12 @@ enum J2DWrapMode
 class J2DScreen : public J2DPane
 {
 	public:
-	~J2DScreen();
+	virtual ~J2DScreen();
+
+	virtual void drawSelf(u32, u32, f32 *[3][4]);
+	virtual u32* search(u32);
 
 	void makeHiearachyPanes(J2DPane *, JSURandomInputStream *, bool, bool, bool, u32 *);
-	void drawSelf(u32, u32, f32 *[3][4]);
-	u32* search(u32);
 	u32 makeUserPane(s16, J2DPane *,JSURandomInputStream *);
 	u32 makeUserPane(u32, J2DPane *,JSURandomInputStream *);
 
@@ -188,12 +190,12 @@ class J2DTextBox : public J2DPane
 	J2DTextBox(ResFONT const *, char const *);
 	J2DTextBox(J2DPane *, JSURandomInputStream *, bool);
 	J2DTextBox(u32, JUTRect const &, ResFONT const *, char const *, J2DTextBoxHBinding, J2DTextBoxVBinding);
-	~J2DTextBox();
+	virtual ~J2DTextBox();
 	
-	void resize(int, int);
-	void setConnectParent(bool);
-	void drawSelf(int, int);
-	void drawSelf(int, int, f32 *[3][4]);
+	virtual void resize(int, int);
+	virtual bool setConnectParent(bool);
+	virtual void drawSelf(int, int);
+	virtual void drawSelf(int, int, f32 *[3][4]);
 
 	void initiate(ResFONT const *, char const *, J2DTextBoxHBinding, J2DTextBoxVBinding);
 	
@@ -222,10 +224,11 @@ class J2DPicture : public J2DPane
 {
 	public:
 	J2DPicture(J2DPane *, JSURandomInputStream *, bool);
-	~J2DPicture();
+	virtual ~J2DPicture();
 
-	void drawSelf(int, int);
-	void drawSelf(int, int, f32 *[3][4]);
+	virtual void drawSelf(int, int);
+	virtual void drawSelf(int, int, f32 *[3][4]);
+
 	void drawFullSet(int, int, int, int, J2DBinding, u32, bool, J2DWrapMode, J2DWrapMode, float *[3][4]);
 	void draw(int, int, int, int, bool, bool, bool);
 	void drawTexCoord(int, int, int, int, f32, f32, f32, f32, f32, f32, f32, f32, f32 *[3][4]);
@@ -256,7 +259,7 @@ class J2DPrint
 	public:
 	J2DPrint(JUTFont *, int, int, JUtility::TColor, JUtility::TColor);
 	J2DPrint(JUTFont *, int);
-	~J2DPrint();
+	virtual ~J2DPrint();
 
 	void initiate();
 	void private_initiate(JUTFont *, int, int, JUtility::TColor, JUtility::TColor);

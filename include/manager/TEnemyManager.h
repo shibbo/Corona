@@ -11,10 +11,10 @@ class TEnemyManager : public TLiveManager
 {
     public:
     TEnemyManager();
-    ~TEnemyManager();
+    virtual ~TEnemyManager();
 
-    void load(JSUMemoryInputStream &stream);
-    void perform(u32, JDrama::TGraphics *);
+    virtual void load(JSUMemoryInputStream &stream);
+    virtual void perform(u32, JDrama::TGraphics *);
     
     u32 createEnemyInstance();
     void clipEnemies(JDrama::TGraphics *);

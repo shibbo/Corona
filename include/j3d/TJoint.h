@@ -11,12 +11,12 @@ class TJointObj
 	public:
 	TJointObj();
 	
-	void alive();
-	void awake();
-	void stand();
-	void kill();
-	void sit();
-	TJointObj* newJointObj() const;
+	virtual void alive();
+	virtual void awake();
+	virtual void stand();
+	virtual void kill();
+	virtual void sit();
+	virtual TJointObj* newJointObj() const;
 
 	void initChildren();
 	
@@ -34,9 +34,9 @@ class TJointModelManager : public JDrama::TViewObj
 {
 	public:
 	TJointModelManager(char const *name);
-	~TJointModelManager();
+	virtual ~TJointModelManager();
 
-	void perform(JDrama::TGraphics *);
+	virtual void perform(JDrama::TGraphics *);
 	TJointModel* newJointModel(int) const;
 
 	u32 _10;
@@ -52,7 +52,7 @@ class TJointModel : public TJointObj
 	TJointModel();
 
 	void initJointModel(TJointModelManager *, char const *modelName, MActorAnmData *);
-	void perform(JDrama::TGraphics *);
+	virtual void perform(JDrama::TGraphics *);
 	u32 getJ3DModelDataFlag() const;
 
 	void initActor(char const *, MActorAnmData *);

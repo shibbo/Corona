@@ -9,11 +9,11 @@ class TMapObjSwitch : public TMapObjBase
 {
     public:
     TMapObjSwitch(char const *);
-    ~TMapObjSwitch();
+    virtual ~TMapObjSwitch();
 
-    void load(JSUMemoryInputStream &);
-    bool recieveMessage(THitActor * hitActor, u32);
-    void control();
+    virtual void load(JSUMemoryInputStream &);
+    virtual bool recieveMessage(THitActor * hitActor, u32);
+    virtual void control();
     
     u32 _138;
     u32 _13C;

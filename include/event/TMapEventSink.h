@@ -7,20 +7,20 @@ class TMapEventSink : public TMapEvent
 {
     public:
     TMapEventSink(char const *);
-    ~TMapEventSink();
+    virtual ~TMapEventSink();
 
-    void load(JSUMemoryInputStream &stream);
-    bool isFinishedAll() const;
-    s32 watch();
-    void startContorl();
-    s32 control();
-    void finishControl();
-    u32* getBuilding(int) const;
-    void initBuilding(int, JSUMemoryInputStream &);
-    void initWithBuildingNum(JSUMemoryInputStream &);
-    void rising();
-    f32 getSinkOffsetY() const;
-    void makeBuildingRecovered(int);
+    virtual void load(JSUMemoryInputStream &stream);
+    virtual bool isFinishedAll() const;
+    virtual s32 watch();
+    virtual void startContorl();
+    virtual s32 control();
+    virtual void finishControl();
+    virtual u32* getBuilding(int) const;
+    virtual void initBuilding(int, JSUMemoryInputStream &);
+    virtual void initWithBuildingNum(JSUMemoryInputStream &);
+    virtual void rising();
+    virtual f32 getSinkOffsetY() const;
+    virtual void makeBuildingRecovered(int);
 
     u32 _20; // defined in map binary
     u32 _24;

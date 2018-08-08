@@ -9,18 +9,18 @@ class TShine : public TItem
 {
     public:
     TShine(char const *);
-    ~TShine();
+    virtual ~TShine();
 
-    void loadAfter();
-    void perform(u32, JDrama::TGraphics *);
-    bool recieveMessage(THitActor *, u32);
-    void control();
-    void kill();
-    void initMapObj();
-    void loadBeforeInit(JSUMemoryInputStream &);
-    u32* makeMActors();
-    void calc();
-    void touchPlayer(THitActor *);
+    virtual void loadAfter();
+    virtual void perform(u32, JDrama::TGraphics *);
+    virtual bool recieveMessage(THitActor *, u32);
+    virtual void control();
+    virtual void kill();
+    virtual void initMapObj();
+    virtual void loadBeforeInit(JSUMemoryInputStream &);
+    virtual u32* makeMActors();
+    virtual void calc();
+    virtual void touchPlayer(THitActor *);
     void appearWithDemo(char const *);
     void appearSimple(int);
     void appearWithTimeCallback(int, int);

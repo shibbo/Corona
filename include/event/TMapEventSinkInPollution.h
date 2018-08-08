@@ -3,13 +3,13 @@
 
 #include "event/TMapEventSink.h"
 
-class TMapEventSinkInPollution : public TMapEventSinkInPollution
+class TMapEventSinkInPollution : public TMapEventSink
 {
     public:
-    ~TMapEventSinkInPollution();
+    virtual ~TMapEventSinkInPollution();
 
-    void loadAfter();
-    s32 watch();
+    virtual void loadAfter();
+    virtual s32 watch();
 };
 
 #endif // TMAPEVENTSINKINPOLLUTION_H

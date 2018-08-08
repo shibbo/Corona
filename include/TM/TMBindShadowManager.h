@@ -21,7 +21,7 @@ class TMBindShadowManager : public JDrama::TViewObj
     u32 _10; // TCircleShadowRequest[0x200]
     u32 _14;
     u32 _18; // TAlphaShadowQuad[0x200]
-    u32 _1C: // TAlphaShadowQuadAry[0x100]
+    u32 _1C; // TAlphaShadowQuadAry[0x100]
     u32 _20;
     u32 _24; // TAlphaShadowBlendQuad[0x200]
     u32 _28; // TSquareShadowInfo[0x1E]

@@ -8,11 +8,11 @@ class TMapObjBaseManager : public TLiveManager
 {
 	public:
 	TMapObjBaseManager(char const *);
-	~TMapObjBaseManager();
+	virtual ~TMapObjBaseManager();
 	
-	void load(JSUMemoryInputStream &);
-	void createModelData();
-	void clipActors(JDrama::TGraphics *);
+	virtual void load(JSUMemoryInputStream &);
+	virtual void createModelData();
+	virtual void clipActors(JDrama::TGraphics *);
 	TMapObjBase* makeObjAppeared(u32);
 	TMapObjBase* makeObjAppear(u32);
 	TMapObjBase* makeObjAppear(f32, f32, f32, u32, bool);

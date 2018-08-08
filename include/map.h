@@ -26,7 +26,7 @@ class TMapCollisionData
     u32 _38;
     u32 _3C;
     u16 _40;
-    u16 entries[256]; // _42
+    u16 mEntries[256]; // _42
 };
 
 class TMapWarp
@@ -52,15 +52,28 @@ class TMapWarp
     };
 };
 
+class TMapXlu
+{
+    public:
+    TMapXlu();
+
+    void init(JSUMemoryInputStream &stream);
+    bool changeXluJoint(int);
+    void changeNormalJoint();
+
+    u32 _0;
+    u32 _4;
+};
+
 class TMap : public JDrama::TViewObj
 {
     public:
     TMap(char const *);
-    ~TMap();
+    virtual ~TMap();
 
-    void load(JSUMemoryInputStream &);
-    void loadAfter();
-    void perform(u32, JDrama::TGraphics *);
+    virtual void load(JSUMemoryInputStream &);
+    virtual void loadAfter();
+    virtual void perform(u32, JDrama::TGraphics *);
 
     void changeModel(u32) const;
     f32 checkGround(f32, f32, f32, u32 const **) const; // TBGCheckData
@@ -74,10 +87,10 @@ class TMap : public JDrama::TViewObj
     u32* getIllegalCheckData();
     void update();
 
-    TMapCollisionData* collisionData; // _10
+    TMapCollisionData* mCollisionData; // _10
     u32* _14; // TMapModelManager
-    TMapWarp* mapWarp; // _18
-    u32* _1C; // TMapXlu
+    TMapWarp* mMapWarp; // _18
+    TMapXlu* mMapXlu;
 };
 
 void initStage();

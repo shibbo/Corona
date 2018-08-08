@@ -11,16 +11,16 @@ class TRailMapObj : public TMapObjBase
 {
     public:
     TRailMapObj(char const *);
-    ~TRailMapObj();
+    virtual ~TRailMapObj();
 
-    void load(JSUMemoryInputStream &);
-    void perform(u32, JDrama::TGraphcs *);
-    void setGroundCollision();
-    void control();
-    u32 getShadowType();
-    void initMapObj();
-    bool calcRecycle();
-    void resetPosition();
+    virtual void load(JSUMemoryInputStream &);
+    virtual void perform(u32, JDrama::TGraphics *);
+    virtual void setGroundCollision();
+    virtual void control();
+    virtual u32 getShadowType();
+    virtual void initMapObj();
+    virtual bool calcRecycle();
+    virtual void resetPosition();
 
     bool checkMarioRiding();
     void moveToNextNode(f32);

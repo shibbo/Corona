@@ -11,20 +11,20 @@ class TItem : public TMapObjGeneral
 {
 	public:
 	TItem(char const *);
-	~TItem();
+	virtual ~TItem();
 	
-	void load(JSUMemoryInputStream &);
-	void perform(u32, JDrama::TGraphics *);
-	u32 recieveMessage(THitActor *, u32);
-	void calcRootMatrix();
-	void appear();
-	void initMapObj();
-	void calc();
-	void touchPlayer(THitActor *);
-	void appearing();
-	void appeared();
-	void killByTimer(int);
-	void taken(THitActor *);
+	virtual void load(JSUMemoryInputStream &);
+	virtual void perform(u32, JDrama::TGraphics *);
+	virtual bool recieveMessage(THitActor *, u32);
+	virtual void calcRootMatrix();
+	virtual void appear();
+	virtual void initMapObj();
+	virtual void calc();
+	virtual void touchPlayer(THitActor *);
+	virtual void appearing();
+	virtual void appeared();
+	virtual void killByTimer(int);
+	virtual void taken(THitActor *);
 	
 	u32* _148;
 	int mKillTimer; // _14C

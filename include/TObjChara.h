@@ -8,10 +8,10 @@
 class TObjChara : public JDrama::TCharacter
 {
     public:
-    ~TObjChara();
+    virtual ~TObjChara();
 
-    void load(JSUMemoryInputStream &);
-    u32* getGlbResource(char const *) const; // return type is probably JKRArchive*
+    virtual void load(JSUMemoryInputStream &);
+    virtual u32* getGlbResource(char const *) const; // return type is probably JKRArchive*
 };
 
 #endif // TOBJCHARA_H

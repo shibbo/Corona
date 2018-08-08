@@ -5,12 +5,13 @@
 #include "OS.h"
 
 class JKRArchive;
+class JKRArcFinder;
 
 class JKRDisposer
 {
 	public:
 	JKRDisposer();
-	~JKRDisposer();
+	virtual ~JKRDisposer();
 	
 	VTABLE; // _0
 	u32 _4;
@@ -21,14 +22,15 @@ class JKRHeap : public JKRDisposer
 {
 	public:
 	JKRHeap(void *, u32, JKRHeap *, bool);
-	~JKRHeap();
+	virtual ~JKRHeap();
+	
+	virtual void freeAll();
 
 	void becomeSystemHeap();
 	void becomeCurrentHeap();
 	bool initArena(u8 **, u32 *, int);
 	static void alloc(u32, int, JKRHeap *);
 	void free(void *, JKRHeap *);
-	void freeAll();
 	static JKRHeap* findFromRoot(void *);
 	JKRHeap* find(void *) const;
 	void dispose_subroutine(u32, u32);
@@ -51,10 +53,11 @@ class JKRThread : public JKRDisposer
 {
 	public:
 	JKRThread(u32 stackSize, int messageCount, int);
-	~JKRThread();
+	virtual ~JKRThread();
+
+	virtual u32 run();
 
 	static void* start(void *src);
-	u32 run();
 
 	JSUPtrLink mThreadPtrs; // _18
 	JKRHeap* mHeap; // _28
@@ -70,14 +73,15 @@ class JKRFileLoader : public JKRDisposer
 {
 	public:
 	JKRFileLoader();
-	~JKRFileLoader();
+	virtual ~JKRFileLoader();
 	
-	void unmount();
+	virtual void unmount();
+
 	JKRFileLoader* getVolume(char const *);
-	void changeDirectory(char const *);
+	void changeDirectory(char const *dirName);
 	u32* getGlbResource(char const *);
 	u32* getGlbResource(char const *, JKRFileLoader *);
-	u32 getResSize(void *, JKRFileLoader *);
+	u32 getResSize(void *resource, JKRFileLoader *);
 	u32* findVolume(char const **);
 	JKRArchive* findFirstFile(char const *);
 	u8* fetchVolumeName(u8 *, u32, char const *);
@@ -102,7 +106,19 @@ class JKRArchive : public JKRFileLoader
 	public:
 	JKRArchive();
 	JKRArchive(u32, EMountMode);
-	~JKRArchive();
+	virtual ~JKRArchive();
+
+	virtual s32 becomeCurrent(char const *);
+	virtual s32 getResource(char const *);
+	virtual s32 getResource(u32, char const *);
+	virtual u32* readResource(void *, u32, char const *);
+	virtual u32* readResource(void *, u32, u32, char const *);
+	virtual void removeResourceAll();
+	virtual void removeResource(void *);
+	virtual void detachResource(void *);
+	virtual s32 getResSize(void const *) const;
+	virtual s16 countFile(char const *);
+	virtual JKRArcFinder* getFirstFile(char const *) const;
 	
 	u32* _38;
 	u8 _3C;
@@ -115,7 +131,7 @@ class JKRArchive : public JKRFileLoader
 class JKRFileFinder
 {
 	public:
-	~JKRFileFinder();
+	virtual ~JKRFileFinder();
 
 	u32 _0;
 	u32 _4;
@@ -128,9 +144,9 @@ class JKRArcFinder : public JKRFileFinder
 {
 	public:
 	JKRArcFinder(JKRArchive *, u32, u32);
-	~JKRArcFinder();
+	virtual ~JKRArcFinder();
 
-	bool findNextFile();
+	virtual bool findNextFile();
 
 	u8 _10;
 	u8 _11;

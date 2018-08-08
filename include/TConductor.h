@@ -14,10 +14,10 @@ class TConductor : public JDrama::TViewObj
 {
     public:
     TConductor(char const *);
-    ~TConductor();
+    virtual ~TConductor();
 
-    TNameRef* searchF(u16, char const *);
-    void perform(u32, JDrama::TGraphics *);
+    virtual TNameRef* searchF(u16, char const *);
+    virtual void perform(u32, JDrama::TGraphics *);
 
     void genEnemyFromPollution();
     void killEnemiesWithin(JGeometry::TVec3<f32> const &position, f32 distance);

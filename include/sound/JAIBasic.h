@@ -9,18 +9,18 @@ class JAIBasic
     public:
     JAIBasic();
 
-    void initStream();
-    void makeSound(u32);
-    bool getMapInfoFxline(u32);
-    bool getMapInfoGround(u32);
-    f32 getMapInfoFxParameter(u32);
-    void sendPlayingSeCommand();
-    void sendSeAllParameter(JAISound *);
-    void setSeExtParameter(JAISound *);
-    bool setRegisterTrackCallback();
-    void checkStream();
-    void checkNextFrameSe();
-    void loadGroupWave(int, int);
+    virtual void initStream();
+    virtual void makeSound(u32);
+    virtual bool getMapInfoFxline(u32);
+    virtual bool getMapInfoGround(u32);
+    virtual f32 getMapInfoFxParameter(u32);
+    virtual void sendPlayingSeCommand();
+    virtual void sendSeAllParameter(JAISound *);
+    virtual void setSeExtParameter(JAISound *);
+    virtual bool setRegisterTrackCallback();
+    virtual void checkStream();
+    virtual void checkNextFrameSe();
+    virtual void loadGroupWave(int, int);
 
     u32 _0;
     VTABLE; // _4

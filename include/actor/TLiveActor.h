@@ -15,30 +15,31 @@ class TLiveActor : public TTakeActor
 {
 	public:
 	TLiveActor(char const *);
-	~TLiveActor();
+	virtual ~TLiveActor();
 	
-	void load(JSUMemoryInputStream &);
-	void perform(u32, JDrama::TGraphics *);
-	bool recieveMessage(THitActor *, u32);
-	u32* getTakingMtx();
-	bool belongToGround() const;
-	u32 getRootJointMtx() const;
-	void init(TLiveManager *);
-	void calcRootMatrix();
-	void setGroundCollision();
-	void control();
-	void bind();
-	void moveObject();
-	void requestShadow();
-	void drawObject(JDrama::TGraphics *);
-	void performOnlyDraw(u32, JDrama::TGraphics *);
-	u32 getShadowType();
-	void kill();
-	f32 getGravityY() const;
-	bool hasMapCollision() const;
-	void getFocalPoint() const;
-	void updateAnmSound();
-	u32 getBasNameTable() const;
+	virtual void load(JSUMemoryInputStream &);
+	virtual void perform(u32, JDrama::TGraphics *);
+	virtual bool recieveMessage(THitActor *, u32);
+	virtual Mtx* getTakingMtx();
+	virtual bool belongToGround() const;
+	virtual Mtx* getRootJointMtx() const;
+	virtual void init(TLiveManager *);
+	virtual void calcRootMatrix();
+	virtual void setGroundCollision();
+	virtual void control();
+	virtual void bind();
+	virtual void moveObject();
+	virtual void requestShadow();
+	virtual void drawObject(JDrama::TGraphics *);
+	virtual void performOnlyDraw(u32, JDrama::TGraphics *);
+	virtual u32 getShadowType();
+	virtual void kill();
+	virtual f32 getGravityY() const;
+	virtual bool hasMapCollision() const;
+	virtual void getFocalPoint() const;
+	virtual void updateAnmSound();
+	virtual u32 getBasNameTable() const;
+	
 	MActor* getMActor() const;
 	void stopAnmSound();
 	void setCurAnmSound();

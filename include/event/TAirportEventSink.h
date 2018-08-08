@@ -7,12 +7,12 @@ class TAirportEventSink : public TMapEventSinkInPollutionReset
 {
     public:
     TAirportEventSink(char const *);
-    ~TAirportEventSink();
+    virtual ~TAirportEventSink();
 
-    void loadAfter();
-    s32 watch();
-    s32 control();
-    void finishControl();
+    virtual void loadAfter();
+    virtual s32 watch();
+    virtual s32 control();
+    virtual void finishControl();
 
     u32 _64;
     u32 _68;

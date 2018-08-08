@@ -9,7 +9,7 @@ class TNerveBase
 {
     public:
     TNerveBase();
-    ~TNerveBase();
+    virtual ~TNerveBase();
 
     VTABLE; // _0
 };

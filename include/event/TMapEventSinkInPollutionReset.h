@@ -6,10 +6,10 @@
 class TMapEventSinkInPollutionReset : public TMapEventSinkInPollution
 {
     public:
-    ~TMapEventSinkInPollutionReset();
+    virtual ~TMapEventSinkInPollutionReset();
 
-    void loadAfter();
-    void makeBuildingRecovered(int);
+    virtual void loadAfter();
+    virtual void makeBuildingRecovered(int);
 };
 
 #endif // TMAPEVENTSINKINPOLLUTIONRESET_H

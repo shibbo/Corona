@@ -10,13 +10,13 @@ class TObjManager : public JDrama::TViewObj
 {
 	public:
 	TObjManager(char const *);
-	~TObjManager();
+	virtual ~TObjManager();
 	
-	void load(JSUMemoryInputStream &);
-	TObjManager* searchF(s16, char const *);
-	void perform(JDrama::TGraphics *);
-	void createModelData();
-	void createAnmData();
+	virtual void load(JSUMemoryInputStream &);
+	virtual TObjManager* searchF(s16, char const *);
+	virtual void perform(JDrama::TGraphics *);
+	virtual void createModelData();
+	virtual void createAnmData();
 	
 	u32 _10;
 	u32 _14; // I think this is obj number

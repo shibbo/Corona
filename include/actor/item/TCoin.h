@@ -10,15 +10,15 @@ class TCoin : public TItem
 {
 	public:
 	TCoin(char const *);
-	~TCoin();
+	virtual ~TCoin();
 	
-	void loadAfter();
-	void perform(u32, JDrama::TGraphics *);
-	void appear();
-	void makeObjAppeared();
-	void makeObjDead();
-	void initMapObj();
-	void taken(THitActor *);
+	virtual void loadAfter();
+	virtual void perform(u32, JDrama::TGraphics *);
+	virtual void appear();
+	virtual void makeObjAppeared();
+	virtual void makeObjDead();
+	virtual void initMapObj();
+	virtual void taken(THitActor *);
 	
 	u32 _154;
 };

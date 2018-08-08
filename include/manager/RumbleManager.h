@@ -22,7 +22,6 @@ class RumbleMgr
     void reset();
     void init();
 
-
     f32 _0;
     f32 _4;
     u8 _8;

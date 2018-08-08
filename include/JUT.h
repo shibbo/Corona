@@ -130,7 +130,7 @@ class JUTGamePad : public JKRDisposer
 {
 	public:
 	JUTGamePad(EPadPort port);
-	~JUTGamePad();
+	virtual ~JUTGamePad();
 
 	void assign();
 	void update();

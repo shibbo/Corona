@@ -11,11 +11,12 @@ class TMapStaticObj : public THitActor
 {
 	public:
 	TMapStaticObj(char const *);
-	~TMapStaticObj();
+	virtual ~TMapStaticObj();
 	
-	void load(JSUMemoryInputStream &);
-	void loadAfter();
-	void perform(u32, JDrama::TGraphics *);
+	virtual void load(JSUMemoryInputStream &);
+	virtual void loadAfter();
+	virtual void perform(u32, JDrama::TGraphics *);
+	
 	void init(char const *);
 	void initUnique();
 	void initModel(char const *);

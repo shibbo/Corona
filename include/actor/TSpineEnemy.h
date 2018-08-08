@@ -12,19 +12,19 @@ class TSpineEnemy : public TLiveActor
 {
 	public:
 	TSpineEnemy(char const *);
-	~TSpineEnemy();
+	virtual ~TSpineEnemy();
 	
-	void load(JSUMemoryInputStream &);
-	void perform(u32, JDrama::TGraphics *);
-	bool recieveMessage(THitActor *, u32);
-	void init(TLiveManager *);
-	void calcRootMatrix();
-	void reset();
-	void resetToPosition(JGeometry::TVec3<f32> const &);
-	void resetSRTV(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &);
-	u32 getSaveParam() const;
-	f32 getPhaseShift() const;
-	bool isReachedToGoal() const;
+	virtual void load(JSUMemoryInputStream &);
+	virtual void perform(u32, JDrama::TGraphics *);
+	virtual bool recieveMessage(THitActor *, u32);
+	virtual void init(TLiveManager *);
+	virtual void calcRootMatrix();
+	virtual void reset();
+	virtual void resetToPosition(JGeometry::TVec3<f32> const &);
+	virtual void resetSRTV(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &);
+	virtual u32 getSaveParam() const;
+	virtual f32 getPhaseShift() const;
+	virtual bool isReachedToGoal() const;
 
 	void doShortCut();
 	void walkToCurPathNode(f32, f32, f32);

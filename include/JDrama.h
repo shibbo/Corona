@@ -12,8 +12,9 @@ namespace JDrama
 	class TNameRefGen
 	{
         public:
-        void load(JSUMemoryInputStream &stream);
-        u32* getNameRef(char const *) const;
+        virtual void load(JSUMemoryInputStream &stream);
+        virtual u32* getNameRef(char const *) const;
+        
         u32 getRootNameRef();
         u32* getInstance();
 		
@@ -59,18 +60,18 @@ namespace JDrama
     {
         public:
         TNameRef(char const *);
-        ~TNameRef();
+        virtual ~TNameRef();
 
         // note -- some of these may be static
-        u32 getType() const;
-		u32 getType(JSUMemoryInputStream &stream, JSUMemoryInputStream &);
-		void genObject(JSUMemoryInputStream &stream, JSUMemoryInputStream &);
-        void load(JSUMemoryInputStream &stream);
-        void save(JSUMemoryOutputStream &stream);
-        void loadAfter(void);
-		void search(char const *);
-        TNameRef* searchF(s16, char const *);
+        virtual u32 getType() const;
+        virtual void load(JSUMemoryInputStream &stream);
+        virtual void save(JSUMemoryOutputStream &stream);
+        virtual void loadAfter(void);
+		virtual void search(char const *);
+        virtual TNameRef* searchF(s16, char const *);
 
+        void genObject(JSUMemoryInputStream &stream, JSUMemoryInputStream &);
+        u32 getType(JSUMemoryInputStream &stream, JSUMemoryInputStream &);
         static s16 calcKeyCode(char const *);
 
         VTABLE; // _0
@@ -85,7 +86,7 @@ namespace JDrama
     {
         public:
         TViewObj(char const *);
-        ~TViewObj();
+        virtual ~TViewObj();
 		
 		void testPerform(u32, TGraphics *);
 
@@ -97,9 +98,9 @@ namespace JDrama
     class TPlacement : public TViewObj
     {
         public:
-        ~TPlacement();
+        virtual ~TPlacement();
 		
-        void load(JSUMemoryInputStream &stream);
+        virtual void load(JSUMemoryInputStream &stream);
 
         JGeometry::TVec3<f32> mPosition; // _10
         u16 _1C;
@@ -111,17 +112,17 @@ namespace JDrama
     {
         public:
         TActor(char const *);
-        ~TActor();
+        virtual ~TActor();
 
-        u32 getType() const;
-        void load(JSUMemoryInputStream &stream);
-        void perform(u32, TGraphics *);
-        void JSGGetTranslation(JGeometry::TVec3<f32> *) const;
-        void JSGSetTranslation(JGeometry::TVec3<f32> const &);
-        void JSGGetScaling(JGeometry::TVec3<f32> *) const;
-        void JSGSetScaling(const JGeometry::TVec3<f32> &);
-        void JSGGetRotation(JGeometry::TVec3<f32> *) const;
-        void JSGSetRotation(const JGeometry::TVec3<f32> &);
+        virtual u32 getType() const;
+        virtual void load(JSUMemoryInputStream &stream);
+        virtual void perform(u32, TGraphics *);
+        virtual void JSGGetTranslation(JGeometry::TVec3<f32> *) const;
+        virtual void JSGSetTranslation(JGeometry::TVec3<f32> const &);
+        virtual void JSGGetScaling(JGeometry::TVec3<f32> *) const;
+        virtual void JSGSetScaling(const JGeometry::TVec3<f32> &);
+        virtual void JSGGetRotation(JGeometry::TVec3<f32> *) const;
+        virtual void JSGSetRotation(const JGeometry::TVec3<f32> &);
 
         JGeometry::TVec3<f32> mScale; // _24
         JGeometry::TVec3<f32> mRotation; // _30
@@ -132,10 +133,11 @@ namespace JDrama
     class TDirector : public TNameRef, public JStage::TSystem
     {
         public:
-        ~TDirector();
-        TDirector* searchF(s16, char const *);
-        void direct();
-        u32* JSGFindObject(char const *, u32 *) const; // JStage::TEObject
+        virtual ~TDirector();
+
+        virtual TDirector* searchF(s16, char const *);
+        virtual u32* JSGFindObject(char const *, u32 *) const; // JStage::TEObject
+        virtual s32 direct();
         
         u32 _C; // TSystem vtable
         u32* _10;
@@ -148,17 +150,17 @@ namespace JDrama
     class TCharacter : public TNameRef
     {
         public:
-        ~TCharacter();
+        virtual ~TCharacter();
     };
 
     template<typename T, typename U>
     class TNameRefPtrListT : public TNameRef
     {
         public:
-        ~TNameRefPtrListT();
+        virtual ~TNameRefPtrListT();
 
-        void load(JSUMemoryInputStream &stream);
-        void loadAfter();
+        virtual void load(JSUMemoryInputStream &stream);
+        virtual void loadAfter();
         //T* searchF(u16, char const *);
     };
 
@@ -166,10 +168,10 @@ namespace JDrama
     {
         public:
         TAmbColor();
-        ~TAmbColor();
+        virtual ~TAmbColor();
 
-        void load(JSUMemoryInputStream &stream);
-        void perform(u32, TGraphics *);
+        virtual void load(JSUMemoryInputStream &stream);
+        virtual void perform(u32, TGraphics *);
 
         u32* _10;
         u8 r; // _14
@@ -183,10 +185,10 @@ namespace JDrama
         public:
         TDrawBufObj();
         TDrawBufObj(u32, u32, char const *);
-        ~TDrawBufObj();
+        virtual ~TDrawBufObj();
 
-        void load(JSUMemoryInputStream &stream);
-        void perform(u32, TGraphics *);
+        virtual void load(JSUMemoryInputStream &stream);
+        virtual void perform(u32, TGraphics *);
 
         J3DDrawBuffer* mDrawBuffer; // _10
         u32 mBufferSize; // _14
@@ -196,15 +198,15 @@ namespace JDrama
     class TCamera : public TPlacement, public JStage::TCamera
     {
         public:
-        ~TCamera();
+        virtual ~TCamera();
 
-        u32 getType() const;
-        u32 JSGGetFlag() const;
-        void JSGSetFlag(u32 flag);
-        f32 JSGGetProjectionNear() const;
-        void JSGSetProjectionNear(f32 projectionNear);
-        f32 JSGGetProjectionFar() const;
-        void JSGSetProjectionFar(f32 projectionFar);
+        virtual u32 getType() const;
+        virtual u32 JSGGetFlag() const;
+        virtual void JSGSetFlag(u32 flag);
+        virtual f32 JSGGetProjectionNear() const;
+        virtual void JSGSetProjectionNear(f32 projectionNear);
+        virtual f32 JSGGetProjectionFar() const;
+        virtual void JSGSetProjectionFar(f32 projectionFar);
 
         u32 _20; // this is a vtable, I think to JStage::TCamera
         u16 mFlag; // _24
@@ -216,22 +218,22 @@ namespace JDrama
     class TLookAtCamera : public TCamera
     {
         public:
-        ~TLookAtCamera();
+        virtual ~TLookAtCamera();
 
-        void perform(u32, TGraphics *);
+        virtual void perform(u32, TGraphics *);
 
-        u32 JSGGetProjectionType() const;
-        void JSGSetProjectionType(u32); // JStage::TECameraProjection
-        f32 JSGGetProjectionFovy() const;
-        void JSGSetProjectionFovy(f32 projectionFovy);
-        f32 JSGGetProjectionAspect() const;
-        void JSGSetProjectionAspect(f32 projectionAspect);
-        Vec* JSGGetViewPosition() const;
-        void JSGSetViewPosition(Vec *viewPos);
-        Vec* JSGGetViewUpVector() const;
-        void JSGSetViewUpVector(Vec *upVector);
-        Vec* JSGGetViewTargetPosition() const;
-        void JSGSetViewTargetPosition(Vec *targetPos);
+        virtual u32 JSGGetProjectionType() const;
+        virtual void JSGSetProjectionType(u32); // JStage::TECameraProjection
+        virtual f32 JSGGetProjectionFovy() const;
+        virtual void JSGSetProjectionFovy(f32 projectionFovy);
+        virtual f32 JSGGetProjectionAspect() const;
+        virtual void JSGSetProjectionAspect(f32 projectionAspect);
+        virtual Vec* JSGGetViewPosition() const;
+        virtual void JSGSetViewPosition(Vec *viewPos);
+        virtual Vec* JSGGetViewUpVector() const;
+        virtual void JSGSetViewUpVector(Vec *upVector);
+        virtual Vec* JSGGetViewTargetPosition() const;
+        virtual void JSGSetViewTargetPosition(Vec *targetPos);
 
         JGeometry::TVec3<f32> mViewUp; // _30
         JGeometry::TVec3<f32> mTargetPos; // _3C

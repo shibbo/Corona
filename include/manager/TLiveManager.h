@@ -8,14 +8,14 @@ class TLiveManager : public TObjManager
 {
 	public:
 	TLiveManager(char const *);
-	~TLiveManager();
+	virtual ~TLiveManager();
 
-	void load(JSUMemoryInputStream &);
-	void perform(u32, JDrama::TGraphics *);
-	void clipActors(JDrama::TGraphics *);
-	void setFlagOutOfCube();
-	void createSpcBinary();
-	bool hasMapCollsion() const;
+	virtual void load(JSUMemoryInputStream &);
+	virtual void perform(u32, JDrama::TGraphics *);
+	virtual void clipActors(JDrama::TGraphics *);
+	virtual void setFlagOutOfCube();
+	virtual void createSpcBinary();
+	virtual bool hasMapCollsion() const;
 	
 	TSpcBinary* mSpcBinary; // _34 
 };

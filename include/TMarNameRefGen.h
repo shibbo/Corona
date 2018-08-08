@@ -10,17 +10,17 @@ template <class T, class T2>
 class TNameRefAryT : public JDrama::TNameRef
 {
     public:
-    ~TNameRefAryT();
+    virtual ~TNameRefAryT();
 
-    void load(JSUMemoryInputStream&);
-    void loadAfter();
-    TNameRefAryT* searchF(s16, char const *);
+    virtual void load(JSUMemoryInputStream&);
+    virtual void loadAfter();
+    virtual TNameRefAryT* searchF(s16, char const *);
 };
 
 class TMarNameRefGen : public JDrama::TNameRefGen
 {
 	public:
-	u32* getNameRef(char const *) const;
+	virtual u32* getNameRef(char const *) const;
 	u32* getNameRef_BossEnemy(char const *) const;
 	u32* getNameRef_Enemy(char const *) const;
 	u32* getNameRef_NPC(char const *) const;

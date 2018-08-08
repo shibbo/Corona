@@ -1,16 +1,17 @@
 #ifndef TSPCTYPEDBINARY_H
 #define TSPCTYPEDBINARY_H
 
+#include "actor/TLiveActor.h"
 #include "spc/TSpcBinary.h"
+#include "spc/TSpcTypedInterp.h"
 
 template<typename T>
-class TSpcTypedBinary 
+class TSpcTypedBinary : public TSpcBinary
 {
     public:
-    ~TSpcTypedBinary();
+    virtual ~TSpcTypedBinary();
 
-    void initUserBuiltin();
-
+    virtual void initUserBuiltin();
 };
 
 void linPushNerve(TSpcTypedInterp<TLiveActor> *, u32);

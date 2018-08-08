@@ -9,15 +9,16 @@
 class TTakeActor : public THitActor
 {
 	public:
-	~TTakeActor();
+	virtual ~TTakeActor();
 	
-	void ensureTakeSituation();
-	u32 moveRequest(JGeometry::TVec3<f32> const &);
-	f32 getRadiusAtY(f32) const;
+	virtual void ensureTakeSituation();
+	virtual u32 moveRequest(JGeometry::TVec3<f32> const &);
+	virtual f32 getRadiusAtY(f32) const;
+	
 	bool isTaken() const;
 	
-	TTakeActor* holder; // _68
-	TTakeActor* heldActor; // _6C
+	TTakeActor* mHolder; // _68
+	TTakeActor* mHeldActor; // _6C
 };
 
 #endif // TTAKEACTOR_H

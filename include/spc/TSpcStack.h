@@ -8,7 +8,7 @@ template <typename T>
 class TSpcStack
 {
     public:
-    ~TSpcStack();
+    virtual ~TSpcStack();
 
     u32 _0;
     u32 _4;

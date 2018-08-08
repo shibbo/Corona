@@ -18,7 +18,7 @@ class JPABaseEmitter
     u32 _24;
     u32 _28;
     u32 _2C;
-    JPADraw; // _30
+    JPADraw mDraw; // _30
     JSUPtrList mPtrList1; // _F4
     JSUPtrList mPtrList2; // _100
     u8 _10C[0x124-0x10C];

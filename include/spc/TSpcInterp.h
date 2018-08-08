@@ -9,12 +9,13 @@ class TSpcInterp
 {
     public:
     TSpcInterp(TSpcBinary *, void *, int, int, int, int);
-    ~TSpcInterp();
+    virtual ~TSpcInterp();
 
-    void update();
+    virtual void update();
+    virtual void dispatchBuiltin(u32, u32);
+
     void verifyArgNum(u32, u32 *);
     void dump();
-    void dispatchBuiltin(u32, u32);
     void dispatchBuiltinDefault(u32, u32);
 
     /* SPC EXECUTE FUNCTIONS */

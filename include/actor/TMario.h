@@ -288,27 +288,25 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 {
 	public:
 	TMario();
-	~TMario();
+	virtual ~TMario();
 	
-	/* these are a part of the vtable */
-	void load(JSUMemoryInputStream &);
-	void loadAfter();
-	void perform(u32, JDrama::TGraphics *);
-	bool recieveMessage(THitActor *, u32);
-	Mtx* getTakingMtx();
-	u32 moveRequest(JGeometry::TVec3<f32> const &);
-	void initValues();
-	void checkReturn();
-	void checkController(JDrama::TGraphics *);
-	void playerControl(JDrama::TGraphics *);
-	void initModel();
-	void drawSpecial(JDrama::TGraphics *);
-	void checkCollision();
-	void damageExec(THitActor *, int, int, int, f32, int, f32, u16);
-	u32 getVoiceStatus();
-	void drawSyncCallBack(s16);
+	virtual void load(JSUMemoryInputStream &);
+	virtual void loadAfter();
+	virtual void perform(u32, JDrama::TGraphics *);
+	virtual bool recieveMessage(THitActor *, u32);
+	virtual Mtx* getTakingMtx();
+	virtual u32 moveRequest(JGeometry::TVec3<f32> const &);
+	virtual void initValues();
+	virtual void checkReturn();
+	virtual void checkController(JDrama::TGraphics *);
+	virtual void playerControl(JDrama::TGraphics *);
+	virtual void initModel();
+	virtual void drawSpecial(JDrama::TGraphics *);
+	virtual void checkCollision();
+	virtual void damageExec(THitActor *, int, int, int, f32, int, f32, u16);
+	virtual u32 getVoiceStatus();
+	virtual void drawSyncCallBack(s16);
 	
-	/* the following are not */
 	u32 checkStatusType(u32) const;
 	u32 actnMain();
 	u32 taking();

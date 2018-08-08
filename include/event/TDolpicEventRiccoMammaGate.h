@@ -8,12 +8,12 @@ class TDolpicEventRiccoMammaGate : public TMapEvent
 {
     public:
     TDolpicEventRiccoMammaGate(char const *);
-    ~TDolpicEventRiccoMammaGate();
+    virtual ~TDolpicEventRiccoMammaGate();
 
-    void loadAfter();
-    bool isFinished() const;
-    u32 watch();
-    void control();
+    virtual void loadAfter();
+    virtual bool isFinished() const;
+    virtual u32 watch();
+    virtual s32 control();
 
     J3DJoint* mJoint; // _20
     u32 _24;

@@ -46,6 +46,7 @@ namespace JGeometry
 		void scaleAdd(T, const TVec3<T> &, const TVec3<T> &);
 		void negate();
 		void setLength(const TVec3<T> &, T);
+		void set(Vec const &);
 		TVec3<T> operator=(const TVec3<T> &);
 		TVec3<T> operator-=(const TVec3<T> &);
 		TVec3<T> operator*=(const TVec3<T> &);
