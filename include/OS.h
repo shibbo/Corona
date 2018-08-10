@@ -45,12 +45,12 @@ struct OSMutexLink
 
 struct OSMessageQueue
 {
-    OSThreadQueue sentQueue;
-    OSThreadQueue recievedQueue;
-    OSMessage* messageArray;
-    s32 messageCount;
-    s32 firstIndex;
-    s32 usedCount;
+    OSThreadQueue sentQueue; // _0
+    OSThreadQueue recievedQueue; // _8
+    OSMessage* messageArray; // _10
+    s32 messageCount; // _14
+    s32 firstIndex; // _18
+    s32 usedCount; // _1C
 };
 
 struct OSContext
@@ -92,10 +92,15 @@ struct OSThread
 
 struct OSMutex
 {
-    OSThreadQueue queue;
-    OSThread* thread;
-    s32 lockCount;
-    OSMutexLink link;
+    OSThreadQueue queue; // 0
+    OSThread* thread; // _8
+    s32 lockCount; // _C
+    OSMutexLink link; // _10
+};
+
+struct OSCond
+{
+    OSThreadQueue threadQueue;
 };
 
 #ifdef __cplusplus
@@ -144,6 +149,15 @@ void DCFlushRange(void *, u32);
 void DCStoreRange(void *, u32);
 void DCFlushRangeNoSync(void *, u32);
 void DCZeroRange(void *, u32);
+
+// mutex
+void OSInitMutex(OSMutex* mutex);
+void OSLockMutex(OSMutex* mutex);
+void OSUnlockMutex(OSMutex* mutex);
+bool OSTryLockMutex(OSMutex* mutex); // false if failed
+void OSInitCond(OSCond* condition);
+void OSWaitCond(OSCond* condition, OSMutex* mutex);
+void OSSignalCond(OSCond* condition);
 
 #ifdef __cplusplus
 }

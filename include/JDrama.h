@@ -67,7 +67,7 @@ namespace JDrama
         virtual void load(JSUMemoryInputStream &stream);
         virtual void save(JSUMemoryOutputStream &stream);
         virtual void loadAfter(void);
-		virtual void search(char const *);
+        virtual void search(char const *);
         virtual TNameRef* searchF(s16, char const *);
 
         void genObject(JSUMemoryInputStream &stream, JSUMemoryInputStream &);
@@ -98,6 +98,7 @@ namespace JDrama
     class TPlacement : public TViewObj
     {
         public:
+        // has a constructor, but inlined
         virtual ~TPlacement();
 		
         virtual void load(JSUMemoryInputStream &stream);

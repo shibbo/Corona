@@ -7,6 +7,12 @@
 class JKRArchive;
 class JKRArcFinder;
 
+enum JKRExpandSwitch
+{
+	NON_COMPRESSED = 0,
+	COMPRESSED = 1
+};
+
 class JKRDisposer
 {
 	public:
@@ -69,6 +75,100 @@ class JKRThread : public JKRDisposer
 	u32 mStackSize; // _5C
 };
 
+class JKRAram : public JKRThread
+{
+	public:
+	JKRAram(u32, u32, s32);
+	virtual ~JKRAram();
+
+	virtual u32 run();
+
+	static u32* create(u32, u32, s32, s32, s32);
+	static s32 mainRamToAram(u8 *, u32, u32, JKRExpandSwitch, u32, JKRHeap *, int);
+	static s32 aramToMainRam(u32, u8 *, u32, JKRExpandSwitch, u32, JKRHeap *, int, u32 *);
+
+	u32 _60;
+	u32 _64;
+	u32 _68;
+	u32 _70;
+	u32 _74;
+	u32 _78;
+	u32 _7C;
+	u32 _80;
+	u32 _84;
+};
+
+class JKRDecompCommand
+{
+	public:
+	JKRDecompCommand();
+	~JKRDecompCommand();
+
+	u32 _0;
+	u8* _4;
+	u8* _8;
+	u32 _C;
+	u32 _10;
+	u32 _14;
+	JKRDecompCommand* self; // _18
+	u32 _1C;
+	u32 _20;
+	OSMessageQueue mMessageQueue; // _28
+	OSMessage mMessage; // _48
+};
+
+enum CompressionType
+{
+	NONE = 0,
+	SZP_COMPRESSED = 1,
+	SZS_COMPRESSED = 2
+};
+
+class JKRDecomp : public JKRThread
+{
+	public:
+	JKRDecomp(s32);
+	virtual ~JKRDecomp();
+
+	virtual u32 run();
+
+	static void create(s32);
+	static void sendCommand(JKRDecompCommand *);
+	void orderSync(u8 *, u8 *, u32, u32);
+	void decode(u8 *, u8 *, u32, u32);
+	static void decodeSZP(u8 *src, u8 *dest, u32, u32);
+	static void decodeSZS(u8 *src, u8 *dest, u32, u32);
+	CompressionType checkCompressed(u8 *);
+};
+
+class JKRAramHeap : public JKRDisposer
+{
+	public:
+	enum EAllocMode
+	{
+		ALLOC_FROM_HEAD = 0,
+		ALLOC_FROM_TAIL = 1
+	};
+
+	JKRAramHeap(u32, u32);
+	virtual ~JKRAramHeap();
+
+	void* alloc(u32 size, EAllocMode allocMode);
+	void* allocFromHead(u32 size);
+	void* allocFromTail(u32 size);
+
+	OSMutex mMutex; // _18
+	s32 mSize; // _30
+	u32 _34;
+	u32 _38;
+	u32 _3C;
+	u8 _40;
+	u8 _41;
+	u8 _42;
+	u8 _43;
+	u8 _44;
+};
+
 class JKRFileLoader : public JKRDisposer
 {
 	public:
@@ -125,7 +225,51 @@ class JKRArchive : public JKRFileLoader
 	u8 _3D; // padding?
 	u8 _3E; // ^^
 	u8 _3F; // ^^
+	u32 _40;
+	u32 _44;
+	u32 _48;
+	u32 _4C;
+	u32 _50;
+	u32 _54;
+	u32 _58;
+	int mountDirection; // _5C
+};
+
+/* 
+ * ARAM
+*/
+
+class JKRAramArchive : public JKRFileLoader
+{
+	public:
+	JKRAramArchive(s32, int);
+	virtual ~JKRAramArchive();
 	
+	virtual int fetchResource(int *, u32 *);
+	virtual int fetchResource(void *, u32, int *, u32 *);
+
+	int fetchResource_subroutine(u32, u32, JKRHeap *, int, u8 **);
+	int fetchResource_subroutine(u32, u32, u8 *, u32, int);
+};
+
+class JKRAramBlock
+{
+	public:
+	JKRAramBlock(u32, u32, u32, u8, bool);
+	virtual ~JKRAramBlock();
+
+	JKRAramBlock* allocHead(u32, u8, JKRAramHeap *);
+	JKRAramBlock* allocTail(u32, u8, JKRAramHeap *);
+
+	VTABLE; // _0
+	JSUPtrLink blockPtr; // _4
+	u32 _14;
+	u32 _18;
+	u32 _1C;
+	u8 _20;
+	u8 _21;
+	u8 _22; // padding?
+	u8 _23; // ^^
 };
 
 class JKRFileFinder
@@ -159,5 +303,11 @@ class JKRArcFinder : public JKRFileFinder
 };
 
 void JKRDefaultMemoryErrorRoutine(void *, u32, u32);
+void JKRDecompressFromAramToMainRam(u32, void *, u32, u32, u32);
+s32 decompSZS_subroutine(u8 *src, u8 *dest);
+u32* firstSrcData();
+u32* nextSrcData(u8 *);
+
+void* operator new(size_t, JKRHeap *, int);
 
 #endif // JKR_H

@@ -26,6 +26,7 @@ extern "C"
 	void GXSetNumIndStages(u32);
 	void GXSetTevDirect(u32);
 	void GXSetTexCoordGen2(u32, u32, u32, u32, u32, u32);
+    
 }
 #endif
 

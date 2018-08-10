@@ -3,6 +3,7 @@
 
 // definitions for a lot of pointers in the game, especially classes
 #include "common.h"
+#include "GD.h"
 #include "JGeometry.h"
 #include "JKR.h"
 #include "TConductor.h"
@@ -27,6 +28,7 @@ static u32 arenaHi = (u32)(SDA_ADDR_NUS - 0x5A28);
 
 /* JKR globals */
 static JKRHeap** heap = (JKRHeap**)(SDA_ADDR_NUS - 0x5F28);
+static JKRAramHeap** aramHeap = (JKRAramHeap**)(SDA_ADDR_NUS - 0x5F90);
 static JKRFileLoader** sceneVolume = (JKRFileLoader**)(SDA_ADDR_NUS - 0x604C);
 static JKRFileLoader** paramsVolume = (JKRFileLoader**)(SDA_ADDR_NUS - 0x6050);
 
@@ -57,5 +59,8 @@ static TCameraMarioData** marioCameraData = (TCameraMarioData**)(SDA_ADDR_NUS - 
 /* Sound globals */
 static MSound** mSoundBoot = (MSound**)(SDA_ADDR_NUS - 0x6044); // used on afterBoot
 static MSound** mSound = (MSound**)(SDA_ADDR_NUS - 0x7164); // used for mario, etc
+
+/* DG globals */
+static GDOverflowCallback* gdCallback = (GDOverflowCallback*)(SDA_ADDR_NUS - 0x5774);
 
 #endif // GLOBALS_H
