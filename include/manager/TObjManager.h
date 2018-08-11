@@ -4,6 +4,7 @@
 #include "JDrama.h"
 #include "JSUStream.h"
 #include "types.h"
+#include "obj/TObjChara.h"
 
 /* Size -- 0x34 */
 class TObjManager : public JDrama::TViewObj
@@ -21,7 +22,7 @@ class TObjManager : public JDrama::TViewObj
 	u32 _10;
 	u32 _14; // I think this is obj number
 	u32* _18;
-	u32* _1C; // TObjChara*
+	TObjChara* _1C;
 	u32 _20;
 	u32 _24;
 	u32 _28;

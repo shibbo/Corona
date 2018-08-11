@@ -5,6 +5,7 @@
 #include "JGeometry.h"
 #include "JSUStream.h"
 #include "actor/MActor.h"
+#include "actor/TRidingInfo.h"
 #include "actor/TSpineBase.h"
 #include "actor/TTakeActor.h"
 #include "manager/TLiveManager.h"
@@ -63,19 +64,16 @@ class TLiveActor : public TTakeActor
 	TSpineBase<TLiveActor>* mObjAI; // _8C
 	u32* _90;
 	JGeometry::TVec3<f32> mObjMovement; // _94
-	f32 _A0;
-	f32 _A4;
-	f32 _A8;
+	JGeometry::TVec3<f32> mCurRotation; // _A0
 	JGeometry::TVec3<f32> mVelocity; // _AC
 	f32 _B8;
-	f32 mMaxSpeed; // _BC
+	f32 mActorBodyRadius; // _BC
 	f32 _C0;
 	u32* _C4; // TMapCollisionData::mIllegalCheckData
 	f32 _C8; // gravity X?
 	f32 mGravityY; // _CC
 	u32 _D0;
-	THitActor* mHitActor; // _D4
-	JGeometry::TVec3<f32> mUnkVector; // _D8
+	TRidingInfo mRidingInfo; // _D4
 	f32 _E4;
 	u8 _E8;
 	u8 _E9; // padding?

@@ -2,7 +2,7 @@
 #define JKR_H
 
 #include "JSUStream.h"
-#include "OS.h"
+#include "dolphin/OS.h"
 
 class JKRArchive;
 class JKRArcFinder;

@@ -1,9 +1,9 @@
 #include <kamek.h>
 
 #include "J2D.h"
-#include "OS.h"
 #include "SMS.h"
-#include "TMarDirector.h"
+#include "dolphin/OS.h"
+#include "game/TMarDirector.h"
 
 // this is ran once
 void OnSetup(TMarDirector* director)

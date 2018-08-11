@@ -3,8 +3,8 @@
 
 #include "JDrama.h"
 #include "JSUStream.h"
-#include "MActor.h"
-#include "THitActor.h"
+#include "actor/MActor.h"
+#include "actor/THitActor.h"
 
 /* Size -- 0x80 */
 class TMapStaticObj : public THitActor

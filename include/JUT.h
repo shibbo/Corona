@@ -2,9 +2,9 @@
 #define JUT_H
 
 #include "JKR.h"
-#include "OS.h"
-#include "pad.h"
 #include "types.h"
+#include "dolphin/OS.h"
+#include "dolphin/PAD.h"
 
 namespace JUtility
 {

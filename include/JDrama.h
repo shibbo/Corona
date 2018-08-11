@@ -1,11 +1,11 @@
 #ifndef JDRAMA_H
 #define JDRAMA_H
 
-#include "GX.h"
 #include "J3D.h"
 #include "JSUStream.h"
 #include "JGeometry.h"
 #include "JStage.h"
+#include "dolphin/GX.h"
 
 namespace JDrama
 {
@@ -104,7 +104,7 @@ namespace JDrama
         virtual void load(JSUMemoryInputStream &stream);
 
         JGeometry::TVec3<f32> mPosition; // _10
-        u16 _1C;
+        TFlagT<u16> mUnusedFlags; // _1C (unused)
         u16 _1E; // pad
     };
 	
@@ -127,8 +127,8 @@ namespace JDrama
 
         JGeometry::TVec3<f32> mScale; // _24
         JGeometry::TVec3<f32> mRotation; // _30
-        u32 _3C;
-        u32* _40;  
+        u32* mCharacter; // TCharacter*
+        u32* mLightMap;  // TLightMap*
     };	
 
     class TDirector : public TNameRef, public JStage::TSystem

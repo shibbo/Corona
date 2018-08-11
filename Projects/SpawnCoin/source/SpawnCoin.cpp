@@ -1,9 +1,9 @@
 #include <kamek.h>
 
 #include "types.h"
-#include "os.h"
 #include "actor/item/TCoin.h"
 #include "actor/TMario.h"
+#include "dolphin/OS.h"
 
 // timer that we use to see if we can spawn a coin
 u32 timeSinceLastCoin = 0;

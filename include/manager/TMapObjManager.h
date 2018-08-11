@@ -1,9 +1,9 @@
 #ifndef TMAPOBJMANAGER_H
 #define TMAPOBJMANAGER_H
 
-#include "GX.h"
 #include "J3D.h"
 #include "actor/MActor.h"
+#include "dolphin/GX.h"
 #include "manager/TMapObjBaseManager.h"
 
 class TMapObjManager : public TMapObjBaseManager

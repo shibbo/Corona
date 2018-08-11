@@ -1,18 +1,18 @@
 #ifndef SMS_H
 #define SMS_H
 
-#include "GX.h"
 #include "J3D.h"
 #include "JGeometry.h"
 #include "JKR.h"
 #include "JUT.h"
-#include "TRidingInfo.h"
 #include "types.h"
 #include "actor/THitActor.h"
 #include "actor/TItem.h"
 #include "actor/TLiveActor.h"
 #include "actor/TMario.h"
+#include "actor/TRidingInfo.h"
 #include "actor/TYoshi.h"
+#include "dolphin/GX.h"
 #include "message/TMessageLoader.h"
 #include "nozzle/TWaterGun.h"
 #include "sdl/SDLModelData.h"

@@ -26,7 +26,7 @@ class TJointObj
 	J3DJoint* joint; // _C
 	u32 numChildJoints; // _10
 	TJointObj** childJoints; // _14 (array of child joints, non-fixed size)
-	u32 _184;
+	u32 _18;
 	u32 _1C;
 };
 

@@ -1,12 +1,12 @@
 #include <kamek.h>
 
+#include "dolphin/OS.h"
 #include "tmapobj/TMapObjGeneral.h"
-#include "os.h"
 
 TMapObjGeneral* GetValue(TMapObjGeneral *obj)
 {
 	// gets 0xF4 from objects and prints them to the console
-	OSReport("0xF4: %s\n", obj->_F4);
+	OSReport("0xF4: %s\n", obj->objName);
 	
 	return obj;
 }
