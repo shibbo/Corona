@@ -21,10 +21,10 @@ namespace JUtility
 	};
 };
 
-class JUTPos32
+class JUTPoint
 {
 	public:
-	JUTPos32();
+	JUTPoint();
 	
 	u32 X; // _0
 	u32 Y; // _4
