@@ -50,6 +50,10 @@ class TMBindShadowManager : public JDrama::TViewObj
     f32 _68;
     f32 _6C;
     u32 _70; // TModelShadowInfo[0x01]
+
+    static f32 mSquareShadowHeight;
+    static f32 mTreeScale;
+    static f32 mYScalePlus;
 };
 
 #endif // TMBINSHADOWMANAGER_H

@@ -18,6 +18,7 @@ newFile = []
 numSymbols = 0
 discardedSymbols = 0
 curLine = 0
+isReadingVars = 0
 
 with open(sys.argv[1], "r") as f:
     data = f.readlines()
@@ -28,7 +29,7 @@ for line in data:
 	if curLine < 4:
 		curLine += 1
 		continue
-		
+
 	# so first we need to split it based on spaces
 	newLine = line.split(" ")
 	
@@ -56,13 +57,27 @@ for line in data:
 		# now we create our symbol, with sub__ and our original class that had this method
 		symbol = f"sub__{symbolHolder[1]}"
 
+	# in order to support vtables and static class variables, we have to read a little more
+	# there are label names based off of strings, but we do not want these symbols
+	# so we check for __, which denotes a vtable / function
+	if isReadingVars:
+		if symbol.startswith("__vtbl__"):
+			symbol = f"__vt__{symbol[8:]}"
+		elif "__" in symbol:
+			pass
+		else:
+			discardedSymbols += 1
+			continue
+
 	# add our address to this list as well as add the symbol to it
 	newFile.append(f"{symbol}=0x{lineAddress}\n")
 	numSymbols += 1
 	
-	# lol lazy
+	# This symbol is the last function that we will have.
+	# after this function, we will seek out static variables and vtables
 	if symbol == "__destroy_global_chain_reference":
-		break
+		isReadingVars = 1
+		continue
 
 with open("symbols/symbols-us.txt", "w") as f:
         for line in newFile:

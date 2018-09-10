@@ -34,6 +34,10 @@ class RumbleMgr
     u32 _24;
     u32 _28;
     u32* _2C;
+
+    static s32 mMotorCountLimit;
+    static s16 mMotorTimerPeriod;
+    static f32 mPowerThreshold;
 };
 
 #endif // RUMBLEMANAGER_H

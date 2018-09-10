@@ -57,6 +57,10 @@ class TShine : public TItem
     u8 _1B5; // padding?
     u8 _1B6; // ^^
     u8 _1B7; // ^^
+
+    static f32 mCircleRateY;
+    static f32 mUpSpeed;
+    static f32 mSpeedDownRate;
 };
 
 #endif // TSHINE_H

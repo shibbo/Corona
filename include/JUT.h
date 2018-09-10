@@ -21,10 +21,10 @@ namespace JUtility
 	};
 };
 
-class JUTPoint
+class JUTPos32
 {
 	public:
-	JUTPoint();
+	JUTPos32();
 	
 	u32 X; // _0
 	u32 Y; // _4
@@ -34,22 +34,22 @@ class JUTRect
 {
 	public:
 	JUTRect();
-	JUTRect(int, int, int, int);
+	JUTRect(s32, s32, s32, s32);
 	
-	void set(int, int, int, int);
+	void set(s32, s32, s32, s32);
 	void copy(JUTRect const &);
-	void add(int, int);
-	u32 intersect(JUTRect const &);
-	void move(int, int);
-	void resize(int, int);
-	void reform(int, int, int, int);
+	void add(s32, s32);
+	u32 s32ersect(JUTRect const &);
+	void move(s32, s32);
+	void resize(s32, s32);
+	void reform(s32, s32, s32, s32);
 	void normalize();
 	bool isEmpty() const;
 	
-	int X; // _0
-	int Y; // _4
-	int Height; // _8
-	int Width; // _C
+	s32 X; // _0
+	s32 Y; // _4
+	s32 Height; // _8
+	s32 Width; // _C
 };
 
 /* Size -- 0x1C */
@@ -181,8 +181,8 @@ class JUTGamePad : public JKRDisposer
 	{
 		public:
 		void clear(JUTGamePad *);
-		void stopMotor(int);
-		void stopMotorHard(int);
+		void stopMotor(s32);
+		void stopMotorHard(s32);
 		void update(u16);
 		void setEnable(u32);
 
@@ -190,6 +190,12 @@ class JUTGamePad : public JKRDisposer
 		u32 _4;
 		u32 _8;
 		u32 _C;
+	};
+
+	class C3ButtonReset
+	{	
+		public:
+		static s32 sResetPattern;
 	};
 
 	CButton buttons; // _18

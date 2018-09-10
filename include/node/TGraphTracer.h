@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+#include "node/TGraphWeb.h"
+
 class TGraphTracer
 {
     public:
@@ -12,11 +14,11 @@ class TGraphTracer
     u32* getGraph() const;
     u32 traceSpline(f32);
     f32 calcSplineSpeed(f32);
-    void moveTo(int);
-    void setTo(int);
+    s32 moveTo(s32 index);
+    void setTo(s32 index);
 
-    u32* _0; // not sure WHAT graph yet
-    u32 mGraphIndex;
+    TGraphWeb* graphWeb; // _0
+    s32 mGraphIndex;
     u32 _8;
     f32 _C;
     f32 _10;

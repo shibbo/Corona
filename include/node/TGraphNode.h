@@ -15,7 +15,7 @@ class TGraphNode
     u32 _4;
     f32 _8;
     s16 _C;
-    u16 _E; // assumed padding
+    s16 _E;
 };
 
 #endif // TGRAPHNODE_H

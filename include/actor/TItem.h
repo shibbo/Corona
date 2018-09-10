@@ -27,8 +27,10 @@ class TItem : public TMapObjGeneral
 	virtual void taken(THitActor *);
 	
 	u32* _148;
-	int mKillTimer; // _14C
+	s32 mKillTimer; // _14C
 	u32 _150;
+
+	static f32 mAppearedScaleSpeed;
 };
 
 #endif // TITEM_H

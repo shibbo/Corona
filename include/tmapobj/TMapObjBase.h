@@ -74,7 +74,10 @@ struct ObjData
 	HitInfo* hitInfo; // _14
 	CollisionInfo* collisionInfo; // _18
 	SoundInfo* soundInfo; // _1C
-	u32 unused[0x4]; // _20
+	u32 _20;
+	u32 _24;
+	u32 _28;
+	u32* _2C;
 	f32 _30;
 	u32 flag; // _34
 	u32 flag2; // _38
@@ -175,14 +178,14 @@ class TMapObjBase : public TLiveActor
 	void newAndInitBuildingCollisionMove(int, TLiveActor *);
 	void newAndInitBuildingCollisionWarp(int,TLiveActor *);
 	
-	u8* objName; // _F4
+	char* objName; // _F4
 	u32 _F8; // state related
-	u16 _FC;
-	u16 _FE;
-	u16 _100;
+	u16 mStateToExecute; // _FC
+	u16 mAnimID; // _FE
+	u16 mSoundID; // _100
 	u16 _102;
-	u32 _104;
-	f32 _108;
+	u32 mWaitToAppear; // _104
+	f32 _108; // some offset related to Y position
 	f32 _10C;
 	f32 _110;
 	f32 _114;

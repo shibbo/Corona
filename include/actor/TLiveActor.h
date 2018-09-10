@@ -8,6 +8,7 @@
 #include "actor/TRidingInfo.h"
 #include "actor/TSpineBase.h"
 #include "actor/TTakeActor.h"
+#include "collision/TBG.h"
 #include "manager/TLiveManager.h"
 #include "sound/MAnmSound.h"
 
@@ -56,10 +57,10 @@ class TLiveActor : public TTakeActor
 	TLiveManager* mLiveManager; // _70
 	MActor* mActor; // _74
 	u32* _78; // TMActorKeeper
-	u16 _7C;
-	u16 _7E; // padding?
+	u16 mActorIndex; // _7C
+	u16 _7E; // padding
 	MAnmSound* mAnmSound; // _80
-	u32 _84;
+	char* mBasName; // _84
 	u32* _88;
 	TSpineBase<TLiveActor>* mObjAI; // _8C
 	u32* _90;
@@ -68,9 +69,9 @@ class TLiveActor : public TTakeActor
 	JGeometry::TVec3<f32> mVelocity; // _AC
 	f32 _B8;
 	f32 mActorBodyRadius; // _BC
-	f32 _C0;
-	u32* _C4; // TMapCollisionData::mIllegalCheckData
-	f32 _C8; // gravity X?
+	f32 mRoofRelated; // _C0
+	TBGCheckData** mCollisionCheckData; // _C4
+	f32 mGroundY; // _C8
 	f32 mGravityY; // _CC
 	u32 _D0;
 	TRidingInfo mRidingInfo; // _D4
@@ -81,6 +82,8 @@ class TLiveActor : public TTakeActor
 	u8 _EB; // ^^
 	u32* _EC; // TMapCollisionBase*
 	u32 mFlags; // _F0
+
+	static f32 mVelocityMinY;
 };
 
 #endif // TLIVEACTOR_H

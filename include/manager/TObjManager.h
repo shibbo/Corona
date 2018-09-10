@@ -18,6 +18,8 @@ class TObjManager : public JDrama::TViewObj
 	virtual void perform(JDrama::TGraphics *);
 	virtual void createModelData();
 	virtual void createAnmData();
+
+	void manageObj(THitActor *);
 	
 	u32 _10;
 	u32 _14; // I think this is obj number

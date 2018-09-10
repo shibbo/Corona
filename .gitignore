@@ -1,0 +1,10 @@
+# Visual Code stuff that we don't care about
+.vscode/*
+
+# Input DOL and IDA Map exports
+/Start.map
+/main.dol
+
+CodeWarrior/license.dat
+CodeWarrior/lmgr11.dll
+CodeWarrior/*.exe

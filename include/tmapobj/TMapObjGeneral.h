@@ -46,7 +46,7 @@ class TMapObjGeneral : public TMapObjBase
 	virtual void thrown();
 	virtual void sink();
 	virtual void recover();
-	virtual void waitToAppear(int);
+	virtual void waitToAppear(s32 appearTime);
 	virtual void makeObjBuried();
 	virtual void makeObjRecovered();
 	virtual void recieveMessageFromPlayer();
@@ -62,6 +62,13 @@ class TMapObjGeneral : public TMapObjBase
 	u32 _13C;
 	f32 _140;
 	f32 _144;
+
+	static f32 mNormalLivingTime;
+	static f32 mNormalFlushTime;
+	static f32 mNormalFlushInterval;
+	static f32 mNormalWaitToAppearTime;
+	static f32 mNormalAppearingScaleUp;
+	static f32 mNormalThrowSpeedRate;
 };
 
 #endif // TMAPOBJGENERAL_H
