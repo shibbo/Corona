@@ -26,6 +26,7 @@ namespace JGeometry
 		T y; // _4
 	};
 
+	/* this supports float and integer types */
     template <typename T>
 	class TVec3 {
 		public:
@@ -66,6 +67,8 @@ namespace JGeometry
 		T dot(TVec4<T> const &) const;
 		void set(T, T, T, T);
 
+		TVec4<T> operator=(TVec4<T> const &);
+
 		T _0;
 		T _4;
 		T _8;
@@ -92,8 +95,24 @@ namespace JGeometry
 		public:
 		TRotation3();
 
-		void getQuad(TQuat4<f32> &) const;
-		void setEular(s16, s16, s16);
+		void getQuad(TQuat4<T> &) const;
+		void setEular(T, T, T);
+	};
+
+	template<typename T>
+	class SMatrix33C
+	{
+		public:
+		SMatrix33C();
+
+		T at(T, T) const;
+	};
+
+	template<typename T>
+	class SMatrix33R
+	{
+		public:
+		SMatrix33R();
 	};
 
 	template <typename T>
@@ -140,7 +159,7 @@ namespace JGeometry
 		TPartition3(); // nullsub
 	};
 
-	// notice: this class only supports floats in Sunshine
+	// notice: this class only supports floats (except for clamp, it uses s32) in Sunshine
 	// so if any other type is used that is not float, the symbol will be generated
 	template <typename T>
 	class TUtil
@@ -150,7 +169,10 @@ namespace JGeometry
 		T inv_sqrt(T val);
 		T mod(T, T);
 		T one();
+		T clamp(T, T, T);
 	};
+
+	void gekko_ps_copy12(void *dest, void *src);
 };
 
 #endif // JGEOMETRY_H

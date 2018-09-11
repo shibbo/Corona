@@ -481,7 +481,7 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	u16 _F4;
 	u16 _F6;
 	u16 _F8;
-	u16 _FA;
+	u16 _mTrampleRelated; // _FA
 	u16 _FC;
 	u16 _FE;
 	u16 _100;

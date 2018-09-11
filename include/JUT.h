@@ -48,8 +48,8 @@ class JUTRect
 	
 	s32 X; // _0
 	s32 Y; // _4
-	s32 Height; // _8
-	s32 Width; // _C
+	s32 mHeight; // _8
+	s32 mWidth; // _C
 };
 
 /* Size -- 0x1C */
@@ -60,7 +60,7 @@ class JUTFont
 	~JUTFont();
 	
 	void initiate(); // nullsub
-	void setu8Color(JUtility::TColor);
+	void setCharColor(JUtility::TColor);
 	void setGradColor(JUtility::TColor, JUtility::TColor);
 	void drawString_size_scale(f32, f32, f32, f32, char const *, u32, bool);
 	void setGX(JUtility::TColor, JUtility::TColor);
@@ -71,10 +71,10 @@ class JUTFont
 	u8 _6; // ^^
 	u8 _7; // ^^
 	u32 _8;
-	JUtility::TColor color1; // _C
-	JUtility::TColor color2; // _10
-	JUtility::TColor color3; // _14
-	JUtility::TColor color4; // _18
+	JUtility::TColor mColor1; // _C
+	JUtility::TColor mColor2; // _10
+	JUtility::TColor mColor3; // _14
+	JUtility::TColor mColor4; // _18
 };
 
 /* Size -- 0x6C */
@@ -144,15 +144,15 @@ class JUTGamePad : public JKRDisposer
 		void update(PADStatus const *, u32);
 		void setRepeat(u32, u32, u32);
 
-		u32 _0;
+		u32 mPressedFlag; // _0
 		u32 _4;
 		u32 _8;
-		u8 analogA; // _C
-		u8 analogB; // _D
-		u8 triggerLeft; // _E
-		u8 triggerRight; // _F
-		f32 analogL; // _10
-		f32 analogR; // _14
+		u8 mAnalogA; // _C
+		u8 mAnalogB; // _D
+		u8 mTriggerLeft; // _E
+		u8 mTriggerRight; // _F
+		f32 mAnalogL; // _10
+		f32 mAnalogR; // _14
 		u32 _18;
 		u32 _1C;
 		u32 _20;
@@ -170,10 +170,10 @@ class JUTGamePad : public JKRDisposer
 		u32 update(s8, s8, EStickMode, WhichStick);
 		u32 getButton();
 
-		f32 stickX;
-		f32 stickY;
-		f32 lengthFromNeutral;
-		u16 angle;
+		f32 mStickX;
+		f32 mStickY;
+		f32 mLengthFromNeutral;
+		u16 mAngle;
 		u16 _E; // i assume unused
 	};
 
@@ -181,8 +181,8 @@ class JUTGamePad : public JKRDisposer
 	{
 		public:
 		void clear(JUTGamePad *);
-		void stopMotor(s32);
-		void stopMotorHard(s32);
+		static void stopMotor(s32);
+		static void stopMotorHard(s32);
 		void update(u16);
 		void setEnable(u32);
 
@@ -198,22 +198,22 @@ class JUTGamePad : public JKRDisposer
 		static s32 sResetPattern;
 	};
 
-	CButton buttons; // _18
-	CStick controlStick; // _48
-	CStick cStick; // _58
-	CRumble rumble; // _68
-	u16 port; // _78
+	CButton mButtons; // _18
+	CStick mControlStick; // _48
+	CStick mCStick; // _58
+	CRumble mCumble; // _68
+	u16 mPort; // _78
 	u16 _7A; // padding?
-	JSUPtrLink ptrLink; // _7C
+	JSUPtrLink mPtrLink; // _7C
 	u32 _8C;
 	u32 _90;
 	u32 _94;
 	u32 _98;
-	u8 resetFlag; // _9C
-	u8 _9D; // ^^
+	u8 mResetFlag; // _9C
+	u8 _9D; // padding?
 	u8 _9E; // ^^
 	u8 _9F; // ^^
-	OSTime resetTime; // _A0
+	OSTime mResetTime; // _A0
 };
 
 class JUTNameTab
@@ -225,7 +225,7 @@ class JUTNameTab
 	u16 calcKeyCode(char const *name) const;
 	char* getName(unsigned short const);
 
-	u32* _0; // ResNTab*
+	u32* mResTab; // ResNTab*
 	u32 _4;
 	u16 _8;
 };

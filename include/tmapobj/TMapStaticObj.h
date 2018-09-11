@@ -5,6 +5,7 @@
 #include "JSUStream.h"
 #include "actor/MActor.h"
 #include "actor/THitActor.h"
+#include "collision/TMapCollisionManager.h"
 
 /* Size -- 0x80 */
 class TMapStaticObj : public THitActor
@@ -22,12 +23,12 @@ class TMapStaticObj : public THitActor
 	void initModel(char const *);
 	u32* getModelData() const;
 	
-	u8* actorName; // _68
-	u8* modelName; // _6C
-	MActor* actor; // _70
-	u32 _74;
-	s32 _78;
-	s32 _7C;
+	u8* mActorName; // _68
+	u8* mModelName; // _6C
+	MActor* mActor; // _70
+	TMapCollisionManager* mColMgr; // _74
+	s32 mSoundID; // _78
+	s32 mSoundID2; // _7C
 };
 
 #endif // TMAPSTATICOBJ_H

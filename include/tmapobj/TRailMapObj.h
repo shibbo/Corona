@@ -27,10 +27,10 @@ class TRailMapObj : public TMapObjBase
     void resetStep(f32);
     void initGraphTracer(TGraphWeb *);
 
-    TGraphTracer* tracer; // _138
+    TGraphTracer* mTracer; // _138
     u32 _13C;
-    u32 _140; // is mario riding?
-    f32 _144;
+    u32 mRailFlags; // _140
+    f32 mSpeed; // _144
     u8 _148;
     u8 _149; // padding?
     u16 _14A;

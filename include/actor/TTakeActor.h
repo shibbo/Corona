@@ -12,7 +12,7 @@ class TTakeActor : public THitActor
 	virtual ~TTakeActor();
 	
 	virtual void ensureTakeSituation();
-	virtual u32 moveRequest(JGeometry::TVec3<f32> const &);
+	virtual u32 moveRequest(JGeometry::TVec3<f32> const &destPosition);
 	virtual f32 getRadiusAtY(f32) const;
 	
 	bool isTaken() const;

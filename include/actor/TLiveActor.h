@@ -9,6 +9,7 @@
 #include "actor/TSpineBase.h"
 #include "actor/TTakeActor.h"
 #include "collision/TBG.h"
+#include "collision/TMapCollisionManager.h"
 #include "manager/TLiveManager.h"
 #include "sound/MAnmSound.h"
 
@@ -80,7 +81,7 @@ class TLiveActor : public TTakeActor
 	u8 _E9; // padding?
 	u8 _EA; // ^^
 	u8 _EB; // ^^
-	u32* _EC; // TMapCollisionBase*
+	TMapCollisionManager* mColMgr; // _EC
 	u32 mFlags; // _F0
 
 	static f32 mVelocityMinY;
