@@ -20,12 +20,12 @@ class TNameRefAryT : public JDrama::TNameRef
 class TMarNameRefGen : public JDrama::TNameRefGen
 {
 	public:
-	virtual u32* getNameRef(char const *) const;
-	u32* getNameRef_BossEnemy(char const *) const;
-	u32* getNameRef_Enemy(char const *) const;
-	u32* getNameRef_NPC(char const *) const;
-	u32* getNameRef_Map(char const *) const;
-	u32* getNameRef_MapObj(char const *) const;	
+	virtual TNameRef* getNameRef(char const *) const;
+	TNameRef* getNameRef_BossEnemy(char const *) const;
+	TNameRef* getNameRef_Enemy(char const *) const;
+	TNameRef* getNameRef_NPC(char const *) const;
+	TNameRef* getNameRef_Map(char const *) const;
+	TNameRef* getNameRef_MapObj(char const *) const;	
 };
 
 #endif // TMARNAMEREFGEN_H

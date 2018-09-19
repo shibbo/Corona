@@ -57,7 +57,29 @@ class TFlagManager
 	u32 _AC;
 	u32 _B0;
 	u32 _B4;
-	u8 _B8[0x37C-0xB8];
+	u8 _B8[0xD0-0xB8];
+	s32 mShineCount; // _D0
+	s32 mBlueCoinCount; // _D4
+	s32 mCoinCount; // _D8
+	s32 mEpisodeNum; // _DC
+	s32 mSecondNozzle; // _E0
+	u8 _E4[0xF4-0xE4];
+	s32 mRedCoinCount; // _F4
+	u8 _F8[0x284-0xF4];
+	s8 mOptionFlags; // _284
+	u8 _285; // padding?
+	u8 _286; // ^^
+	u8 _287; // ^^
+	s32 mLanguage; // _288
+	s8 mOptionFlags2; // _28C
+	u8 _28D; // padding?
+	u8 _28E; // ^^
+	u8 _28F; // ^^
+	s32 mSoundMode; // _290
+	s32 mLanaguge2; // _294
+	u8 _298[0x380-0x298];
+	
+	static TFlagManager** smInstance;
 };
 
 #endif // TFLAGMANAGER_H

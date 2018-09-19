@@ -80,3 +80,16 @@ void changeYoshiFruit(Fruits fruit)
 
     gpMario->yoshi->mYoshiEgg->mWantedFruit = fruit;
 }
+
+JKRMemArchive* openArchive(char *path)
+{
+    JKRMemArchive* ret;
+
+    void* src = SMSLoadArchive(path, 0, 0, 0);
+    bool isMounted = ret->mountFixed(src, 0);
+
+    if (!isMounted)
+        return 0;
+    
+    return ret;
+}

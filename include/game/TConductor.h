@@ -13,7 +13,7 @@
 class TConductor : public JDrama::TViewObj
 {
     public:
-    TConductor(char const *);
+    TConductor();
     virtual ~TConductor();
 
     virtual TNameRef* searchF(u16, char const *);

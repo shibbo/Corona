@@ -63,12 +63,14 @@ class TMapObjGeneral : public TMapObjBase
 	f32 _140;
 	f32 _144;
 
-	static f32 mNormalLivingTime;
-	static f32 mNormalFlushTime;
-	static f32 mNormalFlushInterval;
-	static f32 mNormalWaitToAppearTime;
+	static s32 mNormalLivingTime;
+	static s32 mNormalFlushTime;
+	static s32 mNormalFlushInterval;
+	static s32 mNormalWaitToAppearTime;
 	static f32 mNormalAppearingScaleUp;
 	static f32 mNormalThrowSpeedRate;
+
+	static s16 mDefaultSound;
 };
 
 #endif // TMAPOBJGENERAL_H

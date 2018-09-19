@@ -5,6 +5,8 @@
 #include "dolphin/OS.h"
 #include "game/TMarDirector.h"
 
+#include "globals.h"
+
 // this is ran once
 void OnSetup(TMarDirector* director)
 {

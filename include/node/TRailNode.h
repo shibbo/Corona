@@ -14,8 +14,8 @@ struct TRailNode
     u16 mYaw; // _E
     u16 mRoll; // _10
     u16 mSpeed; // _12
-    u16 mCPoints[8]; // _14
-    f32 mPPoints[8]; 
+    u16 mConnectionIndices[8]; // _14
+    f32 mDistances[8]; 
 };
 
 #endif // TRAILNODE

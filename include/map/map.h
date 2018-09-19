@@ -3,6 +3,7 @@
 
 #include "JDrama.h"
 #include "JSUStream.h"
+#include "collision/TBG.h"
 
 class TMapCollisionData
 {
@@ -76,8 +77,8 @@ class TMap : public JDrama::TViewObj
     virtual void perform(u32, JDrama::TGraphics *);
 
     void changeModel(u32) const;
-    f32 checkGround(f32, f32, f32, u32 const **) const; // TBGCheckData
-    f32 checkGround(JGeometry::TVec3<f32> const &, u32 const **) const; // TBGCheckData
+    f32 checkGround(f32, f32, f32, TBGCheckData const **) const;
+    f32 checkGround(JGeometry::TVec3<f32> const &, TBGCheckData const **) const;
     f32 checkGroundExactY(f32, f32, f32, u32 const **) const;
     
     bool isTouchedOneWallAndMoveXZ(f32 *, f32, f32 *, f32) const;

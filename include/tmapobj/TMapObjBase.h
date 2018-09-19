@@ -5,7 +5,6 @@
 #include "JGeometry.h"
 #include "JSUStream.h"
 #include "actor/MActor.h"
-#include "actor/THitActor.h"
 #include "actor/TLiveActor.h"
 
 struct AnimationData
@@ -135,12 +134,12 @@ class TMapObjBase : public TLiveActor
 	bool animIsFinished() const;
 	bool hasAnim(s16 animID) const;
 	void soundBas(u32, f32, f32);
-	void setUpMapCollision(s16);
+	void setUpMapCollision(s16 numCols);
 	void setUpCurrentMapCollision();
 	void removeMapCollision();
 	void sleep();
 	void awake();
-	void startAnim(s16);
+	void startAnim(s16 animID);
 	static void startAllAnim(MActor *, char const *animName);
 	void initAndRegister(char const *objName);
 	
@@ -161,7 +160,7 @@ class TMapObjBase : public TLiveActor
 	bool isCoin(THitActor *actor);
 	static void throwObjFromPointWithRot(TMapObjBase *, JGeometry::TVec3<f32> const &throwFrom, JGeometry::TVec3<f32> const &throwTo, f32, f32);
 	void throwObjToFrontFromPoint(TMapObjBase *, JGeometry::TVec3<f32> const &thrownPoint, f32, f32);
-	void throwObjToFront(TMapObjBase *obj, f32, f32, f32);
+	void throwObjToFront(TMapObjBase *obj, f32 x, f32 y, f32 z);
 	void checkOnManhole();
 	bool isDemo();
 	bool isHideObj(THitActor *);

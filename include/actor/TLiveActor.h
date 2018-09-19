@@ -9,9 +9,10 @@
 #include "actor/TSpineBase.h"
 #include "actor/TTakeActor.h"
 #include "collision/TBG.h"
-#include "collision/TMapCollisionManager.h"
 #include "manager/TLiveManager.h"
 #include "sound/MAnmSound.h"
+
+class TMapCollisionManager;
 
 /* Size -- 0xF4 */
 class TLiveActor : public TTakeActor

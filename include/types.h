@@ -24,4 +24,19 @@ typedef f32 (*ROMtxPtr)[3];
 typedef f32 Mtx44[4][4];
 typedef f32 (*Mtx44Ptr)[4];
 
+struct Vec
+{
+	f32 x;
+	f32 y;
+	f32 z;
+};
+
+struct Quaternion
+{
+    f32 x;
+    f32 y;
+    f32 z;
+    f32 h;
+};
+
 #endif // TYPES_H

@@ -2,7 +2,8 @@
 #define TBG_H
 
 #include "types.h"
-#include "actor/TLiveActor.h"
+
+class TLiveActor;
 
 class TBGCheckData
 {

@@ -435,6 +435,8 @@ class TMario : public TTakeActor, public TDrawSyncCallback
 	void slipForeCommon(int, int, int, int);
 	void slippingBasic(int, int, int);
 
+	void elecEffect();
+	void elecEndEffect();
 
 	// _70 is the TDrawSyncCallback vtable
 	u32 _74;

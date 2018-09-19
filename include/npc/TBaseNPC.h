@@ -69,6 +69,9 @@ class TBaseNPC : public TSpineEnemy
 	u32* _228;
 	u32 _22C;
 	u32 _230;
+
+	static u32** mPtrSaveNormal;
+	static u16** mAngleYDiffWhenTaken;
 };
 
 #endif // TBASENPC_H

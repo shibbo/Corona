@@ -2,9 +2,17 @@
 .vscode/*
 
 # Input DOL and IDA Map exports
-/Start.map
-/main.dol
+/*.map
+/*.dol
 
+# CodeWarrior stuff
 CodeWarrior/license.dat
 CodeWarrior/lmgr11.dll
 CodeWarrior/*.exe
+
+# ignore any custom objects
+include/custom/*
+
+# ignore any custom object projects and other stuff
+Projects/QuestionBlock/*
+Projects/PatchObjects/*

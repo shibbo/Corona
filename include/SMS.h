@@ -88,7 +88,7 @@ void SMS_MakeJointsToArc(J3DModel *,JGeometry::TVec3<f32> const &,JGeometry::TVe
 
 JUTRect SMSGetRenderRect_Game();
 
-u32* SMSLoadArchive(char const *, void *, u32, JKRHeap *); // returns JKRMemArchive
+void* SMSLoadArchive(char const *, void *, u32, JKRHeap *);
 
 void SMSCalcJumpVelocityXZ(JGeometry::TVec3<f32> const &, JGeometry::TVec3<f32> const &, f32, f32, JGeometry::TVec3<f32> *);
 

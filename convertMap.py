@@ -80,7 +80,15 @@ for line in data:
 		continue
 
 with open("symbols/symbols-us.txt", "w") as f:
-        for line in newFile:
-                f.write(line)
+	for line in newFile:
+		f.write(line)
+
+	# now we need to insert our external symbols, which are static variables that are in memory, but not the DOL
+	# this is to make some stuff easier
+	with open("symbols/symbols-external-us.txt") as external:
+		data = external.readlines()
+
+	for line in data:
+		f.write(line)
 
 print(f"Done. Wrote {numSymbols} symbols, and discarded {discardedSymbols}.")

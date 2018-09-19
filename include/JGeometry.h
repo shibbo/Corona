@@ -3,14 +3,6 @@
 
 #include "types.h"
 
-/* This actually isn't a part of JGeometry, but shrug */
-struct Vec
-{
-	f32 x;
-	f32 y;
-	f32 z;
-};
-
 namespace JGeometry
 {
 	template <typename T>

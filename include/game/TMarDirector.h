@@ -6,7 +6,7 @@
 #include "actor/item/TCoin.h"
 #include "JDrama.h"
 #include "JGeometry.h"
-#include "TGCConsole2.h"
+#include "game/TGCConsole2.h"
 #include "types.h"
 
 class TMarDirector : public JDrama::TDirector
@@ -47,6 +47,13 @@ class TMarDirector : public JDrama::TDirector
     u16 mState; // _4C
     u8 _4E[0x74-0x4E];
     TGCConsole2* mConsole; // _74
+    u32 _78;
+    u8 mCurStage; // _7C
+    u8 mCurEpisode; // _7D
+    u16 _7E;
+    u8 _80[0x268-0x80];
 };
+
+u8[0x7] stages;
 
 #endif // TMARDIRECTOR_H

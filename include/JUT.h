@@ -230,4 +230,44 @@ class JUTNameTab
 	u16 _8;
 };
 
+class JUTDirectPrint
+{
+	public:
+	JUTDirectPrint();
+
+	void start();
+	void erase(int, int, int, int);
+	void drawChar(int, int, int);
+	void changeFrameBuffer(void *buffer, u16, u16);
+	void drawString(u16, u16, char *);
+	void drawString_f(u16, u16, char const *, ...);
+
+	void* mBuffer; // _0
+	u16 _4;
+	u16 _6;
+	u16 _8;
+	u16 _A; // padding?
+	u32 _C;
+	u32 _10;
+	void* _14;
+};
+
+class JUTException : public JKRThread
+{
+	public:
+	JUTException(JUTDirectPrint *printer);
+	virtual ~JUTException();
+
+	virtual void run();
+
+	void printContext(u16, OSContext *, u32, u32);
+	void createFB();
+
+	static void appendMapFile(char *mapPath);
+	static bool queryMapAddress(char *, u32, s32, u32 *, u32 *, char *, u32, bool, bool);
+
+	u32 _60;
+	JUTDirectPrint* mPrinter; // _64
+};
+
 #endif // JUT_H

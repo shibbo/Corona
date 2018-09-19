@@ -19,4 +19,6 @@ class TEventWatcher : public JDrama::TViewObj
     TSpcTypedBinary<TEventWatcher>* _14;
 };
 
+char* sShineViewObjName;
+
 #endif // TEVENTWATCHER_H

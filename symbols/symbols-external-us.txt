@@ -1,0 +1,5 @@
+mEffectCoronaScale=0x8040DEB0
+mPtrSaveNormal__8TBaseNPC=0x8040DFA0
+mAngleYDiffWhenTaken__8TBaseNPC=0x8040DFA4
+smInstance__12TFlagManager=0x8040E160
+sCurrentDirID__10JKRArchive=0x8040E228

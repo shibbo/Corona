@@ -21,7 +21,7 @@ class TObjManager : public JDrama::TViewObj
 
 	void manageObj(THitActor *);
 	
-	u32 _10;
+	s32 mMaxObjs; // _10
 	u32 _14; // I think this is obj number
 	u32* _18;
 	TObjChara* _1C;

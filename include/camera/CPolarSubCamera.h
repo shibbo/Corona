@@ -90,4 +90,14 @@ class CPolarSubCamera : public JDrama::TLookAtCamera
     u8 _2D8[0x3FC-0x2D8];
 };
 
+char* cCameraBckNameShineGetInside;
+char* cCameraBckNameShineGetOutside;
+char* cCameraBckNameGate;
+char* cStartCamName;
+char* cStartAfterCamName;
+char* cJetCoasterCam0BckName;
+char* cJetCoasterCam1BckName;
+char* cJetCoasterDemoBckName;
+char* cStartCamBckFileName;
+
 #endif // CPOLARSUBCAMERA_H

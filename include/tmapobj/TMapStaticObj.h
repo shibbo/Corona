@@ -29,6 +29,8 @@ class TMapStaticObj : public THitActor
 	TMapCollisionManager* mColMgr; // _74
 	s32 mSoundID; // _78
 	s32 mSoundID2; // _7C
+
+	static f32** mEffectCoronaScale;
 };
 
 #endif // TMAPSTATICOBJ_H

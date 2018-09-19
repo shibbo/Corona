@@ -10,6 +10,9 @@ class TPollutionLayerWave : public TPollutionLayer
     void perform(u32, JDrama::TGraphics *);
     u32 getPlaneType() const;
     u32* getTexResource(char const *);
+
+    f32 mInterval;
+    s8 mAlpha;
 };
 
 #endif // TPOLLUTIONLAYERWAVE_H

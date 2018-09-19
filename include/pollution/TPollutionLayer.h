@@ -14,7 +14,6 @@ struct TPollutionLayerInfo
     f32 _14;
     f32 _18;
     f32 _1C;
-
 };
 
 class TPollutionLayer : public TJointModel
@@ -64,11 +63,21 @@ class TPollutionLayer : public TJointModel
     u32 _8C;
     u32 _90;
     s32 arrayCount; // _94
-    JGeomtry::TVec3<f32>* someArray; // _98 (count is defined by 0x94)
+    JGeometry::TVec3<f32>* someArray; // _98 (count is defined by 0x94)
     u32 _9C;
     u32 _A0;
     u32 _A4;
     u32 _A8;
+
+    static f32 mAreaMinRate;
+    static f32 mSpreadArea;
+    static s32 mSpreadFrequency;
+    static f32 mFireArea;
+    static f32 mFireEffectWaitTime;
+    static f32 mThunderArea;
+    static f32 mGLassWallArea;
+    static s32 mGlassWallEffectTime;
+    static s32 mEffectTime;
 };
 
 void initGXforStamp(u8 const *, u16, u16, int);

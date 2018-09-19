@@ -4,7 +4,9 @@
 #include "J3D.h"
 #include "JSUStream.h"
 #include "JGeometry.h"
+#include "JKR.h"
 #include "JStage.h"
+#include "camera/TCamConnector.h"
 #include "dolphin/GX.h"
 
 namespace JDrama
@@ -54,15 +56,13 @@ namespace JDrama
 		u32 _5C;
 		u32 _60;
 	};
-	
-	/* Size -- 0xC */
+
     class TNameRef
     {
         public:
         TNameRef(char const *);
         virtual ~TNameRef();
 
-        // note -- some of these may be static
         virtual u32 getType() const;
         virtual void load(JSUMemoryInputStream &stream);
         virtual void save(JSUMemoryOutputStream &stream);
@@ -78,10 +78,9 @@ namespace JDrama
         u8* mClassName; // _4
         s16 mKeyCode; // _8
         u8 _A; // padding
-        u8 _B; // padding
+        u8 _B; // ^^
     };
 
-    /* Size -- 0x10 */
     class TViewObj : public TNameRef
     {
         public:
@@ -94,7 +93,6 @@ namespace JDrama
         u16 _E; // _E
     };
 
-    /* Size -- 0x20 */
     class TPlacement : public TViewObj
     {
         public:
@@ -106,6 +104,28 @@ namespace JDrama
         JGeometry::TVec3<f32> mPosition; // _10
         TFlagT<u16> mUnusedFlags; // _1C (unused)
         u16 _1E; // pad
+    };
+
+    class TLightMap : public TViewObj
+    {
+        public:
+
+        class TLightInfo
+        {
+            public:
+            TLightInfo();
+
+            u32 _0;
+            u32 _4;
+        }
+
+        virtual ~TLightMap();
+
+        virtual void load(JSUMemoryInputStream &stream);
+        virtual void perform(u32, TGraphics *);
+    
+        s32 mLightArryCount; // _10
+        TLightMap::TLightInfo* mLightInfoArry; // _14
     };
 	
 	/* Size -- 0x44 */
@@ -127,8 +147,8 @@ namespace JDrama
 
         JGeometry::TVec3<f32> mScale; // _24
         JGeometry::TVec3<f32> mRotation; // _30
-        u32* mCharacter; // TCharacter*
-        u32* mLightMap;  // TLightMap*
+        u32* mCharacter; // _3C
+        TLightMap* mLightMap;  // _40
     };	
 
     class TDirector : public TNameRef, public JStage::TSystem
@@ -174,7 +194,6 @@ namespace JDrama
         virtual void load(JSUMemoryInputStream &stream);
         virtual void perform(u32, TGraphics *);
 
-        u32* _10;
         u8 r; // _14
         u8 g; // _15
         u8 b; // _16
@@ -242,6 +261,41 @@ namespace JDrama
         f32 mProjectionAspect; // _4C
     };
 
+    class TPolarCamera : public TCamera
+    {
+        public:
+        virtual ~TPolarCamera();
+
+        virtual void perform(u32, TGraphics *);
+        virtual void load(JSUMemoryInputStream &stream);
+
+        virtual s32 JSGGetProjectionType() const;
+        virtual void JSGSetProjectionType(s32 projection);
+        virtual f32 JSGGetProjectionFovy() const;
+        virtual void JSGSetProjectionFovy(f32 projectionFovy);
+        virtual f32 JSGGetProjectionAspect() const;
+        virtual void JSGSetProjectionAspect(f32 projectionAspect);
+
+        f32 mProjectionFovy; // _30
+        f32 mProjectionAspect; // _34
+    };
+
+    class TOrthoProj : public TCamera
+    {
+        public:
+        virtual ~TOrthoProj();
+
+        virtual void load(JSUMemoryInputStream &stream);
+        virtual void perform(u32, TGraphics *);
+
+        virtual s32 JSGGetProjectionType() const;
+        virtual void JSGSetProjectionType(s32 projection);
+        virtual f32* JSGGetProjectionField() const;
+        virtual void JSGSetProjectionField(const f32 *projectionField);
+
+        JGeometry::TVec4<f32> mProjectionField; // _30
+    };
+
     class TDisplay
     {
         public:
@@ -255,13 +309,83 @@ namespace JDrama
     {
         public:
         TVideo();
+
+        void setNextXFB(void const *);
+        void waitForRetrace(u16);
+
+        _GXRenderModeObj _0;
+        _GXRenderModeObj _3C;
+        u32 _78;
+        void* mNextFB; // _7C
+        s32 mTicks; // _80
+        s32 mRetraceCount; // _84
     };
 
+    class TViewConnector : public TViewObj
+    {
+        public:
+        TViewConnector(TViewObj *viewObj1, TViewObj *viewObj2, TFlagT<u16> flags, char const *objName);
+        virtual ~TViewConnector();
+
+        virtual void perform(u32, TGraphics *);
+
+        TViewObj* mViewObj1; // _10
+        TViewObj* mViewObj2; // _14
+        u16 mFlag; // _18
+        u16 _1A; // padding
+    };
+
+    class TViewport : public TViewObj
+    {
+        public:
+        TViewport(TRect const &, char const *);
+        virtual ~TViewport();
+
+        virtual void load(JSUMemoryInputStream &stream);
+        virtual void perform(u32, TGraphics *);
+
+        TRect mViewportRect; // _10
+        u16 _20;
+        u16 _22; // padding
+    };
+
+    class TScreen : public TViewConnector
+    {
+        public:
+        TScreen(TRect const &, char const *);
+        virtual ~TScreen();
+
+        void assignCamera(TViewObj *);
+        void assignViewObj(TViewObj *);
+
+        TViewport* mViewport; // _10
+        TCamConnector* mCamConnecter; // _14
+    };
+
+    class TSmplChara : public TCharacter
+    {
+        public:
+        virtual ~TSmplChara();
+
+        virtual void load(JSUMemoryInputStream &stream);
+        virtual u32* getRes(char const *resName);
+        
+        void mountArc(char const *resName);
+
+        JKRArchive* mArchive; // _C
+    };
+
+    bool IsEqualRenderModeVIParams(_GXRenderModeObj const &, _GXRenderModeObj const &);
+    bool IsRenderModeHalfAspectRatio(_GXRenderModeObj const &);
+    f32 GetRenderModeYScale(_GXRenderModeObj const &);
     void CalcRenderModeXFBHeight(_GXRenderModeObj *, u16);
     void CalcRenderModeVIXOrigin(_GXRenderModeObj *);
     void CalcRenderModeVIYOrigin(_GXRenderModeObj *);
     void CopyRenderModeSamplePattern(_GXRenderModeObj *, u8 const *[2]);
     void CopyRenderModeVFilter(_GXRenderModeObj *, u8 const *);
+
+    s32 GetVIWidthMax();
+    s32 GetVIHeightMax();
 };
 
 #endif // JDRAMA_H
