@@ -54,6 +54,4 @@ class TMarDirector : public JDrama::TDirector
     u8 _80[0x268-0x80];
 };
 
-u8[0x7] stages;
-
 #endif // TMARDIRECTOR_H
